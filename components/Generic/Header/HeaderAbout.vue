@@ -5,6 +5,6 @@
 import { defineComponent, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-   name:'TheHeader',
+   name:'HeaderAbout',
 })
 </script>

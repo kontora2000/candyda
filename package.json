@@ -15,7 +15,9 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/composition-api": "^0.16.4",
-    "nuxt": "^2.0.0"
+    "create-nuxt-app": "^3.4.0",
+    "nuxt": "^2.0.0",
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",

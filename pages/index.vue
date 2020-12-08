@@ -1,42 +1,29 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        candyda
-      </h1>
-      <h2 class="subtitle">
-        very coll website
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+  <main>
+    <MainMap />
+    <NewsBlock />
+    <CandidateTop />
+  </main>
 </template>
 
-<script lang="ts">
-import { defineComponent, } from 'vue'
-import Logo from '~/components/Logo.vue'
+<script>
+import { defineComponent, } from '@nuxtjs/composition-api'
 
-export default ({
-  components: {
-    Logo
-  }
+import MainMap from '@/components/Map/MainMap'
+import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
+import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
+
+export default defineComponent({
+   name:'index',
+   transition: 'fade',
+   components: {
+     MainMap,
+     NewsBlock,
+     CandidateTop,
+   }
 })
 </script>
 
-<style></style>
+
+
+
