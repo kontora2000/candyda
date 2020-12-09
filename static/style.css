@@ -1,2 +1,351 @@
 @import "./animations.css" screen;
 @import "./reset.css" screen;
+
+@font-face {
+	font-family: 'Golos';
+	src: url('../static/_fonts/Golos%20Text_Regular.eot');
+	src:
+	     url('../static/_fonts/Golos%20Text_Regular.eot?#iefix') format('embedded-opentype'),
+	     url('../static/_fonts/Golos%20Text_Regular.woff2') format('woff2'),
+	     url('../static/_fonts/Golos%20Text_Regular.woff') format('woff'),
+	     url('../static/_fonts/Golos%20Text_Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Golos';
+	src: url('../static/_fonts/Golos%20Text_DemiBold.eot');
+	src:
+	     url('../static/_fonts/Golos%20Text_DemiBold.eot?#iefix') format('embedded-opentype'),
+	     url('../static/_fonts/Golos%20Text_DemiBold.woff2') format('woff2'),
+	     url('../static/_fonts/Golos%20Text_DemiBold.woff') format('woff'),
+	     url('../static/_fonts/Golos%20Text_DemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+:root {
+    --Black100: rgba(37, 37, 37, 1);
+    --Black84: rgba(37, 37, 37, .84);
+    --Black72: rgba(37, 37, 37, .72);
+    --Black64: rgba(37, 37, 37, .64);
+    --Black48: rgba(37, 37, 37, .48);
+    --Black32: rgba(37, 37, 37, .32);
+    --Black16: rgba(37, 37, 37, .16);
+    --Black0: rgba(37, 37, 37, 0);
+
+    --White100: rgba(255, 255, 255, 1);
+    --White84: rgba(255, 255, 255, .84);
+    --White72: rgba(255, 255, 255, .72);
+    --White56: rgba(255, 255, 255, .56);
+    --White48: rgba(255, 255, 255, .48);
+    --White36: rgba(255, 255, 255, .36);
+    --White24: rgba(255, 255, 255, .24);
+    --White16: rgba(255, 255, 255, .16);
+    --White0: rgba(255, 255, 255, 0);
+
+    --GraySuperLight100: rgba(250, 250, 250, 1);
+    --GrayLight100: rgba(218, 218, 218, 1);
+
+    --Red100: rgba(255, 0, 0, 1);
+
+    --Azure100: rgba(44, 179, 255, 1);
+    --Azure84: rgba(44, 179, 255, .84);
+    --Azure16: rgba(44, 179, 255, .16);
+    --Azure6: rgba(44, 179, 255, .06);
+    
+    --font-default: 'Golos', 'Helvetica', 'Arial', sans-serif;
+}
+
+
+
+/* CSS reset */
+
+html,
+body {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+address,
+big,
+cite,
+code,
+em,
+font,
+img,
+small,
+strike,
+sub,
+sup,
+li,
+ol,
+ul,
+fieldset,
+form,
+label,
+legend,
+button,
+table,
+caption,
+tr,
+th,
+td {
+    border: none;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    text-align: inherit;
+}
+
+blockquote::before,
+blockquote::after {
+    content: "";
+}
+
+
+
+/* Document Setup */
+
+html {
+	font-size: 62.5% !important;	/* 1rem = 10px */
+}
+
+html,
+body {
+	background-color: transparent;
+	font-family: var(--font-default);
+	font-style: normal;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+	transition: background-color 0.25s linear;
+}
+
+body {
+	color: var(--Black100);
+	-webkit-text-size-adjust: none;
+}
+
+a {
+	color: var(--Black100);
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+	transition: all .175s ease-in-out;
+}
+a:hover {
+	color: var(--Black64);
+}
+
+.link-underline-solid {
+	border-bottom: .5px solid;
+}
+.link-underline-dashed {
+	border-bottom: 1px dashed;
+}
+.link-underline-dotted {
+	border-bottom: 1px dotted;
+}
+
+.input-wrapper {
+	margin-top: 4.4rem;
+	position: relative;
+}
+
+input[type=text],
+input[type=datetime],
+input[type=tel],
+textarea {
+	background: var(--Azure6);
+	box-sizing: border-box;
+	border: none;
+	border-radius: 300px;
+	color: var(--Black100);
+	font-size: 2rem;
+	line-height: 2.4rem;
+	margin: 0;
+	outline: none;
+	padding: 2rem 0;
+	transition: all 0.35s ease-in-out;
+	-webkit-appearance: none;
+}
+
+.errors {
+	color: var(--White100);
+	font-weight: 500;
+	letter-spacing: .08em;
+	position: absolute;
+	right: 0;
+	top: 2.5rem;
+	text-transform: uppercase;
+}
+.errors span {
+	background: var(--Red100);
+	border-radius: 100px;
+	display: block;
+	padding: .4rem .6rem;
+}
+
+.button,
+button,
+input[type=button],
+input[type=submit] {
+	background: var(--Azure100);
+	border: none;
+	border-radius: 300px;
+	color: var(--black100);
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1.6rem;
+	font-weight: 400;
+	letter-spacing: .08em;
+	line-height: 1.6rem;
+	padding: 2rem 2.4rem;
+	text-transform: uppercase;
+	transition: background-color .125s ease-in-out,
+				box-shadow .125s ease-in-out,
+				color .125s ease-in-out,
+				text-shadow .125s ease-in-out,
+				transform .125s ease-in-out;
+}
+.button:hover,
+button:hover,
+input[type=button]:hover,
+input[type=submit]:hover {
+	background: var(--Black100);
+	color: var(--White100);
+	transform: translateY(-.8rem);
+}
+.button:disabled,
+button:disabled,
+input[type=button]:disabled,
+input[type=submit]:disabled {
+	border-color: var(--White16);
+	color: var(--Black16) !important;
+	cursor: default;
+	transform: none !important;
+	-webkit-backdrop-filter: blur(8px);
+			backdrop-filter: blur(8px);
+}
+
+.button-transparent {
+	background: transparent;
+	border: 1px solid var(--Azure100);
+	color: var(--Azure100);
+}
+.button-black:hover {
+    background: var(--Azure84);
+    color: var(--Azure84);
+}
+.button-black:disabled {
+	border-color: var(--Azure16);
+	color: var(--Azure16);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-default);
+	font-weight: 600;
+	letter-spacing: -1px;
+}
+
+h1 {
+	font-size: 5.2rem;
+	line-height: 4.8rem;
+	margin: 2rem 0 0;
+}
+
+h1+.subtitle {
+	font-size: 1.5rem;
+	font-weight: 300;
+	line-height: 140%;
+}
+
+h2 {
+	font-size: 4.4rem;
+	line-height: 4.4rem;
+	margin-bottom: 1.9rem;
+}
+
+h3 {
+	font-size: 3.6rem;
+	line-height: 3.6rem;
+	margin: 2rem 0 1.2rem;
+}
+
+h4 {
+	font-size: 3.2rem;
+    line-height: 3.6rem;
+    margin-bottom: 1rem;
+}
+
+h5 {
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+    margin-bottom: 1.3rem;
+}
+
+h6 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    margin-bottom: 1.2rem;
+}
+
+i {
+	font-family: var(--font-serif);
+	font-style: italic;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.subtitle {
+	font-size: .9rem;
+	font-weight: 500;
+	letter-spacing: .04em;
+	line-height: 1.6rem;
+	text-transform: uppercase;
+}
+
+.text-outlined {
+	letter-spacing: 0;
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: var(--Black);
+}
+
+.icon-svg {
+	display: block;
+	height: 100%;
+	max-height: 5.7rem;
+	max-width: 5.7rem;
+	width: 100%;
+}
+
+.star-plus-svg,
+.star-x-svg {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+::selection {
+	background-color: var(--Red100);
+	color: var(--White100);
+}
