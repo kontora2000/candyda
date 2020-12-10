@@ -20,7 +20,7 @@
 	     url('../static/_fonts/Golos%20Text_DemiBold.woff2') format('woff2'),
 	     url('../static/_fonts/Golos%20Text_DemiBold.woff') format('woff'),
 	     url('../static/_fonts/Golos%20Text_DemiBold.ttf') format('truetype');
-	font-weight: 600;
+	font-weight: 500;
 	font-style: normal;
 }
 
@@ -66,10 +66,6 @@ body {
     border: none;
     margin: 0;
     padding: 0;
-}
-
-body {
-    overflow: hidden;
 }
 
 h1,
@@ -169,8 +165,10 @@ a:hover {
 input[type=text],
 input[type=datetime],
 input[type=tel],
+input[type=search],
 textarea {
-	background: var(--Azure6);
+    background: var(--Azure6);
+    backdrop-filter: blur(32px);
 	box-sizing: border-box;
 	border: none;
 	border-radius: 300px;
@@ -179,7 +177,7 @@ textarea {
 	line-height: 2.4rem;
 	margin: 0;
 	outline: none;
-	padding: 2rem 0;
+	padding: 2rem 1.6rem;
 	transition: all 0.35s ease-in-out;
 	-webkit-appearance: none;
 }
@@ -207,15 +205,13 @@ input[type=submit] {
 	background: var(--Azure100);
 	border: none;
 	border-radius: 300px;
-	color: var(--black100);
+	color: var(--White100);
 	cursor: pointer;
 	display: inline-block;
-	font-size: 1.6rem;
+	font-size: 2rem;
 	font-weight: 400;
-	letter-spacing: .08em;
-	line-height: 1.6rem;
+	line-height: 2.4rem;
 	padding: 2rem 2.4rem;
-	text-transform: uppercase;
 	transition: background-color .125s ease-in-out,
 				box-shadow .125s ease-in-out,
 				color .125s ease-in-out,
@@ -226,7 +222,7 @@ input[type=submit] {
 button:hover,
 input[type=button]:hover,
 input[type=submit]:hover {
-	background: var(--Black100);
+	background: var(--Azure84);
 	color: var(--White100);
 	transform: translateY(-.8rem);
 }
@@ -242,23 +238,15 @@ input[type=submit]:disabled {
 			backdrop-filter: blur(8px);
 }
 
-.button-transparent {
-	background: transparent;
-	border: 1px solid var(--Azure100);
-	color: var(--Azure100);
-}
-.button-black:hover {
-    background: var(--Azure84);
-    color: var(--Azure84);
-}
-.button-black:disabled {
-	border-color: var(--Azure16);
-	color: var(--Azure16);
+.button-blur {
+    background: var(--Azure6);
+    backdrop-filter: blur(32px);
+    color: var(--Black100);
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: var(--font-default);
-	font-weight: 600;
+	font-weight: 500;
 	letter-spacing: -1px;
 }
 
@@ -284,6 +272,9 @@ h3 {
 	font-size: 3.6rem;
 	line-height: 3.6rem;
 	margin: 2rem 0 1.2rem;
+}
+h3 .link-underline-solid {
+    border-bottom-width: .4rem;
 }
 
 h4 {
@@ -349,3 +340,52 @@ ul {
 	background-color: var(--Red100);
 	color: var(--White100);
 }
+
+
+
+.grid-main {
+    display: grid;
+    grid-template-columns: repeat(32, calc((100vw - 49.6rem - 1.6rem) / 32));
+    grid-column-gap: 1.6rem;
+}
+
+.cont-wrapper {
+    display: grid;
+}
+
+.cont-header-wrapper {
+    grid-column: 1/2;
+}
+
+.cont-wrapper-left {
+    grid-column: 2/17;
+    grid-template-columns: repeat(15, calc((100vw - 49.6rem - 1.6rem) / 32));
+    grid-column-gap: 1.6rem;
+}
+
+.cont-wrapper-left-content-wrapper {
+    grid-column: 2/16;
+    display: grid;
+    grid-template-columns: repeat(14, calc((100vw - 49.6rem - 1.6rem) / 32));
+    grid-column-gap: 1.6rem;
+}
+
+.cont-wrapper-right {
+    grid-column: 20/32;
+    grid-template-columns: repeat(13, calc((100vw - 49.6rem - 1.6rem) / 32));
+    grid-column-gap: 1.6rem;
+}
+
+.cont-wrapper-right-content-wrapper {
+    grid-column: 2/13;
+    display: grid;
+    grid-template-columns: repeat(12, calc((100vw - 49.6rem - 1.6rem) / 32));
+    grid-column-gap: 1.6rem;
+}
+
+
+.card-cont {
+    background: var(--Azure6);
+    backdrop-filter: blur(32px);
+    border-radius: 12px;
+ }

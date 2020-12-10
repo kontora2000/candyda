@@ -1,10 +1,15 @@
 <template>
-<footer>
-  <FooterNavBar/>
-  <div class="copytight">
-    © 2020, Candidaтище+ Все права защищены.При полном или частичном использовании материалов ссылка на ресурс обязательна
+  <div class="footer-wrapper cont-wrapper-right">
+    <div class="footer-cont-sticky">
+      <footer>
+        <FooterNavBar/>
+        <div class="copyright">
+          © 2020, Candidaтище+ Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
+        </div>
+      </footer>
+      <div class="by-kontora-wrapper"><span>Спроектировала <a class="by-kontora-link link-underline-solid" href="https://kontora.cc">Контора</a></span></div>
+    </div>
   </div>
-</footer>
 </template>
 
 <script>
@@ -13,8 +18,8 @@ import { defineComponent, } from '@nuxtjs/composition-api'
 import FooterNavbar from '@/components/Generic/Footer/FooterNavbar'
 
 export default defineComponent({
-    name: 'TheHeader',
-    commponents: {
+    name: 'TheFooter',
+    components: {
       FooterNavbar,
     },
     setup () {
@@ -24,3 +29,38 @@ export default defineComponent({
     }
 })
 </script>
+
+
+
+<style scoped>
+  .footer-wrapper {
+    margin-top: 3.6rem;
+  }
+
+  footer {
+    background: var(--GraySuperLight100);
+    border-radius: 12px;
+    padding: 1.2rem;
+    position: sticky;
+    position: -webkit-sticky;
+  }
+
+  .copyright {
+      color: var(--GrayLight100);
+  }
+
+  .by-kontora-wrapper,
+  .by-kontora-link {
+    color: var(--GrayLight100);
+  }
+
+  .by-kontora-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.6rem;
+  }
+
+  .by-kontora-link {
+    font-weight: 500;
+  }
+</style>

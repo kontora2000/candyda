@@ -1,10 +1,12 @@
 <template>
-  <main>
+  <main class="grid-main">
     <MainMap />
     <NewsBlock />
     <CandidateTop />
   </main>
 </template>
+
+
 
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'
@@ -26,4 +28,8 @@ export default defineComponent({
 
 
 
-
+<style scoped>
+  main {
+    grid-column: 1/33;
+  }
+</style>

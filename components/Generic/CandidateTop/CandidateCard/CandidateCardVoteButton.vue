@@ -19,6 +19,8 @@ export default defineComponent({
 <style scoped>
    .votes-counter-small {
       background-color: var(--Azure100);
+      display: inline-block;
+      border-radius: 300px;
    }
 
    .votes-counter-small-digits {
