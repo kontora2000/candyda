@@ -1,16 +1,16 @@
 <template>
-   <div class="candidate-card-cont card-cont">
-      <nuxt-link to="/">
+   <nuxt-link to="/" class="candidate-card-cont card-cont">
+      <div class="card-cont-inner">
          <VoteButton />
          <div class="candidate-avatar-wrapper">
             <img class="candidate-avatar" src="" />
          </div>
-         <div class="candidate-name-wrapper">
-            <span class="candidate-name">Валерий</span>
-            <span class="candidate-surname">Сафонов</span>
+         <div class="candidate-card-name-wrapper header-6">
+            <div class="candidate-name">Валерий</div>
+            <div class="candidate-surname">Сафонов</div>
          </div>
-      </nuxt-link>
-   </div>
+      </div>
+   </nuxt-link>
 </template>
 
 
@@ -32,5 +32,12 @@ export default defineComponent({
 
 <style scoped>
    .candidate-card-cont {
+   }
+
+   .candidate-card-name-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin: 0 .4rem;
+      width: calc(100% - .8rem);
    }
 </style>

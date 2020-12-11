@@ -24,9 +24,12 @@ export default defineComponent({
       grid-column: 2/9;
       grid-row: 2/2;
       position: absolute;
-      top: 8.4rem;
+      top: 10rem;
       left: 4.8rem;
       z-index: 10;
+   }
+   .site-nav li:not(:first-child) {
+      margin-top: .4rem;
    }
    .nav-link {
       border-bottom-width: 2.5px;

@@ -29,7 +29,5 @@ export default defineComponent({
 
 
 <style scoped>
-  main {
-    grid-column: 1/33;
-  }
+
 </style>

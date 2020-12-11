@@ -21,6 +21,12 @@ export default defineComponent({
       background-color: var(--Azure100);
       display: inline-block;
       border-radius: 300px;
+      float: right;
+      font-size: 2rem;
+      line-height: 2rem;
+      padding: .2rem .8rem .4rem .6rem;
+      position: relative;
+      top: -1.2rem;
    }
 
    .votes-counter-small-digits {

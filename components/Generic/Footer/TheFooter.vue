@@ -3,11 +3,11 @@
     <div class="footer-cont-sticky">
       <footer>
         <FooterNavBar/>
-        <div class="copyright">
+        <div class="copyright text-small">
           © 2020, Candidaтище+ Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
         </div>
       </footer>
-      <div class="by-kontora-wrapper"><span>Спроектировала <a class="by-kontora-link link-underline-solid" href="https://kontora.cc">Контора</a></span></div>
+      <div class="by-kontora-wrapper text-small"><span>Спроектировала <a class="by-kontora-link link-underline-solid" href="https://kontora.cc">Контора</a></span></div>
     </div>
   </div>
 </template>
@@ -57,7 +57,7 @@ export default defineComponent({
   .by-kontora-wrapper {
     display: flex;
     justify-content: flex-end;
-    margin-top: 1.6rem;
+    margin: 1.6rem 0 2.4rem;
   }
 
   .by-kontora-link {

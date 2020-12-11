@@ -1,15 +1,15 @@
 <template>
-  <div class="news-card-cont card-cont">
-    <nuxt-link to="/">
+  <nuxt-link to="/" class="news-card-cont card-cont">
+    <div class="card-cont-inner">
       <div class="news-card-pic-wrapper">
         <img class="news-card-pic" src="" />
       </div>
       <div class="news-card-content-wrapper">
-        <div class="news-card-header">Госдума рассмотрит в первом чтении законопроект «Единой России» о совершенствовании механизмов расселения аварийного и ветхого жилья</div>
-        <div class="news-date">20 декабря 2020, в 22:30</div>
+        <div class="news-card-header header-6">Госдума рассмотрит в первом чтении законопроект «Единой России» о совершенствовании механизмов расселения аварийного и ветхого жилья</div>
+        <div class="date-publication">20 декабря 2020, в 22:30</div>
       </div>
-    </nuxt-link>
-   </div>
+    </div>
+  </nuxt-link>
 </template>
 
 
@@ -44,7 +44,11 @@ export default defineComponent({
   }
 
   .news-card-content-wrapper {
+    margin: .8rem;
+  }
 
+  .news-card-cont .date-publication {
+    margin-top: 1.2rem;
   }
 
 

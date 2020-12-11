@@ -16,7 +16,7 @@
          <CandidateCard />
          <CandidateCard />
          <CandidateCard />
-         <div class="cont-bottom">
+         <div class="showmore-btn-wrapper">
             <btn />
          </div>
       </div>
@@ -50,9 +50,7 @@ export default defineComponent({
    .candidate-card-cont {
       grid-column: span 4;
    }
-   .candidate-card-cont:not(:first-child),
-   .candidate-card-cont:not(:nth-child(2)),
-   .candidate-card-cont:not(:nth-child(3)) {
+   .candidate-card-cont:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
       margin-top: 3.2rem;
    }
 </style>
