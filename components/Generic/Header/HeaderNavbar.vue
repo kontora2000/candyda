@@ -29,7 +29,7 @@ export default defineComponent({
       z-index: 10;
    }
    .site-nav li:not(:first-child) {
-      margin-top: .4rem;
+      margin-top: .8rem;
    }
    .nav-link {
       border-bottom-width: 2.5px;

@@ -16,7 +16,7 @@
          <NewsBlockCard />
          <NewsBlockCard />
          <div class="showmore-btn-wrapper">
-            <btn />
+            <btn>Показать больше</btn>
          </div>
       </div>
    </div>

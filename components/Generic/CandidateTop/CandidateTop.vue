@@ -17,7 +17,7 @@
          <CandidateCard />
          <CandidateCard />
          <div class="showmore-btn-wrapper">
-            <btn />
+            <btn>Смотреть весь&nbsp;топ</btn>
          </div>
       </div>
    </div>

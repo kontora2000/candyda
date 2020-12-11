@@ -59,62 +59,6 @@
 
 
 
-/* CSS reset */
-
-html,
-body {
-    border: none;
-    margin: 0;
-    padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-address,
-big,
-cite,
-code,
-em,
-font,
-img,
-small,
-strike,
-sub,
-sup,
-li,
-ol,
-ul,
-fieldset,
-form,
-label,
-legend,
-button,
-table,
-caption,
-tr,
-th,
-td {
-    border: none;
-    font-size: inherit;
-    line-height: inherit;
-    margin: 0;
-    padding: 0;
-    text-align: inherit;
-}
-
-blockquote::before,
-blockquote::after {
-    content: "";
-}
-
-
-
 /* Document Setup */
 
 html {
@@ -210,6 +154,10 @@ a {
 a:hover {
 	color: var(--Black64);
 }
+
+/* a * {
+    transition: all .175s ease-in-out;
+}*/
 
 .link-underline-solid {
 	border-bottom: .5px solid;
@@ -385,6 +333,7 @@ main {
     grid-column: 2/17;
     grid-template-columns: repeat(15, calc((100vw - 49.6rem - 1.6rem) / 32));
     grid-column-gap: 1.6rem;
+    grid-row: span 2;
 }
 
 .cont-wrapper-left-content-wrapper {
@@ -398,6 +347,7 @@ main {
     grid-column: 19/32;
     grid-template-columns: repeat(13, calc((100vw - 49.6rem - 1.6rem) / 32));
     grid-column-gap: 1.6rem;
+    grid-row: span 1;
 }
 
 .cont-wrapper-right-content-wrapper {
@@ -408,12 +358,15 @@ main {
 }
 
 .showmore-btn-wrapper {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.95) 34.99%, #fff 53.13%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.95) 32%, #fff 56%);
     display: flex;
     grid-column: 1 / -1;
     justify-content: center;
+    margin-left: -4rem;
     margin-top: -4rem;
+    padding: 4rem 0 0;
     position: relative;
+    width: calc(100% + 8rem);
     z-index: 2;
 }
 
@@ -422,7 +375,7 @@ main {
     background: var(--Azure6);
     backdrop-filter: blur(32px);
     border-radius: 12px;
-    transition: transform .15s ease-in-out;
+    transition: transform .125s ease-in-out;
 }
 .card-cont:hover {
     transform: scale(1.05);

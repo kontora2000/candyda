@@ -1,5 +1,5 @@
 <template>
-   <button></button>
+   <button><slot /></button>
 </template>
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'

@@ -5,8 +5,8 @@
         <img class="news-card-pic" src="" />
       </div>
       <div class="news-card-content-wrapper">
-        <div class="news-card-header header-6">Госдума рассмотрит в первом чтении законопроект «Единой России» о совершенствовании механизмов расселения аварийного и ветхого жилья</div>
-        <div class="date-publication">20 декабря 2020, в 22:30</div>
+        <div class="news-card-header header-6">Госдума рассмотрит в&nbsp;первом чтении законопроект «Единой России» о&nbsp;совершенствовании механизмов расселения аварийного и&nbsp;ветхого жилья</div>
+        <div class="date-publication">20 декабря 2020, в&nbsp;22:30</div>
       </div>
     </div>
   </nuxt-link>
