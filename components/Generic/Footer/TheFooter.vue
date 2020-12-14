@@ -2,12 +2,14 @@
   <div class="footer-wrapper cont-wrapper-right">
     <div class="footer-cont-sticky">
       <footer>
-        <FooterNavBar/>
+        <FooterNavBar />
         <div class="copyright text-small">
           © 2020, Candidaтище+ Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
         </div>
       </footer>
-      <div class="by-kontora-wrapper text-small"><span>Спроектировала <a class="by-kontora-link link-underline-solid" href="https://kontora.cc">Контора</a></span></div>
+      <div class="by-kontora-wrapper text-small">
+        <span>Спроектировала <a class="by-kontora-link link-underline-solid" href="https://kontora.cc">Контора</a></span>
+      </div>
     </div>
   </div>
 </template>
@@ -15,21 +17,15 @@
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'
 
-import FooterNavbar from '@/components/Generic/Footer/FooterNavbar'
+import FooterNavBar from '@/components/Generic/Footer/FooterNavbar.vue'
 
 export default defineComponent({
     name: 'TheFooter',
     components: {
-      FooterNavbar,
-    },
-    setup () {
-      return {
-
-      }
+      FooterNavBar,
     }
 })
 </script>
-
 
 
 <style scoped>
