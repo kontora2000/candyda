@@ -145,6 +145,10 @@ i {
 	font-style: italic;
 }
 
+p {
+    margin-top: 2rem;
+}
+
 a {
 	color: var(--Black100);
 	text-decoration: none;
