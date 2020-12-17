@@ -1,7 +1,7 @@
 <template>
    <div class="cont-wrapper cont-wrapper-left">
       <div class="cont-header-wrapper">
-         <h3 class="cont-header">Последние <nuxt-link to="/" class="link-underline-solid">новости</nuxt-link></h3>
+         <h3 class="cont-header">Последние <nuxt-link to="/news" class="link-underline-solid">новости</nuxt-link></h3>
       </div>
       <div class="news-block-cards-wrapper cont-wrapper-left-content-wrapper">
          <NewsBlockCard />

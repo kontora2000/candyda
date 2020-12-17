@@ -1,5 +1,5 @@
 <template>
-   <nuxt-link to="/" class="candidate-card-cont card-cont">
+   <nuxt-link to="/candidate" class="candidate-card-cont card-cont">
       <div class="card-cont-inner">
          <VoteButton />
          <div class="candidate-avatar-wrapper candidate-card-avatar-wrapper">

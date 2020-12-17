@@ -197,6 +197,13 @@ textarea {
 	transition: all 0.35s ease-in-out;
 	-webkit-appearance: none;
 }
+input[type=text]::placeholder,
+input[type=datetime]::placeholder,
+input[type=tel]::placeholder,
+input[type=search]::placeholder,
+textarea::placeholder {
+    color: var(--Black32);
+}
 
 .errors {
 	color: var(--White100);

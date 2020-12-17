@@ -34,6 +34,7 @@ export default defineComponent({
     }
 
     .bg-circles-canvas {
+        filter: blur(32px);
         position: absolute;
         left: 0;
         right: 0;

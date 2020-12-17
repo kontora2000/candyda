@@ -1,7 +1,7 @@
 <template>
    <div class="cont-wrapper cont-wrapper-right">
       <div class="cont-header-wrapper">
-         <h3 class="cont-header">Топ <nuxt-link to="/" class="link-underline-solid">кандидатов</nuxt-link></h3>
+         <h3 class="cont-header">Топ <nuxt-link to="/top" class="link-underline-solid">кандидатов</nuxt-link></h3>
       </div>
       <div class="top-candidates-cards-wrapper cont-wrapper-right-content-wrapper">
          <CandidateCard />
