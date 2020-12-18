@@ -38,7 +38,7 @@ export default defineComponent({
   }
 
   footer {
-    background: var(--GraySuperLight100);
+    background: var(--Black3);
     border-radius: 12px;
     padding: 1.2rem;
     position: sticky;
@@ -46,6 +46,6 @@ export default defineComponent({
   }
 
   .copyright {
-      color: var(--GrayLight100);
+      color: var(--Black16);
   }
 </style>

@@ -31,7 +31,9 @@
     --Black64: rgba(37, 37, 37, .64);
     --Black48: rgba(37, 37, 37, .48);
     --Black32: rgba(37, 37, 37, .32);
+    --Black20: rgba(37, 37, 37, .2);
     --Black16: rgba(37, 37, 37, .16);
+    --Black3: rgba(37, 37, 37, .03);
     --Black0: rgba(37, 37, 37, 0);
 
     --White100: rgba(255, 255, 255, 1);
@@ -55,6 +57,7 @@
     --Azure6: rgba(44, 179, 255, .06);
     
     --font-default: 'Golos', 'Helvetica', 'Arial', sans-serif;
+    --font-serif: 'Wremena', 'Times', 'Times New Roman', serif;
 }
 
 
@@ -136,8 +139,13 @@ h6{
     margin-bottom: 1.2rem;
 }
 
-.text-small {
+.text-small,
+sup {
     font-size: 1.2rem;
+}
+
+sup {
+    line-height: 1.2rem;
 }
 
 i {
@@ -327,6 +335,7 @@ main {
 
 .page-content-superwrapper {
     grid-column: 1/33;
+    margin-top: 5.2rem;
 }
 
 .page-aside-wrapper {
@@ -337,8 +346,8 @@ grid-column: 2/9;
 grid-column: 9/28;
 }
 
-.page-header-1 {
-    margin-top: 0;
+.page-header {
+    margin-bottom: 4rem;
 }
 
 .page-bottom-wrapper {
@@ -383,7 +392,7 @@ grid-column: 9/28;
     grid-row: span 3;
 }
 .page-bottom-wrapper .cont-wrapper-left {
-    grid-row: 2;
+    grid-row: span 2;
 }
 
 .cont-wrapper-left .block-cards-wrapper {
@@ -424,6 +433,7 @@ grid-column: 9/28;
     background: var(--Azure6);
     backdrop-filter: blur(32px);
     border-radius: 12px;
+    display: block;
     transition: transform .125s ease-in-out;
 }
 .card-cont:hover {

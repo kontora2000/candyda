@@ -1,10 +1,15 @@
 <template>
-   <main class="page-cont about-page-cont grid-main">
-      <div class="page-wrapper">
-         <h1 class="page-header-1">О&nbsp;проекте</h1>
-         <p>кек</p>
+   <div class="page-content-superwrapper">
+      <div class="page-content-wrapper grid-main">
+         <aside class="page-aside-wrapper">
+            <div class="page-content-filter-wrapper"></div>
+         </aside>
+         <div class="page-wrapper">
+            <h1 class="page-header">О&nbsp;проекте</h1>
+            <p>кек</p>
+         </div>
       </div>
-   </main>
+   </div>
 </template>
 
 

@@ -5,7 +5,7 @@
             <div class="page-content-filter-wrapper"></div>
          </aside>
          <div class="page-wrapper">
-            <h1>Новости</h1>
+            <h1 class="page-header">Новости</h1>
             <NewsBlockCard />
             <NewsBlockCard />
             <NewsBlockCard />
@@ -36,7 +36,7 @@ import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
 
 export default defineComponent({
-   name:'_slug',
+   name:'index',
    components: {
       NewsBlockCard,
       Btn,
