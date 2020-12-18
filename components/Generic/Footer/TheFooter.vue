@@ -4,7 +4,7 @@
       <footer>
         <FooterNavBar />
         <div class="copyright text-small">
-          ©&thinsp;2020, Candidaтище+ Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
+          ©&thinsp;2020, Duma.one Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
         </div>
       </footer>
     </div>
@@ -27,13 +27,19 @@ export default defineComponent({
 
 <style scoped>
   .footer-wrapper {
-    margin-top: 3.6rem;
+    grid-row: span 2;
+    margin: 0 0 4rem;
+  }
+
+  .footer-cont-sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 3.2rem;
   }
 
   footer {
     background: var(--GraySuperLight100);
     border-radius: 12px;
-    margin-bottom: 4rem;
     padding: 1.2rem;
     position: sticky;
     position: -webkit-sticky;

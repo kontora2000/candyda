@@ -1,8 +1,11 @@
 <template>
   <main class="grid-main">
     <MainMap />
-    <NewsBlock />
-    <CandidateTop />
+    <div class="main-bottom-wrapper grid-main">
+      <NewsBlock class="cont-wrapper-left"/>
+      <CandidateTop class="cont-wrapper-right"/>
+      <TheFooter />
+    </div>
   </main>
 </template>
 
@@ -14,6 +17,7 @@ import { defineComponent, } from '@nuxtjs/composition-api'
 import MainMap from '@/components/Map/MainMap'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
+import TheFooter from '@/components/Generic/Footer/TheFooter'
 
 export default defineComponent({
    name:'index',
@@ -22,6 +26,7 @@ export default defineComponent({
      MainMap,
      NewsBlock,
      CandidateTop,
+     TheFooter,
    }
 })
 </script>
@@ -29,5 +34,9 @@ export default defineComponent({
 
 
 <style scoped>
-
+.main-bottom-wrapper {
+  grid-column: 1/33;
+  grid-row-gap: 4rem;
+  grid-template-rows: 90rem 1fr 1fr;
+}
 </style>

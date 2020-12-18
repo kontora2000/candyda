@@ -5,8 +5,10 @@
       <HeaderSearchbar />
       <HeaderAbout />
    </header>
-
 </template>
+
+
+
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'
 
@@ -25,6 +27,8 @@ export default defineComponent({
     },
 })
 </script>
+
+
 
 <style scoped>
    header {

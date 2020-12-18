@@ -1,6 +1,6 @@
 <template>
    <div class="logo-wrapper">
-      <nuxt-link to="/" class="logo-link">Candidaтище+</nuxt-link>
+      <nuxt-link to="/" class="logo-link">Duma.one</nuxt-link>
    </div>
 </template>
 
