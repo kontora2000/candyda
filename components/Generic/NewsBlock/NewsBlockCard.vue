@@ -27,12 +27,20 @@ export default defineComponent({
 <style scoped>
   .news-card-cont {
     grid-column: span 7;
+    height: 28rem;
   }
   .news-card-cont:first-child {
     grid-column: span 14;
+    height: 36rem;
   }
   .news-card-cont:not(:first-child) {
     margin-top: 3.2rem;
+  }
+
+  .news-card-cont:first-child .news-card-header {
+    font-size: 3.2rem;
+    line-height: 3.6rem;
+    width: 90%;
   }
 
   .news-card-pic-wrapper {
@@ -44,6 +52,10 @@ export default defineComponent({
   }
 
   .news-card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 1.6rem);
+    justify-content: space-between;
     margin: .8rem;
   }
 

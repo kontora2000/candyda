@@ -53,6 +53,7 @@
 
     --Azure100: rgba(44, 179, 255, 1);
     --Azure84: rgba(44, 179, 255, .84);
+    --Azure32: rgba(44, 179, 255, .32);
     --Azure16: rgba(44, 179, 255, .16);
     --Azure6: rgba(44, 179, 255, .06);
     
@@ -417,13 +418,11 @@ grid-column: 9/28;
 }
 
 .showmore-btn-wrapper {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.95) 32%, #fff 56%);
     display: flex;
     grid-column: 1 / -1;
     justify-content: center;
     margin-left: -4rem;
-    margin-top: -4rem;
-    padding: 4rem 0 0;
+    margin-top: 3.2rem;
     position: relative;
     width: calc(100% + 8rem);
     z-index: 2;
@@ -442,6 +441,7 @@ grid-column: 9/28;
 
 .card-cont-inner {
     height: 100%;
+    position: relative;
 }
 
 .date-publication {

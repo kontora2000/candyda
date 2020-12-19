@@ -6,12 +6,25 @@
             <div class="date-publication">5&nbsp;декабря 2020, в&nbsp;12:20</div>
          </aside>
          <h2 class="article-header">Госдума рассмотрит в&nbsp;первом чтении законопроект «Единой России» о&nbsp;cовершенствовании механизмов расселения аварийного и&nbsp;ветхого жилья</h2>
-         <div class="news-cover"><img class="news-cover-img" src="#" /></div>
+         <div class="news-cover-wrapper">
+            <div class="news-cover">
+               <img class="news-cover-img" src="https://avatars.mds.yandex.net/get-kinopoisk-post-img/1539913/326998cf83ceda4d1515382ca9c7f131/1920x1080" />
+            </div>
+            <div class="news-cover-comment-wrapper">
+               <div class="news-cover-comment">Коммент к обложке новости</div>
+               <div class="news-cover-copyright text-small">Копирайт</div>
+            </div>
+         </div>
          <div class="article-paragraphs">
             <p>Государственная дума одобрила закон о поправке в Конституцию. За проголосовали 383 депутата, высказавшихся против не было, воздержались 43. Документ поступил в нижнюю палату 20 января. Изложенные в нем предложения направлены на закрепление основ конституционного строя, прав и свобод человека и гражданина. Законопроектом также вводится новая процедура — общероссийское голосование.</p>
             <p>Во время подготовки ко второму чтению в профильный комитет Думы по госстроительству и законодательству поступили почти 400 поправок от всех фракций, из них около 200 учли, а 175 рекомендовали к отклонению.</p>
             <p>Как конституционные поправки будут вступать в силу. После Госдумы их должен одобрить Совфед, а потом две трети региональных Заксобраний. Затем глава государства подписывает и публикует поправки.</p>
             <p>Сначала вступает в силу третья статья: она требует от президента направить поправки в Конституционный суд. Там за семь дней решают, соответствует ли закон Конституции, и если не соответствует — вопрос закрыт.</p>
+         </div>
+         <div class="tags-wrapper">
+            <a class="button tag" href="#">Тэг</a>
+            <a class="button tag" href="#">Тэг2</a>
+            <a class="button tag" href="#">Тэгтэгтэг</a>
          </div>
       </article>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
@@ -57,11 +70,24 @@ article .date-publication {
    margin-top: 0;
 }
 
-.news-cover {
+.news-cover-wrapper {
    grid-column: 2/32;
-   background: var(--Black16);
-   min-height: 50rem;
    margin-top: 4rem;
+}
+
+.news-cover {
+   min-height: 50rem;
+   width: 100%;
+}
+
+.news-cover-copyright {
+   color: var(--Black32);
+}
+
+.news-cover-copyright:before {
+   content: '©';
+   display: inline-block;
+   margin-right: .4rem;
 }
 
 .article-paragraphs {
@@ -74,4 +100,22 @@ article .date-publication {
    line-height: 3.2rem;
    margin-top: 3.2rem;
 }
+
+.tags-wrapper {
+   grid-column: 9/28;
+   margin-top: 3.2rem;
+}
+
+.tag {
+   background-color: var(--Azure32);
+   color: var(--Azure100);
+}
+
+.tag:before {
+   content: '#';
+   color: var(--White56);
+   display: inline-block;
+   margin-right: .2rem;
+}
+
 </style>
