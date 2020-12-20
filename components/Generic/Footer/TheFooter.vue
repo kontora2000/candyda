@@ -26,26 +26,34 @@ export default defineComponent({
 
 
 <style scoped>
-  .footer-wrapper {
-    grid-row: span 2;
-    margin: 0 0 4rem;
-  }
+.footer-wrapper {
+  grid-row: span 2;
+  margin: 0 0 4rem;
+}
 
-  .footer-cont-sticky {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 3.2rem;
-  }
+.footer-cont-sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 3.2rem;
+}
 
-  footer {
-    background: var(--Black3);
-    border-radius: 12px;
-    padding: 1.2rem;
-    position: sticky;
-    position: -webkit-sticky;
-  }
+footer {
+  background: var(--Black3);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem;
+  position: sticky;
+  position: -webkit-sticky;
+}
 
-  .copyright {
-      color: var(--Black16);
-  }
+.footer-nav {
+  font-size: 1.6rem;
+}
+
+.copyright {
+    color: var(--Black16);
+    line-height: 1.2rem;
+    max-width: 26rem;
+}
 </style>

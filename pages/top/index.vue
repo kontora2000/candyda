@@ -4,8 +4,8 @@
          <aside class="page-aside-wrapper">
             <div class="page-content-filter-wrapper"></div>
          </aside>
-         <div class="page-wrapper">
-            <h1 class="page-header">Топ кандидатов</h1>
+         <div class="page-wrapper page-top">
+            <h1 class="page-header page-top-header">Топ кандидатов</h1>
             <CandidateCard />
             <CandidateCard />
             <CandidateCard />
@@ -50,5 +50,17 @@ export default defineComponent({
 
 
 <style scoped>
+.page-top {
+   grid-template-columns: repeat(19, calc((100% - (1.6rem * 18)) / 19));
+   grid-column-gap: 1.6rem;
+}
 
+.page-top-header {
+   grid-column: 1/-1;
+}
+
+.candidate-card-cont {
+   grid-column: span 4;
+   margin-bottom: 3.2rem;
+}
 </style>
