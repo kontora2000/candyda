@@ -107,13 +107,14 @@ article .date-publication {
 }
 
 .tag {
-   background-color: var(--Azure32);
+   background-color: transparent;
+   border: 1.5px solid var(--Azure100);
    color: var(--Azure100);
 }
 
 .tag:before {
    content: '#';
-   color: var(--White56);
+   color: var(--Azure100);
    display: inline-block;
    margin-right: .2rem;
 }

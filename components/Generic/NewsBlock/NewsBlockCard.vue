@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link to="/" class="news-card-cont card-cont">
+  <nuxt-link to="/news/1" class="news-card-cont card-cont">
     <div class="card-cont-inner">
       <div class="news-card-pic-wrapper">
         <img class="news-card-pic" src="" />

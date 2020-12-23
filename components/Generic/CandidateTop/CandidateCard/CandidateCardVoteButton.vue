@@ -1,6 +1,9 @@
 <template>
    <div class="votes-counter-small-wrapper">
       <div class="votes-counter-small">
+         <span class="icon icon-votes-counter">
+            <use xlink:href="/static/sprite.svg#icon-check" />
+         </span>
          <span class="votes-counter-small-digits">20&hairsp;000</span>
       </div>
    </div>

@@ -51,6 +51,7 @@ export default defineComponent({
 
 <style scoped>
 .page-top {
+   display: grid;
    grid-template-columns: repeat(19, calc((100% - (1.6rem * 18)) / 19));
    grid-column-gap: 1.6rem;
 }

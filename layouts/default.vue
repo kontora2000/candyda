@@ -25,8 +25,16 @@ export default defineComponent({
 
 
 <style scoped>
+.layout-inner {
+  margin: 0 .8rem;
+  width: calc(100vw - 1.6rem);
+}
+
+@media (min-width: 1460px) {
   .layout-inner {
-    margin: 0 .8rem;
-    width: calc(100vw - 1.6rem);
+    margin: 0 auto;
+    max-width: 1460px;
+    width: 100%;
   }
+}
 </style>

@@ -448,3 +448,27 @@ grid-column: 9/28;
     color: var(--Black32);
     font-size: 1.2rem;
 }
+
+
+
+@media (min-width: 1460px) {
+	.grid-main {
+		grid-template-columns: repeat(32, calc((1460px - 49.6rem - 1.6rem) / 32));
+	}
+
+	.cont-wrapper-left {
+		grid-template-columns: repeat(15, calc((1460px - 49.6rem - 1.6rem) / 32));
+	}
+
+	.cont-wrapper-left .block-cards-wrapper {
+		grid-template-columns: repeat(14, calc((1460px - 49.6rem - 1.6rem) / 32));
+	}
+
+	.cont-wrapper-right {
+		grid-template-columns: repeat(13, calc((1460px - 49.6rem - 1.6rem) / 32));
+	}
+
+	.cont-wrapper-right .block-cards-wrapper {
+		grid-template-columns: repeat(12, calc((1460px - 49.6rem - 1.6rem) / 32));
+	}
+}

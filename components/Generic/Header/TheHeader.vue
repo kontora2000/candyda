@@ -31,9 +31,19 @@ export default defineComponent({
 
 
 <style scoped>
-   header {
-      grid-column: 1/33;
-      padding: 2.8rem 0 0;
-      width: calc(100vw - 1.6rem);
-   }
+header {
+   grid-column: 1/33;
+   padding: 2.8rem 0 0;
+   position: relative;
+   width: calc(100vw - 1.6rem);
+}
+
+@media (min-width: 1460px) {
+header {
+   margin: 0 auto;
+   max-width: 1460px;
+   width: 100%;
+}
+
+}
 </style>

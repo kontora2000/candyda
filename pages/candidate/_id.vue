@@ -5,7 +5,7 @@
             <div class="breadcrumbs-news breadcrumbs"><a class="link-underline-solid" href="#">Туапсинский округ</a> / <a class="link-underline-solid" href="#">Геленджик</a> / <a class="link-underline-solid" href="#">Кандидаты</a></div>
          </aside>
          <div class="candidate-wrapper">
-            <div class="candidate-ava"><img class="candidate-ava-img" src="#" /></div>
+            <div class="candidate-ava"><img class="candidate-ava-img" src="http://er-gosduma.ru/bitrix/cache/s1/virtus/image.show/224w_248h_clipBOTH/upload/iblock/2ab/Milonov.jpg" /></div>
             <div class="candidate-info-wrapper">
                <h2 class="page-candidate-header">Духаст Вячеславович Сафонов</h2>
                <div class="candidate-status-wrapper candidate-info-row">
@@ -27,7 +27,7 @@
                      Государственный морской университет имени адмирала Ушакова<sup class="candidate-edu-end">2013</sup>
                   </div>
                </div>
-               <div class="candidate-edu candidate-info-row">
+               <div class="candidate-edu candidate-info-row" style="display: none;">
                   <div class="candidate-info-row-header">Учёные степени</div>
                   <div class="candidate-info-row-content">
                      Кандидат сельскохозяйственных наук

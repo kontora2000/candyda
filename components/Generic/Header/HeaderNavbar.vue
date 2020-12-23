@@ -24,8 +24,8 @@ export default defineComponent({
       grid-column: 2/9;
       grid-row: 2/2;
       position: absolute;
-      top: 10rem;
-      left: 4.8rem;
+      top: 0;
+      left: 0;
       z-index: 10;
    }
    .site-nav li:not(:first-child) {
