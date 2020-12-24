@@ -64,4 +64,16 @@ export default defineComponent({
    grid-column: span 4;
    margin-bottom: 3.2rem;
 }
+
+
+@media (max-width: 460px) {
+   .page-top {
+		grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
+		grid-column-gap: 1.2rem;
+   }
+
+   .candidate-card-cont {
+      grid-column: span 2;
+   }
+}
 </style>

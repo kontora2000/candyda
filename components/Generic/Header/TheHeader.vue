@@ -38,12 +38,19 @@ header {
    width: calc(100vw - 1.6rem);
 }
 
+
 @media (min-width: 1460px) {
-header {
-   margin: 0 auto;
-   max-width: 1460px;
-   width: 100%;
+   header {
+      margin: 0 auto;
+      max-width: 1460px;
+      width: 100%;
+   }
 }
 
+@media (max-width: 460px) {
+	header {
+		grid-column: 1/7;
+		width: calc(100vw - 2.4rem);
+	}
 }
 </style>

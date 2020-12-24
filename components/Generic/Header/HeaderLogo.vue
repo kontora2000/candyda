@@ -16,17 +16,24 @@ export default defineComponent({
 
 
 <style scoped>
-   .logo-wrapper {
-      grid-column: 2/9;
-      grid-row: 1/1;
-   }
+.logo-wrapper {
+   grid-column: 2/9;
+   grid-row: 1/1;
+}
 
-   .logo-link {
-      display: inline-block;
-      font-size: 3.2rem;
-      font-weight: 500;
-      letter-spacing: -.01em;
-      line-height: 3.6rem;
-      margin: 1.2rem 0 0;
-   }
+.logo-link {
+   display: inline-block;
+   font-size: 3.2rem;
+   font-weight: 500;
+   letter-spacing: -.01em;
+   line-height: 3.6rem;
+   margin: 1.2rem 0 0;
+}
+
+
+@media (max-width: 460px) {
+	.logo-wrapper {
+		grid-column: 1/4;
+	}
+}
 </style>

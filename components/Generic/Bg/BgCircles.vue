@@ -51,4 +51,12 @@ export default defineComponent({
     width: 100vw;
   }
 }
+
+
+@media (max-width: 460px) {
+  .bg-circles-wrapper {
+    width: calc(100vw + 2.4rem);
+    margin-left: -1.2rem;
+  }
+}
 </style>

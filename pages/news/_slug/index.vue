@@ -119,4 +119,22 @@ article .date-publication {
    margin-right: .2rem;
 }
 
+
+@media (max-width: 460px) {
+   .article-header {
+      grid-column: 1/7;
+   }
+   .news-cover-wrapper {
+      grid-column: 1/7;
+   }
+   .news-cover {
+      min-height: auto;
+   }
+   .article-paragraphs {
+      grid-column: 1/7;
+   }
+   .tags-wrapper {
+      grid-column: 1/7;
+   }
+}
 </style>

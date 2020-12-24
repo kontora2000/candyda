@@ -17,11 +17,19 @@ export default defineComponent({
 
 
 <style scoped>
-   .header-about-us-wrapper {
-      grid-column: 28/31;
-      grid-row: 1/1;
-   }
-   .header-about-us {
-      display: inline-block;
-   }
+.header-about-us-wrapper {
+   grid-column: 28/31;
+   grid-row: 1/1;
+}
+.header-about-us {
+   display: inline-block;
+}
+
+
+@media (max-width: 460px) {
+	.header-about-us-wrapper {
+      grid-column: 4/6;
+      grid-row: 2/2;
+	}
+}
 </style>

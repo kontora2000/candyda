@@ -142,4 +142,25 @@ export default defineComponent({
    grid-column: 1/3;
    margin-top: 4rem;
 }
+
+
+@media (max-width: 460px) {
+   .candidate-wrapper {
+      grid-column: 1/7;
+      grid-column-gap: 1.2rem;
+   }
+
+   .candidate-ava {
+      grid-column: 1/7;
+      width: 100%;
+   }
+
+   .candidate-info-wrapper {
+      grid-column: 1/7;
+   }
+
+   .candidate-about-wrapper {
+      grid-column: 1/7;
+   }
+}
 </style>

@@ -30,11 +30,20 @@ export default defineComponent({
   width: calc(100vw - 1.6rem);
 }
 
+
 @media (min-width: 1460px) {
   .layout-inner {
     margin: 0 auto;
     max-width: 1460px;
     width: 100%;
+  }
+}
+
+
+@media (max-width: 460px) {
+	.layout-inner {
+		margin: 0 1.2rem;
+		width: calc(100vw - 2.4rem);
   }
 }
 </style>

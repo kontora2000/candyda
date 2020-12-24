@@ -20,20 +20,27 @@ export default defineComponent({
 
 
 <style scoped>
-   .site-nav {
-      grid-column: 2/9;
+.site-nav {
+   grid-column: 2/9;
+   grid-row: 2/2;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 10;
+}
+.site-nav li:not(:first-child) {
+   margin-top: .8rem;
+}
+.nav-link {
+   border-bottom-width: 2.5px;
+   font-size: 2rem;
+   font-weight: 500;
+}
+
+@media (max-width: 460px) {
+	.site-nav {
+      grid-column: 1/2;
       grid-row: 2/2;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 10;
-   }
-   .site-nav li:not(:first-child) {
-      margin-top: .8rem;
-   }
-   .nav-link {
-      border-bottom-width: 2.5px;
-      font-size: 2rem;
-      font-weight: 500;
-   }
+	}
+}
 </style>

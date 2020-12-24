@@ -39,4 +39,11 @@ export default defineComponent({
   grid-row-gap: 4rem;
   grid-template-rows: 90rem 1fr 1fr;
 }
+
+
+@media (max-width: 460px) {
+  .main-bottom-wrapper {
+    grid-column: 1/7;
+  }
+}
 </style>

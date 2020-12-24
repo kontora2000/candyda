@@ -43,14 +43,21 @@ export default defineComponent({
 
 
 <style scoped>
-   .top-candidates-cont {
-      
-   }
+.top-candidates-cont {
+   
+}
 
+.candidate-card-cont {
+   grid-column: span 4;
+}
+.candidate-card-cont:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
+   margin-top: 3.2rem;
+}
+
+
+@media (max-width: 460px) {
    .candidate-card-cont {
-      grid-column: span 4;
+      grid-column: span 2;
    }
-   .candidate-card-cont:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
-      margin-top: 3.2rem;
-   }
+}
 </style>
