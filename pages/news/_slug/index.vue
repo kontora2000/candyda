@@ -106,19 +106,6 @@ article .date-publication {
    margin-top: 3.2rem;
 }
 
-.tag {
-   background-color: transparent;
-   border: 1.5px solid var(--Azure100);
-   color: var(--Azure100);
-}
-
-.tag:before {
-   content: '#';
-   color: var(--Azure100);
-   display: inline-block;
-   margin-right: .2rem;
-}
-
 
 @media (max-width: 460px) {
    .article-header {
@@ -126,6 +113,7 @@ article .date-publication {
    }
    .news-cover-wrapper {
       grid-column: 1/7;
+      margin-top: 0;
    }
    .news-cover {
       min-height: auto;
