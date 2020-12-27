@@ -54,7 +54,8 @@
     --Azure100: rgba(44, 179, 255, 1);
     --Azure84: rgba(44, 179, 255, .84);
     --Azure32: rgba(44, 179, 255, .32);
-    --Azure16: rgba(44, 179, 255, .16);
+	--Azure16: rgba(44, 179, 255, .16);
+	--Azure12: rgba(44, 179, 255, .12);
     --Azure6: rgba(44, 179, 255, .06);
     
     --font-default: 'Golos', 'Helvetica', 'Arial', sans-serif;
@@ -192,7 +193,7 @@ input[type=datetime],
 input[type=tel],
 input[type=search],
 textarea {
-    background: var(--Azure6);
+    background: var(--Azure12);
     backdrop-filter: blur(32px);
 	box-sizing: border-box;
 	border: none;
@@ -271,7 +272,7 @@ input[type=submit]:disabled {
 }
 
 .button-blur {
-    background: var(--Azure6);
+    background: var(--Azure12);
     backdrop-filter: blur(32px);
     color: var(--Black100);
 }
@@ -429,7 +430,7 @@ grid-column: 9/28;
 }
 
 .card-cont {
-    background: var(--Azure6);
+    background: var(--Azure12);
     backdrop-filter: blur(32px);
     border-radius: 12px;
     display: block;
@@ -460,6 +461,12 @@ grid-column: 9/28;
 	color: var(--Azure100);
 	display: inline-block;
 	margin-right: .2rem;
+}
+
+
+/*   У Д А Л И Т Ь   П О Т О М   */
+.breadcrumbs {
+	display: none;
 }
 
 

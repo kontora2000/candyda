@@ -21,5 +21,13 @@ export default defineComponent({
 
 
 <style scoped>
+.footer-nav {
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
+}
 
+.footer-nav ul li {
+  margin-right: 1.6rem;
+  display: inline-flex;
+}
 </style>

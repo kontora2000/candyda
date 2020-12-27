@@ -41,19 +41,15 @@ footer {
   background: var(--Black3);
   border-radius: 12px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding: 1.2rem;
   position: sticky;
   position: -webkit-sticky;
 }
 
-.footer-nav {
-  font-size: 1.6rem;
-}
-
 .copyright {
     color: var(--Black16);
     line-height: 1.2rem;
-    max-width: 26rem;
 }
 </style>
