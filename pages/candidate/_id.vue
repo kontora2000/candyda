@@ -5,11 +5,13 @@
             <div class="breadcrumbs-news breadcrumbs"><a class="link-underline-solid" href="#">Туапсинский округ</a> / <a class="link-underline-solid" href="#">Геленджик</a> / <a class="link-underline-solid" href="#">Кандидаты</a></div>
          </aside>
          <div class="candidate-wrapper">
-            <div class="candidate-ava"><img class="candidate-ava-img" src="http://er-gosduma.ru/bitrix/cache/s1/virtus/image.show/224w_248h_clipBOTH/upload/iblock/2ab/Milonov.jpg" /></div>
+            <div class="candidate-ava">
+              <img class="candidate-ava-img"
+                   :src="candidate.image.src" /></div>
             <div class="candidate-info-wrapper">
-               <h2 class="page-candidate-header">Духаст Вячеславович Сафонов</h2>
+               <h2 class="page-candidate-header">{{ candidate.name }}</h2>
                <div class="candidate-status-wrapper candidate-info-row">
-                  <span class="candidate-status">Бывший депутат</span>
+                  <span class="candidate-status">{{  candidate.status }}</span>
                </div>
                <div class="candidate-rating-wrapper candidate-info-row">
                   <div class="candidate-rating">
@@ -20,10 +22,10 @@
                      <btn class="vote-button">Проголосовать</btn>
                   </div>
                </div>
-               <div class="candidate-age candidate-info-row">29 лет / Родился 8 сентября 1991</div>
+               <div class="candidate-age candidate-info-row">Родился {{ candiate.birthday }}</div>
                <div class="candidate-edu candidate-info-row">
                   <div class="candidate-info-row-header">Образование</div>
-                  <div class="candidate-info-row-content">
+                  <div class="candidate-info-row-content" style="display: none">
                      Государственный морской университет имени адмирала Ушакова<sup class="candidate-edu-end">2013</sup>
                   </div>
                </div>
@@ -35,7 +37,7 @@
                </div>
             </div>
             <div class="candidate-about-wrapper">
-               <p>Лол, кек, чебурек. Лорем ипсум, долор сит амет.</p>
+               <p>{{ candidate.description }}.</p>
             </div>
             <div class="candidate-gallery-wrapper"></div>
          </div>
@@ -57,6 +59,7 @@ import Btn from '@/components/Generic/Btn/Btn'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
+import {useAxios} from "@/composition/axios";
 
 export default defineComponent({
    name:'_id',
@@ -65,7 +68,15 @@ export default defineComponent({
       NewsBlock,
       CandidateTop,
       TheFooter,
-   }
+   },
+  setup() {
+      const { $axios, } = useAxios()
+      const { params, } = useContext()
+      const candidate = ref({})
+      const { fetch, fetchState } = useFetch(async () => {
+              candidate.value = $axios.$get(`/candidates/${slug}`)
+        })
+  },
 })
 </script>
 

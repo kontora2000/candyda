@@ -6,16 +6,14 @@
          </aside>
          <div class="page-wrapper">
             <h1 class="page-header">Новости</h1>
-            <NewsBlockCard />
-            <NewsBlockCard />
-            <NewsBlockCard />
-            <NewsBlockCard />
-            <NewsBlockCard />
-            <NewsBlockCard />
-            <NewsBlockCard />
-            <div class="showmore-btn-wrapper">
-               <btn>Показать больше</btn>
-            </div>
+            <template v-if="posts.length > 0">
+              <NewsBlockCard v-for="post in posts"
+                             :key="post.id"
+                             :post="post"/>
+              <div class="showmore-btn-wrapper" v-if="page === 1">
+                 <btn click="fetchPosts">Показать больше</btn>
+              </div>
+            </template>
          </div>
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
@@ -26,7 +24,6 @@
 </template>
 
 
-
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'
 
@@ -34,6 +31,8 @@ import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn/Btn'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
+import {useAxios} from "@/composition/axios";
+import {usePostList} from "@/composition/posts";
 
 export default defineComponent({
    name:'index',
@@ -42,7 +41,19 @@ export default defineComponent({
       Btn,
       CandidateTop,
       TheFooter
-    }
+    },
+   setup() {
+     const { fetchPosts, posts, page } = usePostList()
+     fetchPosts()
+
+
+     return {
+       fetchPosts,
+       posts,
+       page,
+     }
+  }
+
 })
 </script>
 

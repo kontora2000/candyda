@@ -9,8 +9,6 @@
   </main>
 </template>
 
-
-
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'
 
@@ -27,7 +25,13 @@ export default defineComponent({
      NewsBlock,
      CandidateTop,
      TheFooter,
-   }
+   },
+
+  head() {
+     return {
+       title: process.env.baseTitle + 'Главная'
+     }
+  }
 })
 </script>
 
