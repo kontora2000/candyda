@@ -9,8 +9,8 @@
 
 
 <script lang="ts">
-import TheHeader from '@/components/Generic/Header/TheHeader'
-import BgCircles from '@/components/Generic/Bg/BgCircles'
+import TheHeader from '@/components/Generic/Header/TheHeader.vue'
+import BgCircles from '@/components/Generic/Bg/BgCircles.vue'
 
 import { defineComponent, } from '@nuxtjs/composition-api'
 

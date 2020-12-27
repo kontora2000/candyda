@@ -1,24 +1,32 @@
 <template>
   <nuxt-link to="/news/1" class="news-card-cont card-cont">
     <div class="card-cont-inner">
-      <div class="news-card-pic-wrapper">
-        <img class="news-card-pic" src="" />
+      <div class="news-card-pic-wrapper" v-if="post.image">
+        <img class="news-card-pic" :src="post.image" />
       </div>
       <div class="news-card-content-wrapper">
-        <div class="news-card-header header-6">Госдума рассмотрит в&nbsp;первом чтении законопроект «Единой России» о&nbsp;совершенствовании механизмов расселения аварийного и&nbsp;ветхого жилья</div>
-        <div class="date-publication">20 декабря 2020, в&nbsp;22:30</div>
+        <div class="news-card-header header-6">{{ post.title }}</div>
+        <div class="date-publication">{{ post.date }}</div>
       </div>
     </div>
   </nuxt-link>
 </template>
 
 
-
-<script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+<script lang="ts">
+import { defineComponent, PropType, } from '@nuxtjs/composition-api'
+import  { Post } from "@/modules/types";
 
 export default defineComponent({
   name: 'NewsBlockCard',
+  props: {
+    post: {
+      type: Object as PropType<Post>,
+      default: () => {
+
+      }
+    },
+  },
 })
 </script>
 
