@@ -8,7 +8,7 @@
              v-for="post in posts"
              :key="post.id"
              :post="post"/>
-         <div class="showmore-btn-wrapper">
+         <div class="showmore-btn-wrapper" v-if="page === 2 && isNeedToUpload">
             <btn>Показать больше</btn>
          </div>
       </div>
@@ -33,13 +33,14 @@ export default defineComponent({
       Btn
     },
   setup() {
-    const { fetchPosts, posts, page } = usePostList()
+    const { fetchPosts, posts, page, isNeedToUpload, } = usePostList()
     fetchPosts()
 
     return {
       fetchPosts,
       posts,
       page,
+      isNeedToUpload,
     }
   },
 })

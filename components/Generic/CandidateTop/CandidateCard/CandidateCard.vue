@@ -36,6 +36,7 @@ export default defineComponent({
 
 <style scoped>
 .candidate-card-cont {
+  max-height: 180px;
 }
 
 .candidate-card-ava-small-wrapper {

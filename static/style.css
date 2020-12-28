@@ -35,6 +35,7 @@
     --Black16: rgba(37, 37, 37, .16);
     --Black3: rgba(37, 37, 37, .03);
     --Black0: rgba(37, 37, 37, 0);
+	--Black92: rgba(37,37,37, .92);
 
     --White100: rgba(255, 255, 255, 1);
     --White84: rgba(255, 255, 255, .84);
@@ -56,7 +57,7 @@
     --Azure32: rgba(44, 179, 255, .32);
     --Azure16: rgba(44, 179, 255, .16);
     --Azure6: rgba(44, 179, 255, .06);
-    
+
     --font-default: 'Golos', 'Helvetica', 'Arial', sans-serif;
     --font-serif: 'Wremena', 'Times', 'Times New Roman', serif;
 }

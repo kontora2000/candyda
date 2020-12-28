@@ -6,6 +6,7 @@ import { Candidate, } from "~/modules/types";
 export const useCandidateList = () => {
     const { $axios, error,} = useAxios()
     const page = ref(1)
+    const isNeedToUpload = ref(false)
     const candidates = ref<Candidate[]>([])
     const  fetchCandidates = async () => {
         try {
@@ -21,7 +22,9 @@ export const useCandidateList = () => {
         try {
             const result = await $axios.$get('/candidates/list/' + page.value)
             candidates.value = result.data
-            page.value = page.value + 1
+            isNeedToUpload.value = page.value !== result.total
+            page.value = isNeedToUpload ? page.value : page.value + 1
+
         }
         catch(e) {
             error({ statusCode: e?.response?.status })
