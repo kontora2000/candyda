@@ -29,10 +29,6 @@ export default defineComponent({
   props: {
      candidate: Object as PropType<Candidate>,
   },
-    setup(props) {
-
-       return
-    }
 })
 </script>
 

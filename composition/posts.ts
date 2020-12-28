@@ -19,10 +19,7 @@ export const usePostList = () => {
             error({ statusCode: e?.response?.status })
         }
     })
-
-
-
-
+    
     return {
         posts,
         fetchPosts,

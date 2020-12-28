@@ -23,34 +23,32 @@
 
 
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted, } from '@nuxtjs/composition-api'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
 import Btn from '@/components/Generic/Btn/Btn'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
-import {useCandidateList} from "@/composition/candidates";
+import {useCandidateList,} from '@/composition/candidates';
 
 export default defineComponent({
-   name:'index',
-   components: {
-     CandidateCard,
-     Btn,
-     NewsBlock,
-     TheFooter,
-   },
-  setup() {
-    const { candidates, fetchCandidatesTop, page, isNeedToUpload, } = useCandidateList()
-    fetchCandidatesTop()
-
-    return {
-      candidates,
-      top,
-      isNeedToUpload,
-      page,
-    }
-
-  }
+    name:'index',
+    components: {
+        CandidateCard,
+        Btn,
+        NewsBlock,
+        TheFooter,
+    },
+    setup() {
+        const { candidates, fetchCandidatesTop, page, isNeedToUpload, } = useCandidateList()
+        onMounted(() =>fetchCandidatesTop())
+        return {
+            candidates,
+            top,
+            isNeedToUpload,
+            page,
+        }
+    },
 })
 </script>
 

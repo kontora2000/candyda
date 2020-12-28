@@ -11,6 +11,7 @@ export function useAxios (): any {
 
   const baseURL = process.env.API_URL
 
+
   return {
     $axios,
     baseURL,

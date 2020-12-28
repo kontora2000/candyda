@@ -34,7 +34,7 @@
 
 
 <script>
-import { defineComponent,useContext, } from '@nuxtjs/composition-api'
+import { defineComponent,useContext,onMounted, } from '@nuxtjs/composition-api'
 
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn/Btn'
@@ -53,7 +53,9 @@ export default defineComponent({
     setup() {
         const  { route, } = useContext()
         const { post, fetchPost, } = usePost(route.value.params.slug )
-        fetchPost()
+        onMounted(()=>{
+            fetchPost()
+        })
         return {
             post,
         }

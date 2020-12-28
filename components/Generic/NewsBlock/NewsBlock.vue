@@ -18,31 +18,32 @@
 
 
 <script>
-import { defineComponent, useContext,  } from '@nuxtjs/composition-api'
+import { defineComponent,  onMounted, } from '@nuxtjs/composition-api'
 
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn/Btn'
-import {usePostList} from "@/composition/posts";
-import {useAxios} from "@/composition/axios";
-import  axios from  'axios'
+import {usePostList,} from '@/composition/posts';
+
 
 export default defineComponent({
-   name:'NewsBlock',
-   components: {
-      NewsBlockCard,
-      Btn
+    name:'NewsBlock',
+    components: {
+        NewsBlockCard,
+        Btn,
     },
-  setup() {
-    const { fetchPosts, posts, page, isNeedToUpload, } = usePostList()
-    fetchPosts()
-
-    return {
-      fetchPosts,
-      posts,
-      page,
-      isNeedToUpload,
-    }
-  },
+    ssr: false,
+    setup() {
+        const { fetchPosts, posts, page, isNeedToUpload, } = usePostList()
+        onMounted(async () => {
+            await fetchPosts()
+        })
+        return {
+            fetchPosts,
+            posts,
+            page,
+            isNeedToUpload,
+        }
+    },
 })
 </script>
 
