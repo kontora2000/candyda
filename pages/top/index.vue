@@ -41,7 +41,7 @@ export default defineComponent({
     },
     setup() {
         const { candidates, fetchCandidatesTop, page, isNeedToUpload, } = useCandidateList()
-        onMounted(() =>fetchCandidatesTop())
+        fetchCandidatesTop()
         return {
             candidates,
             top,
