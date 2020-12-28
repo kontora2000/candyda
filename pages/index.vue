@@ -29,7 +29,7 @@ export default defineComponent({
 
   head() {
      return {
-       title: process.env.baseTitle + 'Главная'
+       title: process.env.baseTitle + ' Главная'
      }
   }
 })

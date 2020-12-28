@@ -29,15 +29,11 @@ export default defineComponent({
      Btn,
    },
     setup() {
-      const { candidates, fetchCandidatesTop, } = useCandidateList()
-      const { redirect, } = useContext()
-      fetchCandidatesTop()
-      return {
-        candidates,
-        fetchCandidatesTop,
-        redirect,
-       }
-    },
+       const { fetchCandidatesTop, candidates } = useCandidateList()
+        return {
+         candidates
+        }
+    }
 })
 </script>
 

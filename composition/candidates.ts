@@ -7,18 +7,20 @@ export const useCandidateList = () => {
     const { $axios, error,} = useAxios()
     const page = ref(1)
     const candidates = ref<Candidate[]>([])
-    const { fetch: fetchCandidates } = useFetch(async () => {
+    const  fetchCandidates = async () => {
         try {
             candidates.value = await $axios.$get('/candidates/list/' + page)
             page.value = page.value + 1
+            return candidates.value
         }
         catch(e) {
             error({ statusCode: e?.response?.status })
         }
-    })
+    }
     const { fetch: fetchCandidatesTop } = useFetch(async () => {
         try {
-            candidates.value = await $axios.$get('/candidates/top/' + page)
+            const result = await $axios.$get('/candidates/list/' + page.value)
+            candidates.value = result.data
             page.value = page.value + 1
         }
         catch(e) {
@@ -30,6 +32,7 @@ export const useCandidateList = () => {
         fetchCandidates,
         fetchCandidatesTop,
         candidates,
+        page,
     }
 }
 

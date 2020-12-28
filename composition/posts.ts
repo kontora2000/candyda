@@ -9,7 +9,9 @@ export const usePostList = () => {
     const posts = ref<Post[]>([])
     const { fetch: fetchPosts } = useFetch(async () => {
         try {
-            posts.value = await $axios.$get('/post/list/' + page)
+            const result = await $axios.get('/post/list/' + page.value )
+
+            posts.value = result.data.data
             page.value = page.value + 1
         }
         catch(e) {

@@ -15,6 +15,7 @@ export interface Post {
 export interface Candidate {
   id: number | null;
   name: string;
+  surname: string;
   status: string;
   slug: string;
   partID: number | null;

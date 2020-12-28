@@ -50,6 +50,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: process.env.API_URL|| 'http://api.duma.one/api'
   },
   /*
   ** Build configuration
@@ -57,6 +58,7 @@ export default {
   build: {
 
     extend (config, ctx) {
+      config.devtool = 'source-map'
     }
   },
   env: {

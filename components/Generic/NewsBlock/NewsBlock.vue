@@ -6,7 +6,8 @@
       <div class="news-block-cards-wrapper block-cards-wrapper">
          <NewsBlockCard
              v-for="post in posts"
-             post="post"/>
+             :key="post.id"
+             :post="post"/>
          <div class="showmore-btn-wrapper">
             <btn>Показать больше</btn>
          </div>
@@ -17,11 +18,13 @@
 
 
 <script>
-import { defineComponent, useContext, } from '@nuxtjs/composition-api'
+import { defineComponent, useContext,  } from '@nuxtjs/composition-api'
 
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn/Btn'
 import {usePostList} from "@/composition/posts";
+import {useAxios} from "@/composition/axios";
+import  axios from  'axios'
 
 export default defineComponent({
    name:'NewsBlock',
@@ -33,13 +36,12 @@ export default defineComponent({
     const { fetchPosts, posts, page } = usePostList()
     fetchPosts()
 
-
     return {
       fetchPosts,
       posts,
       page,
     }
-  }
+  },
 })
 </script>
 

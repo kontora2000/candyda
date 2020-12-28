@@ -1,8 +1,8 @@
 <template>
-  <nuxt-link to="/news/1" class="news-card-cont card-cont">
+  <nuxt-link :to="`/news/${post.slug}`" class="news-card-cont card-cont">
     <div class="card-cont-inner">
-      <div class="news-card-pic-wrapper" v-if="post.image">
-        <img class="news-card-pic" :src="post.image" />
+      <div class="news-card-pic-wrapper" v-if="post.image.src">
+        <img class="news-card-pic" :src="post.image.src" />
       </div>
       <div class="news-card-content-wrapper">
         <div class="news-card-header header-6">{{ post.title }}</div>
@@ -11,7 +11,6 @@
     </div>
   </nuxt-link>
 </template>
-
 
 <script lang="ts">
 import { defineComponent, PropType, } from '@nuxtjs/composition-api'
@@ -23,13 +22,11 @@ export default defineComponent({
     post: {
       type: Object as PropType<Post>,
       default: () => {
-
       }
     },
   },
 })
 </script>
-
 
 
 <style scoped>
@@ -55,9 +52,6 @@ export default defineComponent({
 
 }
 
-.news-card-pic {
-
-}
 
 .news-card-content-wrapper {
   display: flex;
