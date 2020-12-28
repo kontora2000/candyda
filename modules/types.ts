@@ -41,6 +41,8 @@ export interface PostTag {
 export interface Image {
   id: number;
   src: string;
+  description: string;
+  source: string;
 }
 
 export interface PageResponse {

@@ -1,7 +1,7 @@
 <template>
-   <nuxt-link to="/candidate" class="candidate-card-cont card-cont" v-if="candidate.avatar">
+   <nuxt-link :to="`/candidate/${candidate.slug}`" class="candidate-card-cont card-cont" v-if="candidate.avatar">
       <div class="card-cont-inner">
-         <VoteButton />
+         <VoteButton :votes="candidate.votes || 0" />
          <div class="candidate-card-name-wrapper header-6">
             <div class="candidate-name">{{ candidate.name }}</div>
             <div class="candidate-surname">{{ candidate.surname }}</div>
@@ -18,8 +18,8 @@
 <script lang="ts">
 import { defineComponent, PropType, } from '@nuxtjs/composition-api'
 
-import VoteButton from '@/components/Generic/CandidateTop/CandidateCard/CandidateCardVoteButton'
-import {Candidate} from "../../../../modules/types";
+import VoteButton from '@/components/Generic/CandidateTop/CandidateCard/CandidateCardVoteButton.vue'
+import {Candidate, } from '../../../../modules/types'
 
 export default defineComponent({
    name:'CandidateCard',
@@ -29,10 +29,12 @@ export default defineComponent({
   props: {
      candidate: Object as PropType<Candidate>,
   },
+    setup(props) {
+
+       return
+    }
 })
 </script>
-
-
 
 <style scoped>
 .candidate-card-cont {

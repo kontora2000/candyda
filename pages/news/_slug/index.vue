@@ -34,32 +34,30 @@
 
 
 <script>
-import { defineComponent,useContext } from '@nuxtjs/composition-api'
+import { defineComponent,useContext, } from '@nuxtjs/composition-api'
 
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn/Btn'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
-import {usePost} from "@/composition/post";
+import {usePost,} from '@/composition/post';
 
 export default defineComponent({
-   name:'index',
-   components: {
-      NewsBlockCard,
-      Btn,
-      CandidateTop,
-      TheFooter
+    name:'index',
+    components: {
+        NewsBlockCard,
+        Btn,
+        CandidateTop,
+        TheFooter,
     },
-   setup() {
-     const  { route } = useContext()
-     const { post, fetchPost, } = usePost(route.value.params.slug )
-
-     fetchPost()
-
-     return {
-       post,
-     }
-   }
+    setup() {
+        const  { route, } = useContext()
+        const { post, fetchPost, } = usePost(route.value.params.slug )
+        fetchPost()
+        return {
+            post,
+        }
+    },
 })
 </script>
 

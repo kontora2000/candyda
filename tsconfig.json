@@ -3,6 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
+    "noImplicitAny": false,
     "lib": [
       "esnext",
       "esnext.asynciterable",

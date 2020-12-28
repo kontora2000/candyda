@@ -7,7 +7,7 @@
          <CandidateCard v-for="candidate in candidates"
                         :key="candidate.id"
                         :candidate="candidate"/>
-         <div class="showmore-btn-wrapper" v-if="page === 1">
+         <div class="showmore-btn-wrapper">
             <btn @click="redirect('/top')">Смотреть весь&nbsp;топ</btn>
          </div>
       </div>
@@ -16,23 +16,26 @@
 
 
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+import { defineComponent, useContext, } from '@nuxtjs/composition-api'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
 import Btn from '@/components/Generic/Btn/Btn'
-import {useCandidateList} from "@/composition/candidates";
+import {useCandidateList,} from '@/composition/candidates';
 
 export default defineComponent({
-   name:'CandidateTop',
-   components: {
-     CandidateCard,
-     Btn,
-   },
+    name:'CandidateTop',
+    components: {
+        CandidateCard,
+        Btn,
+    },
     setup() {
-      const { fetchCandidatesTop, candidates, page, } = useCandidateList()
-      return {
-         candidates,
-          page,
+        const { redirect, } = useContext()
+        const { fetchCandidatesTop, candidates, page, } = useCandidateList()
+        fetchCandidatesTop()
+        return {
+            candidates,
+            page,
+            redirect,
         }
     },
 })

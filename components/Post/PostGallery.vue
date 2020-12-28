@@ -25,7 +25,7 @@
 
 
 <script lang="ts">
-import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import { defineComponent, PropType, ref, computed } from '@nuxtjs/composition-api'
 
 import {Image} from "~/modules/types";
 import {useToggle} from "~/composition/toggle";
@@ -33,8 +33,10 @@ import {useToggle} from "~/composition/toggle";
 export default defineComponent({
   name:'PostGallery',
   props: {
-    images: Array as PropType<Image>,
-    default: () => [],
+    images: {
+        type: Array as PropType<Image[]>,
+        default: () => [],
+    }
   },
   setup(props) {
     const pos = ref(0)
@@ -42,12 +44,11 @@ export default defineComponent({
     const imgCount = computed(() => {
       return props.images.length
     })
-    const { isVisible, close } = useToggle()
+    const { isVisible, hide:close } = useToggle()
     const left = () => {
         pos.value = pos.value > props.images.length ? props.images.length : pos.value - 1
         currentImage.value = props.images[pos.value]
     }
-
     const right = () => {
         pos.value = pos.value > props.images.length ? props.images.length : pos.value + 1
         currentImage.value = props.images[pos.value]

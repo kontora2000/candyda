@@ -12,6 +12,9 @@ export const usePost = (slug: any) => {
     post.value = await $axios.$get( '/post/' + slug)
   })
 
+
+
+
   return {
     post,
     fetchPost,

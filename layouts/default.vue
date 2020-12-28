@@ -1,6 +1,6 @@
 <template>
   <div class="layout-inner grid-main">
-    <BgCircles />
+<!--    <BgCircles />-->
     <TheHeader />
     <nuxt />
   </div>
@@ -16,9 +16,9 @@ import { defineComponent, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
     components: {
-      BgCircles,
-      TheHeader,
-    }
+        BgCircles,
+        TheHeader,
+    },
 })
 </script>
 
