@@ -1,10 +1,13 @@
-import { ref, useFetch, } from '@nuxtjs/composition-api'
+import {ref, useContext, useFetch,} from '@nuxtjs/composition-api'
 import { Post, } from '../modules/types'
 import {useAxios} from "~/composition/axios";
 import moment from  'moment'
 
-export const usePost = (slug: any) => {
+export const usePost = () => {
   const { $axios, error} = useAxios()
+
+  const { route,} = useContext()
+  const slug=route.value.params.slug
 
   const postDate = ref()
 

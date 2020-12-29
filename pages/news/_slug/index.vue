@@ -51,12 +51,11 @@ export default defineComponent({
         CandidateTop,
         TheFooter,
     },
+    ssr: false,
     setup() {
         const  { route, } = useContext()
-        const { post, fetchPost, postDate, } = usePost(route.value.params.slug )
-        onMounted(()=>{
-            fetchPost()
-        })
+        const { post, fetchPost, postDate, } = usePost()
+        fetchPost()
         return {
             post,
             postDate,
