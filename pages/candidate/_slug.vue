@@ -5,28 +5,33 @@
             <div class="breadcrumbs-news breadcrumbs"><a class="link-underline-solid" href="#">Туапсинский округ</a> / <a class="link-underline-solid" href="#">Геленджик</a> / <a class="link-underline-solid" href="#">Кандидаты</a></div>
          </aside>
          <div class="candidate-wrapper">
-            <div class="candidate-ava">
-              <img class="candidate-ava-img"
-                   :src="candidate.image.src" /></div>
+            <div class="candidate-ava" v-if="candidate.avatar">
+              <img class="candidate-ava-img"  :src="candidate.avatar.src" />
+            </div>
             <div class="candidate-info-wrapper">
-               <h2 class="page-candidate-header">{{ candidate.name }}</h2>
+               <h2 class="page-candidate-header">{{ candidate.fullname }}</h2>
                <div class="candidate-status-wrapper candidate-info-row">
                   <span class="candidate-status">{{  candidate.status }}</span>
                </div>
                <div class="candidate-rating-wrapper candidate-info-row">
                   <div class="candidate-rating">
                      <span class="candidate-top-rating">ТОП-6</span>
-                     <span class="candidate-top-votes">20&hairsp;105<sup>голосов</sup></span>
+                     <span class="candidate-top-votes">{{ candidate.votes }}<sup>{{ votesText }}</sup></span>
                   </div>
                   <div class="candidate-vote-button-wrapper">
-                     <btn class="vote-button">Проголосовать</btn>
+                     <btn class="vote-button"
+                          :disabled="isVoted"
+                          :loading="isLoading"
+                          @click.prevent="onVote">
+                         Проголосовать
+                     </btn>
                   </div>
                </div>
-               <div class="candidate-age candidate-info-row">Родился {{ candiate.birthday }}</div>
-               <div class="candidate-edu candidate-info-row">
-                  <div class="candidate-info-row-header">Образование</div>
-                  <div class="candidate-info-row-content" style="display: none">
-                     Государственный морской университет имени адмирала Ушакова<sup class="candidate-edu-end">2013</sup>
+               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthdate }}</div>
+               <div class="candidate-edu candidate-info-row" v-if="candidate.party">
+                  <div class="candidate-info-row-header">Партия</div>
+                  <div class="candidate-info-row-content" >
+                    {{ candidate.party.name }}
                   </div>
                </div>
                <div class="candidate-edu candidate-info-row" style="display: none;">
@@ -53,30 +58,49 @@
 
 
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+import { defineComponent, useContext, onMounted, computed, } from '@nuxtjs/composition-api'
 
 import Btn from '@/components/Generic/Btn/Btn'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
-import {useAxios} from "@/composition/axios";
+
+import { useCandidate,} from '@/composition/candidate'
+import { useVotes, } from '@/composition/votes'
+import { useHelpers,} from '@/composition/helpers'
 
 export default defineComponent({
-   name:'_id',
-   components: {
-      Btn,
-      NewsBlock,
-      CandidateTop,
-      TheFooter,
-   },
-  setup() {
-      const { $axios, } = useAxios()
-      const { params, } = useContext()
-      const candidate = ref({})
-      const { fetch, fetchState } = useFetch(async () => {
-              candidate.value = $axios.$get(`/candidates/${slug}`)
-        })
-  },
+    transition: 'fade',
+    components: {
+        Btn,
+        NewsBlock,
+        CandidateTop,
+        TheFooter,
+    },
+    setup() {
+        const { route, error, } = useContext()
+        if (route.value?.params?.slug && route.value?.params?.slug.trim()!=='')   {
+            const { candidate, fetchCandidate,} = useCandidate(route.value.params.slug)
+            fetchCandidate()
+            const { onVote, isVoted, isLoading, } = useVotes(candidate.value)
+            isVoted.value = false
+            const { numWord, } = useHelpers()
+            const votesText = computed( () => numWord(candidate.value.votes, ['голос', 'голоса', 'голосов']))
+            onMounted(()=>{
+                isVoted.value  = localStorage.getItem(`${candidate.value.id}${candidate.value.slug}`) || false
+            })
+            return {
+                candidate,
+                isVoted,
+                onVote,
+                votesText,
+                isLoading,
+            }
+        }
+        else {
+            error( { statusCode: 404, })
+        }
+    },
 })
 </script>
 

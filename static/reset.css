@@ -58,3 +58,6 @@ select {
   font: inherit;
 }
 
+button:active, button:focus{
+  outline: none;
+}

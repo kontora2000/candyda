@@ -1,7 +1,7 @@
 {
-  "name": "candyda",
+  "name": "Duma.one",
   "version": "1.0.0",
-  "description": "very coll website",
+  "description": "",
   "author": "kontora",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/composition-api": "^0.16.4",
     "create-nuxt-app": "^3.4.0",
+    "moment": "^2.29.1",
     "nuxt": "^2.0.0",
     "vue": "^2.6.12"
   },

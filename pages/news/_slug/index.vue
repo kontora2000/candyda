@@ -3,28 +3,26 @@
       <article class="page-news-wrapper page-content-wrapper grid-main">
          <aside class="page-aside-wrapper">
             <div class="breadcrumbs-news breadcrumbs"><a class="link-underline-solid" href="#">Туапсинский округ</a> / <a class="link-underline-solid" href="#">Геленджик</a> / <a class="link-underline-solid" href="#">Новости</a></div>
-            <div class="date-publication">5&nbsp;декабря 2020, в&nbsp;12:20</div>
+            <div class="date-publication">{{ postDate }}</div>
          </aside>
-         <h2 class="article-header">Госдума рассмотрит в&nbsp;первом чтении законопроект «Единой России» о&nbsp;cовершенствовании механизмов расселения аварийного и&nbsp;ветхого жилья</h2>
-         <div class="news-cover-wrapper">
+         <h2 class="article-header">{{
+             post.title
+           }}</h2>
+         <div class="news-cover-wrapper" v-if="post.image">
             <div class="news-cover">
-               <img class="news-cover-img" src="https://avatars.mds.yandex.net/get-kinopoisk-post-img/1539913/326998cf83ceda4d1515382ca9c7f131/1920x1080" />
+               <img class="news-cover-img" :src="post.image.src" />
             </div>
             <div class="news-cover-comment-wrapper">
-               <div class="news-cover-comment">Коммент к обложке новости</div>
-               <div class="news-cover-copyright text-small">Копирайт</div>
+               <div class="news-cover-comment">{{ post.image.description }}</div>
+               <div class="news-cover-copyright text-small">{{ post.image.source }}</div>
             </div>
          </div>
          <div class="article-paragraphs">
-            <p>Государственная дума одобрила закон о поправке в Конституцию. За проголосовали 383 депутата, высказавшихся против не было, воздержались 43. Документ поступил в нижнюю палату 20 января. Изложенные в нем предложения направлены на закрепление основ конституционного строя, прав и свобод человека и гражданина. Законопроектом также вводится новая процедура — общероссийское голосование.</p>
-            <p>Во время подготовки ко второму чтению в профильный комитет Думы по госстроительству и законодательству поступили почти 400 поправок от всех фракций, из них около 200 учли, а 175 рекомендовали к отклонению.</p>
-            <p>Как конституционные поправки будут вступать в силу. После Госдумы их должен одобрить Совфед, а потом две трети региональных Заксобраний. Затем глава государства подписывает и публикует поправки.</p>
-            <p>Сначала вступает в силу третья статья: она требует от президента направить поправки в Конституционный суд. Там за семь дней решают, соответствует ли закон Конституции, и если не соответствует — вопрос закрыт.</p>
+            {{ post.content }}
          </div>
          <div class="tags-wrapper">
-            <a class="button tag" href="#">Тэг</a>
-            <a class="button tag" href="#">Тэг2</a>
-            <a class="button tag" href="#">Тэгтэгтэг</a>
+            <a class="button tag"
+               v-for="tag in post.tags" :key="tag.id" >{{ tag.name }}</a>
          </div>
       </article>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
@@ -37,21 +35,33 @@
 
 
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+import { defineComponent,useContext,onMounted, } from '@nuxtjs/composition-api'
 
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn/Btn'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
+import {usePost,} from '@/composition/post';
 
 export default defineComponent({
-   name:'index',
-   components: {
-      NewsBlockCard,
-      Btn,
-      CandidateTop,
-      TheFooter
-    }
+    name:'index',
+    components: {
+        NewsBlockCard,
+        Btn,
+        CandidateTop,
+        TheFooter,
+    },
+    setup() {
+        const  { route, } = useContext()
+        const { post, fetchPost, postDate, } = usePost(route.value.params.slug )
+        onMounted(()=>{
+            fetchPost()
+        })
+        return {
+            post,
+            postDate,
+        }
+    },
 })
 </script>
 

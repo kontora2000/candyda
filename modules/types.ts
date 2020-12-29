@@ -10,11 +10,14 @@ export interface Post {
   galleryID: number | null;
   locationID: number | null;
   tags: Tag[];
+  date: string;
+  created_at: string;
 }
 
 export interface Candidate {
   id: number | null;
   name: string;
+  surname: string;
   status: string;
   slug: string;
   partID: number | null;
@@ -25,6 +28,8 @@ export interface Candidate {
   gallery: Image[],
   description: string;
   tagID: number | null;
+  created_at: string;
+  birthdate: string;
 }
 
 export interface Tag {
@@ -40,6 +45,8 @@ export interface PostTag {
 export interface Image {
   id: number;
   src: string;
+  description: string;
+  source: string;
 }
 
 export interface PageResponse {

@@ -1,13 +1,13 @@
 <template>
-   <nuxt-link to="/candidate" class="candidate-card-cont card-cont">
+   <nuxt-link :to="`/candidate/${candidate.slug}`" class="candidate-card-cont card-cont" v-if="candidate.avatar">
       <div class="card-cont-inner">
-         <VoteButton />
+         <VoteButton :votes="candidate.votes || 0" />
          <div class="candidate-card-name-wrapper header-6">
-            <div class="candidate-name">Валерий</div>
-            <div class="candidate-surname">Сафонов</div>
+            <div class="candidate-name">{{ candidate.name }}</div>
+            <div class="candidate-surname">{{ candidate.surname }}</div>
          </div>
          <div class="candidate-avatar-wrapper candidate-card-ava-small-wrapper">
-            <img class="candidate-ava-small" src="http://er-gosduma.ru/bitrix/cache/s1/virtus/image.show/224w_248h_clipBOTH/upload/iblock/2ab/Milonov.jpg" />
+            <img class="candidate-ava-small" :src="candidate.avatar.src" />
          </div>
       </div>
    </nuxt-link>
@@ -15,23 +15,26 @@
 
 
 
-<script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+<script lang="ts">
+import { defineComponent, PropType, } from '@nuxtjs/composition-api'
 
-import VoteButton from '@/components/Generic/CandidateTop/CandidateCard/CandidateCardVoteButton'
+import VoteButton from '@/components/Generic/CandidateTop/CandidateCard/CandidateCardVoteButton.vue'
+import {Candidate, } from '../../../../modules/types'
 
 export default defineComponent({
    name:'CandidateCard',
    components: {
      VoteButton,
-   }
+   },
+  props: {
+     candidate: Object as PropType<Candidate>,
+  },
 })
 </script>
 
-
-
 <style scoped>
 .candidate-card-cont {
+  max-height: 180px;
 }
 
 .candidate-card-ava-small-wrapper {

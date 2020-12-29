@@ -35,6 +35,7 @@
     --Black16: rgba(37, 37, 37, .16);
     --Black3: rgba(37, 37, 37, .03);
     --Black0: rgba(37, 37, 37, 0);
+	--Black92: rgba(37,37,37, .92);
 
     --White100: rgba(255, 255, 255, 1);
     --White84: rgba(255, 255, 255, .84);
@@ -57,7 +58,7 @@
 	--Azure16: rgba(44, 179, 255, .16);
 	--Azure12: rgba(44, 179, 255, .12);
     --Azure6: rgba(44, 179, 255, .06);
-    
+
     --font-default: 'Golos', 'Helvetica', 'Arial', sans-serif;
     --font-serif: 'Wremena', 'Times', 'Times New Roman', serif;
 }
@@ -319,7 +320,6 @@ ul {
 }
 
 
-
 .grid-main {
     display: grid;
     grid-template-columns: repeat(32, calc((100vw - 49.6rem - 1.6rem) / 32));
@@ -330,6 +330,8 @@ main {
     grid-column: 1/33;
     margin-top: 12rem;
 }
+
+
 
 
 
@@ -355,7 +357,6 @@ grid-column: 9/28;
 .page-bottom-wrapper {
     margin-top: 12rem;
 }
-
 
 
 .cont-wrapper {
@@ -462,6 +463,7 @@ grid-column: 9/28;
 	display: inline-block;
 	margin-right: .2rem;
 }
+
 
 
 /*   У Д А Л И Т Ь   П О Т О М   */

@@ -6,8 +6,9 @@
       <div class="news-block-cards-wrapper block-cards-wrapper">
          <NewsBlockCard
              v-for="post in posts"
-             post="post"/>
-         <div class="showmore-btn-wrapper">
+             :key="post.id"
+             :post="post"/>
+         <div class="showmore-btn-wrapper" v-if="page === 2 && isNeedToUpload">
             <btn>Показать больше</btn>
          </div>
       </div>
@@ -17,29 +18,32 @@
 
 
 <script>
-import { defineComponent, useContext, } from '@nuxtjs/composition-api'
+import { defineComponent,  onMounted, } from '@nuxtjs/composition-api'
 
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn/Btn'
-import {usePostList} from "@/composition/posts";
+import {usePostList,} from '@/composition/posts';
+
 
 export default defineComponent({
-   name:'NewsBlock',
-   components: {
-      NewsBlockCard,
-      Btn
+    name:'NewsBlock',
+    components: {
+        NewsBlockCard,
+        Btn,
     },
-  setup() {
-    const { fetchPosts, posts, page } = usePostList()
-    fetchPosts()
-
-
-    return {
-      fetchPosts,
-      posts,
-      page,
-    }
-  }
+    ssr: false,
+    setup() {
+        const { fetchPosts, posts, page, isNeedToUpload, } = usePostList()
+        onMounted(async () => {
+            await fetchPosts()
+        })
+        return {
+            fetchPosts,
+            posts,
+            page,
+            isNeedToUpload,
+        }
+    },
 })
 </script>
 

@@ -6,7 +6,6 @@
             </div>
             <div class="page-wrapper">
             <h1 class="page-header">Страница не найдена</h1>
-            <p>кек</p>
             </div>
         </div>
     </div>
@@ -16,9 +15,9 @@
 import { defineComponent, } from '@nuxtjs/composition-api'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
 export default defineComponent({
-   name:'error',
-   components: {
-      TheFooter
+    name:'error',
+    components: {
+        TheFooter,
     },
 })
 </script>

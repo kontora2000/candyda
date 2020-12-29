@@ -1,24 +1,37 @@
 <template>
    <div class="votes-counter-small-wrapper">
-      <div class="votes-counter-small">
+      <div class="votes-counter-small"
+           :class="{ 'voted': isVoted }"
+           @click.prevent="$emit('vote')">
          <span class="icon icon-votes-counter">
             <use xlink:href="/static/sprite.svg#icon-check" />
          </span>
-         <span class="votes-counter-small-digits">20&hairsp;000</span>
+         <span class="votes-counter-small-digits">{{ votes }}</span>
       </div>
    </div>
 </template>
 
-
-
-<script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+<script lang="ts">
+import { defineComponent, PropType, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-   name:'VoteButton',
+    name:'VoteButton',
+    props: {
+        votes: {
+            type: Number as PropType<number>,
+            required: true,
+        },
+        isLoading: {
+            type: Boolean as PropType<boolean>,
+            default: false,
+        },
+        isVoted: {
+            type: Boolean as PropType<boolean>,
+            default: false,
+        }
+    },
 })
 </script>
-
 
 
 <style scoped>

@@ -5,8 +5,8 @@
             <div class="page-content-filter-wrapper"></div>
          </aside>
          <div class="page-wrapper">
-            <h1 class="page-header">О&nbsp;проекте</h1>
-            <p>кек</p>
+            <h1 class="page-header">О нас</h1>
+             <p>Lorem ipsum dolor sit amet</p>
          </div>
       </div>
       <div class="page-bottom-wrapper grid-main">
@@ -27,12 +27,15 @@ import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
 
 export default defineComponent({
-   name:'about',
-   components: {
-      NewsBlock,
-      CandidateTop,
-      TheFooter,
-   }
+    name:'about',
+    components: {
+        NewsBlock,
+        CandidateTop,
+        TheFooter,
+    },
+    async asyncData({$axios,}) {
+
+    },
 })
 </script>
 

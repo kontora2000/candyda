@@ -13,30 +13,28 @@
       </div>
    </div>
 </template>
-
-
 <script>
-import { useContext, defineComponent, } from '@nuxtjs/composition-api'
+import { defineComponent, useContext, onMounted, } from '@nuxtjs/composition-api'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
 import Btn from '@/components/Generic/Btn/Btn'
-import {useCandidateList} from "@/composition/candidates";
+import {useCandidateList,} from '@/composition/candidates';
 
 export default defineComponent({
-   name:'CandidateTop',
-   components: {
-     CandidateCard,
-     Btn,
-   },
+    name:'CandidateTop',
+    components: {
+        CandidateCard,
+        Btn,
+    },
     setup() {
-      const { candidates, fetchCandidatesTop, } = useCandidateList()
-      const { redirect, } = useContext()
-      fetchCandidatesTop()
-      return {
-        candidates,
-        fetchCandidatesTop,
-        redirect,
-       }
+        const { redirect, } = useContext()
+        const { fetchCandidatesTop, candidates, page, } = useCandidateList()
+        fetchCandidatesTop()
+        return {
+            candidates,
+            page,
+            redirect,
+        }
     },
 })
 </script>

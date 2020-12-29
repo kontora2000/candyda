@@ -18,20 +18,20 @@ import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
 
 export default defineComponent({
-   name:'index',
-   transition: 'fade',
-   components: {
-     MainMap,
-     NewsBlock,
-     CandidateTop,
-     TheFooter,
-   },
+    name:'index',
+    transition: 'fade',
+    components: {
+        MainMap,
+        NewsBlock,
+        CandidateTop,
+        TheFooter,
+    },
 
-  head() {
-     return {
-       title: process.env.baseTitle + 'Главная'
-     }
-  }
+    head() {
+        return {
+            title: process.env.baseTitle + ' Главная',
+        }
+    },
 })
 </script>
 
