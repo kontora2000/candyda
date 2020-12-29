@@ -36,6 +36,7 @@ export default defineComponent({
 .news-card-cont {
   grid-column: span 7;
   height: 28rem;
+  overflow: hidden;
 }
 .news-card-cont:first-child {
   grid-column: span 14;

@@ -90,6 +90,17 @@ article .date-publication {
    width: 100%;
 }
 
+.news-cover-img {
+   width: 100%;
+   height: 100%;
+   max-height: 64rem;
+   object-fit: cover;
+}
+
+.news-cover-comment-wrapper {
+   margin-top: .8rem;
+}
+
 .news-cover-copyright {
    color: var(--Black32);
 }

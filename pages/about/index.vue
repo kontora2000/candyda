@@ -5,7 +5,7 @@
             <div class="page-content-filter-wrapper"></div>
          </aside>
          <div class="page-wrapper">
-            <h1 class="page-header">О нас</h1>
+            <h1 class="page-header">О проекте</h1>
              <p>Lorem ipsum dolor sit amet</p>
          </div>
       </div>
