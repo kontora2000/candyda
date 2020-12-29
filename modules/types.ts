@@ -10,6 +10,8 @@ export interface Post {
   galleryID: number | null;
   locationID: number | null;
   tags: Tag[];
+  date: string;
+  created_at: string;
 }
 
 export interface Candidate {
@@ -26,6 +28,8 @@ export interface Candidate {
   gallery: Image[],
   description: string;
   tagID: number | null;
+  created_at: string;
+  birthdate: string;
 }
 
 export interface Tag {

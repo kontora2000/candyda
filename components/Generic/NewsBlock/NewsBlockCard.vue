@@ -1,8 +1,8 @@
 <template>
-  <nuxt-link to="/news/1" class="news-card-cont card-cont">
+  <nuxt-link :to="`/news/${post.slug}`" class="news-card-cont card-cont">
     <div class="card-cont-inner">
       <div class="news-card-pic-wrapper" v-if="post.image">
-        <img class="news-card-pic" :src="post.image" />
+        <img class="news-card-pic" :src="post.image.src" />
       </div>
       <div class="news-card-content-wrapper">
         <div class="news-card-header header-6">{{ post.title }}</div>

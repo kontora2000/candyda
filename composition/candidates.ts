@@ -24,7 +24,6 @@ export const useCandidateList = () => {
             candidates.value = result.data
             isNeedToUpload.value = page.value !== result.total
             page.value = isNeedToUpload ? page.value : page.value + 1
-
         }
         catch(e) {
             error({ statusCode: e?.response?.status })

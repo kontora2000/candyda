@@ -1,5 +1,5 @@
 <template>
-   <button v-if="loading"
+   <button v-if="!loading"
            :disabled="loading || disabled"
            @click.prevent="$emit('click', $event)">
        <slot />

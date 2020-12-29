@@ -29,9 +29,7 @@ export default defineComponent({
     setup() {
         const { redirect, } = useContext()
         const { fetchCandidatesTop, candidates, page, } = useCandidateList()
-        onMounted(async () => {
-            await fetchCandidatesTop()
-        })
+        fetchCandidatesTop()
         return {
             candidates,
             page,

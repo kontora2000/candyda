@@ -21,16 +21,17 @@
                   <div class="candidate-vote-button-wrapper">
                      <btn class="vote-button"
                           :disabled="isVoted"
+                          :loading="isLoading"
                           @click.prevent="onVote">
                          Проголосовать
                      </btn>
                   </div>
                </div>
-               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthday }}</div>
-               <div class="candidate-edu candidate-info-row">
-                  <div class="candidate-info-row-header">Образование</div>
-                  <div class="candidate-info-row-content" style="display: none">
-                     Государственный морской университет имени адмирала Ушакова<sup class="candidate-edu-end">2013</sup>
+               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthdate }}</div>
+               <div class="candidate-edu candidate-info-row" v-if="candidate.party">
+                  <div class="candidate-info-row-header">Партия</div>
+                  <div class="candidate-info-row-content" >
+                    {{ candidate.party.name }}
                   </div>
                </div>
                <div class="candidate-edu candidate-info-row" style="display: none;">
@@ -81,18 +82,19 @@ export default defineComponent({
         if (route.value?.params?.slug && route.value?.params?.slug.trim()!=='')   {
             const { candidate, fetchCandidate,} = useCandidate(route.value.params.slug)
             fetchCandidate()
-            const { onVote, isVoted, } = useVotes(candidate)
+            const { onVote, isVoted, isLoading, } = useVotes(candidate.value)
             isVoted.value = false
             const { numWord, } = useHelpers()
-            const votesText = computed( () => numWord(candidate.votes, ['голос', 'голоса', 'голосов']))
+            const votesText = computed( () => numWord(candidate.value.votes, ['голос', 'голоса', 'голосов']))
             onMounted(()=>{
-                isVoted.value  = localStorage.getItem(`${candidate.id}${candidate.slug}`) || false
+                isVoted.value  = localStorage.getItem(`${candidate.value.id}${candidate.value.slug}`) || false
             })
             return {
                 candidate,
                 isVoted,
                 onVote,
                 votesText,
+                isLoading,
             }
         }
         else {

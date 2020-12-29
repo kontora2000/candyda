@@ -3,7 +3,7 @@
       <article class="page-news-wrapper page-content-wrapper grid-main">
          <aside class="page-aside-wrapper">
             <div class="breadcrumbs-news breadcrumbs"><a class="link-underline-solid" href="#">Туапсинский округ</a> / <a class="link-underline-solid" href="#">Геленджик</a> / <a class="link-underline-solid" href="#">Новости</a></div>
-            <div class="date-publication">5&nbsp;декабря 2020, в&nbsp;12:20</div>
+            <div class="date-publication">{{ postDate }}</div>
          </aside>
          <h2 class="article-header">{{
              post.title
@@ -21,7 +21,8 @@
             {{ post.content }}
          </div>
          <div class="tags-wrapper">
-            <a v-for="tag in post.tags" :key="tag.id" >{{ tag.name }}</a>
+            <a class="button tag"
+               v-for="tag in post.tags" :key="tag.id" >{{ tag.name }}</a>
          </div>
       </article>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
@@ -52,12 +53,13 @@ export default defineComponent({
     },
     setup() {
         const  { route, } = useContext()
-        const { post, fetchPost, } = usePost(route.value.params.slug )
+        const { post, fetchPost, postDate, } = usePost(route.value.params.slug )
         onMounted(()=>{
             fetchPost()
         })
         return {
             post,
+            postDate,
         }
     },
 })

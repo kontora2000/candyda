@@ -1,8 +1,7 @@
 import {ref, computed, useFetch,} from '@nuxtjs/composition-api'
 import { Candidate, } from '@/modules/types.ts'
-import { useSnackbar, } from '~/composition/snackbar'
 import { useAxios, } from './axios'
-import {useVotes} from "~/composition/votes";
+import moment from 'moment'
 
 export const useCandidate = (slug: string) => {
   const { $axios, error } = useAxios()
@@ -12,13 +11,16 @@ export const useCandidate = (slug: string) => {
       const response = await $axios.get('/candidates/' + slug)
       if (response.status === 200) {
         candidate.value = response.data
+        if (!candidate.value.slug) error({ statusCode:404, message:'Страниц не найдена' })
+        moment.locale('ru')
+        candidate.value.birthdate = moment(candidate.value.birthdate).format('D MMMM YYYY')
       }
       else {
         error({ statusCode: response.status, message:'Не удалось загрузить данные кандидата, попробуйте позже' })
       }
     } catch (e) {
       console.error(e)
-      error({ statusCode: e?.response?.status, message:'Не удалось загрузить данные кандидата, попробуйте позже' })
+      error({ statusCode:404, message:'Страниц не найдена' })
     }
   })
 

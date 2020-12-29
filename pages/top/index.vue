@@ -44,7 +44,6 @@ export default defineComponent({
         fetchCandidatesTop()
         return {
             candidates,
-            top,
             isNeedToUpload,
             page,
         }
