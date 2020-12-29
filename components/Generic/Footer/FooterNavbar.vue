@@ -23,11 +23,25 @@ export default defineComponent({
 <style scoped>
 .footer-nav {
   font-size: 1.6rem;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.2rem;
 }
 
 .footer-nav ul li {
   margin-right: 1.6rem;
   display: inline-flex;
+}
+
+.footer-nav .nav-link.link-underline-solid {
+  border-bottom-color: var(--Black20);
+  color: var(--Black32);
+  display: inline-block;
+  line-height: 2rem;
+}
+
+
+@media (max-width: 460px) {
+  .footer-nav ul li {
+    margin-right: .8rem;
+  }
 }
 </style>
