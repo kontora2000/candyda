@@ -3,7 +3,7 @@
       <div class="card-cont-inner">
          <VoteButton :votes="candidate.votes || 0" />
          <div class="candidate-card-name-wrapper header-6">
-            <div class="candidate-name">{{ candidate.name }}</div>
+            <div class="candidate-name">FD {{ candidate.name }}</div>
             <div class="candidate-surname">{{ candidate.surname }}</div>
          </div>
          <div class="candidate-avatar-wrapper candidate-card-ava-small-wrapper">
