@@ -1,9 +1,11 @@
-import {ref, computed, useFetch,} from '@nuxtjs/composition-api'
+import {ref, computed, useFetch, useContext,} from '@nuxtjs/composition-api'
 import { Candidate, } from '@/modules/types.ts'
 import { useAxios, } from './axios'
 import moment from 'moment'
 
-export const useCandidate = (slug: string) => {
+export const useCandidate = () => {
+  const { route, } = useContext()
+  const slug = route.value.params.slug
   const { $axios, error } = useAxios()
   const candidate=ref<Candidate>({} as Candidate)
   const { fetch: fetchCandidate, fetchState } = useFetch(async () => {
@@ -23,7 +25,7 @@ export const useCandidate = (slug: string) => {
       error({ statusCode:404, message:'Страниц не найдена' })
     }
   })
-
+  fetchCandidate()
   return {
     candidate,
     fetchCandidate

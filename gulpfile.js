@@ -15,7 +15,6 @@ function getFtpConnection(){
     });
 }
 
-
 const remoteLocation = '/var/www/duma.one/';
 gulp.task('remote-deploy', function(){
     var conn = getFtpConnection();

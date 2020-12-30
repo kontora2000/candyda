@@ -35,7 +35,7 @@
 
 
 <script>
-import { defineComponent,useContext,onMounted, } from '@nuxtjs/composition-api'
+import { defineComponent,useContext,onMounted, computed, } from '@nuxtjs/composition-api'
 
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn/Btn'

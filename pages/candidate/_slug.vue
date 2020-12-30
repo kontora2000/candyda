@@ -80,7 +80,7 @@ export default defineComponent({
     setup() {
         const { route, error, } = useContext()
         if (route.value?.params?.slug && route.value?.params?.slug.trim()!=='')   {
-            const { candidate, fetchCandidate,} = useCandidate(route.value.params.slug)
+            const { candidate, fetchCandidate,} = useCandidate()
             fetchCandidate()
             const { onVote, isVoted, isLoading, } = useVotes(candidate.value)
             isVoted.value = false
