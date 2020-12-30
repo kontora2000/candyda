@@ -25,34 +25,36 @@
 
 
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+import { defineComponent, useMeta, } from '@nuxtjs/composition-api'
 
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
-import Btn from '@/components/Generic/Btn/Btn'
+import Btn from '@/components/Generic/Btn'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
-import {useAxios} from "@/composition/axios";
-import {usePostList} from "@/composition/posts";
+import {useAxios,} from '@/composition/axios';
+import {usePostList,} from '@/composition/posts';
 
 export default defineComponent({
-   name:'index',
-   components: {
-      NewsBlockCard,
-      Btn,
-      CandidateTop,
-      TheFooter
+    name:'index',
+    components: {
+        NewsBlockCard,
+        Btn,
+        CandidateTop,
+        TheFooter,
     },
-   setup() {
-     const { fetchPosts, posts, page } = usePostList()
-     fetchPosts()
+    head:{},
+    setup() {
+        const { fetchPosts, posts, page, } = usePostList()
+        fetchPosts()
+        const { title, } = useMeta()
+        title.value = 'Новости'
 
-
-     return {
-       fetchPosts,
-       posts,
-       page,
-     }
-  }
+        return {
+            fetchPosts,
+            posts,
+            page,
+        }
+    },
 
 })
 </script>

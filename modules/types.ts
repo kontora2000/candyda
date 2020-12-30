@@ -20,8 +20,8 @@ export interface Candidate {
   surname: string;
   status: string;
   slug: string;
-  partID: number | null;
-  votes: number | null;
+  partID: number;
+  votes: number;
   avatarID: number | null;
   avatar: string;
   galleryID: number | null;

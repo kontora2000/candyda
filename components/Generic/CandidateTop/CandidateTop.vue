@@ -17,7 +17,7 @@
 import { defineComponent, useContext, onMounted, } from '@nuxtjs/composition-api'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
-import Btn from '@/components/Generic/Btn/Btn'
+import Btn from '@/components/Generic/Btn'
 import {useCandidateList,} from '@/composition/candidates';
 
 export default defineComponent({

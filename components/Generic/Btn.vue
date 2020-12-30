@@ -14,7 +14,7 @@ import LoadingIndicator from "~/components/Generic/LoadingIndicator.vue";
 
 export default defineComponent({
     name:'Btn',
-    components: {LoadingIndicator},
+    components: {LoadingIndicator, },
     props: {
         disabled: {
             type: Boolean as PropType<boolean>,

@@ -16,13 +16,13 @@
                <div class="candidate-rating-wrapper candidate-info-row">
                   <div class="candidate-rating">
                      <span class="candidate-top-rating">ТОП-6</span>
-                     <span class="candidate-top-votes">{{ candidate.votes }}<sup>{{ votesText }}</sup></span>
+                     <span class="candidate-top-votes">{{ localVotes }}<sup>{{ votesText }}</sup></span>
                   </div>
                   <div class="candidate-vote-button-wrapper">
                      <btn class="vote-button"
                           :disabled="isVoted"
                           :loading="isLoading"
-                          @click.prevent="onVote">
+                          @click.prevent="onVote(candidate.slug)">
                          Проголосовать
                      </btn>
                   </div>
@@ -54,13 +54,10 @@
       </div>
    </div>
 </template>
-
-
-
 <script>
-import { defineComponent, useContext, onMounted, computed, } from '@nuxtjs/composition-api'
+import {defineComponent, useContext, onMounted, computed, useMeta,} from '@nuxtjs/composition-api'
 
-import Btn from '@/components/Generic/Btn/Btn'
+import Btn from '~/components/Generic/Btn.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
@@ -77,24 +74,29 @@ export default defineComponent({
         CandidateTop,
         TheFooter,
     },
+    head:{},
     setup() {
         const { route, error, } = useContext()
         if (route.value?.params?.slug && route.value?.params?.slug.trim()!=='')   {
-            const { candidate, fetchCandidate,} = useCandidate()
+            const { candidate, fetchCandidate, onVote, isVoted, isLoading, localVotes, } = useCandidate()
             fetchCandidate()
-            const { onVote, isVoted, isLoading, } = useVotes(candidate.value)
             isVoted.value = false
             const { numWord, } = useHelpers()
-            const votesText = computed( () => numWord(candidate.value.votes, ['голос', 'голоса', 'голосов']))
+            const votesText = computed( () => numWord(localVotes.value, ['голос', 'голоса', 'голосов']))
             onMounted(()=>{
-                isVoted.value  = localStorage.getItem(`${candidate.value.id}${candidate.value.slug}`) || false
+                isVoted.value  = localStorage.getItem(`${candidate.value.slug}`) || false
             })
+
+            const title = computed(()=>candidate.value?.fullname || '')
+            useMeta({ title, })
+
             return {
                 candidate,
                 isVoted,
                 onVote,
                 votesText,
                 isLoading,
+                localVotes,
             }
         }
         else {
