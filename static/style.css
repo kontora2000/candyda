@@ -457,11 +457,19 @@ grid-column: 9/28;
 	color: var(--Azure100);
 	margin-bottom: .8rem;
 }
-.tag:before {
+.tag:hover {
+	background-color: var(--Azure100);
+	color: var(--White100);
+}
+.tag::before {
 	content: '#';
 	color: var(--Azure100);
 	display: inline-block;
 	margin-right: .2rem;
+	transition: all .175s ease-in-out;
+}
+.tag:hover::before {
+	color: var(--White100);
 }
 
 

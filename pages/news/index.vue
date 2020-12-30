@@ -59,5 +59,7 @@ export default defineComponent({
 
 
 <style scoped>
-
+.page-wrapper .news-card-cont {
+   height: 44rem;
+}
 </style>
