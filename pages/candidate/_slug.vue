@@ -27,7 +27,7 @@
                      </btn>
                   </div>
                </div>
-               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthdate }}</div>
+               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthdate }}, {{ candidate.age }}</div>
                <div class="candidate-edu candidate-info-row" v-if="candidate.party">
                   <div class="candidate-info-row-header">Партия</div>
                   <div class="candidate-info-row-content" >
@@ -58,13 +58,13 @@
 import {defineComponent, useContext, onMounted, computed, useMeta,} from '@nuxtjs/composition-api'
 
 import Btn from '~/components/Generic/Btn.vue'
-import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
-import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
-import TheFooter from '@/components/Generic/Footer/TheFooter'
+import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
+import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
+import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
-import { useCandidate,} from '@/composition/candidate'
+import { useCandidate,} from '@/composition/candidate.ts'
 import { useVotes, } from '@/composition/votes'
-import { useHelpers,} from '@/composition/helpers'
+import { useHelpers,} from '@/composition/helpers.ts'
 
 export default defineComponent({
     transition: 'fade',
@@ -84,7 +84,7 @@ export default defineComponent({
             const { numWord, } = useHelpers()
             const votesText = computed( () => numWord(localVotes.value, ['голос', 'голоса', 'голосов']))
             onMounted(()=>{
-                isVoted.value  = localStorage.getItem(`${candidate.value.slug}`) || false
+                isVoted.value  = (localStorage.getItem(`${candidate.value.slug}`)==='true') || false
             })
 
             const title = computed(()=>candidate.value?.fullname || '')

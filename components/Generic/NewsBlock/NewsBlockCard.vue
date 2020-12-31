@@ -1,12 +1,12 @@
 <template>
-  <nuxt-link :to="`/news/${post.slug}`" class="news-card-cont card-cont">
+  <nuxt-link :to="`/news/${post.slug}`" class="news-card-cont card-cont" :class="{ 'with-image': post.image }">
     <div class="card-cont-inner">
       <div class="news-card-pic-wrapper" v-if="post.image">
         <img class="news-card-pic" :src="post.image.src" />
       </div>
       <div class="news-card-content-wrapper">
         <div class="news-card-header header-6">{{ post.title }}</div>
-        <div class="date-publication">{{ post.date }}</div>
+        <div class="date-publication">{{ postDate }}</div>
       </div>
     </div>
   </nuxt-link>
@@ -14,8 +14,9 @@
 
 
 <script lang="ts">
-import { defineComponent, PropType, } from '@nuxtjs/composition-api'
+import {defineComponent, PropType, useContext,} from '@nuxtjs/composition-api'
 import  { Post } from "@/modules/types";
+import moment from "moment";
 
 export default defineComponent({
   name: 'NewsBlockCard',
@@ -26,7 +27,13 @@ export default defineComponent({
 
       }
     },
-  },
+  }, setup(props) {
+        moment.locale('ru')
+        const postDate = moment(props.post.post_date).format('DD MMM в HH:mm')
+        return {
+          postDate,
+        }
+    }
 })
 </script>
 

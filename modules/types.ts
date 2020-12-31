@@ -12,6 +12,7 @@ export interface Post {
   tags: Tag[];
   date: string;
   created_at: string;
+  post_date: string;
 }
 
 export interface Candidate {

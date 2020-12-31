@@ -17,8 +17,8 @@
                <div class="news-cover-copyright text-small">{{ post.image.source }}</div>
             </div>
          </div>
-         <div class="article-paragraphs">
-            {{ post.content }}
+         <div class="article-paragraphs" v-html="post.content">
+
          </div>
          <div class="tags-wrapper">
             <a class="button tag"
@@ -34,16 +34,16 @@
 
 
 
-<script lang="ts">
+<script>
 import {defineComponent, useContext, onMounted, computed, useMeta, ref, useFetch,} from '@nuxtjs/composition-api'
 
-import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
+import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import Btn from '~/components/Generic/Btn.vue'
-import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
-import TheFooter from '@/components/Generic/Footer/TheFooter'
-import {useAxios} from "@/composition/axios";
-import {Post} from "@/modules/types";
-import moment from "moment";
+import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
+import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
+import {useAxios,} from '@/composition/axios';
+import {Post,} from '@/modules/types';
+import moment from 'moment';
 
 export default defineComponent({
     name:'index',
@@ -55,24 +55,22 @@ export default defineComponent({
     },
     head:{},
     setup() {
-        const { $axios, error} = useAxios()
+        const { $axios, error,} = useAxios()
 
         const { route,} = useContext()
         const slug=route.value.params.slug
 
         const postDate = ref()
-        const post = ref<Post>({} as Post)
+        const post = ref({})
         const { fetch: fetchPost, } = useFetch(async () => {
             post.value = await $axios.$get('/post/' + slug)
             if (!post.value.slug) error({statusCode: 404,})
             moment.locale('ru')
-            postDate.value = moment(post.value.created_at).format('DD MMMM YYYY в HH:MM')
-            post.value.date = moment(post.value.created_at).format('DD MMMM YYYY в HH:MM')
-
+            postDate.value = moment(post.value.post_date).format('DD MMMM YYYY в HH:MM')
         })
 
         const title = computed(()=> post.value?.title)
-        useMeta({ title, })
+        useMeta({ title: title, })
 
         return {
             post,
