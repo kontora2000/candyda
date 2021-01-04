@@ -53,4 +53,10 @@ export default defineComponent({
       grid-column: span 2;
    }
 }
+
+@media (max-width: 360px) {
+	.candidate-card-cont {
+      grid-column: span 3;
+   }
+}
 </style>

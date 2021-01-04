@@ -571,3 +571,12 @@ grid-column: 9/28;
 		grid-column: 1/7;
 	}
 }
+
+
+
+@media (max-width: 360px) {
+	h3 {
+		font-size: 2.8rem;
+		line-height: 3.2rem;
+	}
+}
