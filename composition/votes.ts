@@ -15,7 +15,7 @@ export  const  useVotes = (slug) => {
             try {
                 const result = await $axios.$post('candidates/vote/' + slug)
                 isLoading.value = false
-                if (result) localVotes.value = result
+                if (result) localVotes.value = result.votes
                 isVoted.value = true
                 localStorage.setItem(`${slug}`, 'true')
             }

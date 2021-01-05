@@ -27,7 +27,7 @@
                      </btn>
                   </div>
                </div>
-               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthdate }}, {{ candidate.age }}</div>
+               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthdate }}, {{candidate.age}} {{ ageText }}</div>
                <div class="candidate-edu candidate-info-row" v-if="candidate.party">
                   <div class="candidate-info-row-header">Партия</div>
                   <div class="candidate-info-row-content" >
@@ -83,6 +83,7 @@ export default defineComponent({
             isVoted.value = false
             const { numWord, } = useHelpers()
             const votesText = computed( () => numWord(localVotes.value, ['голос', 'голоса', 'голосов']))
+            const ageText = computed( () => numWord(candidate.value.age, ['год', 'года', 'лет']))
             onMounted(()=>{
                 isVoted.value  = (localStorage.getItem(`${candidate.value.slug}`)==='true') || false
             })
@@ -97,6 +98,7 @@ export default defineComponent({
                 votesText,
                 isLoading,
                 localVotes,
+                ageText,
             }
         }
         else {
