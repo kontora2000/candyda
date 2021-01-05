@@ -6,7 +6,7 @@
          </aside>
          <div class="candidate-wrapper">
             <div class="candidate-ava" v-if="candidate.avatar">
-              <img class="candidate-ava-img"  :src="candidate.avatar.src" />
+              <img class="candidate-ava-img"  :src="candidate.ava" />
             </div>
             <div class="candidate-info-wrapper">
                <h2 class="page-candidate-header">{{ candidate.fullname }}</h2>

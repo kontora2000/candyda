@@ -57,9 +57,11 @@ export default {
   ** Build configuration
   */
     build: {
-
-        extend (config, ctx) {
-            config.devtool = 'source-map'
+        devMiddleware: {
+            headers: {
+                'Cache-Control': 'no-store',
+                Vary: '*',
+            },
         },
     },
     env: {

@@ -6,8 +6,8 @@
             <div class="candidate-name">{{ candidate.name }}</div>
             <div class="candidate-surname">{{ candidate.surname }}</div>
          </div>
-         <div class="candidate-avatar-wrapper candidate-card-ava-small-wrapper">
-            <img class="candidate-ava-small" :src="candidate.avatar.src" />
+         <div class="candidate-avatar-wrapper candidate-card-ava-small-wrapper" v-if="candidate.ava">
+            <img class="candidate-ava-small" :src="candidate.ava" />
          </div>
       </div>
    </nuxt-link>
