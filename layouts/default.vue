@@ -1,6 +1,6 @@
 <template>
   <div class="layout-inner grid-main">
-<!--    <BgCircles />-->
+    <BgCircles />
     <TheHeader />
     <nuxt />
   </div>

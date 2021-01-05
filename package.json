@@ -16,6 +16,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/composition-api": "^0.16.4",
+    "@nuxtjs/device": "^1.2.7",
     "create-nuxt-app": "^3.4.0",
     "gutil": "^1.6.4",
     "moment": "^2.29.1",

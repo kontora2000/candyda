@@ -18,6 +18,7 @@ export const usePost = () => {
     moment.locale('ru')
     postDate.value = moment(post.value.created_at).format('DD MMMM YYYY в HH:MM')
     post.value.date = moment(post.value.created_at).format('DD MMMM YYYY в HH:MM')
+
   })
 
 
