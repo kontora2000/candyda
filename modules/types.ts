@@ -12,6 +12,7 @@ export interface Post {
   tags: Tag[];
   date: string;
   created_at: string;
+  post_date: string;
 }
 
 export interface Candidate {
@@ -20,8 +21,8 @@ export interface Candidate {
   surname: string;
   status: string;
   slug: string;
-  partID: number | null;
-  votes: number | null;
+  partID: number;
+  votes: number;
   avatarID: number | null;
   avatar: string;
   galleryID: number | null;

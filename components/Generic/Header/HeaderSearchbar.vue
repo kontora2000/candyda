@@ -1,5 +1,5 @@
 <template>
-   <div class="search-input-wrapper">
+   <div class="search-input-wrapper" v-if="!$device.isMobile">
       <input class="search-input" type="search" placeholder="Введите округ / район или город / имя кандидата / новость"/>
    </div>
 </template>
@@ -10,7 +10,7 @@
 import { defineComponent, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-   name:'HeaderSearchbar',
+    name:'HeaderSearchbar',
 })
 </script>
 

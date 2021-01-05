@@ -23,10 +23,10 @@
 
 
 <script>
-import { defineComponent, onMounted, } from '@nuxtjs/composition-api'
+import { defineComponent, useMeta, } from '@nuxtjs/composition-api'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
-import Btn from '@/components/Generic/Btn/Btn'
+import Btn from '@/components/Generic/Btn'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
 import {useCandidateList,} from '@/composition/candidates';
@@ -39,9 +39,14 @@ export default defineComponent({
         NewsBlock,
         TheFooter,
     },
+    head:{},
     setup() {
         const { candidates, fetchCandidatesTop, page, isNeedToUpload, } = useCandidateList()
         fetchCandidatesTop()
+
+        const { title, } = useMeta()
+        title.value = 'Топ кандидатов'
+
         return {
             candidates,
             isNeedToUpload,

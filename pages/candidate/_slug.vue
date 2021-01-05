@@ -16,18 +16,18 @@
                <div class="candidate-rating-wrapper candidate-info-row">
                   <div class="candidate-rating">
                      <span class="candidate-top-rating">ТОП-6</span>
-                     <span class="candidate-top-votes">{{ candidate.votes }}<sup>{{ votesText }}</sup></span>
+                     <span class="candidate-top-votes">{{ localVotes }}<sup>{{ votesText }}</sup></span>
                   </div>
                   <div class="candidate-vote-button-wrapper">
                      <btn class="vote-button"
                           :disabled="isVoted"
                           :loading="isLoading"
-                          @click.prevent="onVote">
+                          @click.prevent="onVote(candidate.slug)">
                          Проголосовать
                      </btn>
                   </div>
                </div>
-               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthdate }}</div>
+               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthdate }}, {{candidate.age}} {{ ageText }}</div>
                <div class="candidate-edu candidate-info-row" v-if="candidate.party">
                   <div class="candidate-info-row-header">Партия</div>
                   <div class="candidate-info-row-content" >
@@ -54,20 +54,17 @@
       </div>
    </div>
 </template>
-
-
-
 <script>
-import { defineComponent, useContext, onMounted, computed, } from '@nuxtjs/composition-api'
+import {defineComponent, useContext, onMounted, computed, useMeta,} from '@nuxtjs/composition-api'
 
-import Btn from '@/components/Generic/Btn/Btn'
-import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
-import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
-import TheFooter from '@/components/Generic/Footer/TheFooter'
+import Btn from '~/components/Generic/Btn.vue'
+import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
+import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
+import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
-import { useCandidate,} from '@/composition/candidate'
+import { useCandidate,} from '@/composition/candidate.ts'
 import { useVotes, } from '@/composition/votes'
-import { useHelpers,} from '@/composition/helpers'
+import { useHelpers,} from '@/composition/helpers.ts'
 
 export default defineComponent({
     transition: 'fade',
@@ -77,24 +74,31 @@ export default defineComponent({
         CandidateTop,
         TheFooter,
     },
+    head:{},
     setup() {
         const { route, error, } = useContext()
         if (route.value?.params?.slug && route.value?.params?.slug.trim()!=='')   {
-            const { candidate, fetchCandidate,} = useCandidate(route.value.params.slug)
+            const { candidate, fetchCandidate, onVote, isVoted, isLoading, localVotes, } = useCandidate()
             fetchCandidate()
-            const { onVote, isVoted, isLoading, } = useVotes(candidate.value)
             isVoted.value = false
             const { numWord, } = useHelpers()
-            const votesText = computed( () => numWord(candidate.value.votes, ['голос', 'голоса', 'голосов']))
+            const votesText = computed( () => numWord(localVotes.value, ['голос', 'голоса', 'голосов']))
+            const ageText = computed( () => numWord(candidate.value.age, ['год', 'года', 'лет']))
             onMounted(()=>{
-                isVoted.value  = localStorage.getItem(`${candidate.value.id}${candidate.value.slug}`) || false
+                isVoted.value  = (localStorage.getItem(`${candidate.value.slug}`)==='true') || false
             })
+
+            const title = computed(()=>candidate.value?.fullname || '')
+            useMeta({ title, })
+
             return {
                 candidate,
                 isVoted,
                 onVote,
                 votesText,
                 isLoading,
+                localVotes,
+                ageText,
             }
         }
         else {
