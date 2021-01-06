@@ -10,7 +10,7 @@
 import { defineComponent, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-   name:'HeaderLogo',
+    name:'HeaderLogo',
 })
 </script>
 
@@ -34,6 +34,13 @@ export default defineComponent({
 @media (max-width: 460px) {
 	.logo-wrapper {
 		grid-column: 1/4;
+        position: relative;
+        z-index: 2;
 	}
+
+    .logo-link {
+        margin-top: 0;
+    }
+
 }
 </style>

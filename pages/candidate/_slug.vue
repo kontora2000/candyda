@@ -9,9 +9,9 @@
               <img class="candidate-ava-img"  :src="'https://api.prostokontora.ru/storage/' + candidate.ava" />
             </div>
             <div class="candidate-info-wrapper">
-               <h2 class="page-candidate-header">{{ candidate.fullname }}</h2>
-               <div class="candidate-status-wrapper candidate-info-row">
-                  <span class="candidate-status">{{  candidate.status }}</span>
+               <h2 class="page-candidate-header">{{ fullName }}</h2>
+               <div class="candidate-status-wrapper candidate-info-row" v-if="candidate.status">
+                  <span class="candidate-status">{{  candidate.status.name }}</span>
                </div>
                <div class="candidate-rating-wrapper candidate-info-row">
                   <div class="candidate-rating">
@@ -27,7 +27,7 @@
                      </btn>
                   </div>
                </div>
-               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthdate }}, {{candidate.age}} {{ ageText }}</div>
+               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthdate }}, {{ ageText }}</div>
                <div class="candidate-edu candidate-info-row" v-if="candidate.party">
                   <div class="candidate-info-row-header">Партия</div>
                   <div class="candidate-info-row-content" >
@@ -55,7 +55,7 @@
    </div>
 </template>
 <script>
-import {defineComponent, useContext, onMounted, computed, useMeta,} from '@nuxtjs/composition-api'
+import {defineComponent, useContext, computed, useMeta, watch, ref, } from '@nuxtjs/composition-api'
 
 import Btn from '~/components/Generic/Btn.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
@@ -78,16 +78,19 @@ export default defineComponent({
     setup() {
         const { route, error, } = useContext()
         if (route.value?.params?.slug && route.value?.params?.slug.trim()!=='')   {
-            const { candidate, fetchCandidate, onVote, isVoted, isLoading, localVotes, } = useCandidate()
+            const { candidate, fetchCandidate, onVote, isVoted, isLoading, localVotes, fullName, age, } = useCandidate()
             fetchCandidate()
             isVoted.value = false
             const { numWord, } = useHelpers()
             const votesText = computed( () => numWord(localVotes.value, ['голос', 'голоса', 'голосов']))
-            const ageText = computed( () => numWord(candidate.value.age, ['год', 'года', 'лет']))
-            onMounted(()=>{
-                isVoted.value  = (localStorage.getItem(`${candidate.value.slug}`)==='true') || false
+            const ageText = ref('')
+            watch(age, ()=> {
+                console.log(age.value)
+                ageText.value = -1*age.value + ' ' + numWord(-age.value, ['год', 'года', 'лет'])
+                debugger
+                const asd  = localStorage.getItem(candidate.value.slug)
+                isVoted.value = localStorage.getItem(candidate.value.slug)!==null
             })
-
             const title = computed(()=>candidate.value?.fullname || '')
             useMeta({ title, })
 
@@ -99,6 +102,7 @@ export default defineComponent({
                 isLoading,
                 localVotes,
                 ageText,
+                fullName,
             }
         }
         else {

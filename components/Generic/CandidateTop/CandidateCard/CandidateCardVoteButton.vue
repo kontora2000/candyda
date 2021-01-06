@@ -63,4 +63,6 @@ export default defineComponent({
       display: inline-block;
       color: var(--White56);
    }
+
+
 </style>

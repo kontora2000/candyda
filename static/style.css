@@ -472,6 +472,15 @@ grid-column: 9/28;
 	color: var(--White100);
 }
 
+.page-wrapper .news-card-header {
+	font-size: 4rem;
+	line-height: 4.4rem;
+	width: 88%;
+}
+
+.vote-button:disabled {
+	background: var(--Black3);
+}
 
 
 /*   У Д А Л И Т Ь   П О Т О М   */

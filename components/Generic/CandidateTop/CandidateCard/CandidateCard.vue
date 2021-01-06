@@ -1,5 +1,5 @@
 <template>
-   <nuxt-link :to="`/candidate/${candidate.slug}`" class="candidate-card-cont card-cont" v-if="candidate.avatar">
+   <nuxt-link :to="`/candidate/${candidate.slug}`" class="candidate-card-cont card-cont" v-if="candidate.ava">
       <div class="card-cont-inner">
          <VoteButton :votes="candidate.votes || 0" />
          <div class="candidate-card-name-wrapper header-6">
