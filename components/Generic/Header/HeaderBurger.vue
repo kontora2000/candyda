@@ -6,8 +6,7 @@
                key="b_button">
                 <span class="icon-burger" >
                     <span class="icon-burger-line"></span>
-                    <span data-v-75b1508a="" class="icon-burger-line"></span>
-                    <span data-v-75b1508a="" class="icon-burger-line"></span>
+                    <span class="icon-burger-line"></span>
                 </span>
             </a>
             <transition name="fade">
@@ -15,9 +14,13 @@
                         <ul>
                             <li><nuxt-link to="/news" class="nav-link link-underline-solid">Новости</nuxt-link></li>
                             <li><nuxt-link to="/top" class="nav-link link-underline-solid">Топ кандидатов</nuxt-link></li>
-                            <li><nuxt-link to="/top" class="nav-link link-underline-solid">О проекте</nuxt-link></li>
+                            <li><nuxt-link to="/about" class="nav-link link-underline-solid">О проекте</nuxt-link></li>
                         </ul>
                 </nav>
+                <div class="burger-search">
+                    <input name="search" class="search-input" type="search"  />
+                    <span class="search-input-icon"></span>
+                </div>
         </transition>
     </div>
 </template>

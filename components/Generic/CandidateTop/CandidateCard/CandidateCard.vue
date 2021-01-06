@@ -7,7 +7,7 @@
             <div class="candidate-surname">{{ candidate.surname }}</div>
          </div>
          <div class="candidate-avatar-wrapper candidate-card-ava-small-wrapper">
-            <img class="candidate-ava-small" :src="candidate.avatar.src" />
+            <img class="candidate-ava-small" :src="'https://api.prostokontora.ru/storage/' + candidate.ava" />
          </div>
       </div>
    </nuxt-link>

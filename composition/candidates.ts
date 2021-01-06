@@ -22,7 +22,7 @@ export const useCandidateList = () => {
         try {
             const result = await $axios.$get('/candidates/list/' + page.value)
             candidates.value = result.data
-            isNeedToUpload.value = page.value !== result.total
+            isNeedToUpload.value = result.data.next_page_url !== null
             page.value = isNeedToUpload ? page.value : page.value + 1
         }
         catch(e) {

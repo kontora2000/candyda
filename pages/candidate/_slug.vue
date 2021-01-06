@@ -5,8 +5,8 @@
             <div class="breadcrumbs-news breadcrumbs"><a class="link-underline-solid" href="#">Туапсинский округ</a> / <a class="link-underline-solid" href="#">Геленджик</a> / <a class="link-underline-solid" href="#">Кандидаты</a></div>
          </aside>
          <div class="candidate-wrapper">
-            <div class="candidate-ava" v-if="candidate.avatar">
-              <img class="candidate-ava-img"  :src="candidate.avatar.src" />
+            <div class="candidate-ava" v-if="candidate.ava">
+              <img class="candidate-ava-img"  :src="'https://api.prostokontora.ru/storage/' + candidate.ava" />
             </div>
             <div class="candidate-info-wrapper">
                <h2 class="page-candidate-header">{{ candidate.fullname }}</h2>
