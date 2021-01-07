@@ -39,9 +39,18 @@ export default defineComponent({
 }
 
 
+
 @media (max-width: 460px) {
   .footer-nav ul li {
     margin-right: .8rem;
+  }
+}
+
+
+
+@media (max-width: 360px) {
+  .footer-nav ul li {
+    font-size: 1.4rem;
   }
 }
 </style>

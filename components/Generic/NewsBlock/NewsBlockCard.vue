@@ -122,20 +122,19 @@ export default defineComponent({
 
   .news-card-cont {
     grid-column: span 6;
-    height: 28rem;
+    height: 32rem;
   }
 
-    .news-card-cont.with-image .news-card-header {
-        font-size: 2.4rem !important;
-        line-height: 2.8rem !important;
-    }
+  .news-card-cont.with-image .news-card-header {
+    font-size: 2.4rem !important;
+    line-height: 2.8rem !important;
+  }
 
-    .news-card-header {
-        font-size: 2.8rem;
-        line-height: 3.2rem;
-        width: 94%;
-    }
-
-
+  .news-card-header,
+  .page-wrapper .news-card-header {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    width: 94%;
+  }
 }
 </style>

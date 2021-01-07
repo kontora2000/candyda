@@ -161,8 +161,18 @@ article .date-publication {
    .article-paragraphs {
       grid-column: 1/7;
    }
+   .article-paragraphs p:first-child {
+      margin-top: 0;
+   }
    .tags-wrapper {
       grid-column: 1/7;
+   }
+}
+
+@media (max-width: 360px) {
+   .article-header {
+      font-size: 2.8rem;
+      line-height: 3.2rem;
    }
 }
 </style>
