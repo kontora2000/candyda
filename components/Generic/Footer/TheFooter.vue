@@ -52,4 +52,16 @@ footer {
     color: var(--Black16);
     line-height: 1.2rem;
 }
+
+
+
+@media (max-width: 360px) {
+  .footer-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  footer {
+    padding: .8rem;
+  }
+}
 </style>

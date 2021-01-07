@@ -65,4 +65,10 @@ export default defineComponent({
    }
 
 
+
+@media (max-width: 360px) {
+   .votes-counter-small {
+         font-size: 1.4rem;
+   }
+}
 </style>

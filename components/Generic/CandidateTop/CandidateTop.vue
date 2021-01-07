@@ -48,11 +48,21 @@ export default defineComponent({
    margin-top: 3.2rem;
 }
 
+
+
 @media (max-width: 460px) {
+   .top-candidates-cards-wrapper {
+      margin-top: 1.2rem;
+   }
    .candidate-card-cont {
       grid-column: span 2;
    }
+   .candidate-card-cont:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
+      margin-top: 2rem;
+   }
 }
+
+
 
 @media (max-width: 360px) {
 	.candidate-card-cont {

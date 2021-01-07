@@ -527,6 +527,7 @@ grid-column: 9/28;
 
 	main {
 		grid-column: 1/7;
+		margin-top: 8rem;
 	}
 
 	.cont-wrapper-left,
@@ -570,6 +571,7 @@ grid-column: 9/28;
 
 	.page-aside-wrapper {
 		grid-column: 1/7;
+		margin-bottom: 1.2rem;
 	}
 
 	.page-content-superwrapper {
@@ -579,12 +581,26 @@ grid-column: 9/28;
 	.page-wrapper {
 		grid-column: 1/7;
 	}
+
+	.page-header {
+		font-size: 3.2rem;
+		line-height: 3.6rem;
+	}
+
+	.page-bottom-wrapper {
+		margin-top: 8rem;
+	}
 }
 
 
 
 @media (max-width: 360px) {
 	h3 {
+		font-size: 2.8rem;
+		line-height: 3.2rem;
+	}
+
+	.page-header {
 		font-size: 2.8rem;
 		line-height: 3.2rem;
 	}
