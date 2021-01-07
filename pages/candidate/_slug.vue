@@ -187,6 +187,7 @@ export default defineComponent({
 }
 
 
+
 @media (max-width: 460px) {
    .candidate-wrapper {
       grid-column: 1/7;
@@ -195,6 +196,7 @@ export default defineComponent({
 
    .candidate-ava {
       grid-column: 1/7;
+      height: 40rem;
       width: 100%;
    }
 
@@ -204,6 +206,14 @@ export default defineComponent({
 
    .candidate-about-wrapper {
       grid-column: 1/7;
+   }
+}
+
+
+
+@media (max-width: 360px) {
+   .candidate-ava {
+      height: 32rem;
    }
 }
 </style>

@@ -66,10 +66,16 @@ export default defineComponent({
    z-index: 2;
 }
 
+@media (max-width: 400px) {
+   .candidate-card-ava-small-wrapper {
+      min-height: 14rem;
+   }
+}
+
 
 @media (max-width: 360px) {
    .candidate-card-ava-small-wrapper {
-      min-height: 14rem;
+      min-height: 18rem;
    }
 }
 </style>

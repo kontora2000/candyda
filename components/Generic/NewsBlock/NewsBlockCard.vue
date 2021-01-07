@@ -124,6 +124,9 @@ export default defineComponent({
     grid-column: span 6;
     height: 32rem;
   }
+  .news-card-cont:first-child {
+    height: 32rem;
+  }
 
   .news-card-cont.with-image .news-card-header {
     font-size: 2.4rem !important;

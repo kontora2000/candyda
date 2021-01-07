@@ -75,6 +75,7 @@ export default defineComponent({
 }
 
 
+
 @media (max-width: 460px) {
    .page-top {
 		grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
@@ -83,6 +84,14 @@ export default defineComponent({
 
    .candidate-card-cont {
       grid-column: span 2;
+   }
+}
+
+
+
+@media (max-width: 360px) {
+   .candidate-card-cont {
+      grid-column: span 3;
    }
 }
 </style>
