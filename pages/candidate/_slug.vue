@@ -46,11 +46,15 @@
                <p>{{ candidate.description }}.</p>
             </div>
              <template v-if="gallery">
-                <div class="candidate-gallery-wrapper">
-                    <div class="candidte-gallery-image" v-for="image in gallery">
-                        <img src="image" @click="showLightbox" />
+                <div class="candidate-gallery-wrapper" v-if="gallery.length > 0">
+                    <div class="candidte-gallery-image" v-for="(image, index) in gallery" :key="index">
+                        <img :src="'https://api.prostokontora.ru/storage/' + image" @click="openGallery(index)" />
                     </div>
-                    <CandidateGallery :images="gallery"/>
+                    <CandidateGallery
+                      :images="gallery"
+                      :visible="isGalleryVisible"
+                      :current="currentImg"
+                      @close="closeGallery"/>
                 </div>
              </template>
          </div>
@@ -63,7 +67,7 @@
    </div>
 </template>
 <script>
-import {defineComponent, useContext, computed, useMeta, watch, ref, } from '@nuxtjs/composition-api'
+import { defineComponent, useContext, computed, useMeta, watch, ref, } from '@nuxtjs/composition-api'
 
 import Btn from '~/components/Generic/Btn.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
@@ -73,6 +77,7 @@ import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
 import { useCandidate,} from '@/composition/candidate.ts'
 import { useHelpers,} from '@/composition/helpers.ts'
+import {useToggle,} from '@/composition/toggle';
 
 export default defineComponent({
     transition: 'fade',
@@ -112,16 +117,30 @@ export default defineComponent({
             const title = computed(()=>candidate.value?.fullname || '')
             useMeta({ title, })
 
+            const {
+                isVisible: isGalleryVisible,
+                hide: closeGallery, }  = useToggle()
+            const currentImg = ref(0)
+
+            const openGallery = (index) => {
+                currentImg.value = index
+                isGalleryVisible.value = true
+            }
+
             return {
                 candidate,
                 isVoted,
-                onVote,
                 votesText,
                 isLoading,
                 localVotes,
                 ageText,
                 fullName,
                 gallery,
+                isGalleryVisible,
+                currentImg,
+                openGallery,
+                closeGallery,
+                onVote,
             }
         }
         else {

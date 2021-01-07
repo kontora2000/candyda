@@ -1,10 +1,11 @@
 <template>
     <div class="gallery-lightbox-wrapper">
         <transition-group name="fade">
-            <div v-show="isVisible && images.length > 0" key="overlay" class="gallery-lightbox-overlay" />
-            <div v-show="isVisible && images.length > 0" key="cont" class="gallery-lightbox-cont">
+            <div v-show="visible && images.length > 0" key="overlay"
+                 class="gallery-lightbox-overlay"  @click.self="onClose"/>
+            <div v-show="visible && images.length > 0" key="cont" class="gallery-lightbox-cont">
                 <div class="gallery-lightbox-body">
-                    <img class="gallery-lightbox-current-image" :src="currentImage.src">
+                    <img class="gallery-lightbox-current-image" :src="'https://api.prostokontora.ru/storage/' + currentImage">
                     <div class="gallery-lightbox-numb">
                         {{ pos+1 }} / {{ imgCount }}
                     </div>
@@ -15,7 +16,7 @@
                 <div class="gallery-lightbox-right" @click="right">
                     <svg class="icon-arrow-svg icon-arrow-right-svg"><use xlink:href="/images/sprite.svg#icon-arrow-right"></use></svg>
                 </div>
-                <div class="gallery-lightbox-close" @click="close">
+                <div class="gallery-lightbox-close" @click="onClose">
                     <svg class="icon-close-svg"><use xlink:href="/images/sprite.svg#icon-close"></use></svg>
                 </div>
             </div>
@@ -25,7 +26,7 @@
 
 
 <script lang="ts">
-import { defineComponent, PropType, ref, computed } from '@nuxtjs/composition-api'
+import { defineComponent, PropType, ref, computed, watch, } from '@nuxtjs/composition-api'
 
 import {Image} from "~/modules/types";
 import {useToggle} from "~/composition/toggle";
@@ -36,29 +37,49 @@ export default defineComponent({
     images: {
         type: Array as PropType<Image[]>,
         default: () => [],
+    },
+    visible: {
+        type: Boolean,
+        default:false,
+      },
+    current: {
+        type: Number,
+        default: 0,
     }
   },
-  setup(props) {
-    const pos = ref(0)
-    const currentImage = ref({})
+  setup(props, emit) {
+    const pos = ref(props.current)
+    const currentImage = ref(props.images[pos.value])
     const imgCount = computed(() => {
       return props.images.length
     })
-    const { isVisible, hide:close } = useToggle()
+
+    const c = computed(() => props.current)
+
+    watch(c, () => {
+        pos.value = c.value
+        currentImage.value = props.images[pos.value]
+    })
+
     const left = () => {
-        pos.value = pos.value > props.images.length ? props.images.length : pos.value - 1
+        pos.value = pos.value === 0 ? (props.images.length - 1) : pos.value - 1
         currentImage.value = props.images[pos.value]
     }
     const right = () => {
-        pos.value = pos.value > props.images.length ? props.images.length : pos.value + 1
+        pos.value = pos.value >= props.images.length-1 ? 0 : pos.value + 1
         currentImage.value = props.images[pos.value]
     }
+    const onClose = () => {
+        emit.emit('close')
+    }
+
     return {
       imgCount,
+      currentImage,
+      pos,
       left,
       right,
-      close,
-      isVisible,
+      onClose,
     }
   },
 
