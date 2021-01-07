@@ -1,5 +1,6 @@
 export const useHelpers = () => {
     const  numWord = (value: number, words: string[]) => {
+        if (!value) return
         const valueLocal = Math.abs(value) % 100;
         const num = valueLocal % 10;
         if(valueLocal > 10 && valueLocal < 20) return words[2];

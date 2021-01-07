@@ -1,5 +1,5 @@
 <template>
-   <nuxt-link :to="`/candidate/${candidate.slug}`" class="candidate-card-cont card-cont" v-if="candidate.avatar">
+   <nuxt-link :to="`/candidate/${candidate.slug}`" class="candidate-card-cont card-cont" v-if="candidate.ava">
       <div class="card-cont-inner">
          <VoteButton :votes="candidate.votes || 0" />
          <div class="candidate-card-name-wrapper header-6">
@@ -7,7 +7,7 @@
             <div class="candidate-surname">{{ candidate.surname }}</div>
          </div>
          <div class="candidate-avatar-wrapper candidate-card-ava-small-wrapper">
-            <img class="candidate-ava-small" :src="candidate.avatar.src" />
+            <img class="candidate-ava-small" :src="'https://api.prostokontora.ru/storage/' + candidate.ava" />
          </div>
       </div>
    </nuxt-link>

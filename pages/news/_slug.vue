@@ -10,11 +10,11 @@
            }}</h2>
          <div class="news-cover-wrapper" v-if="post.image">
             <div class="news-cover">
-               <img class="news-cover-img" :src="post.image.src" />
+               <img class="news-cover-img" :src="'https://api.prostokontora.ru/storage/' + JSON.parse(post.cover)[0]" />
             </div>
-            <div class="news-cover-comment-wrapper">
-               <div class="news-cover-comment">{{ post.image.description }}</div>
-               <div class="news-cover-copyright text-small">{{ post.image.source }}</div>
+            <div class="news-cover-comment-wrapper" v-if="post.cover_source || post.cover_descr">
+               <div class="news-cover-comment">{{ post.cover_descr }}</div>
+               <div class="news-cover-copyright text-small">{{ post.cover_source }}</div>
             </div>
          </div>
          <div class="article-paragraphs" v-html="post.content">

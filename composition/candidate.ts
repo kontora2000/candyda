@@ -10,6 +10,11 @@ export const useCandidate = () => {
   const { $axios, error } = useAxios()
   const candidate=ref<Candidate>({} as Candidate)
   const { onVote, isVoted, localVotes, } = useVotes(slug)
+
+
+
+  const momentDate = ref<moment.Moment>( moment())
+
   const { fetch: fetchCandidate, fetchState } = useFetch(async () => {
     try {
       const response = await $axios.get('/candidates/' + slug)
@@ -17,7 +22,8 @@ export const useCandidate = () => {
         candidate.value = response.data
         if (!candidate.value.slug) error({ statusCode:404, message:'Страниц не найдена' })
         moment.locale('ru')
-        candidate.value.birthdate = moment(candidate.value.birthdate).format('D MMMM YYYY')
+        momentDate.value = moment(candidate.value.birthdate)
+        candidate.value.birthdate = momentDate.value.format('D MMMM YYYY')
         localVotes.value = candidate.value.votes
       }
       else {
@@ -29,11 +35,25 @@ export const useCandidate = () => {
     }
   })
   fetchCandidate()
+
+  const fullName = computed(() => (candidate.value?.surname || '') + ' '
+      + (candidate.value?.name || '') + ' '
+      + candidate.value?.patronymic || '')
+
+  const age = computed(()=> {
+    if (momentDate.value!== {} as moment.Moment) {
+      return  momentDate.value.diff(moment.now(), 'years');
+    }
+    else  return null
+  })
+
   return {
     candidate,
     fetchCandidate,
     localVotes,
     isVoted,
+    fullName,
     onVote,
+    age,
   }
 }

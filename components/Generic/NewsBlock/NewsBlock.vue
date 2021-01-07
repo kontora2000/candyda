@@ -36,6 +36,8 @@ export default defineComponent({
         const { fetchPosts, posts, page, isNeedToUpload, } = usePostList()
         onMounted(async () => {
             await fetchPosts()
+            console.log(page.value)
+            console.log(isNeedToUpload.value)
         })
         return {
             fetchPosts,

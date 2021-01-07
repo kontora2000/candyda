@@ -11,15 +11,16 @@ export const usePostList = () => {
     const { fetch: fetchPosts } = useFetch(async () => {
         try {
             const result = await $axios.get('/post/list/' + page.value )
-            isNeedToUpload.value = result.total === page.value
+            isNeedToUpload.value = result.data.next_page_url !== null
             posts.value = result.data.data
-            page.value = isNeedToUpload ? page.value : page.value +1
+            console.log(isNeedToUpload.value)
+            page.value = isNeedToUpload ? page.value : page.value + 1
         }
         catch(e) {
             error({ statusCode: e?.response?.status })
         }
     })
-    
+
     return {
         posts,
         fetchPosts,

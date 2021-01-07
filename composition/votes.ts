@@ -5,7 +5,7 @@ export  const  useVotes = (slug) => {
     const voteButtonDisabled = ref(false)
     const isLoading = ref(false)
     const { $axios, } = useAxios()
-    const isVoted = ref(false)
+    const isVoted = ref(true)
     const localVotes = ref<number>(0)
 
     const onVote = async (slug) => {

@@ -2,7 +2,7 @@
   <nuxt-link :to="`/news/${post.slug}`" class="news-card-cont card-cont" :class="{ 'with-image': post.image }">
     <div class="card-cont-inner">
       <div class="news-card-pic-wrapper" v-if="post.image">
-        <img class="news-card-pic" :src="post.image.src" />
+        <img class="news-card-pic" :src="'https://api.prostokontora.ru/storage/' + JSON.parse(post.cover)[0]" />
       </div>
       <div class="news-card-content-wrapper">
         <div class="news-card-header header-6">{{ post.title }}</div>
@@ -24,7 +24,6 @@ export default defineComponent({
     post: {
       type: Object as PropType<Post>,
       default: () => {
-
       }
     },
   }, setup(props) {
@@ -60,7 +59,34 @@ export default defineComponent({
 }
 
 .news-card-pic-wrapper {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
 
+.news-card-cont.with-image .news-card-content-wrapper{
+    height: 14.8rem;
+    margin-top: 0;
+    position: absolute;
+    bottom: 0;
+}
+
+.news-card-cont.with-image .news-card-header {
+    display: -webkit-box;
+    font-size: 3.2rem !important;
+    line-height: 3.6rem !important;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+
+}
+
+.page-wrapper .news-card-header {
+    font-size: 4rem;
+    line-height: 4.4rem;
+    width: 88%;
 }
 
 .news-card-pic {
@@ -96,5 +122,18 @@ export default defineComponent({
     grid-column: span 6;
     height: 28rem;
   }
+
+    .news-card-cont.with-image .news-card-header {
+        font-size: 2.4rem !important;
+        line-height: 2.8rem !important;
+    }
+
+    .news-card-header {
+        font-size: 2.8rem;
+        line-height: 3.2rem;
+        width: 94%;
+    }
+
+
 }
 </style>
