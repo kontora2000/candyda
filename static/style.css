@@ -157,7 +157,8 @@ i {
 }
 
 p {
-    margin-top: 2rem;
+	margin-top: 2rem;
+	max-width: 72rem;
 }
 
 a {
