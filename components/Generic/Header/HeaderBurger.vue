@@ -58,6 +58,7 @@ export default defineComponent({
         toggleBurger() {
             this.isBurgerVisible = !this.isBurgerVisible
             document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden'
+            document.body.style.position = document.body.style.position === 'fixed' ? '' : 'fixed'
             const htmlElem = document.querySelector('html')
             htmlElem.style.overflow = htmlElem.style.overflow === 'hidden' ?  '' : 'hidden'
         },
@@ -65,6 +66,7 @@ export default defineComponent({
             this.isBurgerVisible = false;
             document.body.style.overflow = ''
             document.querySelector('html').style.overflow = ''
+            document.body.style.position = ''
         },
     },
 })

@@ -124,6 +124,7 @@ export default defineComponent({
                 currentImg.value = index
                 isGalleryVisible.value = true
                 document.body.style.overflowY = 'hidden'
+                document.body.style.position = 'fixed'
                 document.querySelector('html').style.overflow = 'hidden'
             }
 
