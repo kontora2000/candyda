@@ -57,10 +57,12 @@ export default {
   ** Build configuration
   */
     build: {
-
-        extend (config, ctx) {
-            config.devtool = 'source-map'
+      devMiddleware: {
+        headers: {
+            'Cache-Control': 'no-store',
+            Vary: '*',
         },
+      },
     },
     env: {
         baseURL: process.env.API_URL || 'http://localhost:80',
