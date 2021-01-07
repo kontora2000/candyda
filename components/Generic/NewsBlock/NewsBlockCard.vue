@@ -68,7 +68,7 @@ export default defineComponent({
 }
 
 .news-card-cont.with-image .news-card-content-wrapper{
-    height: 14.8rem;
+    height: 12.8rem;
     margin-top: 0;
     position: absolute;
     bottom: 0;
@@ -76,13 +76,10 @@ export default defineComponent({
 
 .news-card-cont.with-image .news-card-header {
     display: -webkit-box;
-    font-size: 3.2rem !important;
-    line-height: 3.6rem !important;
     overflow: hidden;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
-
 }
 
 .page-wrapper .news-card-header {

@@ -18,7 +18,7 @@ export default defineComponent({
 
 <style scoped>
 .header-about-us-wrapper {
-   grid-column: 28/31;
+   grid-column: 28/32;
    grid-row: 1/1;
 }
 .header-about-us {
