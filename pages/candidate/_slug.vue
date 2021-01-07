@@ -109,10 +109,9 @@ export default defineComponent({
             const ageText = ref('')
             watch(age, ()=> {
                 ageText.value = -1*age.value + ' ' + numWord(-age.value, ['год', 'года', 'лет'])
-                const asd  = localStorage.getItem(candidate.value.slug)
                 isVoted.value = localStorage.getItem(candidate.value.slug)!==null
             })
-            const title = computed(()=>candidate.value?.fullname || '')
+            const title = computed(()=>fullName.value || '')
             useMeta({ title, })
 
             const {

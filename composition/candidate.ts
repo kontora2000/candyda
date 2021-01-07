@@ -37,7 +37,7 @@ export const useCandidate = () => {
 
   const fullName = computed(() => (candidate.value?.surname || '') + ' '
       + (candidate.value?.name || '') + ' '
-      + candidate.value?.patronymic || '')
+      + (candidate.value?.patronymic || ''))
 
   const age = computed(()=> {
     if (momentDate.value!== {} as moment.Moment) {
