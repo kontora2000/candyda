@@ -52,6 +52,7 @@ export default defineComponent({
             this.isBurgerVisible = false
             document.querySelector('html').style.overflow = ''
             document.body.style.overflow = ''
+            document.body.style.position = ''
         },
     },
     methods: {

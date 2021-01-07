@@ -483,12 +483,22 @@ grid-column: 9/28;
 	background: var(--Black3);
 }
 
+.article-paragraphs .image {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 
 /*   У Д А Л И Т Ь   П О Т О М   */
 .breadcrumbs {
 	display: none;
 }
 
+.article-paragraphs figcaption {
+	margin-top: 0.8rem;
+}
 
 
 @media (min-width: 1460px) {
@@ -591,6 +601,11 @@ grid-column: 9/28;
 	.page-bottom-wrapper {
 		margin-top: 8rem;
 	}
+
+	.article-paragraphs .image img {
+		height: auto !important;
+	}
+
 }
 
 
@@ -604,5 +619,9 @@ grid-column: 9/28;
 	.page-header {
 		font-size: 2.8rem;
 		line-height: 3.2rem;
+	}
+
+	.article-paragraphs .image img {
+		height: auto !important;
 	}
 }

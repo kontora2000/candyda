@@ -14,11 +14,12 @@
    </div>
 </template>
 <script>
-import { defineComponent, useContext, onMounted, } from '@nuxtjs/composition-api'
+import { defineComponent, useContext,  useFetch,} from '@nuxtjs/composition-api'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
 import Btn from '@/components/Generic/Btn'
 import {useCandidateList,} from '@/composition/candidates';
+import {useAxios,} from '@/composition/axios';
 
 export default defineComponent({
     name:'CandidateTop',
@@ -28,8 +29,21 @@ export default defineComponent({
     },
     setup() {
         const { redirect, } = useContext()
-        const { fetchCandidatesTop, candidates, page, } = useCandidateList()
-        fetchCandidatesTop()
+        const { $axios, } = useAxios()
+        const { candidates, page,  } = useCandidateList()
+        const { fetch: fetchC, } = useFetch(async() => {
+            try {
+                const result = await $axios.$get('/candidates/list/1')
+                candidates.value = result.data
+                // isNeedToUpload.value = result.next_page_url !== null
+                // page.value = isNeedToUpload ? page.value : page.value + 1
+            }
+            catch(e) {
+                error({ statusCode: e?.response?.status, })
+            }
+        })
+
+        fetchC()
         return {
             candidates,
             page,

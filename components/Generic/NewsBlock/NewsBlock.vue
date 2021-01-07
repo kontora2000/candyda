@@ -9,7 +9,7 @@
              :key="post.id"
              :post="post"/>
          <div class="showmore-btn-wrapper" v-if="page === 2 && isNeedToUpload">
-            <btn>Показать больше</btn>
+            <btn @click="fetchPosts">Показать больше</btn>
          </div>
       </div>
    </div>
@@ -36,8 +36,6 @@ export default defineComponent({
         const { fetchPosts, posts, page, isNeedToUpload, } = usePostList()
         onMounted(async () => {
             await fetchPosts()
-            console.log(page.value)
-            console.log(isNeedToUpload.value)
         })
         return {
             fetchPosts,

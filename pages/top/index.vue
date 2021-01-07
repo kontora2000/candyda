@@ -23,13 +23,14 @@
 
 
 <script>
-import { defineComponent, useMeta, } from '@nuxtjs/composition-api'
+import { defineComponent, useMeta, useFetch, } from '@nuxtjs/composition-api'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
 import Btn from '@/components/Generic/Btn'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
 import {useCandidateList,} from '@/composition/candidates';
+import {useAxios,} from '@/composition/axios';
 
 export default defineComponent({
     name:'index',
@@ -41,16 +42,25 @@ export default defineComponent({
     },
     head:{},
     setup() {
-        const { candidates, fetchCandidatesTop, page, isNeedToUpload, } = useCandidateList()
-        fetchCandidatesTop()
+        const { candidates, } = useCandidateList()
+        const { $axios, } = useAxios()
+        const { fetch: fethcC, } =  useFetch(async  () => {
+            try {
+                const result = await $axios.$get('/candidates/top')
+                candidates.value = result
+            }
+            catch(e) {
+                error({ statusCode: e?.response?.status, })
+            }
+        })
+
+        fethcC()
 
         const { title, } = useMeta()
         title.value = 'Топ кандидатов'
 
         return {
             candidates,
-            isNeedToUpload,
-            page,
         }
     },
 })

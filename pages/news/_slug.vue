@@ -109,6 +109,7 @@ article .date-publication {
    width: 100%;
 }
 
+
 .news-cover-img {
    width: 100%;
    height: 100%;
@@ -147,7 +148,10 @@ article .date-publication {
 }
 
 
+
 @media (max-width: 460px) {
+
+
    .article-header {
       grid-column: 1/7;
    }
