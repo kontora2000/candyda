@@ -108,9 +108,7 @@ export default defineComponent({
             const votesText = computed( () => numWord(localVotes.value, ['голос', 'голоса', 'голосов']))
             const ageText = ref('')
             watch(age, ()=> {
-                console.log(age.value)
                 ageText.value = -1*age.value + ' ' + numWord(-age.value, ['год', 'года', 'лет'])
-                debugger
                 const asd  = localStorage.getItem(candidate.value.slug)
                 isVoted.value = localStorage.getItem(candidate.value.slug)!==null
             })
@@ -125,6 +123,8 @@ export default defineComponent({
             const openGallery = (index) => {
                 currentImg.value = index
                 isGalleryVisible.value = true
+                document.body.style.overflowY = 'hidden'
+                document.querySelector('html').style.overflow = 'hidden'
             }
 
             return {

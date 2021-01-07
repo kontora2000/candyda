@@ -30,6 +30,7 @@ export default {
   ** Plugins to load before mounting the App
   */
     plugins: [
+        { src: '@/plugins/vue-touch.js', mode: 'client', }
     ],
     /*
   ** Nuxt.js dev-modules
@@ -57,12 +58,12 @@ export default {
   ** Build configuration
   */
     build: {
-      devMiddleware: {
-        headers: {
-            'Cache-Control': 'no-store',
-            Vary: '*',
+        devMiddleware: {
+            headers: {
+                'Cache-Control': 'no-store',
+                Vary: '*',
+            },
         },
-      },
     },
     env: {
         baseURL: process.env.API_URL || 'http://localhost:80',

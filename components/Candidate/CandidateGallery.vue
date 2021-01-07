@@ -11,13 +11,25 @@
                     </div>
                 </div>
                 <div class="gallery-lightbox-left" @click="left">
-                    <svg class="icon-arrow-svg icon-arrow-left-svg"><use xlink:href="/images/sprite.svg#icon-arrow-left"></use></svg>
+                    <svg class="icon-arrow-svg icon-arrow-left-svg">
+                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 31" id="icon-arrow-left">
+                            <path d="M0.556274 14.2684L31.1548 0L32 1.81262L2.72729 15.4626L32 29.1128L31.1548 30.9254L0.556274 16.657V14.2684Z"/>
+                        </symbol>
+                    </svg>
                 </div>
                 <div class="gallery-lightbox-right" @click="right">
-                    <svg class="icon-arrow-svg icon-arrow-right-svg"><use xlink:href="/images/sprite.svg#icon-arrow-right"></use></svg>
+                    <svg class="icon-arrow-svg icon-arrow-right-svg">
+                        <symbol xmlns="http://www.w3.org/2000/svg"  id="icon-arrow-right">
+                            <path d="M32 14.2684L1.40149 0L0.556274 1.81262L29.829 15.4626L0.556274 29.1128L1.40149 30.9254L32 16.657V14.2684Z"/>
+                        </symbol>
+                    </svg>
                 </div>
                 <div class="gallery-lightbox-close" @click="onClose">
-                    <svg class="icon-close-svg"><use xlink:href="/images/sprite.svg#icon-close"></use></svg>
+                    <svg class="icon-close-svg">
+                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="icon-close">
+                            <path d="M15.5564 14.1421L29.6985 0L31.1127 1.41422L16.9706 15.5563L31.1128 29.6985L29.6986 31.1127L15.5564 16.9705L1.41418 31.1127L0 29.6985L14.1422 15.5563L0.00012207 1.41422L1.41431 0L15.5564 14.1421Z"/>
+                        </symbol>
+                    </svg>
                 </div>
             </div>
         </transition-group>
@@ -25,63 +37,67 @@
 </template>
 
 
-<script lang="ts">
+<script>
 import { defineComponent, PropType, ref, computed, watch, } from '@nuxtjs/composition-api'
 
-import {Image} from "~/modules/types";
-import {useToggle} from "~/composition/toggle";
+import {Image,} from '~/modules/types';
+import {useToggle,} from '~/composition/toggle';
 
 export default defineComponent({
-  name:'PostGallery',
-  props: {
-    images: {
-        type: Array as PropType<Image[]>,
-        default: () => [],
+    name:'PostGallery',
+    props: {
+        images: {
+            type: Array,
+            default: () => [],
+        },
+        visible: {
+            type: Boolean,
+            default:false,
+        },
+        current: {
+            type: Number,
+            default: 0,
+        },
     },
-    visible: {
-        type: Boolean,
-        default:false,
-      },
-    current: {
-        type: Number,
-        default: 0,
-    }
-  },
-  setup(props, emit) {
-    const pos = ref(props.current)
-    const currentImage = ref(props.images[pos.value])
-    const imgCount = computed(() => {
-      return props.images.length
-    })
+    setup(props, emit) {
+        const pos = ref(props.current)
+        const currentImage = ref(props.images[pos.value])
+        const imgCount = computed(() => {
+            return props.images.length
+        })
 
-    const c = computed(() => props.current)
+        const c = computed(() => props.current)
 
-    watch(c, () => {
-        pos.value = c.value
-        currentImage.value = props.images[pos.value]
-    })
+        watch(c, () => {
+            pos.value = c.value
+            currentImage.value = props.images[pos.value]
+        })
 
-    const left = () => {
-        pos.value = pos.value === 0 ? (props.images.length - 1) : pos.value - 1
-        currentImage.value = props.images[pos.value]
-    }
-    const right = () => {
-        pos.value = pos.value >= props.images.length-1 ? 0 : pos.value + 1
-        currentImage.value = props.images[pos.value]
-    }
-    const onClose = () => {
-        emit.emit('close')
-    }
+        const left = () => {
+            pos.value = pos.value === 0 ? (props.images.length - 1) : pos.value - 1
+            currentImage.value = props.images[pos.value]
+        }
+        const right = () => {
+            pos.value = pos.value >= props.images.length-1 ? 0 : pos.value + 1
+            currentImage.value = props.images[pos.value]
+        }
+        const onClose = () => {
+            document.body.style.overflowY = ''
+            document.querySelector('html').style.overflow = ''
+            emit.emit('close')
+        }
 
-    return {
-      imgCount,
-      currentImage,
-      pos,
-      left,
-      right,
-      onClose,
-    }
-  },
+
+
+        return {
+            imgCount,
+            currentImage,
+            pos,
+            left,
+            right,
+            onClose,
+        }
+    },
 
 })
 </script>

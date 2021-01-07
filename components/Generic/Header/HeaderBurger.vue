@@ -2,8 +2,7 @@
     <div class="burger-menu">
             <a class="burger"
                :class="{ 'burger-close': !isBurgerVisible, 'burger-open': isBurgerVisible }"
-               @click="toggleBurger"
-               @touch="toggleBurger"
+               v-touch="toggleBurger"
                key="b_button">
                 <span class="icon-burger" >
                     <span class="icon-burger-line"></span>
