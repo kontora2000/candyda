@@ -134,13 +134,6 @@ article .date-publication {
    grid-column: 9/28;
 }
 
-.article-paragraphs p {
-   font-family: var(--font-serif);
-   font-size: 2.4rem;
-   line-height: 3.2rem;
-   margin-top: 3.2rem;
-}
-
 .tags-wrapper {
    grid-column: 9/28;
    margin-top: 3.2rem;

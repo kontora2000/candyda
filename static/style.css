@@ -161,6 +161,14 @@ p {
 	max-width: 72rem;
 }
 
+.article-paragraphs p {
+	font-family: var(--font-serif);
+	font-size: 2.4rem;
+	line-height: 3.2rem;
+	margin-top: 3.2rem;
+}
+
+
 a {
 	color: var(--Black100);
 	text-decoration: none;
@@ -169,6 +177,13 @@ a {
 }
 a:hover {
 	color: var(--Black64);
+}
+
+.article-paragraphs p a {
+	border-bottom: .5px solid var(--Black32);
+}
+.article-paragraphs p a:hover {
+	border-bottom-color: var(--Black64);
 }
 
 /* a * {
