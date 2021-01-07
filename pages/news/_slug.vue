@@ -44,6 +44,7 @@ import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 import {useAxios,} from '@/composition/axios';
 import {Post,} from '@/modules/types';
 import moment from 'moment';
+import {useHelpers,} from '@/composition/helpers';
 
 export default defineComponent({
     name:'index',
@@ -62,11 +63,14 @@ export default defineComponent({
 
         const postDate = ref()
         const post = ref({})
+
+        const { humanDateDiff, } = useHelpers()
+
         const { fetch: fetchPost, } = useFetch(async () => {
             post.value = await $axios.$get('/post/' + slug)
             if (!post.value.slug) error({statusCode: 404,})
             moment.locale('ru')
-            postDate.value = moment(post.value.post_date).format('DD MMMM YYYY в HH:MM')
+            postDate.value = humanDateDiff(post.value.post_date)
         })
 
         const title = computed(()=> post.value?.title)
