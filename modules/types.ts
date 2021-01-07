@@ -27,7 +27,7 @@ export interface Candidate {
   avatarID: number | null;
   avatar: string;
   galleryID: number | null;
-  gallery: Image[],
+  gallery: string;
   description: string;
   tagID: number | null;
   created_at: string;

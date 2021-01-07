@@ -10,9 +10,7 @@ export const useCandidate = () => {
   const { $axios, error } = useAxios()
   const candidate=ref<Candidate>({} as Candidate)
   const { onVote, isVoted, localVotes, } = useVotes(slug)
-
-
-
+  const gallery = ref([])
   const momentDate = ref<moment.Moment>( moment())
 
   const { fetch: fetchCandidate, fetchState } = useFetch(async () => {
@@ -25,6 +23,7 @@ export const useCandidate = () => {
         momentDate.value = moment(candidate.value.birthdate)
         candidate.value.birthdate = momentDate.value.format('D MMMM YYYY')
         localVotes.value = candidate.value.votes
+        gallery.value = JSON.parse(candidate.value.gallery)
       }
       else {
         error({ statusCode: response.status, message:'Не удалось загрузить данные кандидата, попробуйте позже' })
@@ -53,6 +52,7 @@ export const useCandidate = () => {
     localVotes,
     isVoted,
     fullName,
+    gallery,
     onVote,
     age,
   }

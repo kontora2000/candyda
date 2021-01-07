@@ -15,7 +15,7 @@
                </div>
                <div class="candidate-rating-wrapper candidate-info-row">
                   <div class="candidate-rating">
-                     <span class="candidate-top-rating">ТОП-6</span>
+                     <span class="candidate-top-rating" style="display: none">ТОП-6</span>
                      <span class="candidate-top-votes">{{ localVotes }}<sup>{{ votesText }}</sup></span>
                   </div>
                   <div class="candidate-vote-button-wrapper">
@@ -34,6 +34,7 @@
                     {{ candidate.party.name }}
                   </div>
                </div>
+
                <div class="candidate-edu candidate-info-row" style="display: none;">
                   <div class="candidate-info-row-header">Учёные степени</div>
                   <div class="candidate-info-row-content">
@@ -44,7 +45,14 @@
             <div class="candidate-about-wrapper">
                <p>{{ candidate.description }}.</p>
             </div>
-            <div class="candidate-gallery-wrapper"></div>
+             <template v-if="gallery">
+                <div class="candidate-gallery-wrapper">
+                    <div class="candidte-gallery-image" v-for="image in gallery">
+                        <img src="image" @click="showLightbox" />
+                    </div>
+                    <CandidateGallery :images="gallery"/>
+                </div>
+             </template>
          </div>
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-candidate grid-main">
@@ -60,10 +68,10 @@ import {defineComponent, useContext, computed, useMeta, watch, ref, } from '@nux
 import Btn from '~/components/Generic/Btn.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
+import CandidateGallery from '@/components/Candidate/CandidateGallery';
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
 import { useCandidate,} from '@/composition/candidate.ts'
-import { useVotes, } from '@/composition/votes'
 import { useHelpers,} from '@/composition/helpers.ts'
 
 export default defineComponent({
@@ -72,13 +80,23 @@ export default defineComponent({
         Btn,
         NewsBlock,
         CandidateTop,
+        CandidateGallery,
         TheFooter,
     },
     head:{},
     setup() {
         const { route, error, } = useContext()
         if (route.value?.params?.slug && route.value?.params?.slug.trim()!=='')   {
-            const { candidate, fetchCandidate, onVote, isVoted, isLoading, localVotes, fullName, age, } = useCandidate()
+            const {
+                candidate,
+                fetchCandidate,
+                onVote,
+                isVoted,
+                isLoading,
+                localVotes,
+                fullName,
+                age,
+                gallery, } = useCandidate()
             fetchCandidate()
             isVoted.value = false
             const { numWord, } = useHelpers()
@@ -103,6 +121,7 @@ export default defineComponent({
                 localVotes,
                 ageText,
                 fullName,
+                gallery,
             }
         }
         else {

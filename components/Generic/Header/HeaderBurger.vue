@@ -3,6 +3,7 @@
             <a class="burger"
                :class="{ 'burger-close': !isBurgerVisible, 'burger-open': isBurgerVisible }"
                @click="toggleBurger"
+               @touch="toggleBurger"
                key="b_button">
                 <span class="icon-burger" >
                     <span class="icon-burger-line"></span>
@@ -50,16 +51,21 @@ export default defineComponent({
     watch:{
         $route() {
             this.isBurgerVisible = false
+            document.querySelector('html').style.overflow = ''
+            document.body.style.overflow = ''
         },
     },
     methods: {
         toggleBurger() {
             this.isBurgerVisible = !this.isBurgerVisible
-            document.body.style.overflowY = document.body.style.overflowY === 'hidden' ? '' : 'hidden'
+            document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden'
+            const htmlElem = document.querySelector('html')
+            htmlElem.style.overflow = htmlElem.style.overflow === 'hidden' ?  '' : 'hidden'
         },
         hideBurger() {
             this.isBurgerVisible = false;
-            document.body.style.overflowY = ''
+            document.body.style.overflow = ''
+            document.querySelector('html').style.overflow = ''
         },
     },
 })
