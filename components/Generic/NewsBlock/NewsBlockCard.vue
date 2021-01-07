@@ -17,6 +17,7 @@
 import {defineComponent, PropType, useContext,} from '@nuxtjs/composition-api'
 import  { Post } from "@/modules/types";
 import moment from "moment";
+import {useHelpers} from "~/composition/helpers";
 
 export default defineComponent({
   name: 'NewsBlockCard',
@@ -27,8 +28,9 @@ export default defineComponent({
       }
     },
   }, setup(props) {
-        moment.locale('ru')
-        const postDate = moment(props.post.post_date).format('DD MMM в HH:mm')
+        const { humanDateDiff, } = useHelpers()
+
+        const postDate = humanDateDiff(props.post.post_date)
         return {
           postDate,
         }
