@@ -182,6 +182,7 @@ export default defineComponent({
   }
 
   .news-card-cont-small.with-image .news-card-header,
+  .with-image.news-card-cont-small:first-child .news-card-header,
   .news-card-cont-big.with-image .news-card-header {
     font-size: 2rem;
     line-height: 2.4rem;
