@@ -69,7 +69,7 @@ export default defineComponent({
    z-index: 2;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 460px) {
    .candidate-card-cont {
       max-height: 220px;
    }
