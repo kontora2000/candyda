@@ -23,6 +23,16 @@
 	font-weight: 500;
 	font-style: normal;
 }
+@font-face {
+	font-family: 'Wremena';
+	src: url('../static/_fonts/wremena_regular-webfont.eot');
+	src: url('../static/_fonts/wremena_regular-webfont.eot#iefix') format('embedded-opentype'),
+		url('../static/_fonts/wremena_regular-webfont.woff2') format('woff2'),
+		url('../static/_fonts/wremena_regular-webfont.woff') format('woff'),
+		url('../static/_fonts/wremena_regular-webfont.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
 
 :root {
     --Black100: rgba(37, 37, 37, 1);
@@ -161,6 +171,14 @@ p {
 	max-width: 72rem;
 }
 
+.article-paragraphs p {
+	font-family: var(--font-serif);
+	font-size: 2.4rem;
+	line-height: 3.2rem;
+	margin-top: 3.2rem;
+}
+
+
 a {
 	color: var(--Black100);
 	text-decoration: none;
@@ -169,6 +187,13 @@ a {
 }
 a:hover {
 	color: var(--Black64);
+}
+
+.article-paragraphs p a {
+	border-bottom: .5px solid var(--Black32);
+}
+.article-paragraphs p a:hover {
+	border-bottom-color: var(--Black64);
 }
 
 /* a * {
@@ -457,6 +482,9 @@ grid-column: 9/28;
 	border: 1.5px solid var(--Azure100);
 	color: var(--Azure100);
 	margin-bottom: .8rem;
+}
+.tag:not(:first-child) {
+	margin-left: .8rem;
 }
 .tag:hover {
 	background-color: var(--Azure100);

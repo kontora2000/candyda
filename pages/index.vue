@@ -47,6 +47,19 @@ export default defineComponent({
 @media (max-width: 460px) {
   .main-bottom-wrapper {
     grid-column: 1/7;
+    grid-template-rows: auto;
+  }
+
+  .main-bottom-wrapper .cont-wrapper-right {
+    grid-row: 1/2;
+  }
+
+  .main-bottom-wrapper .cont-wrapper-left {
+    grid-row: 2/3;
+  }
+
+  .footer-wrapper {
+    grid-row: 3/3;
   }
 }
 </style>

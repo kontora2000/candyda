@@ -66,21 +66,21 @@ export default defineComponent({
       margin-top: 1.2rem;
    }
    .candidate-card-cont {
-      grid-column: span 2;
+      grid-column: span 3;
    }
-   .candidate-card-cont:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
+   .candidate-card-cont:not(:first-child):not(:nth-child(2)) {
       margin-top: 2rem;
    }
 }
 
 
 
-@media (max-width: 360px) {
+/*@media (max-width: 360px) {
 	.candidate-card-cont {
       grid-column: span 3;
    }
    .candidate-card-cont:nth-child(3) {
       margin-top: 2rem;
    }
-}
+}*/
 </style>

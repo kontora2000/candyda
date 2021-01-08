@@ -225,6 +225,14 @@ export default defineComponent({
 
 
 
+@media (min-width: 1460px;) {
+   .candidate-wrapper {
+      grid-column: 9/28;
+   }
+}
+
+
+
 @media (max-width: 460px) {
    .candidate-wrapper {
       grid-column: 1/7;

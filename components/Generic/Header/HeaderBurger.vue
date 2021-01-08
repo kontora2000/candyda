@@ -85,7 +85,7 @@ export default defineComponent({
     right: 0;
     width: 10.4rem;
     z-index: 2;
-    transition: all .175s ease-in-out;
+    transition: all .15s ease-in-out;
 }
 .burger.burger-close {
     height: 1.6rem;
@@ -97,7 +97,7 @@ export default defineComponent({
     height: 100%;
     position: relative;
     width: 100%;
-    transition: transform .175s ease-in-out;
+    transition: transform .15s ease-in-out;
     will-change: transform;
 }
 .icon-burger-line {
@@ -105,7 +105,7 @@ export default defineComponent({
     height: .4rem;
     background-color: var(--Black100);
     width: 100%;
-    transition: all .175s ease-in-out,margin .175s ease-in-out;
+    transition: all .15s ease-in-out,margin .15s ease-in-out;
     will-change: background-color,margin;
 }
 .icon-burger-line:first-child {
@@ -114,7 +114,7 @@ export default defineComponent({
 
 .burger-overlay {
     background: var(--White16);
-    height: 100vh;
+    height: calc(100vh - 6rem);
     padding: 8.8rem 1.2rem 0;
     position: absolute;
     top: -2.8rem;
@@ -148,7 +148,7 @@ export default defineComponent({
 .burger.burger-open {
     height: 6.4rem;
     margin-top: -1.6rem;
-    right: 3.2rem;
+    right: 2.8rem;
     width: 6.4rem;
 }
 .burger-open .icon-burger-line:first-child {
