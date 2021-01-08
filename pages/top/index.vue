@@ -54,8 +54,6 @@ export default defineComponent({
             }
         })
 
-        fethcC()
-
         const { title, } = useMeta()
         title.value = 'Топ кандидатов'
 

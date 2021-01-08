@@ -1,10 +1,9 @@
 <template>
-    <div class="burger-menu">
+    <div class="burger-menu"  v-touch="toggleBurger" >
             <a class="burger"
                :class="{ 'burger-close': !isBurgerVisible, 'burger-open': isBurgerVisible }"
-               v-touch="toggleBurger"
                key="b_button">
-                <span class="icon-burger" >
+                <span class="icon-burger">
                     <span class="icon-burger-line"></span>
                     <span class="icon-burger-line"></span>
                 </span>

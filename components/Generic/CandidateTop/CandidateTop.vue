@@ -8,7 +8,7 @@
                         :key="candidate.id"
                         :candidate="candidate"/>
          <div class="showmore-btn-wrapper">
-            <btn @click="redirect('/top')">Смотреть весь&nbsp;топ</btn>
+            <nuxt-link to="/top" ><btn> Смотреть весь&nbsp;топ</btn></nuxt-link>
          </div>
       </div>
    </div>
@@ -35,15 +35,12 @@ export default defineComponent({
             try {
                 const result = await $axios.$get('/candidates/list/1')
                 candidates.value = result.data
-                // isNeedToUpload.value = result.next_page_url !== null
-                // page.value = isNeedToUpload ? page.value : page.value + 1
             }
             catch(e) {
                 error({ statusCode: e?.response?.status, })
             }
         })
 
-        fetchC()
         return {
             candidates,
             page,

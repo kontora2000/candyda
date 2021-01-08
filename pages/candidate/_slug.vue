@@ -18,11 +18,11 @@
                      <span class="candidate-top-rating" style="display: none">ТОП-6</span>
                      <span class="candidate-top-votes">{{ localVotes }}<sup>{{ votesText }}</sup></span>
                   </div>
-                  <div class="candidate-vote-button-wrapper">
+                  <div class="candidate-vote-button-wrapper"
+                       v-touch="() => onVote(candidate.slug)">
                      <btn class="vote-button"
                           :disabled="isVoted"
-                          :loading="isLoading"
-                          @click.prevent="onVote(candidate.slug)">
+                          :loading="isLoading">
                          Проголосовать
                      </btn>
                   </div>
@@ -42,8 +42,7 @@
                   </div>
                </div>
             </div>
-            <div class="candidate-about-wrapper">
-               <p>{{ candidate.description }}.</p>
+            <div class="candidate-about-wrapper" v-html="candidate.description">
             </div>
              <template v-if="gallery">
                 <div class="candidate-gallery-wrapper" v-if="gallery.length > 0">
