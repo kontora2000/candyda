@@ -2,7 +2,7 @@
    <nuxt-link :to="`/candidate/${candidate.slug}`" class="candidate-card-cont card-cont" v-if="candidate.ava">
       <div class="card-cont-inner">
          <VoteButton :votes="candidate.votes || 0" />
-         <div class="candidate-card-name-wrapper header-6">
+         <div class="candidate-card-name-wrapper">
             <div class="candidate-name">{{ candidate.name }}</div>
             <div class="candidate-surname">{{ candidate.surname }}</div>
          </div>
@@ -59,6 +59,9 @@ export default defineComponent({
 .candidate-card-name-wrapper {
    display: flex;
    flex-direction: column;
+   font-weight: 500;
+   font-size: 2rem;
+   line-height: 2.4rem;
    margin: 0 .4rem .8rem;
    position: absolute;
    bottom: 0;

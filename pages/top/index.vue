@@ -69,8 +69,9 @@ export default defineComponent({
 <style scoped>
 .page-top {
    display: grid;
-   grid-template-columns: repeat(19, calc((100% - (1.6rem * 18)) / 19));
+   grid-template-columns: repeat(20,calc((100% - 30.4rem) / 20));
    grid-column-gap: 1.6rem;
+   grid-column: 9/29;
 }
 
 .page-top-header {
