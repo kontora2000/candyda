@@ -151,7 +151,9 @@ article .date-publication {
 
 
 @media (max-width: 460px) {
-
+   .article.page-news-wrapper {
+      margin-top: 0;
+   }
 
    .article-header {
       grid-column: 1/7;

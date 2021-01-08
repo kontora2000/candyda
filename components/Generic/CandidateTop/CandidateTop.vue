@@ -71,6 +71,9 @@ export default defineComponent({
    .candidate-card-cont:not(:first-child):not(:nth-child(2)) {
       margin-top: 2rem;
    }
+   .candidate-card-cont:nth-child(3) {
+      margin-top: 2rem;
+   }
 }
 
 
