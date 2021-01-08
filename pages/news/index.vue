@@ -7,7 +7,7 @@
          <div class="page-wrapper">
             <h1 class="page-header">Новости</h1>
             <template v-if="posts.length > 0">
-              <NewsBlockCard v-for="post in posts"
+              <NewsBlockCard class="news-card-cont-big" v-for="post in posts"
                              :key="post.id"
                              :post="post"/>
               <div class="showmore-btn-wrapper" v-if="page === 2 && isNeedToUpload">
