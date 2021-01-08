@@ -130,7 +130,7 @@ export default defineComponent({
 
 /* Big news card */
 .news-card-cont-big {
-
+  height: 44rem;
 }
 
 .news-card-cont-big .news-card-header {
@@ -164,34 +164,27 @@ export default defineComponent({
 
 
 @media (max-width: 460px) {
-  .news-card-cont:first-child {
-    grid-column: span 6;
-  }
-
-  .news-card-cont:first-child .news-card-header {
-    font-size: 2.8rem;
-    line-height: 3.2rem;
+  .news-card-cont .news-card-header {
     width: 96%;
   }
 
-  .news-card-cont {
+  .news-card-cont-small,
+  .news-block-cards-wrapper .news-card-cont-small:first-child,
+  .news-card-cont-big {
     grid-column: span 6;
     height: 32rem;
   }
-  .news-card-cont:first-child {
-    height: 32rem;
+
+  .news-card-cont-small .news-card-header,
+  .news-card-cont-big .news-card-header {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
   }
 
-  .news-card-cont.with-image .news-card-header {
-    font-size: 2.4rem !important;
-    line-height: 2.8rem !important;
-  }
-
-  .news-card-header,
-  .page-wrapper .news-card-header {
-    font-size: 2.8rem;
-    line-height: 3.2rem;
-    width: 94%;
+  .news-card-cont-small.with-image .news-card-header,
+  .news-card-cont-big.with-image .news-card-header {
+    font-size: 2rem;
+    line-height: 2.4rem;
   }
 }
 </style>

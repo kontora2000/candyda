@@ -77,8 +77,6 @@ export default defineComponent({
 }
 
 @media (max-width: 460px) {
-   .page-wrapper .news-card-cont {
-      height: 32rem;
-   }
+
 }
 </style>
