@@ -13,7 +13,6 @@
                <template v-if="isNeedToUpload">
                   <div class="showmore-btn-wrapper page-news-showmore-btn-wrapper"
                        v-if="isNeedToUpload && page === 2"
-                       v-touch="upload"
                        @click="upload"
                   >
                      <btn class="page-news-showmore-btn">Показать больше</btn>

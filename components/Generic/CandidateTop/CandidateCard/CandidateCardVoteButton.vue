@@ -3,7 +3,7 @@
       <div class="votes-counter-small"
            :class="{ 'voted': isVoted }"
            @click.prevent="$emit('vote')"
-           v-touch:tap="$emit('vote')"
+
       >
          <span class="icon icon-votes-counter">
             <use xlink:href="/static/sprite.svg#icon-check" />

@@ -1,7 +1,7 @@
 <template>
-    <div class="burger-menu"  >
+    <div class="burger-menu"  @click="toggleBurger">
             <a class="burger"
-               v-touch="toggleBurger"
+               v-touch="() => toggleBurger"
                :class="{ 'burger-close': !isBurgerVisible, 'burger-open': isBurgerVisible }"
                key="b_button">
                 <span class="icon-burger">
@@ -32,6 +32,7 @@ import { defineComponent, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
     name:'HeaderBurger',
+    ssr: false,
     data() {
         return  {
             isMobile: this.$device.isMobile,
@@ -48,11 +49,8 @@ export default defineComponent({
         })
     },
     watch:{
-        $route: () => {
-            this.isBurgerVisible = false
-            document.querySelector('html').style.overflow = ''
-            document.body.style.overflow = ''
-            document.body.style.position = ''
+        $route()  {
+
         },
     },
     methods: {
