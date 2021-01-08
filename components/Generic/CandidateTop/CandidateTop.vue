@@ -68,11 +68,12 @@ export default defineComponent({
    .candidate-card-cont {
       grid-column: span 3;
    }
-   .candidate-card-cont:not(:first-child):not(:nth-child(2)) {
+   .candidate-card-cont {
       margin-top: 2rem;
-   } 
-   .candidate-card-cont:nth-child(3) {
-      margin-top: 2rem;
+   }
+   .candidate-card-cont:first-child,
+   .candidate-card-cont:nth-child(2) {
+      margin-top: 0;
    }
 }
 
