@@ -4,7 +4,7 @@
          <h3 class="cont-header">Последние <nuxt-link to="/news" class="link-underline-solid">новости</nuxt-link></h3>
       </div>
       <div class="news-block-cards-wrapper block-cards-wrapper">
-         <NewsBlockCard
+         <NewsBlockCard class="news-card-cont-small"
              v-for="post in posts"
              :key="post.id"
              :post="post"/>
