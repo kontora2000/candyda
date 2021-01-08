@@ -58,7 +58,7 @@ export default defineComponent({
     grid-row: 2/3;
   }
 
-  .footer-wrapper {
+  .main-bottom-wrapper .footer-wrapper {
     grid-row: 3/3;
   }
 }

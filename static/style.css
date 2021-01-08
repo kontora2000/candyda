@@ -177,6 +177,9 @@ p {
 	line-height: 3.2rem;
 	margin-top: 3.2rem;
 }
+.article-paragraphs p:first-child {
+	margin-top: 0;
+}
 
 
 a {
@@ -189,10 +192,10 @@ a:hover {
 	color: var(--Black64);
 }
 
-.article-paragraphs p a {
+.article-paragraphs a {
 	border-bottom: .5px solid var(--Black32);
 }
-.article-paragraphs p a:hover {
+.article-paragraphs a:hover {
 	border-bottom-color: var(--Black64);
 }
 
@@ -610,7 +613,7 @@ grid-column: 9/28;
 
 	.page-aside-wrapper {
 		grid-column: 1/7;
-		margin-bottom: 1.2rem;
+		margin-bottom: 2rem;
 	}
 
 	.page-content-superwrapper {
