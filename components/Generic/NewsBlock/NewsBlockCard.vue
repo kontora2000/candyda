@@ -52,6 +52,10 @@ export default defineComponent({
   font-weight: 500;
   letter-spacing: -.01em;
   width: 88%;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 }
 
 .news-card-cont .date-publication {
@@ -90,6 +94,7 @@ export default defineComponent({
 .news-card-cont-small .news-card-header {
   font-size: 2.4rem;
   line-height: 2.8rem;
+  -webkit-line-clamp: 8;
 }
 
 .news-card-cont-small.with-image .news-card-content-wrapper {
@@ -102,12 +107,7 @@ export default defineComponent({
 .news-card-cont-small.with-image .news-card-header {
   font-size: 2rem;
   line-height: 2.4rem;
-
-  display: -webkit-box;
-  overflow: hidden;
   -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
   width: 100%;
 }
 
@@ -136,25 +136,22 @@ export default defineComponent({
 .news-card-cont-big .news-card-header {
   font-size: 3.6rem;
   line-height: 4rem;
+  -webkit-line-clamp: 9;
 }
 
 .news-card-cont-big .news-card-content-wrapper {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 1.6rem);
+  height: calc(100% - 2.4rem);
   justify-content: space-between;
-  margin: .8rem;
+  margin: 1.2rem .8rem;
 }
 
 .news-card-cont-big.with-image .news-card-header {
   font-size: 2.8rem;
   line-height: 3.2rem;
-
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  width: 100%;
 }
 
 .news-card-cont-big.with-image .news-card-content-wrapper {
@@ -162,19 +159,6 @@ export default defineComponent({
   margin-top: 0;
   position: absolute;
   bottom: 0;
-}
-
-.news-card-cont-big.with-image .news-card-header {
-  font-size: 2.4rem;
-  line-height: 2.8rem;
-}
-
-.news-card-cont-big.with-image .news-card-header {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
 }
 
 
