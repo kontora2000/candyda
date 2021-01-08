@@ -1,5 +1,6 @@
 <template>
-  <nuxt-link :to="`/news/${post.slug}`" class="news-card-cont card-cont" :class="{ 'with-image': post.cover }">
+  <nuxt-link :to="`/news/${post.slug}`" class="news-card-cont card-cont"
+             :class="{ 'with-image': post.cover }">
     <div class="card-cont-inner">
       <div class="news-card-pic-wrapper" v-if="post.cover">
         <img class="news-card-pic" :src="'https://api.prostokontora.ru/storage/' + post.cover" />

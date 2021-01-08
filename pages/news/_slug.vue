@@ -109,13 +109,8 @@ article .date-publication {
    width: 100%;
 }
 
-<<<<<<< HEAD
 .news-cover-img,
 .news-image img {
-=======
-
-.news-cover-img {
->>>>>>> 6aeb440be019885fbf37d47b85f1942632e57450
    width: 100%;
    height: 100%;
    max-height: 64rem;
