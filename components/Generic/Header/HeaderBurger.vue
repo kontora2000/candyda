@@ -112,7 +112,7 @@ export default defineComponent({
 }
 
 .burger-overlay {
-    background: var(--White16);
+    background: var(--White48);
     height: calc(100vh - 6rem);
     padding: 8.8rem 1.2rem 0;
     position: absolute;
@@ -120,8 +120,8 @@ export default defineComponent({
     left: -1.2rem;
     width: 100vw;
     z-index: 1;
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
 }
 
 .site-nav-burger li:not(:first-child) {

@@ -69,7 +69,7 @@ export default defineComponent({
       grid-column: span 3;
    }
    .candidate-card-cont {
-      margin-top: 2rem;
+      margin-top: 3.2rem;
    }
    .candidate-card-cont:first-child,
    .candidate-card-cont:nth-child(2) {
