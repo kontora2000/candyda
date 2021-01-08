@@ -28,7 +28,7 @@ export default defineComponent({
 
     head() {
         return {
-            title: process.env.baseTitle + ' Главная',
+            title: 'Duma.one - Главная',
         }
     },
 })
