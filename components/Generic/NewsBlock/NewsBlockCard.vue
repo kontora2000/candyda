@@ -59,7 +59,7 @@ export default defineComponent({
 }
 
 .news-card-pic-wrapper {
-  height: 100%;
+  height: 80%;
   position: absolute;
   width: 100%;
   z-index: -1;
@@ -88,8 +88,8 @@ export default defineComponent({
   margin: .8rem;
 }
 .news-card-cont-small .news-card-header {
-  font-size: 2rem;
-  line-height: 2.4rem;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
 }
 
 .news-card-cont-small.with-image .news-card-content-wrapper {
@@ -100,11 +100,15 @@ export default defineComponent({
 }
 
 .news-card-cont-small.with-image .news-card-header {
+  font-size: 2rem;
+  line-height: 2.4rem;
+
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  width: 100%;
 }
 
 
@@ -143,8 +147,8 @@ export default defineComponent({
 }
 
 .news-card-cont-big.with-image .news-card-header {
-  font-size: 2.4rem;
-  line-height: 2.8rem;
+  font-size: 2.8rem;
+  line-height: 3.2rem;
 
   display: -webkit-box;
   overflow: hidden;

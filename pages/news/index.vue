@@ -10,8 +10,8 @@
               <NewsBlockCard class="news-card-cont-big" v-for="post in posts"
                              :key="post.id"
                              :post="post"/>
-              <div class="showmore-btn-wrapper" v-if="page === 2 && isNeedToUpload">
-                 <btn click="fetchPosts">Показать больше</btn>
+              <div class="showmore-btn-wrapper page-news-showmore-btn-wrapper" v-if="page === 2 && isNeedToUpload">
+                 <btn class="page-news-showmore-btn" click="fetchPosts">Показать больше</btn>
               </div>
             </template>
          </div>
@@ -64,6 +64,16 @@ export default defineComponent({
 <style scoped>
 .page-wrapper .news-card-cont {
    height: 44rem;
+}
+
+.page-news-showmore-btn-wrapper {
+   margin-left: 0;
+   width: 100%;
+}
+
+.page-news-showmore-btn {
+   max-height: 7.6rem;
+   width: 100%;
 }
 
 @media (max-width: 460px) {
