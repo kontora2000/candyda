@@ -163,10 +163,6 @@ export default defineComponent({
 
 
 
-
-
-
-
 @media (max-width: 460px) {
   .news-card-cont:first-child {
     grid-column: span 6;
