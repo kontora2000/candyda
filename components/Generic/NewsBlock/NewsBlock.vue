@@ -12,7 +12,7 @@
               <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page === 2" @click="upload">
                   <btn>Показать больше</btn>
               </div>
-              <infinite-loading style="margin-top: 10px"  v-else-if="page > 2"
+              <infinite-loading v-else-if="page > 2" style="margin-top: 10px" class="showmore-btn-wrapper"
                                 spinner="spiral"
                                 @infinite="onScroll" >
                   <div slot="no-more" />
@@ -26,7 +26,7 @@
 
 
 <script>
-import { defineComponent,  onMounted, } from '@nuxtjs/composition-api'
+import { defineComponent,  } from '@nuxtjs/composition-api'
 
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn'
@@ -39,12 +39,8 @@ export default defineComponent({
         NewsBlockCard,
         Btn,
     },
-    ssr: false,
     setup() {
         const { fetchPosts, posts, page, isNeedToUpload, upload, onScroll, } = usePostList()
-
-
-
         return {
             fetchPosts,
             posts,

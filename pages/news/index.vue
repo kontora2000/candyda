@@ -11,8 +11,8 @@
                              :key="post.id"
                              :post="post"/>
                <template v-if="isNeedToUpload">
-                  <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page === 2" @click="upload">
-                     <btn>Показать больше</btn>
+                  <div class="showmore-btn-wrapper page-news-showmore-btn-wrapper" v-if="isNeedToUpload && page === 2" @click="upload">
+                     <btn class="page-news-showmore-btn">Показать больше</btn>
                   </div>
                    <infinite-loading v-else-if="page > 2"
                                      spinner="spiral"
@@ -74,6 +74,15 @@ export default defineComponent({
    height: 44rem;
 }
 
+.page-news-showmore-btn-wrapper {
+   margin-left: 0;
+   width: 100%;
+}
+
+.page-news-showmore-btn {
+   max-height: 7.6rem;
+   width: 100%;
+}
 
 @media (max-width: 460px) {
    .page-wrapper .news-card-cont {
