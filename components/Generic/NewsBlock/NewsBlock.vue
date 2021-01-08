@@ -8,9 +8,17 @@
              v-for="post in posts"
              :key="post.id"
              :post="post"/>
-         <div class="showmore-btn-wrapper" v-if="isNeedToUpload">
-            <btn >Показать больше</btn>
-         </div>
+          <template v-if="isNeedToUpload">
+              <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page === 2" @click="upload">
+                  <btn>Показать больше</btn>
+              </div>
+              <infinite-loading style="margin-top: 10px"  v-else-if="page > 2"
+                                spinner="spiral"
+                                @infinite="onScroll" >
+                  <div slot="no-more" />
+                  <div slot="no-results" />
+              </infinite-loading>
+          </template>
       </div>
    </div>
 </template>
@@ -33,7 +41,7 @@ export default defineComponent({
     },
     ssr: false,
     setup() {
-        const { fetchPosts, posts, page, isNeedToUpload, } = usePostList()
+        const { fetchPosts, posts, page, isNeedToUpload, upload, onScroll, } = usePostList()
 
 
 
@@ -42,6 +50,8 @@ export default defineComponent({
             posts,
             page,
             isNeedToUpload,
+            upload,
+            onScroll,
         }
     },
 })

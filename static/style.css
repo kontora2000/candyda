@@ -358,7 +358,9 @@ main {
 }
 
 
-
+.loading-spiral {
+	border: 2px solid var(--Azure12);
+}
 
 
 /*   P A G E S   */

@@ -15,7 +15,7 @@
 
 
 <script lang="ts">
-import {defineComponent, PropType, useContext,} from '@nuxtjs/composition-api'
+import {defineComponent, PropType, } from '@nuxtjs/composition-api'
 import  { Post } from "@/modules/types";
 import moment from "moment";
 import {useHelpers} from "~/composition/helpers";

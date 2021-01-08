@@ -10,9 +10,17 @@
               <NewsBlockCard class="news-card-cont-big" v-for="post in posts"
                              :key="post.id"
                              :post="post"/>
-              <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page===2" v-="upload">
-                 <btn>Показать больше</btn>
-              </div>
+               <template v-if="isNeedToUpload">
+                  <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page === 2" @click="upload">
+                     <btn>Показать больше</btn>
+                  </div>
+                   <infinite-loading v-else-if="page > 2"
+                                     spinner="spiral"
+                                     @infinite="onScroll" >
+                        <div slot="no-more" />
+                       <div slot="no-results" />
+                   </infinite-loading>
+               </template>
             </template>
          </div>
       </div>
@@ -44,17 +52,16 @@ export default defineComponent({
     },
     head:{},
     setup() {
-        const { fetchPosts, posts, page, isNeedToUpload, upload, } = usePostList()
+        const { fetchPosts, posts, page, isNeedToUpload, upload, onScroll, } = usePostList()
         const { title, } = useMeta()
         title.value = 'Новости'
-
-
         return {
             fetchPosts,
             posts,
             page,
             isNeedToUpload,
             upload,
+            onScroll,
         }
     },
 
@@ -66,6 +73,7 @@ export default defineComponent({
 .page-wrapper .news-card-cont {
    height: 44rem;
 }
+
 
 @media (max-width: 460px) {
    .page-wrapper .news-card-cont {
