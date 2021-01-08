@@ -10,8 +10,8 @@
               <NewsBlockCard class="news-card-cont-big" v-for="post in posts"
                              :key="post.id"
                              :post="post"/>
-              <div class="showmore-btn-wrapper" v-if="page === 2 && isNeedToUpload">
-                 <btn click="fetchPosts">Показать больше</btn>
+              <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page===2" v-="upload">
+                 <btn>Показать больше</btn>
               </div>
             </template>
          </div>
@@ -44,16 +44,17 @@ export default defineComponent({
     },
     head:{},
     setup() {
-        const { fetchPosts, posts, page, isNeedToUpload, } = usePostList()
-        fetchPosts()
+        const { fetchPosts, posts, page, isNeedToUpload, upload, } = usePostList()
         const { title, } = useMeta()
         title.value = 'Новости'
+
 
         return {
             fetchPosts,
             posts,
             page,
             isNeedToUpload,
+            upload,
         }
     },
 

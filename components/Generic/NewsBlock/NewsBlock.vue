@@ -8,8 +8,8 @@
              v-for="post in posts"
              :key="post.id"
              :post="post"/>
-         <div class="showmore-btn-wrapper" v-if="page === 2 && isNeedToUpload">
-            <btn @click="fetchPosts">Показать больше</btn>
+         <div class="showmore-btn-wrapper" v-if="isNeedToUpload">
+            <btn >Показать больше</btn>
          </div>
       </div>
    </div>
@@ -34,9 +34,9 @@ export default defineComponent({
     ssr: false,
     setup() {
         const { fetchPosts, posts, page, isNeedToUpload, } = usePostList()
-        onMounted(async () => {
-            await fetchPosts()
-        })
+
+
+
         return {
             fetchPosts,
             posts,

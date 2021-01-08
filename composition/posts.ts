@@ -13,17 +13,30 @@ export const usePostList = () => {
             const result = await $axios.get('/post/list?page=' + page.value )
             isNeedToUpload.value = result.data.last_page !== page.value
             posts.value = page.value === 1 ? result.data.data : [...posts.value,...result.data]
-            page.value = isNeedToUpload ? page.value : page.value + 1
+            page.value = isNeedToUpload ? page.value + 1 : page.value
         }
         catch(e) {
             error({ statusCode: e?.response?.status })
         }
     })
 
+    const  upload = async () => {
+        try {
+            const result = await $axios.get('/post/list?page=' + page.value )
+            isNeedToUpload.value = result.data.last_page !== page.value
+            posts.value = page.value === 1 ? result.data.data : [...posts.value,...result.data]
+            page.value = isNeedToUpload ? page.value + 1 : page.value
+        }
+        catch(e) {
+            error({ statusCode: e?.response?.status })
+        }
+    }
+
     return {
         posts,
         fetchPosts,
         page,
+        upload,
         isNeedToUpload,
     }
 }
