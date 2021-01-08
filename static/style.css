@@ -98,7 +98,7 @@ body {
 	-webkit-text-size-adjust: none;
 }
 
-h1, h2, h3, h4, h5, h6, .header-6 {
+h1, h2, h3, h4, h5, h6 {
 	font-family: var(--font-default);
 	font-weight: 500;
 	letter-spacing: -.01em;
@@ -143,13 +143,10 @@ h5 {
     margin-bottom: 1.3rem;
 }
 
-h6,
-.header-6 {
+h6 {
     font-size: 2rem;
-    line-height: 2.4rem;
-}
-h6{
-    margin-bottom: 1.2rem;
+	line-height: 2.4rem;
+	margin-bottom: 1.2rem;
 }
 
 .text-small,
