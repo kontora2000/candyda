@@ -18,11 +18,11 @@
                      <span class="candidate-top-rating" style="display: none">ТОП-6</span>
                      <span class="candidate-top-votes">{{ localVotes }}<sup>{{ votesText }}</sup></span>
                   </div>
-                  <div class="candidate-vote-button-wrapper">
+                  <div class="candidate-vote-button-wrapper"
+                       v-touch="() => onVote(candidate.slug)">
                      <btn class="vote-button"
                           :disabled="isVoted"
-                          :loading="isLoading"
-                          @click.prevent="onVote(candidate.slug)">
+                          :loading="isLoading">
                          Проголосовать
                      </btn>
                   </div>
@@ -42,8 +42,7 @@
                   </div>
                </div>
             </div>
-            <div class="candidate-about-wrapper">
-               <p>{{ candidate.description }}.</p>
+            <div class="candidate-about-wrapper" v-html="candidate.description">
             </div>
              <template v-if="gallery">
                 <div class="candidate-gallery-wrapper" v-if="gallery.length > 0">
@@ -109,10 +108,9 @@ export default defineComponent({
             const ageText = ref('')
             watch(age, ()=> {
                 ageText.value = -1*age.value + ' ' + numWord(-age.value, ['год', 'года', 'лет'])
-                const asd  = localStorage.getItem(candidate.value.slug)
                 isVoted.value = localStorage.getItem(candidate.value.slug)!==null
             })
-            const title = computed(()=>candidate.value?.fullname || '')
+            const title = computed(()=>fullName.value || '')
             useMeta({ title, })
 
             const {
@@ -124,6 +122,7 @@ export default defineComponent({
                 currentImg.value = index
                 isGalleryVisible.value = true
                 document.body.style.overflowY = 'hidden'
+                document.body.style.position = 'fixed'
                 document.querySelector('html').style.overflow = 'hidden'
             }
 

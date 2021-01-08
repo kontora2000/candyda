@@ -67,8 +67,11 @@ export default defineComponent({
 }
 
 @media (max-width: 400px) {
+   .candidate-card-cont {
+      max-height: 220px;
+   }
    .candidate-card-ava-small-wrapper {
-      min-height: 14rem;
+      min-height: 22rem;
    }
 }
 

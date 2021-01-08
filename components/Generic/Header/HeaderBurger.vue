@@ -1,10 +1,9 @@
 <template>
-    <div class="burger-menu">
+    <div class="burger-menu"  v-touch="toggleBurger" >
             <a class="burger"
                :class="{ 'burger-close': !isBurgerVisible, 'burger-open': isBurgerVisible }"
-               v-touch="toggleBurger"
                key="b_button">
-                <span class="icon-burger" >
+                <span class="icon-burger">
                     <span class="icon-burger-line"></span>
                     <span class="icon-burger-line"></span>
                 </span>
@@ -52,12 +51,14 @@ export default defineComponent({
             this.isBurgerVisible = false
             document.querySelector('html').style.overflow = ''
             document.body.style.overflow = ''
+            document.body.style.position = ''
         },
     },
     methods: {
         toggleBurger() {
             this.isBurgerVisible = !this.isBurgerVisible
             document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden'
+            document.body.style.position = document.body.style.position === 'fixed' ? '' : 'fixed'
             const htmlElem = document.querySelector('html')
             htmlElem.style.overflow = htmlElem.style.overflow === 'hidden' ?  '' : 'hidden'
         },
@@ -65,6 +66,7 @@ export default defineComponent({
             this.isBurgerVisible = false;
             document.body.style.overflow = ''
             document.querySelector('html').style.overflow = ''
+            document.body.style.position = ''
         },
     },
 })
@@ -83,7 +85,7 @@ export default defineComponent({
     right: 0;
     width: 10.4rem;
     z-index: 2;
-    transition: all .175s ease-in-out;
+    transition: all .15s ease-in-out;
 }
 .burger.burger-close {
     height: 1.6rem;
@@ -95,7 +97,7 @@ export default defineComponent({
     height: 100%;
     position: relative;
     width: 100%;
-    transition: transform .175s ease-in-out;
+    transition: transform .15s ease-in-out;
     will-change: transform;
 }
 .icon-burger-line {
@@ -103,7 +105,7 @@ export default defineComponent({
     height: .4rem;
     background-color: var(--Black100);
     width: 100%;
-    transition: all .175s ease-in-out,margin .175s ease-in-out;
+    transition: all .15s ease-in-out,margin .15s ease-in-out;
     will-change: background-color,margin;
 }
 .icon-burger-line:first-child {
@@ -112,7 +114,7 @@ export default defineComponent({
 
 .burger-overlay {
     background: var(--White16);
-    height: 100vh;
+    height: calc(100vh - 6rem);
     padding: 8.8rem 1.2rem 0;
     position: absolute;
     top: -2.8rem;
@@ -146,7 +148,7 @@ export default defineComponent({
 .burger.burger-open {
     height: 6.4rem;
     margin-top: -1.6rem;
-    right: 3.2rem;
+    right: 2.8rem;
     width: 6.4rem;
 }
 .burger-open .icon-burger-line:first-child {

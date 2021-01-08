@@ -2,7 +2,7 @@
     <div class="gallery-lightbox-wrapper">
         <transition-group name="fade">
             <div v-show="visible && images.length > 0" key="overlay"
-                 class="gallery-lightbox-overlay"  @click.self="onClose"/>
+                 class="gallery-lightbox-overlay"  @click.self="onClose" v-on:touch="close"/>
             <div v-show="visible && images.length > 0" key="cont" class="gallery-lightbox-cont">
                 <div class="gallery-lightbox-body">
                     <img class="gallery-lightbox-current-image" :src="'https://api.prostokontora.ru/storage/' + currentImage">
@@ -10,21 +10,21 @@
                         {{ pos+1 }} / {{ imgCount }}
                     </div>
                 </div>
-                <div class="gallery-lightbox-left" @click="left">
+                <div class="gallery-lightbox-left" @click="left" v-on:touch="left">
                     <svg class="icon-arrow-svg icon-arrow-left-svg">
                         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 31" id="icon-arrow-left">
                             <path d="M0.556274 14.2684L31.1548 0L32 1.81262L2.72729 15.4626L32 29.1128L31.1548 30.9254L0.556274 16.657V14.2684Z"/>
                         </symbol>
                     </svg>
                 </div>
-                <div class="gallery-lightbox-right" @click="right">
+                <div class="gallery-lightbox-right" @click="right" v-on:touch="right">
                     <svg class="icon-arrow-svg icon-arrow-right-svg">
                         <symbol xmlns="http://www.w3.org/2000/svg"  id="icon-arrow-right">
                             <path d="M32 14.2684L1.40149 0L0.556274 1.81262L29.829 15.4626L0.556274 29.1128L1.40149 30.9254L32 16.657V14.2684Z"/>
                         </symbol>
                     </svg>
                 </div>
-                <div class="gallery-lightbox-close" @click="onClose">
+                <div class="gallery-lightbox-close" @click="onClose" v-on:touch="onClose">
                     <svg class="icon-close-svg">
                         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="icon-close">
                             <path d="M15.5564 14.1421L29.6985 0L31.1127 1.41422L16.9706 15.5563L31.1128 29.6985L29.6986 31.1127L15.5564 16.9705L1.41418 31.1127L0 29.6985L14.1422 15.5563L0.00012207 1.41422L1.41431 0L15.5564 14.1421Z"/>
@@ -83,6 +83,7 @@ export default defineComponent({
         }
         const onClose = () => {
             document.body.style.overflowY = ''
+            document.body.style.position = ''
             document.querySelector('html').style.overflow = ''
             emit.emit('close')
         }

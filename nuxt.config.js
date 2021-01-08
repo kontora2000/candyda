@@ -30,7 +30,7 @@ export default {
   ** Plugins to load before mounting the App
   */
     plugins: [
-        { src: '@/plugins/vue-touch.js', mode: 'client', }
+        { src: '@/plugins/vue-touch.js',}
     ],
     /*
   ** Nuxt.js dev-modules
