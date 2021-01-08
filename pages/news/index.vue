@@ -11,10 +11,14 @@
                              :key="post.id"
                              :post="post"/>
                <template v-if="isNeedToUpload">
-                  <div class="showmore-btn-wrapper page-news-showmore-btn-wrapper" v-if="isNeedToUpload && page === 2" @click="upload">
+                  <div class="showmore-btn-wrapper page-news-showmore-btn-wrapper"
+                       v-if="isNeedToUpload && page === 2"
+                       v-touch="upload"
+                       @click="upload"
+                  >
                      <btn class="page-news-showmore-btn">Показать больше</btn>
                   </div>
-                   <infinite-loading v-else-if="page > 2"
+                   <infinite-loading v-else-if="isNeedToUpload && page > 2 "
                                      spinner="spiral"
                                      @infinite="onScroll" >
                         <div slot="no-more" />

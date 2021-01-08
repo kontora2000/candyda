@@ -19,7 +19,7 @@
                      <span class="candidate-top-votes">{{ localVotes }}<sup>{{ votesText }}</sup></span>
                   </div>
                   <div class="candidate-vote-button-wrapper"
-                       v-touch="() => onVote(candidate.slug)">
+                       v-touch="() => onVote(candidate.slug)" @click="onVote(candidate.slug)">
                      <btn class="vote-button"
                           :disabled="isVoted"
                           :loading="isLoading">

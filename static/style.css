@@ -359,7 +359,8 @@ main {
 
 
 .loading-spiral {
-	border: 2px solid var(--Azure12);
+	border-color: var(--Azure12) !important;
+	border-right-color: transparent !important;
 }
 
 

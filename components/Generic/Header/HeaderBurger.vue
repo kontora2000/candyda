@@ -1,6 +1,7 @@
 <template>
-    <div class="burger-menu"  v-touch="toggleBurger" >
+    <div class="burger-menu"  >
             <a class="burger"
+               v-touch="toggleBurger"
                :class="{ 'burger-close': !isBurgerVisible, 'burger-open': isBurgerVisible }"
                key="b_button">
                 <span class="icon-burger">
@@ -47,7 +48,7 @@ export default defineComponent({
         })
     },
     watch:{
-        $route() {
+        $route: () => {
             this.isBurgerVisible = false
             document.querySelector('html').style.overflow = ''
             document.body.style.overflow = ''

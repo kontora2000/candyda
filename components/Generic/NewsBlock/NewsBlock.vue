@@ -9,7 +9,10 @@
              :key="post.id"
              :post="post"/>
           <template v-if="isNeedToUpload">
-              <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page === 2" @click="upload">
+              <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page === 2"
+                   v-touch="upload"
+                   @click="upload"
+              >
                   <btn>Показать больше</btn>
               </div>
               <infinite-loading v-else-if="page > 2" style="margin-top: 10px" class="showmore-btn-wrapper"
