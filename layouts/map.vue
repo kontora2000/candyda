@@ -14,7 +14,7 @@
 <script lang="ts">
 import TheHeader from '@/components/Generic/Header/TheHeader.vue'
 import BgCircles from '@/components/Generic/Bg/BgCircles.vue'
-import TheMap from '@/components/TheMap.vue'
+import TheMap from '@/components/Map/TheMap.vue'
 
 
 

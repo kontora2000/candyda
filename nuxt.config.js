@@ -60,6 +60,7 @@ export default {
   */
     axios: {
         baseURL: process.env.API_URL|| 'http://api.duma.one/api',
+        commonURL: process.env.BASE_URL,
     },
     /*
   ** Build configuration

@@ -34,6 +34,16 @@ export interface Candidate {
   birthdate: string;
 }
 
+export interface Party {
+  id: number | null;
+  name: string;
+  slug: string;
+  logo: string;
+  description: string;
+  candidates: Candidate[] | null;
+}
+
+
 export interface Tag {
   id: number | null | symbol,
   name: string,

@@ -1,5 +1,5 @@
 <template>
-
+ <svg></svg>
 </template>
 
 <script>
