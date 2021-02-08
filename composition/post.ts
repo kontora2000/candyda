@@ -1,13 +1,12 @@
 import {ref, useContext, useFetch,} from '@nuxtjs/composition-api'
 import { Post, } from '../modules/types'
-import {useAxios} from "~/composition/axios"
-import {useHelpers} from "~/composition/helpers";
-
+import { useAxios, } from '~/composition/axios'
+import { useHelpers, } from '~/composition/helpers'
 
 export const usePost = () => {
   const { $axios, error} = useAxios()
 
-  const { route,} = useContext()
+  const { route, } = useContext()
   const slug=route.value.params.slug
 
   const postDate = ref()
@@ -17,12 +16,11 @@ export const usePost = () => {
   const post = ref<Post>({} as Post)
   const { fetch: fetchPost, } = useFetch(async () => {
     post.value = await $axios.$get( '/post/' + slug)
-    if (!post.value.slug) error({statusCode: 404, })
+    if (!post.value.slug) 
+      error({statusCode: 404, })
     post.value.date = humanDateDiff(post.value.post_date)
     postDate.value = humanDateDiff(post.value.post_date)
   })
-
-
 
 
   return {
