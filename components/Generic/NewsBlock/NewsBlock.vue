@@ -9,9 +9,7 @@
              :key="post.id"
              :post="post"/>
           <template v-if="isNeedToUpload">
-              <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page === 2"
-                
-                   @click="upload"
+              <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page === 2" @click="upload"
               >
                   <btn>Показать больше</btn>
               </div>
@@ -30,11 +28,9 @@
 
 <script>
 import { defineComponent,  } from '@nuxtjs/composition-api'
-
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn'
-import {usePostList,} from '@/composition/posts';
-
+import { usePostList, } from '@/composition/posts';
 
 export default defineComponent({
     name:'NewsBlock',

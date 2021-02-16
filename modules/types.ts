@@ -68,3 +68,15 @@ export interface PageResponse {
   'prev_page': number;
   'last_page': number;
 }
+
+
+export interface Distritct {
+   id: number;
+   slug: string;
+   name: string;
+   parent: string;
+   parties: Party[];
+   candidadates: Candidate[];
+   posts: Post[];
+   tags: Tag[];
+}

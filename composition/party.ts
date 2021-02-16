@@ -1,6 +1,6 @@
 import { ref, useContext, useFetch,  } from '@nuxtjs/composition-api'
 import { useAxios, } from './axios'
-import { Party, Candidate, } from '@/modules/types'
+import { Party,  } from '@/modules/types'
 
 
 export const useParty = () => {
