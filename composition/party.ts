@@ -1,4 +1,4 @@
-import { ref, useContext, useFetch, } from '@nuxtjs/composition-api'
+import { ref, useContext, useFetch,  } from '@nuxtjs/composition-api'
 import { useAxios, } from './axios'
 import { Party, Candidate, } from '@/modules/types'
 

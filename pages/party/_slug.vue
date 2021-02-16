@@ -1,26 +1,33 @@
 <template>
 <div v-if="party.slug">
-  <div><img :src="party.logo" :alt="paty.name">  }}</div>
+  <div><img :src="party.logo" :alt="party.name">
   {{ party.name  }}
+  <candidate-card 
+    v-for="candidate in party.candidates" 
+    :key="candidate.slug"
+    :candidate="candidate">
+  </candidate-card>
+  </div>
 </div>  
 </template>
 
 <script>
-import { defineComponent, useMeta, useFetch, } from '@nuxtjs/composition-api'
+import { defineComponent, useMeta, computed, } from '@nuxtjs/composition-api'
+import { useParty, } from '@/composition/party'
 
-
+import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
 
 export default defineComponent( {
+    components: { CandidateCard, },
     name: 'slug',
     transition: 'fade',
     layout: 'default',
+    head: {},
     setup () {
         const { party, fetchParty, } = useParty()
         fetchParty()
-
-        const title = computed(()=> party.value?.name)
+        const title = computed(()=> party?.value?.name)
         useMeta({ title: title, })
-
         return {
             party,
         }

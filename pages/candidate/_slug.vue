@@ -31,7 +31,7 @@
                <div class="candidate-edu candidate-info-row" v-if="candidate.party">
                   <div class="candidate-info-row-header">Партия</div>
                   <div class="candidate-info-row-content" >
-                    {{ candidate.party.name }}
+                    <nuxt-link :to="`/party/${candidate.party.slug}`">{{ candidate.party.name }}</nuxt-link>
                   </div>
                </div>
 

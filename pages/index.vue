@@ -1,6 +1,6 @@
 <template>
   <main class="grid-main">
-    <MainMap />
+    <TheMap />
     <div class="main-bottom-wrapper grid-main">
       <NewsBlock class="cont-wrapper-left"/>
       <CandidateTop class="cont-wrapper-right"/>
@@ -11,7 +11,7 @@
 
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'
-import MainMap from '@/components/Map/MainMap'
+import TheMap from '@/components/Map/TheMap.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
@@ -20,12 +20,11 @@ export default defineComponent({
     name:'index',
     transition: 'fade',
     components: {
-        MainMap,
+        TheMap,
         NewsBlock,
         CandidateTop,
         TheFooter,
     },
-
     head() {
         return {
             title: 'Duma.one - Главная',
