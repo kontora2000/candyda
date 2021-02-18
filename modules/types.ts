@@ -69,7 +69,6 @@ export interface PageResponse {
   'last_page': number;
 }
 
-
 export interface Distritct {
    id: number;
    slug: string;
@@ -79,4 +78,15 @@ export interface Distritct {
    candidadates: Candidate[];
    posts: Post[];
    tags: Tag[];
+}
+
+export interface Region {
+  id: number;
+  slug: string;
+  name: string;
+  parent: string;
+  parties: Party[];
+  candidadates: Candidate[];
+  districts: Distritct[];
+  posts: Post[];
 }

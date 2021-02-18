@@ -1,30 +1,53 @@
 <template>
- <div>
-    <news-block />
-    <PArtyBlock />
-    <candidate-top />
+ <div v-if="district">
+   <div class="cont-wrapper" v-if="district.posts">
+       <div class="cont-header-wrapper">
+         <h3 class="cont-header">Новости района</h3>
+      </div>
+      <div class="news-block-cards-wrapper block-cards-wrapper">
+        <NewsBlockCard  v-for="post in district.posts"
+          :key="post.id"
+          :post="post" /> 
+      </div>
+    </div>
+    <PartyBlock v-if="district.parties" :parties="district.parties" />
+    <div class="cont-wrapper">
+      <div class="cont-header-wrapper">
+         <h3 class="cont-header">Кандидаты района</nuxt-link></h3>
+      </div>
+      <div class="top-candidates-cards-wrapper block-cards-wrapper">
+      <CandidateCard 
+        v-for="candidate in district.candidates" 
+        :key="candidate.slug"
+        :candidate="candidate" />
+      </div>
+     </div>
  </div>
 </template>
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
-import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
-import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
+import { defineComponent, useMeta, computed, } from '@nuxtjs/composition-api'
+import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
+import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import PartyBlock from '@/components/Party/PartyBlock.vue'
+import { useDistrict, } from '~/composition/district'
 
 export default defineComponent({
-    components: { CandidateTop, NewsBlock, PartyList, PartyBlock, },
+    components: { 
+        CandidateCard, 
+        NewsBlockCard, 
+        PartyBlock,
+    },
     layout: 'map',
     transition: 'fade',
-    components: {
-        NewsBlock,
-        PartyBlock,
-        CandidateTop,
-    },
+    head: {},
     setup () {
-        const district = useDistrict()
+        const { fetchDistrict, district, } = useDistrict()
+        fetchDistrict()
+        const title = computed(() => district?.value?.title)
+        useMeta({ title: title, })
+
         return {
-            candidates, 
-            posts,
+            district, 
         }
     },
 })

@@ -2,11 +2,11 @@
 <div v-if="party.slug">
   <div><img :src="party.logo" :alt="party.name">
   {{ party.name  }}
-  <candidate-card 
+  <CandidateCard 
     v-for="candidate in party.candidates" 
     :key="candidate.slug"
     :candidate="candidate">
-  </candidate-card>
+  </CandidateCard>
   </div>
 </div>  
 </template>
