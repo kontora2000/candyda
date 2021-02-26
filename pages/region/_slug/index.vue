@@ -30,7 +30,7 @@
  </div>
 </template>
 <script>
-import { computed, defineComponent, } from '@nuxtjs/composition-api'
+import { computed, defineComponent, useMeta, } from '@nuxtjs/composition-api'
 import { useRegion, } from '~/composition/region'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
@@ -45,17 +45,18 @@ export default defineComponent({
         NewsBlockCard,
         PartyBlock,
     },
+    head: {},
     setup () {
         const { region, fetchRegion, } = useRegion()
         fetchRegion()
         const title = computed(()=> {
             return region?.value?.title
         })
+        useMeta({ title: title, })
         return {
             region,
             fetchRegion,
         }
-
     },
 })
 </script>

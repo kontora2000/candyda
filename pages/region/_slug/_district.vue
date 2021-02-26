@@ -10,7 +10,12 @@
           :post="post" /> 
       </div>
     </div>
-    <PartyBlock v-if="district.parties" :parties="district.parties" />
+    <div class="cont-wrapper">
+      <div class="cont-header-wrapper">
+         <h3 class="cont-header">Партии района</nuxt-link></h3>
+      </div>
+       <PartyBlock v-if="district.parties" :parties="district.parties" />
+    </div>
     <div class="cont-wrapper">
       <div class="cont-header-wrapper">
          <h3 class="cont-header">Кандидаты района</nuxt-link></h3>
@@ -45,7 +50,6 @@ export default defineComponent({
         fetchDistrict()
         const title = computed(() => district?.value?.title)
         useMeta({ title: title, })
-
         return {
             district, 
         }
