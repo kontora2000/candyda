@@ -19,6 +19,7 @@
     "@nuxtjs/device": "^1.2.7",
     "create-nuxt-app": "^3.4.0",
     "gutil": "^1.6.4",
+    "less": "^4.1.1",
     "moment": "^2.29.1",
     "nuxt": "^2.0.0",
     "vinyl-ftp": "^0.6.1",
