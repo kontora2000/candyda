@@ -20,7 +20,7 @@ import HeaderLogo from '@/components/Generic/Header/HeaderLogo'
 import HeaderNavbar from '@/components/Generic/Header/HeaderNavbar'
 import HeaderSearchbar from '@/components/Generic/Header/HeaderSearchbar'
 import HeaderAbout from '@/components/Generic/Header/HeaderAbout'
-import HeaderBurger from '@/components/Generic/Header/HeaderBurger';
+import HeaderBurger from '@/components/Generic/Header/HeaderBurger'
 
 export default defineComponent({
     name:'TheHeader',
