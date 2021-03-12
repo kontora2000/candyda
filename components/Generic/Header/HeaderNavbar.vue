@@ -91,7 +91,6 @@ export default defineComponent({
 
         
         onMounted(() => {
-            console.log('mounted')
             isBurgerOpen.value = (page.value==='/' && window.pageYOffset <= 150)
             document.addEventListener('scroll', handleScroll,  {passive: true,})
         })
