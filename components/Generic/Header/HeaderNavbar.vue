@@ -1,10 +1,10 @@
 <template>
   <div class="fixed">
-    <transition name="fade" mode="out-in">
-      <a v-if="isBurgerVisible && !isBurgerOpen"
+    <transition name="fade-fast" mode="out-in">
+      <a v-if="!isBurgerOpen"
           class="burger "       
           @mouseenter="openBurger"
-          key="b_button">
+          key="b-button">
             <span class="icon-burger">
                 <span class="icon-burger-line"></span>
                 <span class="icon-burger-line"></span>
@@ -13,6 +13,7 @@
       <div v-else 
         class="logo-navbar-wrapper" 
         key="menu-logo"  
+        @mouseenter="resetBurgerTimer"
         @mouseleave="startBurgerTimer">
         <div class="logo-wrapper" >
             <nuxt-link to="/" class="logo-link">Duma.one</nuxt-link>
@@ -37,22 +38,31 @@ export default defineComponent({
         const { route, } = useContext()
 
         const isBurgerOpen = ref(false)
-        const openBurger = () => {
-            isBurgerOpen.value = true
-            isBurgerVisible.value = false
-        }
-        
         let timerID = 0
 
+        const openBurger = () => {
+            isBurgerOpen.value = true
+        }
+        
+        const resetBurgerTimer = () => {
+            if (timerID > 0) clearInterval(timerID)
+        }
+
         const startBurgerTimer = () => {
+            if (window.pageYOffset <= 150 && page.value === '/')  {
+                window.clearTimeout(timerID)
+                return
+            }
+            if (!isBurgerOpen.value) {
+                window.clearTimeout(timerID)
+                return
+            }
             if (timerID) window.clearTimeout(timerID)
             timerID = window.setTimeout(() => {
                 if (window.pageYOffset <= 150 && page.value === '/')  {
-                    isBurgerVisible.value = false
                     return
                 }
                 isBurgerOpen.value = false
-                isBurgerVisible.value = true
             }, 800)
         }
 
@@ -63,24 +73,26 @@ export default defineComponent({
         
         const handleScroll = () => {
             if (page.value !== '/') { 
-                if (isBurgerOpen.value === true) isBurgerOpen.value = false
+                isBurgerOpen.value = false
             }
             else {
-                isBurgerVisible.value = window.pageYOffset > 150
-                isBurgerOpen.value = false
+                window.setTimeout(() => {
+                    isBurgerOpen.value =  window.pageYOffset <= 150
+                }, 200)                
             }
             return false
         } 
 
         watch(page, () => {
-            isBurgerVisible.value = (page.value!=='/')
-            isBurgerOpen.value = false
+            if (timerID > 0) window.clearTimeout(timerID)
+            isBurgerOpen.value = (page.value==='/' && window.pageYOffset <= 150)
             document.addEventListener('scroll', handleScroll,  {passive: true,})
         })
 
         
         onMounted(() => {
-            isBurgerVisible.value = (page.value!=='/' || window.pageYOffset > 150)
+            console.log('mounted')
+            isBurgerOpen.value = (page.value==='/' && window.pageYOffset <= 150)
             document.addEventListener('scroll', handleScroll,  {passive: true,})
         })
 
@@ -89,6 +101,7 @@ export default defineComponent({
             isBurgerVisible,
             openBurger,
             startBurgerTimer,
+            resetBurgerTimer,
         }
     }, 
 })
