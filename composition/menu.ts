@@ -2,7 +2,6 @@ import { ref, } from "@nuxtjs/composition-api"
 
 const menuState = ref({
   isBurger: false,
-  isMobile: false,
 })
 
 export const useMenu =() => {

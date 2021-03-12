@@ -1,78 +1,94 @@
 <template>
-   <nav class="site-nav">
-      <a class="burger-"
-               v-touch="() => toggleBurger()"
-               v-show="menuState.isBurger"
-               :class="{ 'burger-close': !isBurgerOpen, 'burger-open': isBurgerOpen }"
-               key="b_button">
-                <span class="icon-burger">
-                    <span class="icon-burger-line"></span>
-                    <span class="icon-burger-line"></span>
-                </span>
+  <div class="fixed">
+    <transition name="fade" mode="out-in">
+      <a v-if="isBurgerVisible && !isBurgerOpen"
+          class="burger "       
+          @mouseenter="openBurger"
+          key="b_button">
+            <span class="icon-burger">
+                <span class="icon-burger-line"></span>
+                <span class="icon-burger-line"></span>
+            </span>
       </a>
-      <transition name="fade">
-        <ul v-if="!menuState.isBurger" key="burger-open">
-          <li><nuxt-link to="/news" class="nav-link link-underline-solid">Новости</nuxt-link></li>
-          <li><nuxt-link to="/top" class="nav-link link-underline-solid">Топ кандидатов</nuxt-link></li>
-        </ul>
-      </transition>
-   </nav>
+      <div v-else 
+        class="logo-navbar-wrapper" 
+        key="menu-logo"  
+        @mouseleave="startBurgerTimer">
+        <div class="logo-wrapper" >
+            <nuxt-link to="/" class="logo-link">Duma.one</nuxt-link>
+        </div>
+        <nav class="site-nav">
+          <ul key="burger-open">
+            <li><nuxt-link to="/news" class="nav-link link-underline-solid">Новости</nuxt-link></li>
+            <li><nuxt-link to="/top" class="nav-link link-underline-solid">Топ кандидатов</nuxt-link></li>
+          </ul>
+        </nav>
+      </div>
+    </transition>
+  </div>
 </template>
 
-
-
 <script>
-import {defineComponent, useContext, ref, computed, onMounted,  watch, } from '@nuxtjs/composition-api'
-import { useMenu, } from '@/composition/menu.ts'
-
+import { defineComponent, useContext, ref, computed, onMounted,  watch, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
     name:'HeaderNavbar',
     setup () {
-        const { menuState, isBurger, } = useMenu()
         const { route, } = useContext()
+
         const isBurgerOpen = ref(false)
-
-        const page = computed(() => route.value.path)
-        isBurger(page.value!=='/')
-        
-        watch(page, () => {
-            isBurger(page.value!=='/')
-            isBurgerOpen.value = false
-        })
-
         const openBurger = () => {
             isBurgerOpen.value = true
+            isBurgerVisible.value = false
         }
-        const closeBurger = () => {
+        
+        let timerID = 0
+
+        const startBurgerTimer = () => {
+            if (timerID) window.clearTimeout(timerID)
+            timerID = window.setTimeout(() => {
+                if (window.pageYOffset <= 150 && page.value === '/')  {
+                    isBurgerVisible.value = false
+                    return
+                }
+                isBurgerOpen.value = false
+                isBurgerVisible.value = true
+            }, 800)
+        }
+
+        const isBurgerVisible = ref(false)
+        
+        const page = computed(() => route.value.path)
+        isBurgerVisible.value = (page.value!=='/')
+        
+        const handleScroll = () => {
+            if (page.value !== '/') { 
+                if (isBurgerOpen.value === true) isBurgerOpen.value = false
+            }
+            else {
+                isBurgerVisible.value = window.pageYOffset > 150
+                isBurgerOpen.value = false
+            }
+            return false
+        } 
+
+        watch(page, () => {
+            isBurgerVisible.value = (page.value!=='/')
             isBurgerOpen.value = false
-        }
+            document.addEventListener('scroll', handleScroll,  {passive: true,})
+        })
 
-        const toggleBurger = () => {
-            isBurgerOpen.value = !isBurgerOpen.value
-        }
-
+        
         onMounted(() => {
-            document.addEventListener('scroll', () => {
-                if (page.value !== '/') { 
-                    isBurger(true)
-                    closeBurger()
-                }
-                else {
-                    isBurgerOpen.value = indow.pageYOffset > 150
-                }
-                return false
-            },  {
-                passive: true,
-            })
+            isBurgerVisible.value = (page.value!=='/' || window.pageYOffset > 150)
+            document.addEventListener('scroll', handleScroll,  {passive: true,})
         })
 
         return {
-            menuState,
             isBurgerOpen,
+            isBurgerVisible,
             openBurger,
-            closeBurger,
-            toggleBurger,
+            startBurgerTimer,
         }
     }, 
 })
@@ -81,6 +97,10 @@ export default defineComponent({
 
 
 <style scoped>
+.burger {
+  position: static;
+}
+
 .site-nav {
    grid-column: 2/9;
    grid-row: 2/2;

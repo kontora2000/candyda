@@ -345,6 +345,10 @@ ul {
 	color: var(--White100);
 }
 
+.fixed {
+  position: fixed;
+}
+
 
 .grid-main {
     display: grid;

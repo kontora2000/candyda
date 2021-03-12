@@ -1,9 +1,6 @@
 <template>
    <header class="grid-main">
-      <div class="logo-navbar-container" v-if="!$device.isMobile">
-        <HeaderLogo />
-        <HeaderNavbar  />
-      </div>
+      <HeaderNavbar v-if="!$device.isMobile" />
       <HeaderLogo v-if="$device.isMobile"/>
       <HeaderSearchbar />
       <HeaderAbout  v-if="!$device.isMobile"/>
@@ -44,9 +41,6 @@ header {
    width: calc(100vw - 1.6rem);
 }
 
-.logo-navbar-container {
-  position: fixed;
-}
 
 @media (min-width: 1460px) {
    header {
