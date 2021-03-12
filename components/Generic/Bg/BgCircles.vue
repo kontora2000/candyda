@@ -12,14 +12,14 @@ import { defineComponent, onMounted, } from '@nuxtjs/composition-api'
 import {  initAnimation, } from '@/modules/circles.js'
 
 export default defineComponent({
-   name:'BgCircles',
-   setup () {
-     onMounted(() => {
-       if (process.client) {
-         initAnimation()
-       }
-     })
-   }
+    name:'BgCircles',
+    setup () {
+        onMounted(() => {
+            if (process.client) {
+                initAnimation()
+            }
+        }) 
+    },
 })
 </script>
 
