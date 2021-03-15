@@ -112,7 +112,7 @@ export const initAnimation = () => {
         //console.log("Prep: animate ==> requestAnimFrame");
         // request a new frame
         requestAnimationFrame(function () {
-            animate();
+            // animate();
         });
     }
     window.onload = function () {
