@@ -12,45 +12,51 @@
 
 
 <script>
-import { defineComponent, useContext, ref, watch,  } from '@nuxtjs/composition-api'
-import { useHelpers } from '~/composition/helpers'
+import { defineComponent, useContext, ref, watch, onMounted,  } from '@nuxtjs/composition-api'
+import { useHelpers, } from '~/composition/helpers'
 
 
 export default defineComponent({
     name:'BgCircles',
     setup () {
-        let percent = Math.random() > 0.5
+        const leftCircleStyle = ref({})
+
+        const rightCircleStyle = ref({})
 
         const {randomInRange: rand, } = useHelpers()
+     
+        const calcStyle = () => {
+            const isLeftRed = Math.random() > 0.5
+            const isLeftBigger = (Math.random() > 0.5) ? -1 : 1
+            const w = rand(20 ,40)
+            const w2 = isLeftBigger ? w - 10 : w + 10
+            leftCircleStyle.value = {
+                backgroundColor:  isLeftRed ? 'var(--Red100)' : 'var(--Azure100)',
+                left: rand(0,2) + '%',
+                top: rand(20,80) + '%',
+                width: w + 'vw' ,
+                height: w + 'vw' ,
+                display: 'block',
+            }
 
-        const leftCircleStyle = ref({
-            backgroundColor:  percent ? 'var(--Red100)' : 'var(--Azure100)',
-            left: '100px',
-            top: rand(20,80) + '%',
-            minWidth: '300px',
-            minHeight:'300px',
-            display: 'block',
-        })
+            rightCircleStyle.value = {
+                backgroundColor:  !isLeftRed ? 'var(--Red100)' : 'var(--Azure100)',
+                right: rand(0,2) + '%',
+                top: rand(20,80) + '%',
+                width: w2 + 'vw',
+                height: w2 + 'vw',
+                display: 'block',
+            }
 
-        const rightCircleStyle = ref({
-            backgroundColor:  !percent ? 'var(--Red100)' : 'var(--Azure100)',
-            left: '100px',
-            top: rand(20,80) + '%',
-            width: '20%',
-            height:'25%',
-            
-            display: 'block',
-        })
-
-        const reCalcStyle = () => {
-            rightCircleStyle.value.top = 80 * Math.random() + '%'
         }
 
         const { route, } = useContext()
 
         watch(route, () => {
-            reCalcStyle()
+            calcStyle()
         })
+
+        onMounted(()=> calcStyle())
 
         return {
             leftCircleStyle,
