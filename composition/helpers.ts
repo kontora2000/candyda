@@ -30,8 +30,13 @@ export const useHelpers = () => {
         return momentDate.format('D MMMM YYYY в HH:MM')
     }
 
+    const randomInRange = (min: number, max: number) => {
+      return Math.floor(Math.random() * max) + min  
+    }
+
     return {
         numWord,
         humanDateDiff,
+        randomInRange,
     }
 }

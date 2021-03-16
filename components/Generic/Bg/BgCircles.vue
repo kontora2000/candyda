@@ -1,25 +1,68 @@
 <template>
     <div class="bg-circles-wrapper">
-        <canvas class="bg-circles-canvas" id="bg-circles"></canvas>
+        <div class="bg-circles bg-circles-left">
+          <div class="bg-circle" :style="leftCircleStyle" />
+        </div>
+        <div class="bg-circles bg-circles-right">
+          <div class="bg-circle" :style="rightCircleStyle" />
+        </div>
     </div>
 </template>
 
 
 
 <script>
-import { defineComponent, onMounted, } from '@nuxtjs/composition-api'
+import { defineComponent, useContext, ref, watch, onMounted,  } from '@nuxtjs/composition-api'
+import { useHelpers, } from '~/composition/helpers'
 
-import {  initAnimation, } from '@/modules/circles.js'
 
 export default defineComponent({
-   name:'BgCircles',
-   setup () {
-     onMounted(() => {
-       if (process.client) {
-         initAnimation()
-       }
-     })
-   }
+    name:'BgCircles',
+    setup () {
+        const leftCircleStyle = ref({})
+
+        const rightCircleStyle = ref({})
+
+        const {randomInRange: rand, } = useHelpers()
+     
+        const calcStyle = () => {
+            const isLeftRed = Math.random() > 0.5
+            const isLeftBigger = (Math.random() > 0.5) ? -1 : 1
+            const w = rand(20 ,40)
+            const w2 = isLeftBigger ? w - 10 : w + 10
+            leftCircleStyle.value = {
+                backgroundColor:  isLeftRed ? 'var(--Red100)' : 'var(--Azure100)',
+                left: '-' + w/2 + 'vw',
+                top: rand(20,60) + '%',
+                width: w + 'vw' ,
+                height: w + 'vw' ,
+                display: 'block',
+            }
+
+            rightCircleStyle.value = {
+                backgroundColor:  !isLeftRed ? 'var(--Red100)' : 'var(--Azure100)',
+                right: '-' + w2/2 + 'vw',
+                top: rand(20,60) + '%',
+                width: w2 + 'vw',
+                height: w2 + 'vw',
+                display: 'block',
+            }
+
+        }
+
+        const { route, } = useContext()
+
+        watch(route, () => {
+            calcStyle()
+        })
+
+        onMounted(()=> calcStyle())
+
+        return {
+            leftCircleStyle,
+            rightCircleStyle,
+        }
+    },
 })
 </script>
 
@@ -43,6 +86,32 @@ export default defineComponent({
     width: 100vw;
     height: 100vh;
 }
+
+.bg-circles {
+  width: 30%;
+  min-width: 20vw;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.bg-circles-right {
+  width: 30%;
+  min-width: 20vw;
+  height: 100%;
+  min-height: 100vh;
+  left:70%;
+  top:0px;
+  position: absolute;
+}
+
+.bg-circle {
+  position: relative;
+  filter: blur(32px);
+  border-radius: 50%;
+  display: none;
+}
+
+
 
 @media (min-width: 1460px) {
   .bg-circles-wrapper {
