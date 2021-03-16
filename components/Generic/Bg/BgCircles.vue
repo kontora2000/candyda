@@ -32,7 +32,7 @@ export default defineComponent({
             const w2 = isLeftBigger ? w - 10 : w + 10
             leftCircleStyle.value = {
                 backgroundColor:  isLeftRed ? 'var(--Red100)' : 'var(--Azure100)',
-                left: rand(0,2) + '%',
+                left: '-50%',
                 top: rand(20,80) + '%',
                 width: w + 'vw' ,
                 height: w + 'vw' ,
@@ -41,7 +41,7 @@ export default defineComponent({
 
             rightCircleStyle.value = {
                 backgroundColor:  !isLeftRed ? 'var(--Red100)' : 'var(--Azure100)',
-                right: rand(0,2) + '%',
+                right:  '-50%',
                 top: rand(20,80) + '%',
                 width: w2 + 'vw',
                 height: w2 + 'vw',
