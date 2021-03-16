@@ -1,6 +1,6 @@
 <template>
    <div class="search-input-wrapper" v-if="!$device.isMobile">
-      <input class="search-input" type="search" placeholder="Введите округ / район или город / имя кандидата / новость"/>
+      <SearchInput />
    </div>
 </template>
 
@@ -8,8 +8,12 @@
 
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'
+import SearchInput from '~/components/Search/SearchInput.vue'
 
 export default defineComponent({
+    components: { 
+        SearchInput,
+    },
     name:'HeaderSearchbar',
 })
 </script>
