@@ -1,24 +1,37 @@
 <template>
    <div class="search-input-wrapper" v-if="!$device.isMobile">
-      <SearchInput />
+      <SearchInput  @search-focus="onFocus"/>
+      <SearchResults v-if="isShowResults"/>
    </div>
 </template>
 
 
 
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+import { defineComponent, ref, } from '@nuxtjs/composition-api'
 import SearchInput from '~/components/Search/SearchInput.vue'
+import SearchResults from '~/components/Search/SearchResults.vue'
 
 export default defineComponent({
+    name:'HeaderSearchbar',
     components: { 
         SearchInput,
+        SearchResults,
     },
-    name:'HeaderSearchbar',
+    setup () {
+        const isShowResults = ref(false)
+        const onFocus = () => {
+            isShowResults.value = true
+        }
+        return {
+            isShowResults,
+            onFocus,
+        }
+    },
 })
 </script>
 
-
+ 
 
 <style scoped>
 .search-input-wrapper {

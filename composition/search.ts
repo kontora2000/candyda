@@ -6,6 +6,7 @@ const searchString = ref<string>('')
 const searchBlocks = ref([])
 const results = ref([])
 
+
 export const useSearch = () => {
    
     const { $axios, } =  useAxios()
@@ -13,10 +14,13 @@ export const useSearch = () => {
     const doSearch = () => {
         return
     }
-
+    
+    const hasResults = ref(false)
+    
     return {
       searchString,
       searchBlocks,
       results,
+      hasResults,
     }
 }

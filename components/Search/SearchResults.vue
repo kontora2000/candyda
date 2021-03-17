@@ -6,8 +6,8 @@
           <div class="search-result-header">{{ candidatesCount }}</div>
           <div class="sarch-result-grid">
               <CandidateCard v-for="candidate in results.candidates"
-              :key="candiate.id"
-              :candidate="candidate"></CandidateCard>
+              :key="candidate.id"
+              :candidate="candidate" />
           </div>
       </div>
       <div class="search-results-tags" v-if="results.tags">
@@ -32,11 +32,16 @@ import LoadingIndicator from '@/components/Generic/LoadingIndicator.vue'
 import { useSearch, } from '@/composition/search'
 
 export default defineComponent({
-    components: { LoadingIndicator, },
-    name:'SearchResults',
+    name: 'SearchResults',
+    components: { 
+        LoadingIndicator, 
+    },
     setup () {
-        const { searchString, results, hasResults, } = useSearch()
-        
+        const { results, hasResults, } = useSearch()
+        return {
+            results, 
+            hasResults,
+        }
     },
 })
 </script>

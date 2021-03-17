@@ -34,9 +34,14 @@ export const useHelpers = () => {
       return Math.floor(Math.random() * max) + min  
     }
 
+    const generateKey = (id: number) => {
+      return  Symbol(Date.now())
+    }
+
     return {
         numWord,
         humanDateDiff,
         randomInRange,
+        generateKey,
     }
 }
