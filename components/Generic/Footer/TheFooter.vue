@@ -4,7 +4,7 @@
       <footer>
         <FooterNavBar />
         <div class="copyright text-small">
-          ©&thinsp;2020, Duma.one Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
+          ©&thinsp;2021, Duma.one Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
         </div>
       </footer>
     </div>
@@ -50,7 +50,7 @@ footer {
 
 .copyright {
     color: var(--Black16);
-    line-height: 1.2rem;
+    line-height: 1.4rem;
 }
 
 

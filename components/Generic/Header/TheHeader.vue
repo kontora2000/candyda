@@ -39,6 +39,7 @@ header {
    padding: 2.8rem 0 0;
    position: relative;
    width: calc(100vw - 1.6rem);
+   z-index: 2;
 }
 
 
