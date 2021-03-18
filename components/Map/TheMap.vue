@@ -128,8 +128,18 @@ export default defineComponent({
 	margin-bottom: -12rem;
 }
 
+.map-svg path,
+.map-svg polygon {
+	fill: rgba(203, 231, 247, 0.64);
+	transition: fill .25s ease-in-out;
+}
+.map-svg g:hover>path,
+.map-svg g:hover>polygon {
+	fill: rgba(203, 231, 247, 1);
+}
+
 .link-to-o>g {
-	transition: transform .2s ease-in-out;
+	transition: transform .25s ease-in-out;
 }
 .link-to-o:hover>g {
 	transform: translateY(-2rem);
