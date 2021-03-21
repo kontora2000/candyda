@@ -10,7 +10,7 @@
 				602.91,218.54 621.24,202.79 649.69,214.49 685.33,207.42 723.11,252.56 695.82,289.21 704.45,334.66 767.52,358.95 754.49,399.76 
 				"/>
 			<nuxt-link to="/region/o-kanevskoy" class="link-to-o">
-				<g id="o-kanevskoy">
+				<g class="o-cont" id="o-kanevskoy">
 					<polygon id="eyskiy" class="o-city" points="393.88,37.88 434.34,69.73 461.73,39.46 437.92,39.28 446.55,18.41 409.34,17.39 
 						406.6,11.79 331.05,21.1 336.22,37.24"/>
 					<polygon id="pavlovskiy" class="o-city" points="602.48,89.73 744.81,81.41 735.87,54.44 619.95,52.21 	"/>
@@ -25,20 +25,20 @@
 					<polygon id="primorsko-akhtarskiy" class="o-city" points="465.2,79.76 434.34,69.73 427.85,76.89 381.03,62.69 375.56,73.13 
 						323.9,76.19 302.72,108.07 447.47,104.95"/>
 					<polygon id="bruhovetskiy" class="o-city" points="596.9,101.73 602.48,89.73 465.2,79.76 447.47,104.95 	"/>
-					<g class="o-title-cont">
-						<path class="o-bg" d="M550.31,51.81c0-9,0-13.5,2.29-16.65c0.74-1.02,1.64-1.91,2.65-2.65
-							c3.15-2.29,7.65-2.29,16.65-2.29h68.41c9,0,13.5,0,16.65,2.29c1.02,0.74,1.91,1.64,2.65,2.65c2.29,3.15,2.29,7.65,2.29,16.65v0.8
-							c0,9,0,13.5-2.29,16.65c-0.74,1.02-1.64,1.91-2.65,2.65c-3.15,2.29-7.65,2.29-16.65,2.29h-86.41c-1.5,0-2.25,0-2.78-0.38
-							c-0.17-0.12-0.32-0.27-0.44-0.44c-0.38-0.53-0.38-1.28-0.38-2.78V51.81z"/>
-						<text class="o-title" transform="matrix(1 0 0 1 562.21 64.206)">Каневской</text>
-						<text class="o-header" transform="matrix(1 0 0 1 562.4907 48.206)">Округ</text>
-						<text class="o-header-number" transform="matrix(1 0 0 1 635.4197 48.206)">53</text>
-						<line class="o-header-line" x1="607.31" y1="43.71" x2="632.95" y2="43.71"/>
-					</g>
+				</g>
+				<g class="o-title-cont">
+					<path class="o-bg" d="M550.31,51.81c0-9,0-13.5,2.29-16.65c0.74-1.02,1.64-1.91,2.65-2.65
+						c3.15-2.29,7.65-2.29,16.65-2.29h68.41c9,0,13.5,0,16.65,2.29c1.02,0.74,1.91,1.64,2.65,2.65c2.29,3.15,2.29,7.65,2.29,16.65v0.8
+						c0,9,0,13.5-2.29,16.65c-0.74,1.02-1.64,1.91-2.65,2.65c-3.15,2.29-7.65,2.29-16.65,2.29h-86.41c-1.5,0-2.25,0-2.78-0.38
+						c-0.17-0.12-0.32-0.27-0.44-0.44c-0.38-0.53-0.38-1.28-0.38-2.78V51.81z"/>
+					<text class="o-title" transform="matrix(1 0 0 1 562.21 64.206)">Каневской</text>
+					<text class="o-header" transform="matrix(1 0 0 1 562.4907 48.206)">Округ</text>
+					<text class="o-header-number" transform="matrix(1 0 0 1 635.4197 48.206)">53</text>
+					<line class="o-header-line" x1="607.31" y1="43.71" x2="632.95" y2="43.71"/>
 				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-armavirskiy" class="link-to-o">
-				<g id="o-armavirskiy">
+				<g class="o-cont" id="o-armavirskiy">
 					<polygon id="kurganinskiy" class="o-city" points="938.44,244.36 880.76,190.45 777.26,175.01 725.43,193.7 834.01,212.83 
 						875.44,259.78"/>
 					<polygon id="labinskiy" class="o-city" points="1008.59,310.44 1025.78,299.41 938.44,244.36 875.44,259.78 979.26,376.34 
@@ -67,7 +67,7 @@
 				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-tihoretskiy" class="link-to-o">
-				<g id="o-tihoretskiy">
+				<g class="o-cont" id="o-tihoretskiy">
 					<polygon id="novopokrovskiy" class="o-city" points="744.81,81.41 763.07,80.34 797.02,111.35 862.11,114.48 785.32,55.39 
 						735.87,54.44"/>
 					<polygon id="beloglinskiy" class="o-city" points="862.11,114.48 908.11,116.69 921.67,103.93 829.99,56.25 785.32,55.39 	"/>
@@ -90,7 +90,7 @@
 				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-sochinskiy" class="link-to-o">
-				<g id="o-sochinskiy">
+				<g class="o-cont" id="o-sochinskiy">
 					<path id="apsheronskiy" class="o-city" d="M682.55,429.61l9.37-56.49c0,0,62.55,26.72,62.57,26.65
 						c0.16-0.39,13.03-40.82,13.03-40.82l-63.07-24.29l-8.63-45.45l-98.49-19.99l-51.63,65.44l74.82,21.05l-23.93,35.92L682.55,429.61z"
 						/>
@@ -110,7 +110,7 @@
 				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-tuapsinskiy" class="link-to-o">
-				<g id="o-tuapsinskiy">
+				<g class="o-cont" id="o-tuapsinskiy">
 					<polygon id="novorossiysk" class="o-city" points="251.52,271.69 265.81,255.9 222.72,213.72 183.11,209.7 123.83,259.15 
 						176.88,276.23 214.72,270.62 216.77,255.61 229.76,252.38 	"/>
 					<polygon id="gelendzhik" class="o-city" points="407.73,295.83 265.81,255.9 251.52,271.69 298.5,313.38 372.82,336.95 	"/>
@@ -132,7 +132,7 @@
 				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-krasnoarmeyskiy" class="link-to-o">
-				<g id="o-krasnoarmeyskiy">
+				<g class="o-cont" id="o-krasnoarmeyskiy">
 					<polygon id="timashevskiy" class="o-city" points="482.32,153.28 528.38,145.64 529.53,103.18 447.47,104.95 	"/>
 					<polygon id="kalininskiy" class="o-city" points="418.98,163.76 482.32,153.28 447.47,104.95 357.91,106.88 352.77,116.7 	"/>
 					<polygon id="krasnoarmeyskiy" class="o-city" points="433.28,194.62 448.82,183.66 418.98,163.76 352.77,116.7 319.78,179.78 
@@ -152,7 +152,7 @@
 				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-krasnodarskiy" class="link-to-o">
-				<g id="o-krasnodarskiy">
+				<g class="o-cont" id="o-krasnodarskiy">
 					<polygon id="krasnodar" class="o-city" points="572.99,167.05 528.38,145.64 482.32,153.28 492.25,167.05 527.81,167.05 
 					527.12,192.41 494.8,203.69 545.93,211.22 619.26,175.19 "/>
 				</g>
@@ -168,7 +168,7 @@
 				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-slavyanskiy" class="link-to-o">
-				<g id="o-slavyanskiy">
+				<g class="o-cont" id="o-slavyanskiy">
 					<polygon id="slavyanskiy" class="o-city" points="357.91,106.88 302.72,108.07 254.75,110.06 227.42,149.06 236.24,178.17 
 						319.78,179.78"/>
 					<polygon id="abinskiy" class="o-city" points="348.55,279.18 407.73,190.86 334.46,180.06 265.81,255.9 	"/>
@@ -212,10 +212,15 @@ export default defineComponent({
 	fill: rgba(203, 231, 247, 0.64);
 	transition: fill .25s ease-in-out;
 }
-.map-svg g:hover>.o-city {
+.link-to-o:hover .o-city {
 	fill: rgba(203, 231, 247, 1);
 }
 
+.map-svg .o-city#o-adygeya {
+	fill: rgba(203, 231, 247, 0.2);
+}
+
+.link-to-o,
 .o-title-cont {
 	cursor: pointer;
 }
@@ -244,10 +249,10 @@ export default defineComponent({
 	letter-spacing: .075em;
 }
 
-.link-to-o>g {
+.link-to-o>.o-cont {
 	transition: transform .25s ease-in-out;
 }
-.link-to-o:hover>g {
+.link-to-o:hover>.o-cont {
 	transform: translateY(-2rem);
 }
 </style>
