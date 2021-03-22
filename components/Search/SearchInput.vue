@@ -7,8 +7,7 @@
       @focus="onFocus"
       @blur="onBlur"
       class="search-input" 
-      ref="input"
-      :style="{ 'padding-left': searchInputPadding, }"
+      :style="{ 'padding-left': searchInputPadding, width: searchInputWidth}"
       type="text" 
       :placeholder="searchInputPlaceholder"
       v-model="searchString"
@@ -39,7 +38,7 @@
 </template>
 
 <script>
-import { defineComponent,  ref, } from '@nuxtjs/composition-api'
+import { defineComponent,  ref, onMounted, computed, } from '@nuxtjs/composition-api'
 import { useSearch, } from '~/composition/search'
 import { useHelpers, } from '@/composition/helpers'
 
@@ -57,11 +56,19 @@ export default defineComponent({
 
         const { generateKey, } = useHelpers() 
         const isCloseButtonVisible = ref(false)
-        
-        const input = ref(null)
+        const basePadding = '6rem'
+
+        const searchInputWidth = ref('100%')
+        let computedWidth = '100%'
+
+        onMounted(() => {
+            computedWidth = document.querySelector('.search-input').offsetWidth + 'px'
+            searchInputWidth.value = computedWidth
+        })
 
         const onFocus = () => {
             isSearchOpen.value = true
+            searchInputWidth.value = document.querySelector('.layout-inner').offsetWidth + 'px'
             emit('searchFocus')
             searchInputPlaceholder.value = ''
             window.setTimeout(() => {             
@@ -80,25 +87,37 @@ export default defineComponent({
         const onCloseButtonClick = () => {  
             searchBlocks.value = []
             searchString.value = ''
+
             isCloseButtonVisible.value = false
             searchInputPadding.value = '6rem'
+            searchInputWidth.value = computedWidth
             resetPlaceholder()
             window.setTimeout(() => { isSearchOpen.value = false;  }, 150) 
             emit('searchClose')
         }
         const handleSearch = () => {
-            parseSearchString()
-            console.log(input.value)
+            if (searchString.value.trim !== '') {
+                parseSearchString()
+                window.setTimeout(() => {  
+                    searchInputPadding.value = `calc(${basePadding} + ${document.querySelector('.search-blocks-wrapper').offsetWidth}px + 1rem)`
+                }, 10)
+            } 
             searchString.value = ''
         }
         const deleteBlock = (ind) => {
             searchBlocks.value.splice(ind, 1)
+            window.setTimeout(() => {
+                searchInputPadding.value = (searchBlocks.value.length > 0) ? 
+                    `calc(${basePadding} + ${document.querySelector('.search-blocks-wrapper').offsetWidth}px + 1rem)` :
+                    '6rem'
+            }, 10)
         }
         return {
             searchBlocks,
             searchString,
             searchInputPlaceholder,
             searchInputPadding,
+            searchInputWidth,
             isCloseButtonVisible,
             onCloseButtonClick,
             onBlur,
@@ -151,7 +170,7 @@ export default defineComponent({
   .search-blocks-wrapper {
     position: absolute;
     top: 0.5rem;
-    padding-left: 6rem;
+    margin-left: 6rem;
     line-height: 2.3rem;
     display: flex;
     flex-direction: row;

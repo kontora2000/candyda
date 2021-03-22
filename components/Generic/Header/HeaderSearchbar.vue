@@ -1,5 +1,7 @@
 <template>
-   <div class="search-input-wrapper" v-if="!$device.isMobile">
+   <div class="search-input-wrapper" 
+    :class="{ 'search-input-wrapper-wide': isSearchOpen   }"
+    v-if="!$device.isMobile">
       <SearchInput  
         @search-focus="onFocus" 
         @search-close="onSearchClose"/>
@@ -15,6 +17,7 @@
 import { defineComponent, ref, } from '@nuxtjs/composition-api'
 import SearchInput from '~/components/Search/SearchInput.vue'
 import SearchResults from '~/components/Search/SearchResults.vue'
+import { useSearch, } from '~/composition/search'
 
 export default defineComponent({
     name:'HeaderSearchbar',
@@ -23,9 +26,10 @@ export default defineComponent({
         SearchResults,
     },
     setup () {
+        const { isSearchOpen, } = useSearch()
         const isShowResults = ref(false)
         const onFocus = () => {
-            isShowResults.value = trued
+            isShowResults.value = true
             debugger
         }
 
@@ -35,6 +39,7 @@ export default defineComponent({
 
         return {
             isShowResults,
+            isSearchOpen,
             onFocus,
             onSearchClose,
         }
@@ -46,6 +51,10 @@ export default defineComponent({
 .search-input-wrapper {
    grid-column: 9/28;
    grid-row: 1/1;
+}
+
+.search-input-wrapper-wide {
+    position: fixed;
 }
 
 @media (max-width: 460px) {

@@ -5,7 +5,7 @@ import { SearchRequestBody } from "~/modules/types"
 
 const isSearchOpen = ref(false)
 const searchString = ref<string>('')
-const searchBlocks = ref([])
+const searchBlocks = ref<string[]>([])
 const searchRequestBody = ref<SearchRequestBody> ({
   tags: [] as Array<string>,
   words: [] as Array<string>,
@@ -23,7 +23,12 @@ export const useSearch = () => {
     const parseSearchString = () => {
       searchString.value = parser.sanitizeString(searchString.value)
       const w = parser.stringToWords(searchString.value)
-      searchBlocks.value = parser.parseWords(w) as never[]
+      if (searchBlocks.value?.length === 0 ) {
+          searchBlocks.value = parser.parseWords(w) 
+      }
+      else {
+        searchBlocks.value = Array.from(new Set([...searchBlocks.value, ...w]))
+      }
     }
 
     const hasResults = ref(false)
