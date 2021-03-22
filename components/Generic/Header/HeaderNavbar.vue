@@ -15,9 +15,7 @@
         key="menu-logo"  
         @mouseenter="resetBurgerTimer"
         @mouseleave="startBurgerTimer">
-        <div class="logo-wrapper" >
-            <nuxt-link to="/" class="logo-link">Duma.one</nuxt-link>
-        </div>
+        <header-logo />
         <nav class="site-nav">
           <ul key="burger-open">
             <li><nuxt-link to="/news" class="nav-link link-underline-solid">Новости</nuxt-link></li>
@@ -31,8 +29,10 @@
 
 <script>
 import { defineComponent, useContext, ref, computed, onMounted,  watch, } from '@nuxtjs/composition-api'
+import HeaderLogo from './HeaderLogo.vue'
 
 export default defineComponent({
+  components: { HeaderLogo },
     name:'HeaderNavbar',
     setup () {
         const { route, } = useContext()

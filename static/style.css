@@ -298,6 +298,19 @@ input[type=submit]:disabled {
 			backdrop-filter: blur(8px);
 }
 
+.button-transparent {
+	background: transparent;
+	color: var(--Azure100);
+	border: 2px solid var(--Azure100);
+	padding: 1.8rem 2.4rem 2rem;
+}
+.button-transparent:hover {
+	background: var(--Azure84);
+	border-color: var(--Azure84) !important;
+	color: var(--White100);
+	transform: translateY(-.8rem);
+}
+
 .button-blur {
     background: var(--Azure12);
     backdrop-filter: blur(32px);

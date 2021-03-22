@@ -6,7 +6,7 @@
 
       >
          <span class="icon icon-votes-counter">
-            <use xlink:href="/static/sprite.svg#icon-check" />
+            <use xlink:href="/sprite.svg#icon-check" />
          </span>
          <span class="votes-counter-small-digits">{{ votes }}</span>
       </div>
@@ -60,10 +60,20 @@ export default defineComponent({
       color: var(--White100);
    }
 
-   .votes-counter-small-digits:before {
-      content: '✓';
+   .icon-votes-counter {
       display: inline-block;
-      color: var(--White56);
+      width: 1.6rem;
+      height: 1.3rem;
+   }
+
+   .icon-votes-counter>use {
+      display: block;
+      height: inherit;
+      width: inherit;
+   }
+
+   .icon-votes-counter>use path {
+      fill: var(--White56);
    }
 
 

@@ -33,6 +33,8 @@ export const useSearch = () => {
       searchInputPlaceholder.value = 'Введите округ / район или город / имя кандидата / новость'
     }
 
+    const searchInputPadding = ref<string>('6rem')
+
     return {
       isSearchOpen,
       searchString,
@@ -40,6 +42,7 @@ export const useSearch = () => {
       results,
       hasResults,
       searchInputPlaceholder,
+      searchInputPadding,
       parseSearchString,
       resetPlaceholder,
     }

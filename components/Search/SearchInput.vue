@@ -1,9 +1,14 @@
 <template>
   <form @submit.prevent="handleSearch" class="search-form">
+    <svg class="icon-search-svg icon-svg">
+         <use xlink:href="/sprite.svg#icon-search" />
+    </svg>
     <input 
       @focus="onFocus"
       @blur="onBlur"
       class="search-input" 
+      ref="input"
+      :style="{ 'padding-left': searchInputPadding, }"
       type="text" 
       :placeholder="searchInputPlaceholder"
       v-model="searchString"
@@ -41,10 +46,19 @@ import { useHelpers, } from '@/composition/helpers'
 export default defineComponent({
     name:'SearchInput',
     setup (_, { emit, }) {
-        const { searchBlocks, searchString, isSearchOpen, parseSearchString, searchInputPlaceholder, resetPlaceholder,  } = useSearch()
-        const { generateKey, } = useHelpers() 
+        const { searchBlocks, 
+            searchString, 
+            isSearchOpen, 
+            parseSearchString, 
+            searchInputPlaceholder, 
+            searchInputPadding,
+            resetPlaceholder,       
+        } = useSearch()
 
+        const { generateKey, } = useHelpers() 
         const isCloseButtonVisible = ref(false)
+        
+        const input = ref(null)
 
         const onFocus = () => {
             isSearchOpen.value = true
@@ -67,24 +81,24 @@ export default defineComponent({
             searchBlocks.value = []
             searchString.value = ''
             isCloseButtonVisible.value = false
+            searchInputPadding.value = '6rem'
             resetPlaceholder()
             window.setTimeout(() => { isSearchOpen.value = false;  }, 150) 
             emit('searchClose')
         }
-
         const handleSearch = () => {
             parseSearchString()
+            console.log(input.value)
             searchString.value = ''
         }
-
         const deleteBlock = (ind) => {
             searchBlocks.value.splice(ind, 1)
         }
-
         return {
             searchBlocks,
             searchString,
             searchInputPlaceholder,
+            searchInputPadding,
             isCloseButtonVisible,
             onCloseButtonClick,
             onBlur,
@@ -96,13 +110,14 @@ export default defineComponent({
     },
 })
 </script>
-<style>
+<style scoped>
   .search-form {
     position: relative;
   }
 
   .search-input {
     width: 100%;
+    padding-left:6rem;
   }
 
   .search-close {
@@ -144,7 +159,6 @@ export default defineComponent({
     align-items: center;
   }
 
- 
 
   .search-block {
     background: var(--Azure100);
@@ -184,4 +198,19 @@ export default defineComponent({
   .search-block-delete:hover svg{
     fill: var(--Black100);
   }
+
+  .icon-search-svg {
+   width: inherit;
+   height: inherit;
+   position: absolute;
+   z-index: 102;
+   left: 2rem;
+   top: 1.9rem;
+  }
+
+  .icon-search-svg use {
+    fill: var(--Black32);
+  }
+
+  
 </style>

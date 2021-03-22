@@ -6,7 +6,6 @@
       <transition name="fade-fast">
         <SearchResults v-if="isShowResults"/>
       </transition>
-      <div class="blur-overlay"></div>
    </div>
 </template>
 
@@ -43,16 +42,10 @@ export default defineComponent({
 })
 </script>
 
- 
-
 <style scoped>
 .search-input-wrapper {
    grid-column: 9/28;
    grid-row: 1/1;
-}
-
-.search-input {
-   width: 100%;
 }
 
 @media (max-width: 460px) {
