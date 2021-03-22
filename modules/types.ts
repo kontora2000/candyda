@@ -90,3 +90,9 @@ export interface Region {
   districts: Distritct[];
   posts: Post[];
 }
+
+
+export interface SearchRequestBody {
+  tags: Array<string> | null;
+  words: Array<string> | null; 
+}

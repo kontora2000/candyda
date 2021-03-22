@@ -2,13 +2,12 @@
    <header class="grid-main">
       <HeaderNavbar v-if="!$device.isMobile" />
       <HeaderLogo v-if="$device.isMobile"/>
-      <HeaderSearchbar />
+      <HeaderSearchbar  style="z-index:100"/>
       <HeaderAbout  v-if="!$device.isMobile"/>
       <HeaderBurger  v-if="$device.isMobile" />
+      <div></div>
    </header>
 </template>
-
-
 
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'
@@ -31,8 +30,6 @@ export default defineComponent({
 })
 </script>
 
-
-
 <style scoped>
 header {
    grid-column: 1/33;
@@ -40,7 +37,6 @@ header {
    position: relative;
    width: calc(100vw - 1.6rem);
 }
-
 
 @media (min-width: 1460px) {
    header {

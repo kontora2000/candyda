@@ -1,7 +1,12 @@
 <template>
    <div class="search-input-wrapper" v-if="!$device.isMobile">
-      <SearchInput  @search-focus="onFocus"/>
-      <SearchResults v-if="isShowResults"/>
+      <SearchInput  
+        @search-focus="onFocus" 
+        @search-close="onSearchClose"/>
+      <transition name="fade-fast">
+        <SearchResults v-if="isShowResults"/>
+      </transition>
+      <div class="blur-overlay"></div>
    </div>
 </template>
 
@@ -21,11 +26,18 @@ export default defineComponent({
     setup () {
         const isShowResults = ref(false)
         const onFocus = () => {
-            isShowResults.value = true
+            isShowResults.value = trued
+            debugger
         }
+
+        const onSearchClose = () => {
+            isShowResults.value = false
+        }
+
         return {
             isShowResults,
             onFocus,
+            onSearchClose,
         }
     },
 })

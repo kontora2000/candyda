@@ -71,14 +71,14 @@ export default {
                 blocks.push(word)
                 continue
             }
-            if (word[0] === '@') {
-                if (phrase !== '') {
-                    blocks.push(phrase)
-                    phrase = ''
-                }
-                blocks.push(word)
-                continue
-            }
+            // if (word[0] === '@') {
+            //     if (phrase !== '') {
+            //         blocks.push(phrase)
+            //         phrase = ''
+            //     }
+            //     blocks.push(word)
+            //     continue
+            // }
             if (phrase === '') { phrase = word } else { phrase += (' ' + word) }
         }
         if (phrase !== '') { blocks.push(phrase) }

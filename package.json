@@ -17,6 +17,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/composition-api": "^0.16.4",
     "@nuxtjs/device": "^1.2.7",
+    "@nuxtjs/svg-sprite": "^0.5.2",
     "create-nuxt-app": "^3.4.0",
     "gutil": "^1.6.4",
     "less": "^4.1.1",
