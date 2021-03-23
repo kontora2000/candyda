@@ -10,7 +10,7 @@ function getFtpConnection(){
         host: '141.8.192.93',
         port: 21,
         user: 'a0501694',
-        password: 'gpNocUKXvt',
+        password: 'bP58wonmK2',
         log: gutil.log,
     });
 }
