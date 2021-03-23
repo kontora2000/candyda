@@ -84,6 +84,23 @@ export default {
         if (phrase !== '') { blocks.push(phrase) }
         return blocks
     },
+    blocksToRequestBody(b) {
+        const tags = []
+        const words = []
+        for (const block of b) {
+            if (block[0] === '#') {
+                tags.push(block.replace('#', ''))
+                continue
+            }
+            else {
+                words.push(block)
+            }
+        }
+        return {
+            words, 
+            tags,
+        }
+    },
     blocksToURLString (blocks) {
         return encodeURIComponent(JSON.stringify(blocks))
     },

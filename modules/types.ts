@@ -96,3 +96,10 @@ export interface SearchRequestBody {
   tags: Array<string> | null;
   words: Array<string> | null; 
 }
+
+export interface SearchResults {
+  posts: Post[];
+  tags: Tag[];
+  parties: Party[];
+  candidates: Candidate[];
+}
