@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed">
+  <div class="logo-nav-cont fixed">
     <transition name="fade-fast" mode="out-in">
       <a v-if="!isBurgerOpen"
           class="burger "       
@@ -109,6 +109,12 @@ export default defineComponent({
 
 
 <style scoped>
+.logo-nav-cont.fixed { 
+  top: 2.8rem;
+  margin-left: calc(((100vw - 49.6rem - 1.6rem) / 32) + 1.6rem);
+  z-index: 3;
+}
+
 .burger {
   position: static;
 }
