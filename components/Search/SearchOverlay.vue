@@ -33,4 +33,9 @@ export default defineComponent({
   .blur {
     backdrop-filter: blur(16px);
   }
+
+  .firefox-opacity {
+    opacity: 0.5;
+    background-color:var(--WHite100);
+  }
 </style>
