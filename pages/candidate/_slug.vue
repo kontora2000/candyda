@@ -15,8 +15,8 @@
                </div>
                <div class="candidate-rating-wrapper candidate-info-row">
                   <div class="candidate-rating">
-                     <span class="candidate-top-rating" style="display: none">ТОП-6</span>
-                     <span class="candidate-top-votes">{{ localVotes }}<sup>{{ votesText }}</sup></span>
+                     <span class="candidate-top-rating" v-if="candidate.num">ТОП-{{ candidate.num }}</span>
+                     <span class="candidate-top-votes" v-if="localVotes">{{ localVotes }}<sup>{{ votesText }}</sup></span>
                   </div>
                   <div class="candidate-vote-button-wrapper"
                        v-touch="() => onVote(candidate.slug)" @click="onVote(candidate.slug)">
@@ -45,7 +45,7 @@
             <div class="candidate-about-wrapper" v-html="candidate.description">
             </div>
              <template v-if="gallery">
-                <div class="candidate-gallery-wrapper"  style="display: none" v-if="gallery.length > 0">
+                <div class="candidate-gallery-wrapper"  v-if="gallery.length > 0">
                     <div class="candidte-gallery-image" v-for="(image, index) in gallery" :key="index">
                         <img :src="'https://api.prostokontora.ru/storage/' + image" @click="openGallery(index)" />
                     </div>
