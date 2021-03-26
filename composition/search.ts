@@ -37,10 +37,10 @@ export const useSearch = () => {
       searchString.value = parser.sanitizeString(searchString.value)
       const w = parser.stringToWords(searchString.value)
       if (searchBlocks.value?.length === 0 ) {
-          searchBlocks.value = parser.parseWords(w) 
+          searchBlocks.value = parser.parseWords(w)  as never[]
       }
       else {
-        searchBlocks.value = Array.from(new Set([...searchBlocks.value, ...w]))
+        searchBlocks.value = Array.from(new Set([...searchBlocks.value, ...w])) as never[]
       }
     }
 

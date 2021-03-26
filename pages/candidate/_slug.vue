@@ -45,7 +45,7 @@
             <div class="candidate-about-wrapper" v-html="candidate.description">
             </div>
              <template v-if="gallery">
-                <div class="candidate-gallery-wrapper"  style="display: none" v-if="gallery.length > 0">
+                <div class="candidate-gallery-wrapper"  v-if="gallery.length > 0">
                     <div class="candidte-gallery-image" v-for="(image, index) in gallery" :key="index">
                         <img :src="'https://api.prostokontora.ru/storage/' + image" @click="openGallery(index)" />
                     </div>

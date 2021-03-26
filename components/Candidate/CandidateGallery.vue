@@ -2,7 +2,7 @@
     <div class="gallery-lightbox-wrapper">
         <transition-group name="fade">
             <div v-show="visible && images.length > 0" key="overlay"
-                 class="gallery-lightbox-overlay"  @click.self="onClose" v-on:touch="close"/>
+                 class="gallery-lightbox-overlay"  @click.self="onClose"/>
             <div v-show="visible && images.length > 0" key="cont" class="gallery-lightbox-cont">
                 <div class="gallery-lightbox-body">
                     <img class="gallery-lightbox-current-image" :src="'https://api.prostokontora.ru/storage/' + currentImage">
