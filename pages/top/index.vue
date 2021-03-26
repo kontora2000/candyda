@@ -83,6 +83,14 @@ export default defineComponent({
    margin-bottom: 3.2rem;
 }
 
+.candidate-card-cont:nth-child(2) {
+   grid-column: span 12;
+}
+
+.candidate-card-cont:nth-child(3) {
+   grid-column: span 8;
+}
+
 
 
 @media (max-width: 460px) {

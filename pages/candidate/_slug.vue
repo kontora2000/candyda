@@ -27,7 +27,7 @@
                      </btn>
                   </div>
                </div>
-               <div class="candidate-age candidate-info-row">Родился {{ candidate.birthdate }}, {{ ageText }}</div>
+               <div class="candidate-age candidate-info-row">{{ ageText }} / Родился {{ candidate.birthdate }}</div>
                <div class="candidate-edu candidate-info-row" v-if="candidate.party">
                   <div class="candidate-info-row-header">Партия</div>
                   <div class="candidate-info-row-content" >
@@ -162,6 +162,7 @@ export default defineComponent({
    grid-column: 1/2;
    display: inline-flex;
    height: 50rem;
+   margin-right: .8rem;
    width: 40rem;
 }
 
@@ -216,6 +217,7 @@ export default defineComponent({
 .candidate-about-wrapper {
    grid-column: 1/3;
    margin-top: 4rem;
+   max-width: 64rem;
 }
 
 .candidate-gallery-wrapper {
@@ -242,6 +244,7 @@ export default defineComponent({
    .candidate-ava {
       grid-column: 1/7;
       height: 40rem;
+      margin-right: 0;
       width: 100%;
    }
 
