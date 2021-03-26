@@ -20,6 +20,7 @@
           <ul key="burger-open">
             <li><nuxt-link to="/news" class="nav-link link-underline-solid">Новости</nuxt-link></li>
             <li><nuxt-link to="/top" class="nav-link link-underline-solid">Топ кандидатов</nuxt-link></li>
+            <li><nuxt-link to="/party" class="nav-link link-underline-solid">Партии</nuxt-link></li>
           </ul>
         </nav>
       </div>
@@ -120,19 +121,20 @@ export default defineComponent({
 }
 
 .site-nav {
-   grid-column: 2/9;
-   grid-row: 2/2;
-   top: 0;
-   left: 0;
-   z-index: 10;
+  grid-column: 2/9;
+  grid-row: 2/2;
+  margin-top: 1.6rem;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 .site-nav li:not(:first-child) {
-   margin-top: .8rem;
+  margin-top: .8rem;
 }
 .nav-link {
-   border-bottom-width: 2.5px;
-   font-size: 2rem;
-   font-weight: 500;
+  border-bottom-width: 2.5px;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 @media (max-width: 460px) {

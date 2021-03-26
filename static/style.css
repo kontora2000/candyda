@@ -368,6 +368,7 @@ ul {
 }
 
 .overlay {
+	background-color: var(--White36);
     position: fixed;
     width: 100%;
     height: 100%;

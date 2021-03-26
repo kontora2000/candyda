@@ -202,6 +202,7 @@ export default defineComponent({
 }
 
 .candidate-top-votes sup {
+   margin-left: .4rem;
    position: relative;
    top: -6px;
 }
