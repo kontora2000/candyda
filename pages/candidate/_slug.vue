@@ -18,7 +18,7 @@
                      <span class="candidate-top-rating" v-if="candidate.num">ТОП-{{ candidate.num }}</span>
                      <span class="candidate-top-votes" v-if="localVotes">{{ localVotes }}<sup>{{ votesText }}</sup></span>
                   </div>
-                  <div class="candidate-vote-button-wrapper"
+                  <div class="candidate-vote-button-wrapper" v-if="localVotes"
                        v-touch="() => onVote(candidate.slug)" @click="onVote(candidate.slug)">
                      <btn class="vote-button"
                           :disabled="isVoted"
@@ -102,7 +102,7 @@ export default defineComponent({
                 age,
                 gallery, } = useCandidate()
             fetchCandidate()
-            isVoted.value = false
+            isVoted.value = true
             const { numWord, } = useHelpers()
             const votesText = computed( () => numWord(localVotes.value, ['голос', 'голоса', 'голосов']))
             const ageText = ref('')
