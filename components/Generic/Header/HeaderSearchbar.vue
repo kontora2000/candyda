@@ -55,6 +55,7 @@ export default defineComponent({
 
 .search-input-wrapper-wide {
     position: fixed;
+    top: 2.8rem;
 }
 
 @media (max-width: 460px) {

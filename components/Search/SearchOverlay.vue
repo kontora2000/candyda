@@ -18,6 +18,7 @@ export default defineComponent({
 })
 </script>
 
+<<<<<<< HEAD
 <style scoped>
   .overlay {
     position: fixed;
@@ -39,3 +40,6 @@ export default defineComponent({
     background-color:var(--WHite100);
   }
 </style>
+=======
+<style scoped></style>
+>>>>>>> 64de4f61cce07ce9eba0574dc82acdbb16dec18c
