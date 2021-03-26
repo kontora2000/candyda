@@ -1,11 +1,12 @@
 import { ref, } from "@nuxtjs/composition-api"
 import { useAxios } from "./axios"
 import parser from '@/modules/parser'
-import { SearchRequestBody } from "~/modules/types"
+import { SearchRequestBody, SearchResults, } from "~/modules/types"
 
 const isSearchOpen = ref(false)
 const searchString = ref<string>('')
-const searchBlocks = ref<string[]>([])
+const searchBlocks = ref([])
+const searchResults = ref<SearchResults[]>([])
 const searchRequestBody = ref<SearchRequestBody> ({
   tags: [] as Array<string>,
   words: [] as Array<string>,
@@ -16,8 +17,20 @@ export const useSearch = () => {
    
     const { $axios, } =  useAxios()
 
-    const searchRequest = () => {
-
+    const searchRequest = async () => {
+      searchRequestBody.value = parser.blocksToRequestBody(searchBlocks.value)
+      try {
+        const response =  await $axios.post('/search', searchRequestBody.value)
+        if (response.status === 200) {
+          searchResults.value = response.data
+        }
+        else {
+          console.log('error while search request')
+        }
+      }
+      catch(error) {
+        console.error(error)
+      }
     }
     
     const parseSearchString = () => {
@@ -50,5 +63,6 @@ export const useSearch = () => {
       searchInputPadding,
       parseSearchString,
       resetPlaceholder,
+      searchRequest,
     }
 }
