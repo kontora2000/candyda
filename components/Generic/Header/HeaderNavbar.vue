@@ -113,6 +113,7 @@ export default defineComponent({
 .logo-nav-cont.fixed { 
   top: 2.8rem;
   margin-left: calc(((100vw - 49.6rem - 1.6rem) / 32) + 1.6rem);
+  margin-top: 2rem;
   z-index: 3;
 }
 

@@ -107,12 +107,14 @@ export default defineComponent({
   z-index: 101;
 }
 .gallery-lightbox-overlay {
+  background-color: var(--White84);
+  backdrop-filter: blur(64px);
+  -webkit-backdrop-filter: blur(64px);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--Black92);
   z-index: 101;
   min-width: 100vw;
 }
@@ -189,7 +191,7 @@ export default defineComponent({
   fill: var(--White100);
 }
 .gallery-lightbox-numb {
-  color: var(--White100);
+  color: var(--Black100);
   font-size: 2.4rem;
   text-align: center;
 }

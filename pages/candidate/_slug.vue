@@ -42,20 +42,22 @@
                   </div>
                </div>
             </div>
-            <div class="candidate-about-wrapper" v-html="candidate.description">
-            </div>
-             <template v-if="gallery">
-                <div class="candidate-gallery-wrapper"  v-if="gallery.length > 0">
-                    <div class="candidte-gallery-image" v-for="(image, index) in gallery" :key="index">
-                        <img :src="'https://api.prostokontora.ru/storage/' + image" @click="openGallery(index)" />
-                    </div>
-                    <CandidateGallery
-                      :images="gallery"
-                      :visible="isGalleryVisible"
-                      :current="currentImg"
-                      @close="closeGallery"/>
-                </div>
-             </template>
+            <div class="candidate-about-wrapper" v-html="candidate.description"></div>
+            <template v-if="gallery">
+               <div class="candidate-gallery-cont">
+                  <h3>На фотографиях</h3>
+                  <div class="candidate-gallery-wrapper"  v-if="gallery.length > 0">
+                     <div class="candidate-gallery-img-cont" v-for="(image, index) in gallery" :key="index">
+                        <img class="candidate-gallery-img" :src="'https://api.prostokontora.ru/storage/' + image" @click="openGallery(index)" />
+                     </div>
+                     <CandidateGallery
+                        :images="gallery"
+                        :visible="isGalleryVisible"
+                        :current="currentImg"
+                        @close="closeGallery"/>
+                  </div>
+               </div>
+            </template>
          </div>
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-candidate grid-main">
@@ -156,10 +158,11 @@ export default defineComponent({
    display: grid;
    grid-column: 9/32;
    grid-column-gap: 1.6rem;
+   grid-template-columns: repeat(22, calc((100vw - 49.6rem - 1.6rem) / 32));
 }
 
 .candidate-ava {
-   grid-column: 1/2;
+   grid-column: 1/12;
    display: inline-flex;
    height: 50rem;
    margin-right: .8rem;
@@ -174,7 +177,7 @@ export default defineComponent({
 }
 
 .candidate-info-wrapper {
-   grid-column: 2/3;
+   grid-column: 12/22;
 }
 
 .candidate-info-row {
@@ -198,6 +201,7 @@ export default defineComponent({
 }
 
 .candidate-top-rating {
+   color: var(--Azure100);
    margin-right: 3.2rem;
 }
 
@@ -216,14 +220,41 @@ export default defineComponent({
 }
 
 .candidate-about-wrapper {
-   grid-column: 1/3;
+   grid-column: 1/22;
    margin-top: 4rem;
    max-width: 64rem;
 }
 
+.candidate-gallery-cont {
+   display: grid;
+   grid-column: 1/22;
+   grid-column-gap: 1.6rem;
+   grid-template-columns: repeat(22, calc((100vw - 49.6rem - 1.6rem) / 32));
+   margin-top: 4.8rem;
+}
+
+.candidate-gallery-cont h3 {
+   grid-column: 1/22;
+   margin-top: 0;
+}
+
 .candidate-gallery-wrapper {
-   grid-column: 1/3;
-   margin-top: 4rem;
+   display: grid;
+   grid-column: 1/22;
+   grid-column-gap: 1.6rem;
+   grid-template-columns: repeat(22, calc((100vw - 49.6rem - 1.6rem) / 32));
+}
+
+.candidate-gallery-img-cont {
+   border-radius: 12px;
+   grid-column: span 7;
+   overflow: hidden;
+}
+
+.candidate-gallery-img {
+   height: 100%;
+   object-fit: cover;
+   width: 100%;
 }
 
 
