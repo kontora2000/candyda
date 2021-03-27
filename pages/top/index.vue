@@ -7,7 +7,9 @@
          <div class="page-wrapper page-top">
             <h1 class="page-header page-top-header">Топ кандидатов</h1>
             <CandidateCard
-                v-for="candidate in candidates"
+                v-for="(candidate, index) in candidates"
+                :is-first="index === 0"
+                :is-second="index === 1"
                 :key="candidate.id"
                 :candidate="candidate"
             />
@@ -85,10 +87,17 @@ export default defineComponent({
 
 .candidate-card-cont:nth-child(2) {
    grid-column: span 12;
+   grid-row: span 2;
+   max-height: 35rem;
+ 
 }
 
 .candidate-card-cont:nth-child(3) {
-   grid-column: span 8;
+  grid-column: span 8;
+  grid-row: span 2;
+  max-height: 80%;
+  align-self:end;
+
 }
 
 
