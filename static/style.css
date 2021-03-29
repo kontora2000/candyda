@@ -505,6 +505,7 @@ grid-column: 9/28;
 }
 
 .card-cont-inner {
+	min-height: inherit;
     height: 100%;
     position: relative;
 }

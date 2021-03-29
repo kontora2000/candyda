@@ -46,8 +46,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
-
 .candidate-card-cont {
   max-height: 180px;
 }
@@ -72,11 +70,19 @@ export default defineComponent({
 }
 
 .first .candidate-avatar-wrapper {
-  min-height: 100%;
+   min-height: inherit;
+   height: 100%;
+}
+.first {
+   min-height: 61.6rem;
 }
 
 .second .candidate-avatar-wrapper {
-  min-height: 100%;
+  min-height: inherit;
+  height: 100%;
+}
+.second {
+   min-height: 40rem;
 }
 
 .candidate-card-name-wrapper {
@@ -91,10 +97,16 @@ export default defineComponent({
    width: calc(100% - .8rem);
    z-index: 2;
 }
-
-.first {
-  min-height: 36rem;
+.first .candidate-card-name-wrapper {
+   font-size: 3.2rem;
+   line-height: 3.6rem;
 }
+.second .candidate-card-name-wrapper {
+   font-size: 2.4rem;
+   line-height: 2.4rem;
+}
+
+
 
 @media (max-width: 460px) {
    .candidate-card-cont {

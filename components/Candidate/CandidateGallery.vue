@@ -6,9 +6,9 @@
             <div v-show="visible && images.length > 0" key="cont" class="gallery-lightbox-cont">
                 <div class="gallery-lightbox-body">
                     <img class="gallery-lightbox-current-image" :src="'https://api.prostokontora.ru/storage/' + currentImage">
-                    <div class="gallery-lightbox-numb">
-                        {{ pos+1 }} / {{ imgCount }}
-                    </div>
+                </div>
+                <div class="gallery-lightbox-numb">
+                  {{ pos+1 }} / {{ imgCount }}
                 </div>
                 <div class="gallery-lightbox-left" @click="left" v-on:touch="left">
                     <svg class="icon-arrow-svg icon-arrow-left-svg">
@@ -193,7 +193,10 @@ export default defineComponent({
 .gallery-lightbox-numb {
   color: var(--Black100);
   font-size: 2.4rem;
+  bottom: 1.2rem;
+  position: absolute;
   text-align: center;
+  width: 100vw;
 }
 </style>
 
