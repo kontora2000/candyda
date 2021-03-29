@@ -126,6 +126,7 @@ export default defineComponent({
                 document.body.style.overflowY = 'hidden'
                 document.body.style.position = 'fixed'
                 document.querySelector('html').style.overflow = 'hidden'
+                document.querySelector('.gallery-lightbox-wrapper').focus() 
             }
 
             return {
@@ -150,8 +151,6 @@ export default defineComponent({
     },
 })
 </script>
-
-
 
 <style scoped>
 .candidate-wrapper {

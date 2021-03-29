@@ -54,6 +54,9 @@ export default defineComponent({
 
         watch(route, () => {
             calcStyle()
+            document.body.style.overflowY = ''
+            document.body.style.position = ''
+            document.querySelector('html').style.overflow = ''
         })
 
         onMounted(()=> calcStyle())
