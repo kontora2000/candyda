@@ -109,6 +109,7 @@ export default defineComponent({
   filter: blur(32px);
   border-radius: 50%;
   display: none;
+  transition: all .45s ease-in-out;
 }
 
 
