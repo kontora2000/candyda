@@ -5,18 +5,23 @@
       <HeaderSearchbar  style="z-index:100"/>
       <HeaderAbout  v-if="!$device.isMobile"/>
       <HeaderBurger  v-if="$device.isMobile" />
+      <Breadcrumbs />
       <div></div>
    </header>
 </template>
 
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+import { defineComponent,  } from '@nuxtjs/composition-api'
+
+import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 
 import HeaderLogo from '@/components/Generic/Header/HeaderLogo'
 import HeaderNavbar from '@/components/Generic/Header/HeaderNavbar'
 import HeaderSearchbar from '@/components/Generic/Header/HeaderSearchbar'
 import HeaderAbout from '@/components/Generic/Header/HeaderAbout'
 import HeaderBurger from '@/components/Generic/Header/HeaderBurger'
+import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs'
+
 
 export default defineComponent({
     name:'TheHeader',
@@ -26,6 +31,7 @@ export default defineComponent({
         HeaderSearchbar,
         HeaderAbout,
         HeaderBurger,
+        Breadcrumbs,
     },
 })
 </script>

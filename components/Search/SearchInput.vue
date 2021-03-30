@@ -39,7 +39,7 @@
 
 <script>
 import { defineComponent,  ref, onMounted, computed, } from '@nuxtjs/composition-api'
-import { useSearch, } from '~/composition/search'
+import { useSearch, } from '@/composition/search'
 import { useHelpers, } from '@/composition/helpers'
 
 export default defineComponent({

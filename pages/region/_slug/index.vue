@@ -1,6 +1,6 @@
 <template>
- <div v-if="region">
-   <div class="cont-wrapper" v-if="region.posts">
+ <div v-if="region" class="main-bottom-wrapper grid-main">
+   <div class="cont-wrapper cont-wrapper-left" v-if="region.posts && region.posts.length > 0">
        <div class="cont-header-wrapper">
          <h3 class="cont-header">Новости региона</h3>
       </div>
@@ -10,28 +10,30 @@
           :post="post" /> 
       </div>
     </div>
-    <div class="cont-wrapper">
+    <div class="cont-wrapper cont-wrapper-left" v-if="region.parties && region.parties.length > 0">
       <div class="cont-header-wrapper">
          <h3 class="cont-header">Партии региона</nuxt-link></h3>
       </div>
        <PartyBlock v-if="region.parties" :parties="region.parties" />
     </div>
-    <div class="cont-wrapper">
+    <div class="cont-wrapper cont-wrapper-right" v-if="region.candidates && region.candidates.length > 0">
       <div class="cont-header-wrapper">
          <h3 class="cont-header">Кандидаты региона</nuxt-link></h3>
       </div>
       <div class="top-candidates-cards-wrapper block-cards-wrapper">
-      <CandidateCard 
-        v-for="candidate in region.candidates" 
-        :key="candidate.slug"
-        :candidate="candidate" />
+        <CandidateCard 
+          v-for="candidate in region.candidates" 
+          :key="candidate.slug"
+          :candidate="candidate" />
       </div>
      </div>
  </div>
 </template>
 <script>
-import { computed, defineComponent, useMeta, } from '@nuxtjs/composition-api'
-import { useRegion, } from '~/composition/region'
+import { computed, defineComponent, useMeta, useContext, watch, } from '@nuxtjs/composition-api'
+
+import { useRegion, } from '@/composition/region'
+import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
@@ -50,9 +52,27 @@ export default defineComponent({
         const { region, fetchRegion, } = useRegion()
         fetchRegion()
         const title = computed(()=> {
-            return region?.value?.title
+            return region?.value?.name ? region?.value?.name + ' округ' : 'Загрузка'
         })
         useMeta({ title: title, })
+
+        const {  breadcrumbs,  } =  useBreadcrumbs()
+
+        const { route, } = useContext()
+
+        watch(title, () => {
+            breadcrumbs.value = [
+                {
+                    url: '/',
+                    title: 'Главная',
+                },
+                {
+                    url: route.value.path || '',
+                    title: title.value || '',
+                }
+            ]
+        })
+
         return {
             region,
             fetchRegion,
@@ -60,3 +80,43 @@ export default defineComponent({
     },
 })
 </script>
+<style scoped>
+.main-bottom-wrapper {
+  grid-column: 1/33;
+  grid-row-gap: 4rem;
+  grid-template-rows: 90rem 1fr 1fr;
+}
+
+.candidate-card-cont {
+   grid-column: span 4;
+}
+.candidate-card-cont {
+   margin-top: 3.2rem;
+}
+.candidate-card-cont:first-child,
+.candidate-card-cont:nth-child(2),
+.candidate-card-cont:nth-child(3) {
+   margin-top: 0;
+}
+
+
+
+@media (max-width: 460px) {
+  .main-bottom-wrapper {
+    grid-column: 1/7;
+    grid-template-rows: auto;
+  }
+
+  .main-bottom-wrapper .cont-wrapper-right {
+    grid-row: 1/2;
+  }
+
+  .main-bottom-wrapper .cont-wrapper-left {
+    grid-row: 2/3;
+  }
+
+  .main-bottom-wrapper .footer-wrapper {
+    grid-row: 3/3;
+  }
+}
+</style>
