@@ -103,3 +103,9 @@ export interface SearchResults {
   parties: Party[];
   candidates: Candidate[];
 }
+
+
+export interface Breadcrumb {
+   url: string;
+   title: string;
+}

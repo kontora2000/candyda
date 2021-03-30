@@ -198,6 +198,12 @@ import { defineComponent, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
     name:'TheMap',
+    setup () {
+        const currRegion = ref()
+        return {
+            currRegion, 
+        }
+    },
 })
 </script>
 
