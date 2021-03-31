@@ -49,12 +49,11 @@ export default defineComponent({
     setup () {
         const { fetchDistrict, district, } = useDistrict()
         fetchDistrict()
+
         const title = computed(() => district?.value?.title)
         useMeta({ title: title, })
 
-
         const { route, } = useContext()
-
         watch(title, () => {
             breadcrumbs.value = [
                 {

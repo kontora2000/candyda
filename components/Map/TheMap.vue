@@ -195,47 +195,36 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref, useContext, watch, } from '@nuxtjs/composition-api'
-import { gsap, } from 'gsap'
+import { defineComponent, onMounted, useContext, watch, } from '@nuxtjs/composition-api'
 
 import { useMap, } from '@/composition/map'
 
 export default defineComponent({
     name:'TheMap',
     setup () {
-        const {  mapSvg, resetViewbox, } = useMap()
         const { route, } = useContext()
-        const { animateViewBox, resetViewBox, } = useMap()
-
+        const { mapSvg, zoomTo, setTo, resetViewBox, } = useMap()
 
         onMounted(() => {
+            const slug = route.value.params.slug
+
             mapSvg.value = document.querySelector('.map-svg')
+            if (slug) {
+                if (route.value.name === 'region-slug') {
+                    setTo(slug)
+                }
+            }
         })
 
         watch(route, () => {
             const slug = route.value.params.slug
             if (slug) {
                 if (route.value.name === 'region-slug') {
-                    const box = document.querySelector('#' + slug).getBBox()
-                    const titles = document.querySelectorAll('.o-title-cont')
-                    const regs = document.querySelectorAll(`.o-cont:not(#${slug})`)
-            
-                    gsap.to(titles, {duration:0.2, autoAlpha: 0, })
-                    gsap.to(regs, {duration:0.2, autoAlpha: 0, })
-            
-                    document.querySelector('#o-adygeya').style.display = 'none'
-                    document.querySelector(`#${slug} ~ .o-title-cont`).style.display = ''
-                    gsap.set(`#${slug}`, { autoAlpha: 1, })
-                    animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
+                    zoomTo(slug)
                 }
             }
-            debugger
-
             if (route.value.path === '' || route.value.path === '/') {
                 resetViewBox()
-                return {
-
-                }
             }
         })
     },
@@ -262,7 +251,7 @@ export default defineComponent({
 	fill: rgba(203, 231, 247, 0.2);
 }
 
-.link-to-o,
+.link-to-o, 
 .o-title-cont {
 	cursor: pointer;
 }
