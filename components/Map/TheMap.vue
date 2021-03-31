@@ -196,6 +196,7 @@
 
 <script>
 import { defineComponent, onMounted, ref, useContext, watch, } from '@nuxtjs/composition-api'
+import { gsap, } from 'gsap'
 
 import { useMap, } from '@/composition/map'
 
@@ -207,11 +208,46 @@ export default defineComponent({
             mapSvg.value = document.querySelector('.map-svg')
         })
         const { route, } = useContext()
-        // watch(route, () => {
-        //     if (route.value.path === '/') {
-        //         resetViewbox()
-        //     }
-        // })
+        const { animateViewBox, } = useMap()
+
+        onMounted(() => {
+            const slug = route.value.params.slug
+            if (slug) {
+                if (route.value.name === 'region-slug') {
+                    const box = document.querySelector('#' + slug).getBBox()
+                    const titles = document.querySelectorAll('.o-title-cont')
+                    const regs = document.querySelectorAll(`.o-cont:not(#${slug})`)
+            
+                    gsap.set(titles, { autoAlpha: 0, })
+                    gsap.set(regs, { autoAlpha: 0, })
+            
+                    document.querySelector('#o-adygeya').style.display = 'none'
+                    document.querySelector(`#${slug} ~ .o-title-cont`).style.display = ''
+                    mapSvg.value.setAttribute('viewBox',`${box.x} ${box.y} ${box.width} ${box.height}`)
+                }
+            }
+        })
+
+        watch(route, () => {
+            const slug = route.value.params.slug
+            if (slug) {
+                if (route.value.name === 'region-slug') {
+                    const box = document.querySelector('#' + slug).getBBox()
+                    const titles = document.querySelectorAll('.o-title-cont')
+                    const regs = document.querySelectorAll(`.o-cont:not(#${slug})`)
+            
+                    gsap.to(titles, {duration:0.2, autoAlpha: 0, })
+                    gsap.to(regs, {duration:0.2, autoAlpha: 0, })
+            
+                    document.querySelector('#o-adygeya').style.display = 'none'
+                    document.querySelector(`#${slug} ~ .o-title-cont`).style.display = ''
+                    animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
+                }
+            }
+            else {
+                resetViewbox()
+            }  
+        })
     },
 })
 </script>
