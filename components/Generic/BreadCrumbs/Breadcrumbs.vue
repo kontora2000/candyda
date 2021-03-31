@@ -5,7 +5,7 @@
     :key="generateKey(index)">
       <nuxt-link class="breadcrumb-url" :to="breadcrumb.url">
         {{ breadcrumb.title }} 
-        <span v-if="index !== breadcrumbs.length - 1"> / </span>
+        <span> / </span>
       </nuxt-link>
      </span> 
  </div>
@@ -41,5 +41,10 @@ export default defineComponent({
 <style scoped>
   .breadcrumbs-wrapper {
     grid-column: 2/8;
+    position: relative;
+    top:9rem;
+    left:1rem;
+    line-height: 2.4rem;
+    color: var(--Black100);
   }
 </style>

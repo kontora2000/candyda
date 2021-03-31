@@ -63,10 +63,6 @@ export default defineComponent({
         watch(title, () => {
             breadcrumbs.value = [
                 {
-                    url: '/',
-                    title: 'Главная',
-                },
-                {
                     url: route.value.path || '',
                     title: title.value || '',
                 }

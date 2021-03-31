@@ -206,7 +206,6 @@ export default defineComponent({
 
         onMounted (() => {
             mapSvg = document.querySelector('.map-svg')
-            debugger
         })
 
         const onRegionClick = (slug) => {
