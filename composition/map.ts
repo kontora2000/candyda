@@ -41,7 +41,6 @@ export const useMap = () => {
     if (el) {
         box = el.getBBox()
         const parent = el.parentNode as HTMLElement
-        debugger
         if (parent) {
           parent.classList.remove('link-to-o')
         }
@@ -67,7 +66,6 @@ export const useMap = () => {
     if (el) {
         box = el.getBBox()
         const parent = el.parentNode as HTMLElement
-        debugger
         if (parent) {
           parent.classList.remove('link-to-o')
         }
