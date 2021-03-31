@@ -39,9 +39,10 @@ export default defineComponent({
                 display: 'block',
             }
 
+
             rightCircleStyle.value = {
                 backgroundColor:  !isLeftRed ? 'var(--Red100)' : 'var(--Azure100)',
-                right: '-' + w2/2 + 'vw',
+                left: `calc(100% - ${w2/2}vw)`,
                 top: rand(20,60) + '%',
                 width: w2 + 'vw',
                 height: w2 + 'vw',
@@ -74,6 +75,9 @@ export default defineComponent({
     height: 100vh;
     position: fixed;
     z-index: -1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .bg-circles-canvas {
@@ -94,15 +98,6 @@ export default defineComponent({
   min-height: 100vh;
 }
 
-.bg-circles-right {
-  width: 30%;
-  min-width: 20vw;
-  height: 100%;
-  min-height: 100vh;
-  left:70%;
-  top:0px;
-  position: absolute;
-}
 
 .bg-circle {
   position: relative;
