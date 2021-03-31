@@ -38,7 +38,7 @@
 					<line class="o-header-line" x1="607.31" y1="43.71" x2="632.95" y2="43.71"/>
 				</g>
 			</nuxt-link>
-			<nuxt-link to="/region/o-armavirskiy" class="link-to-o"  @click.native="onRegionClick('o-armavirskiy')">
+			<nuxt-link to="/region/o-armavirskiy" class="link-to-o">
 				<g class="o-cont" id="o-armavirskiy">
 					<polygon id="kurganinskiy" class="o-city" points="938.44,244.36 880.76,190.45 777.26,175.01 725.43,193.7 834.01,212.83 
 						875.44,259.78"/>
@@ -195,32 +195,23 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref, } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted, ref, useContext, watch, } from '@nuxtjs/composition-api'
+
+import { useMap, } from '@/composition/map'
 
 export default defineComponent({
     name:'TheMap',
     setup () {
-        const currRegion = ref()
-
-        let mapSvg = null
-
+        const {  mapSvg, resetViewbox, } = useMap()
         onMounted (() => {
-            mapSvg = document.querySelector('.map-svg')
-            debugger
+            mapSvg.value = document.querySelector('.map-svg')
         })
-
-        const onRegionClick = (slug) => {
-            const box = document.querySelector(`#${slug}`).getBBox()
-            debugger
-            mapSvg.setAttribute('viewbox', `${box.x} ${box.y} ${box.width} ${box.height}`)
-            mapSvg.viewBox.baseVal = box
-        }
-
-        
-        return {
-            currRegion, 
-            onRegionClick,
-        }
+        const { route, } = useContext()
+        // watch(route, () => {
+        //     if (route.value.path === '/') {
+        //         resetViewbox()
+        //     }
+        // })
     },
 })
 </script>

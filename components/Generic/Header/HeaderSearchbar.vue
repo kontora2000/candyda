@@ -30,7 +30,6 @@ export default defineComponent({
         const isShowResults = ref(false)
         const onFocus = () => {
             isShowResults.value = true
-            debugger
         }
 
         const onSearchClose = () => {

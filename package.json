@@ -18,6 +18,7 @@
     "@nuxtjs/composition-api": "^0.16.4",
     "@nuxtjs/svg-sprite": "^0.5.2",
     "create-nuxt-app": "^3.4.0",
+    "gsap": "^3.6.1",
     "gutil": "^1.6.4",
     "less": "^4.1.1",
     "moment": "^2.29.1",

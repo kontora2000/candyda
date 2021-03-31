@@ -30,10 +30,11 @@
  </div>
 </template>
 <script>
-import { computed, defineComponent, useMeta, useContext, watch, } from '@nuxtjs/composition-api'
+import { computed, defineComponent, useMeta, useContext, watch, onMounted, } from '@nuxtjs/composition-api'
 
 import { useRegion, } from '@/composition/region'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
+import { useMap, } from '@/composition/map'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
@@ -50,6 +51,9 @@ export default defineComponent({
     head: {},
     setup () {
         const { region, fetchRegion, } = useRegion()
+
+        const { animateViewBox, resetViewBox,} = useMap()
+        
         fetchRegion()
         const title = computed(()=> {
             return region?.value?.name ? region?.value?.name + ' округ' : ''
@@ -60,7 +64,17 @@ export default defineComponent({
 
         const { route, } = useContext()
 
+        onMounted(() => {
+           
+        })
+
         watch(title, () => {
+            const slug = route.value.params.slug
+            const box = document.querySelector('#' + slug).getBBox()
+            const titles = document.querySelectorAll('.o-title-cont')
+            // titles.forEach((el) => el.style.display = '')
+            // document.querySelector(`#${slug} ~ .o-title-cont`).style.display = 'none'
+            animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
             breadcrumbs.value = [
                 {
                     url: '/',
