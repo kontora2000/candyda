@@ -58,10 +58,6 @@ export default defineComponent({
         watch(title, () => {
             breadcrumbs.value = [
                 {
-                    url: '/',
-                    title: 'Главная',
-                },
-                {
                     url: district.region.path || '',
                     title: district.region.name || '',
                 },
