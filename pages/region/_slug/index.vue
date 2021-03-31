@@ -10,15 +10,9 @@
           :post="post" /> 
       </div>
     </div>
-    <div class="cont-wrapper cont-wrapper-left" v-if="region.parties && region.parties.length > 0">
-      <div class="cont-header-wrapper">
-         <h3 class="cont-header">Партии региона</nuxt-link></h3>
-      </div>
-       <PartyBlock v-if="region.parties" :parties="region.parties" />
-    </div>
     <div class="cont-wrapper cont-wrapper-right" v-if="region.candidates && region.candidates.length > 0">
       <div class="cont-header-wrapper">
-         <h3 class="cont-header">Кандидаты региона</nuxt-link></h3>
+         <h3 class="cont-header">Кандидаты региона</h3>
       </div>
       <div class="top-candidates-cards-wrapper block-cards-wrapper">
         <CandidateCard 
@@ -27,6 +21,12 @@
           :candidate="candidate" />
       </div>
      </div>
+     <div class="cont-wrapper cont-wrapper-right" v-if="region.parties && region.parties.length > 0">
+      <div class="cont-header-wrapper">
+         <h3 class="cont-header">Партии региона</h3>
+      </div>
+       <PartyBlock v-if="region.parties" :parties="region.parties" />
+    </div>
  </div>
 </template>
 <script>
@@ -52,7 +52,7 @@ export default defineComponent({
         const { region, fetchRegion, } = useRegion()
         fetchRegion()
         const title = computed(()=> {
-            return region?.value?.name ? region?.value?.name + ' округ' : 'Загрузка'
+            return region?.value?.name ? region?.value?.name + ' округ' : ''
         })
         useMeta({ title: title, })
 

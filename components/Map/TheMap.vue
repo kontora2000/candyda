@@ -9,7 +9,8 @@
 				877.83,303.63 914.6,303.56 834.01,212.83 619.26,175.19 545.93,211.22 433.28,194.62 434.32,217.24 615.18,246.59 629.67,228.22 
 				602.91,218.54 621.24,202.79 649.69,214.49 685.33,207.42 723.11,252.56 695.82,289.21 704.45,334.66 767.52,358.95 754.49,399.76 
 				"/>
-			<nuxt-link to="/region/o-kanevskoy" class="link-to-o">
+			<nuxt-link to="/region/o-kanevskoy" 
+      class="link-to-o">
 				<g class="o-cont" id="o-kanevskoy">
 					<polygon id="eyskiy" class="o-city" points="393.88,37.88 434.34,69.73 461.73,39.46 437.92,39.28 446.55,18.41 409.34,17.39 
 						406.6,11.79 331.05,21.1 336.22,37.24"/>
@@ -37,7 +38,7 @@
 					<line class="o-header-line" x1="607.31" y1="43.71" x2="632.95" y2="43.71"/>
 				</g>
 			</nuxt-link>
-			<nuxt-link to="/region/o-armavirskiy" class="link-to-o">
+			<nuxt-link to="/region/o-armavirskiy" class="link-to-o"  @click.native="onRegionClick('o-armavirskiy')">
 				<g class="o-cont" id="o-armavirskiy">
 					<polygon id="kurganinskiy" class="o-city" points="938.44,244.36 880.76,190.45 777.26,175.01 725.43,193.7 834.01,212.83 
 						875.44,259.78"/>
@@ -194,14 +195,31 @@
 </template>
 
 <script>
-import { defineComponent, ref, } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted, ref, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
     name:'TheMap',
     setup () {
         const currRegion = ref()
+
+        let mapSvg = null
+
+        onMounted (() => {
+            mapSvg = document.querySelector('.map-svg')
+            debugger
+        })
+
+        const onRegionClick = (slug) => {
+            const box = document.querySelector(`#${slug}`).getBBox()
+            debugger
+            mapSvg.setAttribute('viewbox', `${box.x} ${box.y} ${box.width} ${box.height}`)
+            mapSvg.viewBox.baseVal = box
+        }
+
+        
         return {
             currRegion, 
+            onRegionClick,
         }
     },
 })
