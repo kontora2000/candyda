@@ -16,9 +16,9 @@
                <div class="candidate-rating-wrapper candidate-info-row">
                   <div class="candidate-rating">
                      <span class="candidate-top-rating" v-if="candidate.num">ТОП-{{ candidate.num }}</span>
-                     <span class="candidate-top-votes" v-if="localVotes">{{ localVotes }}<sup>{{ votesText }}</sup></span>
+                     <span class="candidate-top-votes" v-if="localVotes !== null && localVotes !== 'undefined'">{{ localVotes }}<sup>{{ votesText }}</sup></span>
                   </div>
-                  <div class="candidate-vote-button-wrapper" v-if="localVotes"
+                  <div class="candidate-vote-button-wrapper" v-if="localVotes !== null && localVotes !== 'undefined'"
                        v-touch="() => onVote(candidate.slug)" @click="onVote(candidate.slug)">
                      <btn class="vote-button"
                           :disabled="isVoted"
@@ -61,7 +61,11 @@
          </div>
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-candidate grid-main">
-         <NewsBlock class="cont-wrapper-left"/>
+         <CandidateNews v-if="candidate.posts"
+          class="cont-wrapper-left" 
+          :posts="candidate.posts" 
+        />
+        <NewsBlock class="cont-wrapper-left" v-else />
          <CandidateTop class="cont-wrapper-right"/>
          <TheFooter />
       </div>
@@ -70,24 +74,27 @@
 <script>
 import { defineComponent, useContext, computed, useMeta, watch, ref, } from '@nuxtjs/composition-api'
 
-import Btn from '~/components/Generic/Btn.vue'
-import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
+import Btn from '@/components/Generic/Btn.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
-import CandidateGallery from '@/components/Candidate/CandidateGallery';
+import CandidateGallery from '@/components/Candidate/CandidateGallery'
+import CandidateNews from '@/components/Candidate/CandidateNews.vue';
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
 import { useCandidate,} from '@/composition/candidate.ts'
 import { useHelpers,} from '@/composition/helpers.ts'
-import {useToggle,} from '@/composition/toggle';
+import { useToggle,} from '@/composition/toggle'
+import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue';
+
 
 export default defineComponent({
     transition: 'fade',
     components: {
         Btn,
-        NewsBlock,
         CandidateTop,
         CandidateGallery,
+        CandidateNews,
         TheFooter,
+        NewsBlock,
     },
     head:{},
     setup() {

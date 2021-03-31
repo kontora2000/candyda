@@ -2,6 +2,7 @@ import moment from "moment"
 
 export const useHelpers = () => {
     const  numWord = (value: number, words: string[]) => {
+        if (value===0) return words[2];
         if (!value) return ''
         const valueLocal = Math.abs(value) % 100;
         const num = valueLocal % 10;
