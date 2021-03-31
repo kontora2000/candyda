@@ -2,7 +2,7 @@
  <div v-if="region" class="main-bottom-wrapper grid-main">
    <div class="cont-wrapper cont-wrapper-left" v-if="region.posts && region.posts.length > 0">
        <div class="cont-header-wrapper">
-         <h3 class="cont-header">Новости региона</h3>
+         <h3 class="cont-header">Новости округа</h3>
       </div>
       <div class="news-block-cards-wrapper block-cards-wrapper">
         <NewsBlockCard  v-for="post in region.posts"
@@ -12,7 +12,7 @@
     </div>
     <div class="cont-wrapper cont-wrapper-right" v-if="region.candidates && region.candidates.length > 0">
       <div class="cont-header-wrapper">
-         <h3 class="cont-header">Кандидаты региона</h3>
+         <h3 class="cont-header">Кандидаты округа</h3>
       </div>
       <div class="top-candidates-cards-wrapper block-cards-wrapper">
         <CandidateCard 
@@ -23,7 +23,7 @@
      </div>
      <div class="cont-wrapper cont-wrapper-right" v-if="region.parties && region.parties.length > 0">
       <div class="cont-header-wrapper">
-         <h3 class="cont-header">Партии региона</h3>
+         <h3 class="cont-header">Партии округа</h3>
       </div>
        <PartyBlock v-if="region.parties" :parties="region.parties" />
     </div>

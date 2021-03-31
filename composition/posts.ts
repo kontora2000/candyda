@@ -36,7 +36,6 @@ export const usePostList = () => {
     const  onScroll = async ($state) => {
         try {
             const result = await $axios.get('/post/list?page=' + page.value )
-            debugger
             isNeedToUpload.value = result.data.last_page !== page.value
             posts.value = page.value === 1 ? result.data.data : [...posts.value,...result.data.data]
             page.value = isNeedToUpload.value ? page.value + 1 : page.value
