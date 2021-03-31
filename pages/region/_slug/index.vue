@@ -31,6 +31,7 @@
 </template>
 <script>
 import { computed, defineComponent, useMeta, useContext, watch, onMounted, } from '@nuxtjs/composition-api'
+import { gsap, } from 'gsap'
 
 import { useRegion, } from '@/composition/region'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
@@ -73,8 +74,11 @@ export default defineComponent({
             const box = document.querySelector('#' + slug).getBBox()
             const titles = document.querySelectorAll('.o-title-cont')
             const regs = document.querySelectorAll(`.o-cont:not(#${slug})`)
-            regs.forEach((el) => el.style.display = 'none')
-            titles.forEach((el) => el.style.display = 'none')
+            
+            gsap.to(titles, {duration:0.2, autoAlpha: 0, })
+            gsap.to(regs, {duration:0.2, autoAlpha: 0, })
+            
+            document.querySelector('#o-adygeya').style.display = 'none'
             document.querySelector(`#${slug} ~ .o-title-cont`).style.display = ''
             animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
             breadcrumbs.value = [
