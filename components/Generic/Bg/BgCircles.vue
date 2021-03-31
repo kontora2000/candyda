@@ -41,7 +41,7 @@ export default defineComponent({
 
             rightCircleStyle.value = {
                 backgroundColor:  !isLeftRed ? 'var(--Red100)' : 'var(--Azure100)',
-                right: '-' + w2/2 + 'vw',
+                left: w2/2 + 'vw',
                 top: rand(20,60) + '%',
                 width: w2 + 'vw',
                 height: w2 + 'vw',
@@ -51,7 +51,6 @@ export default defineComponent({
         }
 
         const { route, } = useContext()
-
         watch(route, () => {
             calcStyle()
             document.body.style.overflowY = ''
@@ -68,8 +67,6 @@ export default defineComponent({
     },
 })
 </script>
-
-
 <style scoped>
 .bg-circles-wrapper {
     width: calc(100vw + 1.6rem);
@@ -77,6 +74,9 @@ export default defineComponent({
     height: 100vh;
     position: fixed;
     z-index: -1;
+    display: flex;
+    justify-content: stretch;
+    flex-direction: row;
 }
 
 .bg-circles-canvas {
@@ -98,13 +98,11 @@ export default defineComponent({
 }
 
 .bg-circles-right {
-  width: 30%;
-  min-width: 20vw;
-  height: 100%;
-  min-height: 100vh;
-  left:70%;
-  top:0px;
-  position: absolute;
+  flex: 0.1
+}
+
+.bg-circles-left {
+  flex: 1
 }
 
 .bg-circle {
@@ -114,7 +112,6 @@ export default defineComponent({
   display: none;
   transition: all .45s ease-in-out;
 }
-
 
 
 @media (min-width: 1460px) {
