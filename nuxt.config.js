@@ -53,7 +53,8 @@ export default {
     modules: [
     // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
-        '@nuxtjs/device'
+        '@nuxtjs/device',
+        'nuxt-lazy-load'
     ],
     /*
   ** Axios module configuration
