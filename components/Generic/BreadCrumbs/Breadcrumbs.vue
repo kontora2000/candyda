@@ -38,3 +38,8 @@ export default defineComponent({
     },
 })
 </script>
+<style scoped>
+  .breadcrumbs-wrapper {
+    grid-column: 2/8;
+  }
+</style>
