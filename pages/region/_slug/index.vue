@@ -72,8 +72,10 @@ export default defineComponent({
             const slug = route.value.params.slug
             const box = document.querySelector('#' + slug).getBBox()
             const titles = document.querySelectorAll('.o-title-cont')
-            // titles.forEach((el) => el.style.display = '')
-            // document.querySelector(`#${slug} ~ .o-title-cont`).style.display = 'none'
+            const regs = document.querySelectorAll(`.o-cont:not(#${slug})`)
+            regs.forEach((el) => el.style.display = 'none')
+            titles.forEach((el) => el.style.display = 'none')
+            document.querySelector(`#${slug} ~ .o-title-cont`).style.display = ''
             animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
             breadcrumbs.value = [
                 {
