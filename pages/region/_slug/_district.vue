@@ -38,14 +38,14 @@ import PartyBlock from '@/components/Party/PartyBlock.vue'
 import { useDistrict, } from '~/composition/district'
 
 export default defineComponent({
+    layout: 'map',
+    transition: 'fade',
+    head: {},
     components: { 
         CandidateCard, 
         NewsBlockCard, 
         PartyBlock,
     },
-    layout: 'map',
-    transition: 'fade',
-    head: {},
     setup () {
         const { fetchDistrict, district, } = useDistrict()
         fetchDistrict()
@@ -57,10 +57,6 @@ export default defineComponent({
 
         watch(title, () => {
             breadcrumbs.value = [
-                {
-                    url: '/',
-                    title: 'Главная',
-                },
                 {
                     url: district.region.path || '',
                     title: district.region.name || '',

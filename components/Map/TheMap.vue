@@ -204,28 +204,12 @@ export default defineComponent({
     name:'TheMap',
     setup () {
         const {  mapSvg, resetViewbox, } = useMap()
-        onMounted (() => {
-            mapSvg.value = document.querySelector('.map-svg')
-        })
         const { route, } = useContext()
-        const { animateViewBox, } = useMap()
+        const { animateViewBox, resetViewBox, } = useMap()
+
 
         onMounted(() => {
-            const slug = route.value.params.slug
-            if (slug) {
-                if (route.value.name === 'region-slug') {
-                    const box = document.querySelector('#' + slug).getBBox()
-                    const titles = document.querySelectorAll('.o-title-cont')
-                    const regs = document.querySelectorAll(`.o-cont:not(#${slug})`)
-            
-                    gsap.set(titles, { autoAlpha: 0, })
-                    gsap.set(regs, { autoAlpha: 0, })
-            
-                    document.querySelector('#o-adygeya').style.display = 'none'
-                    document.querySelector(`#${slug} ~ .o-title-cont`).style.display = ''
-                    mapSvg.value.setAttribute('viewBox',`${box.x} ${box.y} ${box.width} ${box.height}`)
-                }
-            }
+            mapSvg.value = document.querySelector('.map-svg')
         })
 
         watch(route, () => {
@@ -241,12 +225,18 @@ export default defineComponent({
             
                     document.querySelector('#o-adygeya').style.display = 'none'
                     document.querySelector(`#${slug} ~ .o-title-cont`).style.display = ''
+                    gsap.set(`#${slug}`, { autoAlpha: 1, })
                     animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
                 }
             }
-            else {
-                resetViewbox()
-            }  
+            debugger
+
+            if (route.value.path === '' || route.value.path === '/') {
+                resetViewBox()
+                return {
+
+                }
+            }
         })
     },
 })

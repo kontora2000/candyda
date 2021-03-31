@@ -43,16 +43,14 @@ import PartyBlock from '@/components/Party/PartyBlock.vue'
 export default defineComponent({
     layout: 'map',
     transition: 'fade',
+    head: {},
     components: {
         CandidateCard,
         NewsBlockCard,
         PartyBlock,
     },
-    head: {},
     setup () {
         const { region, fetchRegion, } = useRegion()
-
-        const { animateViewBox, resetViewBox,} = useMap()
         
         fetchRegion()
         const title = computed(()=> {
@@ -66,10 +64,6 @@ export default defineComponent({
 
         watch(title, () => {
             breadcrumbs.value = [
-                {
-                    url: '/',
-                    title: 'Главная',
-                },
                 {
                     url: route.value.path || '',
                     title: title.value || '',

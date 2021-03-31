@@ -5,7 +5,7 @@
     :key="generateKey(index)">
       <nuxt-link class="breadcrumb-url" :to="breadcrumb.url">
         {{ breadcrumb.title }} 
-        <span v-if="index !== breadcrumbs.length - 1"> / </span>
+        <span> / </span>
       </nuxt-link>
      </span> 
  </div>
@@ -20,15 +20,11 @@ export default defineComponent({
     name:'Breadcrumbs',
     setup () {
         const { breadcrumbs, isBreadcrumbsVisible, } =  useBreadcrumbs()
-
         const { route, } = useContext()
-        
         isBreadcrumbsVisible.value =  route.value.path.includes('region') || route.value.path.includes('district')
-
         watch(route, () => {
             isBreadcrumbsVisible.value =  route.value.path.includes('region') || route.value.path.includes('district')
         })
-
         const { generateKey, } = useHelpers()
         return {
             isBreadcrumbsVisible,
@@ -41,5 +37,10 @@ export default defineComponent({
 <style scoped>
   .breadcrumbs-wrapper {
     grid-column: 2/8;
+    position: relative;
+    top:9rem;
+    left:1rem;
+    line-height: 2.4rem;
+    color: var(--Black100);
   }
 </style>
