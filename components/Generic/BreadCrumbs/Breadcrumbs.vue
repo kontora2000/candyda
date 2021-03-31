@@ -20,15 +20,11 @@ export default defineComponent({
     name:'Breadcrumbs',
     setup () {
         const { breadcrumbs, isBreadcrumbsVisible, } =  useBreadcrumbs()
-
         const { route, } = useContext()
-        
         isBreadcrumbsVisible.value =  route.value.path.includes('region') || route.value.path.includes('district')
-
         watch(route, () => {
             isBreadcrumbsVisible.value =  route.value.path.includes('region') || route.value.path.includes('district')
         })
-
         const { generateKey, } = useHelpers()
         return {
             isBreadcrumbsVisible,
