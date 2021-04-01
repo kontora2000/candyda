@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { defineComponent, useMeta, } from '@vue/composition-api'
+import { defineComponent, useMeta, } from '@nuxtjs/composition-api'
 import PartyTop from '@/components/Party/PartyTop.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
