@@ -109,3 +109,11 @@ export interface Breadcrumb {
    url: string;
    title: string;
 }
+
+
+export interface FlatPage {
+  id: number;
+  title: string;
+  content: string;
+  slug: string;
+}
