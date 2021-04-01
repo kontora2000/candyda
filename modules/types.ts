@@ -109,3 +109,9 @@ export interface Breadcrumb {
    url: string;
    title: string;
 }
+
+
+export interface LocationFilter {
+  region: string | null;
+  district: string | null;
+}
