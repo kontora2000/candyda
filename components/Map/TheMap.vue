@@ -38,7 +38,7 @@
 					<line class="o-header-line" x1="607.31" y1="43.71" x2="632.95" y2="43.71"/>
 				</g>
 			</nuxt-link>
-			<nuxt-link to="/region/o-armavirskiy" class="link-to-o"  @click.native="onRegionClick('o-armavirskiy')">
+			<nuxt-link to="/region/o-armavirskiy" class="link-to-o">
 				<g class="o-cont" id="o-armavirskiy">
 					<polygon id="kurganinskiy" class="o-city" points="938.44,244.36 880.76,190.45 777.26,175.01 725.43,193.7 834.01,212.83 
 						875.44,259.78"/>
@@ -195,31 +195,38 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref, } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted, useContext, watch, } from '@nuxtjs/composition-api'
+
+import { useMap, } from '@/composition/map'
 
 export default defineComponent({
     name:'TheMap',
     setup () {
-        const currRegion = ref()
+        const { route, } = useContext()
+        const { mapSvg, zoomTo, setTo, resetViewBox, } = useMap()
 
-        let mapSvg = null
+        onMounted(() => {
+            const slug = route.value.params.slug
 
-        onMounted (() => {
-            mapSvg = document.querySelector('.map-svg')
+            mapSvg.value = document.querySelector('.map-svg')
+            if (slug) {
+                if (route.value.name === 'region-slug') {
+                    setTo(slug)
+                }
+            }
         })
 
-        const onRegionClick = (slug) => {
-            const box = document.querySelector(`#${slug}`).getBBox()
-            debugger
-            mapSvg.setAttribute('viewbox', `${box.x} ${box.y} ${box.width} ${box.height}`)
-            mapSvg.viewBox.baseVal = box
-        }
-
-        
-        return {
-            currRegion, 
-            onRegionClick,
-        }
+        watch(route, () => {
+            const slug = route.value.params.slug
+            if (slug) {
+                if (route.value.name === 'region-slug') {
+                    zoomTo(slug)
+                }
+            }
+            if (route.value.path === '' || route.value.path === '/') {
+                resetViewBox()
+            }
+        })
     },
 })
 </script>
@@ -244,7 +251,7 @@ export default defineComponent({
 	fill: rgba(203, 231, 247, 0.2);
 }
 
-.link-to-o,
+.link-to-o, 
 .o-title-cont {
 	cursor: pointer;
 }

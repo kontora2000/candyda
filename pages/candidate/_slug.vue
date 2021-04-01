@@ -83,6 +83,8 @@ import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 import { useCandidate,} from '@/composition/candidate.ts'
 import { useHelpers,} from '@/composition/helpers.ts'
 import { useToggle,} from '@/composition/toggle'
+
+
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue';
 
 

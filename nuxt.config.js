@@ -73,6 +73,9 @@ export default {
                 Vary: '*',
             },
         },
+        transpile: [
+            'gsap'
+        ],
     },
     env: {
         baseURL: process.env.API_URL || 'http://localhost:80',

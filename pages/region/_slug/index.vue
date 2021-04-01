@@ -30,10 +30,11 @@
  </div>
 </template>
 <script>
-import { computed, defineComponent, useMeta, useContext, watch, } from '@nuxtjs/composition-api'
+import { computed, defineComponent, useMeta, useContext, watch, onMounted, } from '@nuxtjs/composition-api'
 
 import { useRegion, } from '@/composition/region'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
+import { useMap, } from '@/composition/map'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
@@ -42,24 +43,23 @@ import PartyBlock from '@/components/Party/PartyBlock.vue'
 export default defineComponent({
     layout: 'map',
     transition: 'fade',
+    head: {},
     components: {
         CandidateCard,
         NewsBlockCard,
         PartyBlock,
     },
-    head: {},
     setup () {
         const { region, fetchRegion, } = useRegion()
         fetchRegion()
+        
         const title = computed(()=> {
             return region?.value?.name ? region?.value?.name + ' округ' : ''
         })
         useMeta({ title: title, })
-
+        
         const {  breadcrumbs,  } =  useBreadcrumbs()
-
         const { route, } = useContext()
-
         watch(title, () => {
             breadcrumbs.value = [
                 {

@@ -26,10 +26,6 @@ export const useRegion = () => {
     }
   })
   
-
- 
-
-
   return {
     region,
     fetchRegion,

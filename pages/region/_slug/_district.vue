@@ -38,23 +38,22 @@ import PartyBlock from '@/components/Party/PartyBlock.vue'
 import { useDistrict, } from '~/composition/district'
 
 export default defineComponent({
+    layout: 'map',
+    transition: 'fade',
+    head: {},
     components: { 
         CandidateCard, 
         NewsBlockCard, 
         PartyBlock,
     },
-    layout: 'map',
-    transition: 'fade',
-    head: {},
     setup () {
         const { fetchDistrict, district, } = useDistrict()
         fetchDistrict()
+
         const title = computed(() => district?.value?.title)
         useMeta({ title: title, })
 
-
         const { route, } = useContext()
-
         watch(title, () => {
             breadcrumbs.value = [
                 {
