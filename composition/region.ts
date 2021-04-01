@@ -11,7 +11,7 @@ export const useRegion = () => {
 
   const { fetch: fetchRegion, } =  useFetch( async()=>{
     try {
-      const response= await $axios.get('/region/' + slug)
+      const response = await $axios.get('/region/' + slug)
       if (response.status === 200) {
         region.value = response.data
         if (!region.value.slug) error({ statusCode:404, message:'Такого округа не существует' })
