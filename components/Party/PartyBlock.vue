@@ -1,6 +1,6 @@
 <template>
   <div class="party-card-block">
-    <party-card 
+    <PartyCard
     v-for="party in parties" 
     :key="party.id"
     :party="party"/>
