@@ -20,7 +20,7 @@
 import { defineComponent, } from '@vue/composition-api'
 import PartyTop from '@/components/Party/PartyTop.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
-import TheFooter from '~/components/Generic/Footer/TheFooter.vue'
+import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
 export default defineComponent({
     components: { 
