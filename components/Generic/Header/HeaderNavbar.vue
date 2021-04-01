@@ -21,6 +21,12 @@
             <li><nuxt-link to="/news" class="nav-link link-underline-solid">Новости</nuxt-link></li>
             <li><nuxt-link to="/top" class="nav-link link-underline-solid">Топ кандидатов</nuxt-link></li>
             <li><nuxt-link to="/party" class="nav-link link-underline-solid">Партии</nuxt-link></li>
+            <li v-for="flatPage in flatPages" 
+              :key="flatPage.id">
+              <nuxt-link :to="`/page/${fltaPage.slug}`" class="nav-link link-underline-solid">
+                {{ flatPage.title }}
+              </nuxt-link>  
+            </li>
           </ul>
         </nav>
       </div>
@@ -30,10 +36,12 @@
 
 <script>
 import { defineComponent, useContext, ref, computed, onMounted,  watch, } from '@nuxtjs/composition-api'
+import {  useFlatPages, } from '@/composition/flatpages'
 import HeaderLogo from './HeaderLogo.vue'
 
+
 export default defineComponent({
-  components: { HeaderLogo },
+    components: { HeaderLogo, },
     name:'HeaderNavbar',
     setup () {
         const { route, } = useContext()
@@ -69,6 +77,9 @@ export default defineComponent({
 
         const isBurgerVisible = ref(false)
         
+        const { flatPages, fetchFlatPages, } = useFlatPages()
+        fetchFlatPages()
+
         const page = computed(() => route.value.path)
         isBurgerVisible.value = (page.value!=='/')
         
@@ -102,6 +113,7 @@ export default defineComponent({
             openBurger,
             startBurgerTimer,
             resetBurgerTimer,
+            flatPages,
         }
     }, 
 })

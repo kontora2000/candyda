@@ -6,7 +6,7 @@
          </aside>
          <div class="page-wrapper">
             <h1 class="page-header">{{  page.title }}</h1>
-             <div v-html="page.content" />
+            <div v-html="page.content" />
          </div>
       </div>
       <div class="page-bottom-wrapper grid-main">
@@ -20,13 +20,13 @@
 
 
 <script lang="ts">
-import {defineComponent, ref, computed, useMeta, useFetch, useContext, watch,} from '@nuxtjs/composition-api'
+import {defineComponent, ref, useMeta, useFetch, useContext,  } from '@nuxtjs/composition-api'
 
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 import { FlatPage, } from '@/modules/types'
-import { useAxios } from '@/composition/axios'
+import { useAxios, } from '@/composition/axios'
 
 export default defineComponent({
     name:'FlatPage',
@@ -46,6 +46,7 @@ export default defineComponent({
         flatPage.value = await $axios.$get( '/flatpage/' + slug)
         if (!flatPage.value.slug) 
         error({statusCode: 404, })
+        useMeta({ title: flatPage.value.title, })
       }
       catch(e) {
         error({ statusCode:e?.status, message: e?.message })
@@ -53,11 +54,11 @@ export default defineComponent({
       })
       fetchPage()
 
-      let title = ''
-      watch(flatPage, () => {
-        title = flatPage.value.title || ''
-        useMeta({ title, })
-      })
+      // let title = ''
+      // watch(flatPage, () => {
+      //   title = flatPage.value.title || ''
+      //   useMeta({ title, })
+      // })
     },
 })
 </script>
