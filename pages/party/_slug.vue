@@ -14,7 +14,6 @@
 <script>
 import { defineComponent, useMeta, computed, } from '@nuxtjs/composition-api'
 import { useParty, } from '@/composition/party'
-
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
 
 export default defineComponent( {
