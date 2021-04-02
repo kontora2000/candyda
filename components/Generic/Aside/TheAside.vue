@@ -1,19 +1,17 @@
 <template>
   <aside class="page-aside-wrapper">
-    <div class="page-content-filter-wrapper">
-      <The-filter />
-    </div>
+    <location-filter />
   </aside>
 </template>
 
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
-import TheFilter from './TheFilter.vue'
+import { defineComponent, ref, } from '@nuxtjs/composition-api'
+import LocationFilter from '../LocationFilter/LocationFilter.vue'
 
 export default defineComponent({
     name:'TheAside',
     components: { 
-        TheFilter, 
+        LocationFilter, 
     },
 })
 </script>

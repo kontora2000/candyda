@@ -69,20 +69,20 @@
       </div>
    </div>
 </template>
+
 <script>
 import { defineComponent, useContext, computed, useMeta, watch, ref, } from '@nuxtjs/composition-api'
-import { useCandidate,} from '@/composition/candidate.ts'
-import { useHelpers,} from '@/composition/helpers.ts'
-import { useToggle,} from '@/composition/toggle'
+import { useCandidate, } from '@/composition/candidate'
+import { useHelpers, } from '@/composition/helpers'
+import { useToggle, } from '@/composition/toggle'
 
 import Btn from '@/components/Generic/Btn.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import CandidateGallery from '@/components/Candidate/CandidateGallery'
-import CandidateNews from '@/components/Candidate/CandidateNews.vue';
+import CandidateNews from '@/components/Candidate/CandidateNews.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
 import TheAside from '@/components/Generic/Aside/TheAside.vue'
-
 
 export default defineComponent({
     transition: 'fade',

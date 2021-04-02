@@ -23,7 +23,7 @@
 import { defineComponent, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-    name:'TheFilter',
+    name:'LocationFilterSelect',
     props: {
         options: {
             type: Array,
