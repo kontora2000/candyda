@@ -2,11 +2,14 @@
    <div class="page-content-superwrapper">
       <div class="page-candidate-wrapper page-content-wrapper grid-main">
 <<<<<<< HEAD
+<<<<<<< HEAD
          <aside class="page-aside-wrapper">
             <div class="breadcrumbs-news breadcrumbs"><a class="link-underline-solid" href="#">Туапсинский округ</a> / <a class="link-underline-solid" href="#">Геленджик</a> / <a class="link-underline-solid" href="#">Кандидаты</a></div>
          </aside>
 =======
 >>>>>>> dc4f8bb5... feat/filter
+=======
+>>>>>>> feat/filter
          <div class="candidate-wrapper">
             <div class="candidate-ava" v-if="candidate.ava">
               <img class="candidate-ava-img"  :src="'https://api.prostokontora.ru/storage/' + candidate.ava" />
@@ -74,14 +77,19 @@
       </div>
    </div>
 </template>
+
 <script>
 import { defineComponent, useContext, computed, useMeta, watch, ref, } from '@nuxtjs/composition-api'
+import { useCandidate, } from '@/composition/candidate'
+import { useHelpers, } from '@/composition/helpers'
+import { useToggle, } from '@/composition/toggle'
 
 import Btn from '@/components/Generic/Btn.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import CandidateGallery from '@/components/Candidate/CandidateGallery'
-import CandidateNews from '@/components/Candidate/CandidateNews.vue';
+import CandidateNews from '@/components/Candidate/CandidateNews.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 import { useCandidate,} from '@/composition/candidate.ts'
@@ -94,6 +102,9 @@ import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue';
 =======
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
 >>>>>>> dc4f8bb5... feat/filter
+=======
+import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
+>>>>>>> feat/filter
 
 export default defineComponent({
     transition: 'fade',
