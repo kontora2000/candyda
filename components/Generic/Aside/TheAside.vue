@@ -1,6 +1,6 @@
 <template>
   <aside class="page-aside-wrapper">
-    <location-filter />
+    <LocationFilter />
   </aside>
 </template>
 
@@ -12,6 +12,7 @@ export default defineComponent({
     name:'TheAside',
     components: { 
         LocationFilter, 
+
     },
 })
 </script>
