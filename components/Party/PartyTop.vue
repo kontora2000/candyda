@@ -22,12 +22,14 @@ import { defineComponent, } from '@nuxtjs/composition-api'
 import { usePartyList, } from '@/composition/parties'
 
 import PartyCard from './PartyCard.vue'
+import Btn from '../Generic/Btn.vue'
 
 
 export default defineComponent({
     name: 'PartyTop',
     components: {
         PartyCard,
+        Btn,
     },
     setup() {
         const { parties, fetchParties,  }  = usePartyList()

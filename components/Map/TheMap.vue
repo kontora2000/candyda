@@ -1,5 +1,5 @@
 <template>
-	<div class="map-cont">
+	<div class="map-cont" :class="{ 'minus-one': isMinusOne  }">
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			width="1228.16px" height="648.03px" viewBox="0 0 1228.16 648.03"
 			style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
@@ -194,8 +194,8 @@
 	</div>
 </template>
 
-<script>
-import { defineComponent, onMounted, useContext, watch, } from '@nuxtjs/composition-api'
+<script lang="ts">
+import { defineComponent, onMounted, useContext, watch, ref, } from '@nuxtjs/composition-api'
 
 import { useMap, } from '@/composition/map'
 
@@ -207,26 +207,31 @@ export default defineComponent({
 
         onMounted(() => {
             const slug = route.value.params.slug
-
-            mapSvg.value = document.querySelector('.map-svg')
+            mapSvg.value = document.querySelector('.map-svg') as SVGAElement
             if (slug) {
                 if (route.value.name === 'region-slug') {
                     setTo(slug)
                 }
             }
         })
-
+        const  isMinusOne = ref(false)
         watch(route, () => {
             const slug = route.value.params.slug
             if (slug) {
                 if (route.value.name === 'region-slug') {
                     zoomTo(slug)
+                    isMinusOne.value = true
                 }
             }
             if (route.value.path === '' || route.value.path === '/') {
                 resetViewBox()
+                isMinusOne.value = false
             }
         })
+
+        return {
+          isMinusOne,
+        }
     },
 })
 </script>
@@ -237,6 +242,10 @@ export default defineComponent({
 	position: relative;
 	margin-top: -8rem;
 	margin-bottom: -12rem;
+}
+
+.minus-one {
+  z-index: -1;
 }
 
 .map-svg .o-city {
