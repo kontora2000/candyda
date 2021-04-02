@@ -70,25 +70,24 @@ export interface PageResponse {
 }
 
 export interface Distritct {
-   id: number;
+   id?: number;
    slug: string;
    name: string;
-   parent: string;
-   parties: Party[];
-   candidadates: Candidate[];
-   posts: Post[];
-   tags: Tag[];
+   parent?: string;
+   parties?: Party[];
+   candidadates?: Candidate[];
+   posts?: Post[];
+   tags?: Tag[];
 }
 
 export interface Region {
   id: number;
   slug: string;
   name: string;
-  parent: string;
-  parties: Party[];
-  candidadates: Candidate[];
-  districts: Distritct[];
-  posts: Post[];
+  parties?: Party[];
+  candidadates?: Candidate[];
+  districts?: Distritct[];
+  posts?: Post[];
 }
 
 
