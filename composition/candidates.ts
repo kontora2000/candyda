@@ -21,7 +21,7 @@ export const useCandidateList = () => {
             error({ statusCode: e?.response?.status })
         }
     }
-    const  fetchCandidatesTop  = async () => {
+    const fetchCandidatesTop  = async () => {
         try {
             const result = await $axios.get('/candidates/top')
             candidates.value = result.data
@@ -42,7 +42,7 @@ export const useCandidateList = () => {
     }
     catch(e) {
         error({ statusCode: e?.response?.status })
-    }
+      }
     }
 
     return {

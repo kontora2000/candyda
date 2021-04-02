@@ -1,9 +1,6 @@
 <template>
    <div class="page-content-superwrapper">
       <div class="page-content-wrapper grid-main">
-         <aside class="page-aside-wrapper">
-            <div class="page-content-filter-wrapper"></div>
-         </aside>
          <div class="page-wrapper">
             <h1 class="page-header">О проекте</h1>
              <p>Lorem ipsum dolor sit amet</p>
