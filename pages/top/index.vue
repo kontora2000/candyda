@@ -1,10 +1,8 @@
 <template>
    <div class="page-content-superwrapper">
       <div class="page-news-wrapper page-content-wrapper grid-main">
-         <aside class="page-aside-wrapper">
-            <div class="page-content-filter-wrapper"></div>
-         </aside>
-         <div class="page-wrapper page-top">
+         <TheAside />
+         <div class="page-wrapper page-top" v-if="candidates && candidates.length > 0">
             <h1 class="page-header page-top-header">Топ кандидатов</h1>
             <CandidateCard
                 v-for="(candidate, index) in candidates"
@@ -13,6 +11,9 @@
                 :key="candidate.id"
                 :candidate="candidate"
             />
+         </div>
+         <div class="page-wrapper page-top" v-else-if="candidates && candidates.length===0">
+           Нет подходящих кандидатов
          </div>
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
@@ -25,7 +26,7 @@
 
 
 <script>
-import { defineComponent, useMeta, useFetch, } from '@nuxtjs/composition-api'
+import { defineComponent, useMeta, useFetch, watch, } from '@nuxtjs/composition-api'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
 import Btn from '@/components/Generic/Btn'
@@ -33,6 +34,8 @@ import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
 import {useCandidateList,} from '@/composition/candidates';
 import {useAxios,} from '@/composition/axios';
+import TheAside from '~/components/Generic/Aside/TheAside.vue'
+import { useLocationFilter, } from '~/composition/filter'
 
 export default defineComponent({
     name:'index',
@@ -41,10 +44,11 @@ export default defineComponent({
         Btn,
         NewsBlock,
         TheFooter,
+        TheAside,
     },
     head:{},
     setup() {
-        const { candidates, } = useCandidateList()
+        const { candidates, filterCandidates, } = useCandidateList()
         const { $axios, } = useAxios()
         const { fetch: fethcC, } =  useFetch(async  () => {
             try {
@@ -59,6 +63,16 @@ export default defineComponent({
         const { title, } = useMeta()
         title.value = 'Топ кандидатов'
 
+        const { locationFilter, } = useLocationFilter()
+        watch(locationFilter, () => {
+            if (!locationFilter.value.region || locationFilter.value.region.trim() === '') {
+                fethcC()
+            }
+            filterCandidates(locationFilter.value)
+        }, {
+            deep: true,
+        })
+        
         return {
             candidates,
         }

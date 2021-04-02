@@ -1,6 +1,7 @@
 import {useAxios} from "~/composition/axios";
 import {ref, useContext, useFetch} from "@nuxtjs/composition-api";
-import { Post } from "~/modules/types";
+import { LocationFilter, Post } from "~/modules/types";
+import { useLocationFilter } from "./filter";
 
 export const usePostList = () => {
     const { $axios, } = useAxios()
@@ -8,6 +9,9 @@ export const usePostList = () => {
     const page = ref(1)
     const  isNeedToUpload = ref(false)
     const posts = ref<Post[]>([])
+
+    const { locationFilter ,} = useLocationFilter()
+
     const { fetch: fetchPosts } = useFetch(async () => {
         try {
             const result = await $axios.get('/post/list?page=' + page.value )
@@ -19,6 +23,20 @@ export const usePostList = () => {
             error({ statusCode: e?.response?.status })
         }
     })
+
+    const filterPosts = async (filter: LocationFilter, ) => {
+      page.value = 1
+      debugger
+      try {
+        const result = await $axios.post('/post/filter/' + page.value, filter )
+        isNeedToUpload.value = result.data.last_page !== page.value
+        posts.value = page.value === 1 ? result.data : [...posts.value,...result.data]
+        page.value = isNeedToUpload ? page.value + 1 : page.value
+    }
+      catch(e) {
+        error({ statusCode: e?.response?.status })
+      }
+    }
 
     const  upload = async ($state) => {
         try {
@@ -33,6 +51,7 @@ export const usePostList = () => {
         }
     }
 
+  
     const  onScroll = async ($state) => {
         try {
             const result = await $axios.get('/post/list?page=' + page.value )
@@ -46,11 +65,12 @@ export const usePostList = () => {
             error({ statusCode: e?.response?.status })
         }
     }
-
+    
 
     return {
         posts,
         fetchPosts,
+        filterPosts,
         page,
         upload,
         onScroll,

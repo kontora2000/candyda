@@ -1,7 +1,6 @@
-import { useAxios, } from "~/composition/axios";
-import { ref, } from "@nuxtjs/composition-api";
-
-import { Candidate, } from "~/modules/types";
+import { ref, } from '@nuxtjs/composition-api'
+import { Candidate, LocationFilter, } from '@/modules/types'
+import { useAxios, } from '@/composition/axios'
 
 export const useCandidateList = () => {
     const { $axios, error,} = useAxios()
@@ -20,7 +19,7 @@ export const useCandidateList = () => {
             error({ statusCode: e?.response?.status })
         }
     }
-    const  fetchCandidatesTop  = async () => {
+    const fetchCandidatesTop  = async () => {
         try {
             const result = await $axios.get('/candidates/top')
             candidates.value = result.data
@@ -32,9 +31,25 @@ export const useCandidateList = () => {
         }
     }
 
+    const filterCandidates = async (filter: LocationFilter) => {
+      if (!filter.region && filter.region === '') return
+      try {
+        const response = await $axios.post(`/candidates/filter/${page.value}`, filter,)
+        if (response.status === 200) {
+          candidates.value = response.data
+          isNeedToUpload.value = false
+          page.value = isNeedToUpload ? page.value : page.value + 1
+        }
+    }
+    catch(e) {
+        error({ statusCode: e?.response?.status })
+      }
+    }
+
     return {
         fetchCandidates,
         fetchCandidatesTop,
+        filterCandidates,
         candidates,
         page,
     }

@@ -34,7 +34,6 @@ import { computed, defineComponent, useMeta, useContext, watch, onMounted, } fro
 
 import { useRegion, } from '@/composition/region'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
-import { useMap, } from '@/composition/map'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
@@ -62,6 +61,10 @@ export default defineComponent({
         const { route, } = useContext()
         watch(title, () => {
             breadcrumbs.value = [
+                {
+                    url: '/',
+                    title: 'Кр.край',
+                },
                 {
                     url: route.value.path || '',
                     title: title.value || '',

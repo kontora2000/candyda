@@ -7,7 +7,6 @@ const mapSvg = ref<SVGAElement>({} as SVGAElement)
 
 export const useMap = () => {
   const isAnimating = ref(false)
-
   const animateViewBox = (viewBox: string) => {
     if (!isAnimating.value) {
         isAnimating.value = true

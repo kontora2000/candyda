@@ -3,6 +3,7 @@
     <div class="main-bottom-wrapper grid-main">
       <NewsBlock class="cont-wrapper-left"/>
       <CandidateTop class="cont-wrapper-right"/>
+      <PartyTop   class="cont-wrapper-right" />
       <TheFooter />
     </div>
   </main>
@@ -10,9 +11,12 @@
 
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'
+
+
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
+import PartyTop from '~/components/Party/PartyTop.vue'
 
 export default defineComponent({
     name:'index',
@@ -21,6 +25,7 @@ export default defineComponent({
     components: {
         NewsBlock,
         CandidateTop,
+        PartyTop,
         TheFooter,
     },
     head() {
@@ -30,8 +35,6 @@ export default defineComponent({
     },
 })
 </script>
-
-
 
 <style scoped>
 .main-bottom-wrapper {
