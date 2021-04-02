@@ -1,21 +1,30 @@
 <template>
     <div class="page-content-filter-wrapper">
-      <location-filter-select 
+      <div class="page-content-filter-header">Фильтр:</div>
+      <LocationFilterSelect
         :options="filterRegions"
-        @input="onDistrictChange"
+        :default="{ name: 'Округ', slug:'',   }"
+        :current="curRegion"
+        @input="onRegionChange"
+        @clear="onRegionChange({ name: 'Округ', slug:'',   })"
        />
-      <location-filter-select  
+      <LocationFilterSelect
+        v-if="curRegion.slug && filterDistricts.length > 0"
         :options="filterDistricts" 
-        v-if="curRegion"
+        :current="curDistrict"
+        :default="{ name: 'Город / район', slug: '',   }"
+        @clear="onDistrictChange({ name: 'Город \ район', slug:'',   })"
+        @input="onDistrictChange" 
       />
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref, } from '@nuxtjs/composition-api'
 import { useLocationFilter, } from '@/composition/filter'
 
 import LocationFilterSelect from './LocationFilterSelect.vue'
+import { Distritct, Region, } from '@/modules/types'
 
 export default defineComponent({
     name:'TheAside',
@@ -31,20 +40,34 @@ export default defineComponent({
             filterRegions,
         } = useLocationFilter()
 
-        const curRegion = ref()
-        const curDistrict = ref()
-
-        const onRegionChange = (region) => {
-            if (region.value.slug !== curRegion.value.slug) {
+        const curRegion = ref<Region>({} as Region)
+        const curDistrict = ref<Distritct>({} as Distritct)
+        fetchRegions()
+        const onRegionChange = async (region: Region) => {
+            if (region.slug === '') {
+              locationFilter.value = {
+                region: '',
+                district: '',
+              }
+              curRegion.value = region
+              filterDistricts.value = []
+              return
+            }
+            if (region.slug !== curRegion.value.slug) {
                 filterDistricts.value = []
-                curDistrict.value = []
+                curDistrict.value = { id: 0, name: 'Город / район', slug: '',   }
+                locationFilter.value = {
+                    district: '',
+                    region: region.slug,
+                }
+                curRegion.value = region
+                fetchDistricts(region.slug)
             }
         }
-
-        const onDistrictChange = (district) => {
-            if (district.value.slug !== curDistrict.value.slug) {
+        const onDistrictChange = (district: Distritct) => {
+            if (district.slug !== curDistrict.value.slug) {
                 curDistrict.value = district
-                locationFilter.value.district = district.value.slug
+                locationFilter.value.district = district.slug
             }
         }
 

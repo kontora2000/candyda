@@ -1,10 +1,8 @@
 import { ref, } from '@nuxtjs/composition-api'
-import { Candidate, } from '@/modules/types'
+import { Candidate, LocationFilter, } from '@/modules/types'
 import { useAxios, } from '@/composition/axios'
-import { useLocationFilter, } from '@/composition/filter'
 
 export const useCandidateList = () => {
-    const { locationFilter: filter, } = useLocationFilter()
     const { $axios, error,} = useAxios()
     const page = ref(1)
     const isNeedToUpload = ref(false)
@@ -33,12 +31,15 @@ export const useCandidateList = () => {
         }
     }
 
-    const filterCandidates = async () => {
+    const filterCandidates = async (filter: LocationFilter) => {
+      if (!filter.region && filter.region === '') return
       try {
-        const result = await $axios.get(`/candidates/filter/${filter.value}/${page.value}`)
-        candidates.value = result.data
-        isNeedToUpload.value = result.next_page_url !== null
-        page.value = isNeedToUpload ? page.value : page.value + 1
+        const response = await $axios.post(`/candidates/filter/${page.value}`, filter,)
+        if (response.status === 200) {
+          candidates.value = response.data
+          isNeedToUpload.value = response.data.next_page_url !== null
+          page.value = isNeedToUpload ? page.value : page.value + 1
+        }
     }
     catch(e) {
         error({ statusCode: e?.response?.status })
@@ -49,7 +50,6 @@ export const useCandidateList = () => {
         fetchCandidates,
         fetchCandidatesTop,
         filterCandidates,
-        filter,
         candidates,
         page,
     }

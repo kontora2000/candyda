@@ -1,7 +1,6 @@
 <template>
    <div class="page-content-superwrapper">
       <div class="page-candidate-wrapper page-content-wrapper grid-main">
-         <TheAside />
          <div class="candidate-wrapper">
             <div class="candidate-ava" v-if="candidate.ava">
               <img class="candidate-ava-img"  :src="'https://api.prostokontora.ru/storage/' + candidate.ava" />
@@ -82,7 +81,6 @@ import CandidateGallery from '@/components/Candidate/CandidateGallery'
 import CandidateNews from '@/components/Candidate/CandidateNews.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
-import TheAside from '@/components/Generic/Aside/TheAside.vue'
 
 export default defineComponent({
     transition: 'fade',
@@ -93,7 +91,6 @@ export default defineComponent({
         CandidateNews,
         TheFooter,
         NewsBlock,
-        TheAside,
     },
     head:{},
     setup() {

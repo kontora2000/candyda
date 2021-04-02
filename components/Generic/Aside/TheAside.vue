@@ -5,14 +5,13 @@
 </template>
 
 <script>
-import { defineComponent, ref, } from '@nuxtjs/composition-api'
-import LocationFilter from '../LocationFilter/LocationFilter.vue'
+import { defineComponent,  } from '@nuxtjs/composition-api'
+import LocationFilter from '@/components/Generic/LocationFilter/LocationFilter.vue'
 
 export default defineComponent({
     name:'TheAside',
     components: { 
         LocationFilter, 
-
     },
 })
 </script>

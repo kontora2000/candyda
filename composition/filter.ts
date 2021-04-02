@@ -1,6 +1,6 @@
 import { ref, } from '@nuxtjs/composition-api'
 import { Distritct, LocationFilter, Region, } from '@/modules/types'
-import { useAxios } from './axios'
+import { useAxios, } from './axios'
 
 const locationFilter = ref<LocationFilter>({
   district: null,
@@ -10,15 +10,12 @@ const locationFilter = ref<LocationFilter>({
 export const useLocationFilter = () => {
    const getFilter = () => locationFilter.value 
    const setFilter = (filter: LocationFilter) => { locationFilter.value = filter }
-   
-   const filterRegions = ref<Region[]>()
-   const filterDistricts = ref<Distritct[]>()
-
-
+   const filterRegions = ref<Region[]>([] as Region[])
+   const filterDistricts = ref<Distritct[]>([] as Distritct[])
    const { $axios, } = useAxios()
    const fetchRegions = async () => {
     try {
-      const response = await $axios.get('/regions/all')
+      const response = await $axios.get('/region/list/1')
       if (response.status === 200) {
         filterRegions.value = response.data
       }
@@ -31,11 +28,11 @@ export const useLocationFilter = () => {
     }
    }
 
-   const fetchDistricts = async () => {
+   const fetchDistricts = async (regionSlug: string) => {
     try {
-      const response = await $axios.get('/districts/all')
+      const response = await $axios.get('/district/byregion/' + regionSlug)
       if (response.status === 200) {
-        filterRegions.value = response.data
+        filterDistricts.value = response.data
       }
       else {
         console.error('Error due loading districts data in filter')
@@ -45,9 +42,8 @@ export const useLocationFilter = () => {
       console.error(e)
     }
    }
-
-
-
+   
+   
    return {
     locationFilter,
     filterDistricts,
