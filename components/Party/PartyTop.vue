@@ -10,7 +10,7 @@
       :key="party.id" 
     />
     <div class="showmore-btn-wrapper">
-      <nuxt-link to="/party" ><btn class="button-transparent">Смотреть весь&nbsp;топ</btn></nuxt-link>
+      <nuxt-link to="/party" ><btn class="button-transparent">Смотреть все&nbsp;партии</btn></nuxt-link>
     </div>
   </div>
 </div>
@@ -43,6 +43,6 @@ export default defineComponent({
 
 <style scoped>
  .party-cards-wrapper {
-   grid-column: 2/16;
+   grid-column: 2/14;
  }
 </style>

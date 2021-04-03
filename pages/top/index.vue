@@ -13,7 +13,7 @@
             />
          </div>
          <div class="page-wrapper page-top" v-else-if="candidates && candidates.length===0">
-           Нет подходящих кандидатов
+            <p>Нет подходящих кандидатов</p>
          </div>
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">

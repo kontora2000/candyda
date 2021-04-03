@@ -131,28 +131,28 @@ export default defineComponent({
 </script>
 <style scoped>
   .search-form {
+    grid-column: 2/32;
     position: relative;
   }
 
   .search-input {
-    width: 100%;
-    padding-left:6rem;
+    width: calc(100vw - 8rem);
+    padding-left: 6rem;
+    transition: all .15s ease-in-out;
   }
 
   .search-close {
-    top:-44px;
-    left: 100%;
-    height: 64px;
-    width: 64px;
-    max-width: 64px;
-    max-height: 64px;
+    height: 6.4rem;
+    width: 6.4rem;
+    max-width: 6.4rem;
+    max-height: 6.4rem;
     position: absolute;
-    left:calc(100% + 1.8rem);
-    top: 0px;
+    right: 0;
+    top: 0;
     border-radius: 100px;
-    background: linear-gradient(270.53deg, rgba(0, 68, 171, 0.08) 0%, rgba(0, 68, 171, 0.03) 100%);
-    background: var(--Azure12);
+    background: var(--Azure16);
     cursor: pointer;
+    transition: all .15s ease-in-out;
   }
 
   .search-close:hover {
@@ -160,11 +160,16 @@ export default defineComponent({
   }
 
   .search-close svg {
+    fill: var(--Black100);
     position: relative;
     left: 16px;
     top: 16px;
-    max-width: 64px;
-    max-height: 64px;
+    max-width: 6.4rem;
+    max-height: 6.4rem;
+    transition: fill .15s ease-in-out;
+  }
+  .search-close:hover svg {
+    fill: var(--White100);
   }
 
   .search-blocks-wrapper {

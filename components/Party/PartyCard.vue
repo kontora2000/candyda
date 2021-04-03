@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/party/${party.slug}`" class="party-card-cont">
+  <nuxt-link :to="`/party/${party.slug}`" class="party-card-cont card-cont">
       <div class="party-card-pic-wrapper" >
         <img 
           v-if="party.logo" 
@@ -34,23 +34,22 @@ export default defineComponent({
 </script>
 <style scoped>
   .party-card-cont {
-    padding: 2rem 2rem;
-    padding-left: 1.2rem;
+    padding: 1.6rem .8rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     height: 12.4rem;
-    border-radius: 1.2rem;
-    background-color: var(--Azure32);
-    margin-bottom: 2rem;
+    margin-bottom: 1.6rem;
   }
 
   .party-card-pic-wrapper {
     align-self: flex-start;
-    max-width: 8.2rem;
-    max-height: 8.2rem;
-    flex:0.3;
+    height: 9.2rem;
+    width: 9.2rem;
+  }
+  .party-card-pic {
+    object-fit: cover;
   }
 
   .party-card-content-wrapper {
