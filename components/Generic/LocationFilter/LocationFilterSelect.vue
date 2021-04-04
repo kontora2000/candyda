@@ -117,7 +117,7 @@ export default defineComponent({
   right: 1em;
   max-width: 2rem;
   max-height: 2rem;
-  top: calc(50% - 1rem);
+  top: calc(50% - .7rem);
   display: flex;
   align-items: center;
   justify-content: center;

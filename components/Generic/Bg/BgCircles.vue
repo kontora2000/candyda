@@ -68,6 +68,9 @@ export default defineComponent({
     },
 })
 </script>
+
+
+
 <style scoped>
 .bg-circles-wrapper {
     width: calc(100vw + 1.6rem);
@@ -80,8 +83,8 @@ export default defineComponent({
     flex-direction: row;
 }
 
-.bg-circles-canvas {
-    filter: blur(32px);
+/*.bg-circles-canvas {
+    filter: blur(56px);
     position: absolute;
     left: 0;
     right: 0;
@@ -89,7 +92,7 @@ export default defineComponent({
     bottom: 0;
     width: 100vw;
     height: 100vh;
-}
+}*/
 
 .bg-circles {
   width: 30%;
@@ -98,12 +101,12 @@ export default defineComponent({
   min-height: 100vh;
 }
 
-
 .bg-circle {
   position: relative;
-  filter: blur(32px);
+  filter: blur(56px);
   border-radius: 50%;
   display: none;
+  opacity: .84;
   transition: all .45s ease-in-out;
 }
 
