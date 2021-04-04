@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { defineComponent,  ref, onMounted, computed, } from '@nuxtjs/composition-api'
+import { defineComponent,  ref, onMounted,  } from '@nuxtjs/composition-api'
 import { useSearch, } from '@/composition/search'
 import { useHelpers, } from '@/composition/helpers'
 
