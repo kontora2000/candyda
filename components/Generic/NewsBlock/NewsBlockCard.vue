@@ -147,13 +147,13 @@ export default defineComponent({
 
 .news-card-cont-big.with-image .news-card-header {
   font-size: 2.8rem;
-  line-height: 3.2rem;
+  line-height: 3.6rem;
   -webkit-line-clamp: 3;
   width: 100%;
 }
 
 .news-card-cont-big.with-image .news-card-content-wrapper {
-  height: 12.8rem;
+  height: 13.6rem;
   margin-top: 0;
   position: absolute;
   bottom: 0;

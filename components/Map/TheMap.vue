@@ -3,14 +3,22 @@
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			width="1228.16px" height="648.03px" viewBox="0 0 1228.16 648.03"
 			style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
-		<style type="text/css">
-		</style>
+			<style type="text/css">
+			polygon {stroke-width: .5px; stroke: var(--Azure32);}
+			</style>
+			<!--<defs>
+				<filter id="shadow-o-city" x="0" y="0" width="100%" height="100%">
+					<feOffset result="offOut" in="SourceGraphic" dx="0" dy="2" />
+					<feGaussianBlur result="blurOut" in="offOut" stdDeviation="6" />
+					<feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+					<feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
+				</filter>
+			</defs>-->
 			<polygon id="o-adygeya" class="o-city" points="691.91,373.11 682.55,429.61 897.21,524.43 802.68,249.05 840.18,254.58 
 				877.83,303.63 914.6,303.56 834.01,212.83 619.26,175.19 545.93,211.22 433.28,194.62 434.32,217.24 615.18,246.59 629.67,228.22 
 				602.91,218.54 621.24,202.79 649.69,214.49 685.33,207.42 723.11,252.56 695.82,289.21 704.45,334.66 767.52,358.95 754.49,399.76 
 				"/>
-			<nuxt-link to="/region/o-kanevskoy" 
-      class="link-to-o">
+			<nuxt-link to="/region/o-kanevskoy" class="link-to-o">
 				<g class="o-cont" id="o-kanevskoy">
 					<polygon id="eyskiy" class="o-city" points="393.88,37.88 434.34,69.73 461.73,39.46 437.92,39.28 446.55,18.41 409.34,17.39 
 						406.6,11.79 331.05,21.1 336.22,37.24"/>
@@ -240,8 +248,8 @@ export default defineComponent({
 .map-cont {
 	grid-column: 1/33;
 	position: relative;
-	margin-top: -8rem;
-	margin-bottom: -12rem;
+	margin-top: 1.2rem;
+	margin-bottom: -18rem;
 }
 
 .minus-one {

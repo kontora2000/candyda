@@ -18,9 +18,9 @@
         <header-logo />
         <nav class="site-nav">
           <ul key="burger-open">
-            <li><nuxt-link to="/news" class="nav-link link-underline-solid">Новости</nuxt-link></li>
-            <li><nuxt-link to="/top" class="nav-link link-underline-solid">Топ кандидатов</nuxt-link></li>
-            <li><nuxt-link to="/party" class="nav-link link-underline-solid">Партии</nuxt-link></li>
+            <li class="nav-link-burger-wrapper"><nuxt-link to="/news" class="nav-link-burger nav-link link-underline-solid">Новости</nuxt-link></li><br>
+            <li class="nav-link-burger-wrapper"><nuxt-link to="/top" class="nav-link-burger nav-link link-underline-solid">Топ кандидатов</nuxt-link></li><br>
+            <li class="nav-link-burger-wrapper"><nuxt-link to="/party" class="nav-link-burger nav-link link-underline-solid">Партии</nuxt-link></li>
           </ul>
         </nav>
       </div>
@@ -111,7 +111,7 @@ export default defineComponent({
 
 <style scoped>
 .logo-nav-cont.fixed { 
-  top: 2.8rem;
+  top: 2.2rem;
   margin-left: calc(((100vw - 49.6rem - 1.6rem) / 32) + 1.6rem);
   margin-top: 2rem;
   z-index: 3;
@@ -136,6 +136,22 @@ export default defineComponent({
   border-bottom-width: 2.5px;
   font-size: 2rem;
   font-weight: 500;
+}
+
+.nav-link-burger-wrapper {
+  background: var(--Azure16);
+  border-radius: 12px;
+  display: inline-block;
+  -webkit-backdrop-filter: blur(32px);
+  backdrop-filter: blur(32px);
+  padding: 0 .8rem .6rem;
+}
+
+.nav-link-burger {
+  /*background: var(--Azure16);
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(32px);
+  backdrop-filter: blur(32px);*/
 }
 
 @media (max-width: 460px) {

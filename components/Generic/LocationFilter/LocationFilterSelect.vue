@@ -12,7 +12,7 @@
     <div class="select-icon">
       <span v-if="selected.slug" name="icon-close" @click="$emit('clear')" >&times;</span>
       <svg v-else width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1.5L9.5 11.5L18 1.5" stroke="black" stroke-opacity="0.32" stroke-width="1.8"/>
+          <path d="M1 1.5L9.5 11.5L18 1.5" stroke-width="1.8"/>
       </svg>
     </div>
     <div class="items" :class="{ selectHide: !open }">
@@ -86,21 +86,30 @@ export default defineComponent({
 }
 
 .filter-select .selected {
-  border-radius: 100px;
+  border-radius: 3.2rem;
   min-height: 6.4rem;
-  color: var(--Black32);
+  color: var(--Black100);
   padding-left: 1.9rem;
   padding-top:2rem;
   cursor: pointer;
   user-select: none;
-  background-color:var(--Azure32);
+  background-color: var(--Azure16);
+  -webkit-backdrop-filter: blur(32px);
+  backdrop-filter: blur(32px);
   font-size: 2rem;
   line-height: 2rem;
+  transition: background-color .15s ease-in-out,
+              color .15s ease-in-out;
 }
 
 .filter-select .selected.open {
-  border-radius: 25px 25px 0px 0px;
+  border-radius: 3.2rem 3.2rem 0 0;
   color: var(--Black100);
+}
+
+.filter-select .selected:hover {
+  background-color: var(--Azure100);
+  color: var(--White100);
 }
 
 .filter-select .select-icon {
@@ -108,32 +117,41 @@ export default defineComponent({
   right: 1em;
   max-width: 2rem;
   max-height: 2rem;
-  top: calc(50% - 1rem);
+  top: calc(50% - .7rem);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform .15s ease-in-out;
+}
+.filter-select .selected.open+.select-icon {
+  transform: rotate(180deg);
 }
 
-.filter-select .select-icon .span,svg {
+.filter-select .select-icon>svg {
   max-width: 2rem;
   max-height: 2rem;
-  color:var(--Black32);
+  stroke: var(--Black100);
+  transition: stroke .15s ease-in-out;
+}
+.filter-select .selected:hover+.select-icon>svg {
+  stroke: var(--White100);
 }
 
 .filter-select .items {
-  color:var(--Black32);
-  border-radius: 0px 0px 10px 10px;
+  color:var(--Black100);
+  border-radius: 0 0 3.2rem 3.2rem;
   overflow: hidden;
   position: absolute;
   left: 0;
   right: 0;
   z-index: 1;
-  background-color:var(--Azure32);
+  background-color:var(--Azure16);
   backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
 }
 
 .filter-select .items .select-item {
-  color: var(--Black32);
+  color: var(--Black100);
   padding: 1rem;
   padding-left: 1em;
   z-index: 1;  
@@ -142,7 +160,8 @@ export default defineComponent({
 }
 
 .filter-select .items .select-item:hover {
-  background-color: var(--Azure84);
+  background-color: var(--Azure100);
+  color: var(--White100);
 }
 
 .selectHide {

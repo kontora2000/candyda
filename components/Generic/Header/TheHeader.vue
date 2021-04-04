@@ -6,7 +6,6 @@
       <HeaderAbout  v-if="!$device.isMobile"/>
       <HeaderBurger  v-if="$device.isMobile" />
       <Breadcrumbs />
-      <div></div>
    </header>
 </template>
 

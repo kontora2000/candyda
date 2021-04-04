@@ -1,7 +1,7 @@
 <template>
 <div class="cont-wrapper" v-if="parties">
   <div class="cont-header-wrapper">
-    <h3 class="cont-header">Топ <nuxt-link to="/party" class="link-underline-solid">партий</nuxt-link></h3>
+    <h3 class="cont-header"><nuxt-link to="/party" class="link-underline-solid">Партии</nuxt-link></h3>
   </div>
   <div class="party-cards-wrapper">
     <PartyCard 
@@ -9,9 +9,9 @@
       :party="party"
       :key="party.id" 
     />
-    <div class="showmore-btn-wrapper">
-      <nuxt-link to="/party" ><btn class="button-transparent">Смотреть весь&nbsp;топ</btn></nuxt-link>
-    </div>
+    <!--<div class="showmore-btn-wrapper">
+      <nuxt-link to="/party" ><btn class="button-transparent">Смотреть все&nbsp;партии</btn></nuxt-link>
+    </div>-->
   </div>
 </div>
 </template>
@@ -43,6 +43,6 @@ export default defineComponent({
 
 <style scoped>
  .party-cards-wrapper {
-   grid-column: 2/16;
+   grid-column: 2/14;
  }
 </style>

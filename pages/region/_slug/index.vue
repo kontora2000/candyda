@@ -23,7 +23,7 @@
      </div>
      <div class="cont-wrapper cont-wrapper-right" v-if="region.parties && region.parties.length > 0">
       <div class="cont-header-wrapper">
-         <h3 class="cont-header">Партии округа</h3>
+         <h3 class="cont-header">Партии в&nbsp;округе</h3>
       </div>
        <PartyBlock v-if="region.parties" :parties="region.parties" />
     </div>
@@ -63,7 +63,7 @@ export default defineComponent({
             breadcrumbs.value = [
                 {
                     url: '/',
-                    title: 'Кр.край',
+                    title: 'Краснодарский край',
                 },
                 {
                     url: route.value.path || '',

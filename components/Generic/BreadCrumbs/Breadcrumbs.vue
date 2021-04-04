@@ -3,13 +3,12 @@
    <span class="breadcrumb" 
     v-for="(breadcrumb, index) in breadcrumbs"
     :key="generateKey(index)">
-      <nuxt-link class="breadcrumb-url" :to="breadcrumb.url">
-        {{ breadcrumb.title }} 
-        <span> / </span>
-      </nuxt-link>
+      <nuxt-link class="breadcrumb-url" :to="breadcrumb.url">{{ breadcrumb.title }}</nuxt-link>
      </span> 
  </div>
 </template>
+
+
 
 <script>
 import { defineComponent, useContext, watch, } from '@nuxtjs/composition-api'
@@ -34,13 +33,26 @@ export default defineComponent({
     },
 })
 </script>
+
+
+
 <style scoped>
-  .breadcrumbs-wrapper {
-    grid-column: 2/8;
-    position: relative;
-    top:9rem;
-    left:1rem;
-    line-height: 2.4rem;
-    color: var(--Black100);
-  }
+.breadcrumbs-wrapper {
+  color: var(--Black100);
+  grid-column: 2/8;
+  line-height: 2.4rem;
+  position: relative;
+  top: 9rem;
+  left: 0;
+  z-index: 1;
+}
+
+.breadcrumb::after {
+  content: '/';
+  margin: 0 .4rem;
+}
+
+.breadcrumb-url {
+  border-bottom: 2px solid;
+}
 </style>

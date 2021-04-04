@@ -1,6 +1,6 @@
 <template>
    <div class="search-input-wrapper" 
-    :class="{ 'search-input-wrapper-wide': isSearchOpen   }"
+    :class="{ 'search-input-wrapper-wide grid-main': isSearchOpen   }"
     v-if="!$device.isMobile">
       <SearchInput  
         @search-focus="onFocus" 

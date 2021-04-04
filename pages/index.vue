@@ -1,9 +1,9 @@
 <template>
   <main class="grid-main">
     <div class="main-bottom-wrapper grid-main">
-      <NewsBlock class="cont-wrapper-left"/>
-      <CandidateTop class="cont-wrapper-right"/>
-      <PartyTop   class="cont-wrapper-right" />
+      <NewsBlock class="cont-wrapper-left" />
+      <CandidateTop class="cont-wrapper-right" />
+      <PartyTop class="cont-wrapper-right" />
       <TheFooter />
     </div>
   </main>
@@ -15,8 +15,8 @@ import { defineComponent, } from '@nuxtjs/composition-api'
 
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
-import TheFooter from '@/components/Generic/Footer/TheFooter'
 import PartyTop from '~/components/Party/PartyTop.vue'
+import TheFooter from '@/components/Generic/Footer/TheFooter'
 
 export default defineComponent({
     name:'index',

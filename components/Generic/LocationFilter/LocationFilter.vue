@@ -12,8 +12,8 @@
         v-if="curRegion.slug && filterDistricts.length > 0"
         :options="filterDistricts" 
         :current="curDistrict"
-        :default="{ name: 'Город / район', slug: '',   }"
-        @clear="onDistrictChange({ name: 'Город \ район', slug:'',   })"
+        :default="{ name: 'Город / район', slug: '',   }"
+        @clear="onDistrictChange({ name: 'Город / район', slug:'',   })"
         @input="onDistrictChange" 
       />
     </div>
