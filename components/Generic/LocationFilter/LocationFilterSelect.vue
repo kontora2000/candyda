@@ -8,13 +8,14 @@
       :class="{ open: open }" 
       @click="open = !open">
         {{ selected.name }}
+        <div class="select-icon" >
+          <span v-if="selected.slug" name="icon-close" @click="$emit('clear')" >&times;</span>
+          <svg class="icon-arrow-down" v-else width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1.5L9.5 11.5L18 1.5" stroke-width="1.8"/>
+          </svg>
+        </div>
     </div>
-    <div class="select-icon">
-      <span v-if="selected.slug" name="icon-close" @click="$emit('clear')" >&times;</span>
-      <svg v-else width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1.5L9.5 11.5L18 1.5" stroke-width="1.8"/>
-      </svg>
-    </div>
+  
     <div class="items" :class="{ selectHide: !open }">
       <div class="select-item"
         v-for="(option, i) of options"
@@ -112,7 +113,7 @@ export default defineComponent({
   color: var(--White100);
 }
 
-.filter-select .select-icon {
+.select-icon {
   position: absolute;
   right: 1em;
   max-width: 2rem;
@@ -121,19 +122,24 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.icon-arrow-down {
   transition: transform .15s ease-in-out;
 }
-.filter-select .selected.open+.select-icon {
+
+.open .select-icon svg {
   transform: rotate(180deg);
 }
 
-.filter-select .select-icon>svg {
+.filter-select .select-icon > svg {
   max-width: 2rem;
   max-height: 2rem;
   stroke: var(--Black100);
-  transition: stroke .15s ease-in-out;
+  transition: all .15s ease-in-out;
 }
-.filter-select .selected:hover+.select-icon>svg {
+
+.selected:hover .icon-arrow-down {
   stroke: var(--White100);
 }
 
