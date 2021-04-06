@@ -17,16 +17,22 @@
 </template>
 
 <script>
-import { defineComponent, } from '@vue/composition-api'
+import { defineComponent, useMeta, } from '@nuxtjs/composition-api'
 import PartyTop from '@/components/Party/PartyTop.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
 export default defineComponent({
+    name: 'PartyIndex',
+    head: {},
     components: { 
         PartyTop,
         NewsBlock,
         TheFooter,
+    },
+    setup () {
+        const { title, }  = useMeta()
+        title.value = 'Топ партий'
     },
 })
 </script>

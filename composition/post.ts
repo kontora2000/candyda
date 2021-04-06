@@ -15,11 +15,16 @@ export const usePost = () => {
 
   const post = ref<Post>({} as Post)
   const { fetch: fetchPost, } = useFetch(async () => {
-    post.value = await $axios.$get( '/post/' + slug)
-    if (!post.value.slug) 
+    try {
+      post.value = await $axios.$get( '/post/' + slug)
+      if (!post.value.slug) 
       error({statusCode: 404, })
-    post.value.date = humanDateDiff(post.value.post_date)
-    postDate.value = humanDateDiff(post.value.post_date)
+      post.value.date = humanDateDiff(post.value.post_date)
+      postDate.value = humanDateDiff(post.value.post_date)
+    }
+    catch(e) {
+      error({ statusCode:e?.status, message: e?.message })
+    }
   })
 
 

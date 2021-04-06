@@ -122,12 +122,9 @@ export default defineComponent({
             })
             const title = computed(()=>fullName.value || '')
             useMeta({ title, })
-
-            const {
-                isVisible: isGalleryVisible,
-                hide: closeGallery, }  = useToggle()
+            //gallery
+            const { isVisible: isGalleryVisible, hide: closeGallery, }  = useToggle()
             const currentImg = ref(0)
-
             const openGallery = (index) => {
                 currentImg.value = index
                 isGalleryVisible.value = true
