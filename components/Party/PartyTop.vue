@@ -9,27 +9,19 @@
       :party="party"
       :key="party.id" 
     />
-    <!--<div class="showmore-btn-wrapper">
-      <nuxt-link to="/party" ><btn class="button-transparent">Смотреть все&nbsp;партии</btn></nuxt-link>
-    </div>-->
   </div>
 </div>
 </template>
 
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'
-
 import { usePartyList, } from '@/composition/parties'
-
 import PartyCard from './PartyCard.vue'
-import Btn from '../Generic/Btn.vue'
-
 
 export default defineComponent({
     name: 'PartyTop',
     components: {
         PartyCard,
-        Btn,
     },
     setup() {
         const { parties, fetchParties,  }  = usePartyList()
