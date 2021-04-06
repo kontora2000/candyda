@@ -20,7 +20,7 @@
 
 
 <script lang="ts">
-import {defineComponent, ref, useMeta, useFetch, useContext,  } from '@nuxtjs/composition-api'
+import { defineComponent, ref, useMeta, useFetch, useContext,  } from '@nuxtjs/composition-api'
 
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'

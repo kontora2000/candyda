@@ -110,15 +110,9 @@ export interface Breadcrumb {
 }
 
 
-<<<<<<< HEAD
-export interface LocationFilter {
-  region: string | null;
-  district: string | null;
-=======
 export interface FlatPage {
   id: number;
   title: string;
   content: string;
   slug: string;
->>>>>>> feat/pages
 }
