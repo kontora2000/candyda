@@ -1,5 +1,10 @@
 <template>
  <div v-if="region" class="main-bottom-wrapper grid-main">
+   <div class="region-title" v-if="region && region.name">
+      <b v-if="region.number">
+         №{{ region.number  }} 
+      </b>
+        {{ region.name }} <br /> округ</div>
    <div class="cont-wrapper cont-wrapper-left" v-if="region.posts && region.posts.length > 0">
        <div class="cont-header-wrapper">
          <h3 class="cont-header">Новости округа</h3>
@@ -30,7 +35,7 @@
  </div>
 </template>
 <script>
-import { computed, defineComponent, useMeta, useContext, watch, onMounted, } from '@nuxtjs/composition-api'
+import { defineComponent, computed, watch, useMeta, useContext, } from '@nuxtjs/composition-api'
 
 import { useRegion, } from '@/composition/region'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
@@ -51,12 +56,11 @@ export default defineComponent({
     setup () {
         const { region, fetchRegion, } = useRegion()
         fetchRegion()
-        
         const title = computed(()=> {
             return region?.value?.name ? region?.value?.name + ' округ' : ''
         })
         useMeta({ title: title, })
-        
+      
         const {  breadcrumbs,  } =  useBreadcrumbs()
         const { route, } = useContext()
         watch(title, () => {
@@ -64,10 +68,6 @@ export default defineComponent({
                 {
                     url: '/',
                     title: 'Краснодарский край',
-                },
-                {
-                    url: route.value.path || '',
-                    title: title.value || '',
                 }
             ]
         })
@@ -80,6 +80,25 @@ export default defineComponent({
 })
 </script>
 <style scoped>
+
+.region-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 5.2rem;
+  line-height: 4.8rem;
+  position: absolute;
+  top: calc(112px + 0.51rem);
+  left: 30%;
+  letter-spacing: -0.01em;
+}
+
+.region-title b {
+  display: block;
+  font-size: 12rem;
+}
+
 .main-bottom-wrapper {
   grid-column: 1/33;
   grid-row-gap: 4rem;

@@ -3,15 +3,14 @@
    <span class="breadcrumb" 
     v-for="(breadcrumb, index) in breadcrumbs"
     :key="generateKey(index)">
-      <nuxt-link class="breadcrumb-url" :to="breadcrumb.url">{{ breadcrumb.title }}</nuxt-link>
+      <nuxt-link class="breadcrumb-url" :to="breadcrumb.url" v-html="breadcrumb.title" />
      </span> 
  </div>
 </template>
 
 
-
-<script>
-import { defineComponent, useContext, watch, } from '@nuxtjs/composition-api'
+<script lang="ts">
+import { defineComponent, PropType, useContext, watch, } from '@nuxtjs/composition-api'
 import { useHelpers,  } from '@/composition/helpers'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 
