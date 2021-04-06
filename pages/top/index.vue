@@ -25,17 +25,17 @@
 
 
 
-<script>
+<script lang="ts">
 import { defineComponent, useMeta, useFetch, watch, } from '@nuxtjs/composition-api'
 
 import { useCandidateList, } from '@/composition/candidates'
 import { useAxios, } from '@/composition/axios'
 import { useLocationFilter, } from '@/composition/filter'
 
-import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
-import Btn from '@/components/Generic/Btn'
-import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
-import TheFooter from '@/components/Generic/Footer/TheFooter'
+import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
+import Btn from '@/components/Generic/Btn.vue'
+import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
+import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 import TheAside from '@/components/Generic/Aside/TheAside.vue'
 
 
@@ -51,7 +51,7 @@ export default defineComponent({
     head:{},
     setup() {
         const { candidates, filterCandidates, } = useCandidateList()
-        const { $axios, } = useAxios()
+        const { $axios, error, } = useAxios()
         const { fetch: fethcC, } =  useFetch(async  () => {
             try {
                 const result = await $axios.$get('/candidates/top')

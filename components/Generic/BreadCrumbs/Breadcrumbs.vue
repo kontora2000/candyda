@@ -19,7 +19,11 @@ export default defineComponent({
     setup () {
         const { breadcrumbs, isBreadcrumbsVisible, } =  useBreadcrumbs()
         const { route, } = useContext()
-        isBreadcrumbsVisible.value =  route.value.path.includes('region') || route.value.path.includes('district')
+        isBreadcrumbsVisible.value =  
+            route.value.path.includes('region') || 
+            route.value.path.includes('district') || 
+            route.value.name === 'news-slug' || 
+            route.value.name == 'candidate-slug'
         watch(route, () => {
             isBreadcrumbsVisible.value =  route.value.path.includes('region') || route.value.path.includes('district')
         })

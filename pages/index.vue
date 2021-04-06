@@ -9,14 +9,13 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, } from '@nuxtjs/composition-api'
 
-
-import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
-import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
-import PartyTop from '~/components/Party/PartyTop.vue'
-import TheFooter from '@/components/Generic/Footer/TheFooter'
+import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
+import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
+import PartyTop from '@/components/Party/PartyTop.vue'
+import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
 export default defineComponent({
     name:'index',
