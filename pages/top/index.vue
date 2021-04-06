@@ -12,7 +12,7 @@
                 :candidate="candidate"
             />
          </div>
-         <div class="page-wrapper page-top" v-else-if="candidates && candidates.length===0">
+         <div class="page-wrapper page-top" v-else-if="candidates && candidates.length===0 && locationFilter.region!==''">
             <p>Нет подходящих кандидатов</p>
          </div>
       </div>
@@ -28,14 +28,16 @@
 <script>
 import { defineComponent, useMeta, useFetch, watch, } from '@nuxtjs/composition-api'
 
+import { useCandidateList, } from '@/composition/candidates'
+import { useAxios, } from '@/composition/axios'
+import { useLocationFilter, } from '@/composition/filter'
+
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
 import Btn from '@/components/Generic/Btn'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
-import {useCandidateList,} from '@/composition/candidates';
-import {useAxios,} from '@/composition/axios';
-import TheAside from '~/components/Generic/Aside/TheAside.vue'
-import { useLocationFilter, } from '~/composition/filter'
+import TheAside from '@/components/Generic/Aside/TheAside.vue'
+
 
 export default defineComponent({
     name:'index',
