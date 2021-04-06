@@ -59,7 +59,7 @@ export default defineComponent({
         const title = computed(()=> {
             return region?.value?.name ? region?.value?.name + ' округ' : ''
         })
-        useMeta({ title: title.value, })
+        useMeta(() => ({ title: title.value, }))
         const {  breadcrumbs,  } =  useBreadcrumbs()
         const { route, } = useContext()
         watch(title, () => {

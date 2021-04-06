@@ -116,3 +116,8 @@ export interface FlatPage {
   content: string;
   slug: string;
 }
+
+export interface LocationFilter {
+  region: string | null;
+  district: string | null;
+}

@@ -77,10 +77,7 @@ export default defineComponent({
             postDate.value = humanDateDiff(post.value.post_date)
         })
 
-        const title = computed(()=> post.value?.title)
-        watch ( title, () => {
-          useMeta({ title: title.value })
-        })
+        useMeta(() => ({ title: post.value.title }))
 
         const { breadcrumbs, } = useBreadcrumbs()
         breadcrumbs.value = [

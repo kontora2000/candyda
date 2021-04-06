@@ -64,19 +64,19 @@ export default defineComponent({
 
         const { title, } = useMeta()
         title.value = 'Топ кандидатов'
-
         const { locationFilter, } = useLocationFilter()
         watch(locationFilter, () => {
             if (!locationFilter.value.region || locationFilter.value.region.trim() === '') {
                 fethcC()
+                return 
             }
             filterCandidates(locationFilter.value)
-        }, {
-            deep: true,
-        })
+        }, 
+        { deep: true, })
         
         return {
             candidates,
+            locationFilter,
         }
     },
 })

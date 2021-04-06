@@ -120,8 +120,7 @@ export default defineComponent({
                 ageText.value = -1*age.value + ' ' + numWord(-age.value, ['год', 'года', 'лет'])
                 isVoted.value = localStorage.getItem(candidate.value.slug)!==null
             })
-            const title = computed(()=>fullName.value || '')
-            useMeta({ title, })
+            useMeta(() => ({ title: fullName.value, }))
             //gallery
             const { isVisible: isGalleryVisible, hide: closeGallery, }  = useToggle()
             const currentImg = ref(0)
