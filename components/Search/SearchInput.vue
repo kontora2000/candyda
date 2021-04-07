@@ -68,7 +68,7 @@ export default defineComponent({
 
         const onFocus = () => {
             isSearchOpen.value = true
-            searchInputWidth.value = document.querySelector('.map-svg').clientWidth + 'px'
+            searchInputWidth.value = '94%'
             emit('searchFocus')
             searchInputPlaceholder.value = ''
             window.setTimeout(() => {             
