@@ -25,7 +25,7 @@
           v-for="(block, index) in searchBlocks"
           :key="generateKey(index)"> 
             <span class="search-block-delete" @click.prevent="deleteBlock(index)">  
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32">
                     <path d="M15.5 14.4618L1.06673 0L0 1.06886L14.4333 15.5304L0.0608999 29.9311L1.12763 31L15.5 16.5992L29.8724 31L30.9391 29.9311L16.5667 15.5304L31 1.06886L29.9333 0L15.5 14.4618Z" />
               </svg>
             </span>
