@@ -1,24 +1,24 @@
 export interface Post {
-  id: number | null;
+  id?: number;
   content: string;
   subcontent: string;
   title: string;
   excerpt: string;
   subtitle: string;
   slug: string;
-  imageID: number | null;
-  galleryID: number | null;
-  locationID: number | null;
-  tags: Tag[];
+  imageID?: number;
+  galleryID?: number;
+  locationID?: number;
   date: string;
   created_at: string;
   post_date: string;
   region?: Region;
   district?: Distritct;
+  tags: Tag[];
 }
 
 export interface Candidate {
-  id: number | null;
+  id?: number;
   name: string;
   surname: string;
   patronymic: string;
@@ -26,12 +26,12 @@ export interface Candidate {
   slug: string;
   partID: number;
   votes: number;
-  avatarID: number | null;
+  avatarID?: number | null;
   avatar: string;
-  galleryID: number | null;
+  galleryID?: number | null;
   gallery: string;
   description: string;
-  tagID: number | null;
+  tagID?: number | null;
   created_at: string;
   birthdate: string;
   region?: Region;
@@ -46,7 +46,6 @@ export interface Party {
   description: string;
   candidates: Candidate[] | null;
 }
-
 
 export interface Tag {
   id: number | null | symbol,
@@ -93,7 +92,6 @@ export interface Region {
   districts?: Distritct[];
   posts?: Post[];
 }
-
 
 export interface SearchRequestBody {
   tags: Array<string> | null;
