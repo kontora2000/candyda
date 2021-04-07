@@ -13,6 +13,8 @@ export interface Post {
   date: string;
   created_at: string;
   post_date: string;
+  region?: Region;
+  district?: Distritct;
 }
 
 export interface Candidate {
@@ -32,6 +34,8 @@ export interface Candidate {
   tagID: number | null;
   created_at: string;
   birthdate: string;
+  region?: Region;
+  district?: Distritct;
 }
 
 export interface Party {

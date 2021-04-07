@@ -12,7 +12,8 @@
                 :candidate="candidate"
             />
          </div>
-         <div class="page-wrapper page-top" v-else-if="candidates && candidates.length===0 && locationFilter.region!==''">
+         <div class="page-wrapper page-top" 
+          v-else-if="candidates && candidates.length===0 && locationFilter.region!=='' && !isLoading">
             <p>Нет подходящих кандидатов</p>
          </div>
       </div>
@@ -26,7 +27,7 @@
 
 
 <script lang="ts">
-import { defineComponent, useMeta, useFetch, watch, } from '@nuxtjs/composition-api'
+import { defineComponent, ref, useMeta, useFetch, watch, } from '@nuxtjs/composition-api'
 
 import { useCandidateList, } from '@/composition/candidates'
 import { useAxios, } from '@/composition/axios'
@@ -51,11 +52,15 @@ export default defineComponent({
     head:{},
     setup() {
         const { candidates, filterCandidates, } = useCandidateList()
+        const isLoading = ref(true)
         const { $axios, error, } = useAxios()
         const { fetch: fethcC, } =  useFetch(async  () => {
             try {
+                isLoading.value = true
                 const result = await $axios.$get('/candidates/top')
                 candidates.value = result
+                isLoading.value = false
+
             }
             catch(e) {
                 error({ statusCode: e?.response?.status, })
@@ -77,6 +82,7 @@ export default defineComponent({
         return {
             candidates,
             locationFilter,
+            isLoading,
         }
     },
 })
