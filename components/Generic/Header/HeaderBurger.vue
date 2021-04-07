@@ -17,6 +17,11 @@
                                 <li><nuxt-link to="/top" class="nav-link link-underline-solid">Топ кандидатов</nuxt-link></li>
                                 <li><nuxt-link to="/party" class="nav-link link-underline-solid">Партии</nuxt-link></li>
                                 <li><nuxt-link to="/about" class="nav-link link-underline-solid">О проекте</nuxt-link></li>
+                                <li v-for="flatPage in flatPages" 
+                                  :key="flatPage.id"
+                                >
+                                  <nuxt-link :to="`/page/${flatPage.slug}`" class="nav-link link-underline-solid">{{ flatPage.title }}</nuxt-link>
+                                </li>
                             </ul>
                     </nav>
                     <div class="burger-search">
@@ -30,6 +35,7 @@
 
 <script>
 import { defineComponent, } from '@nuxtjs/composition-api'
+import { useFlatPages, } from '~/composition/flatpages'
 
 export default defineComponent({
     name:'HeaderBurger',
@@ -40,6 +46,13 @@ export default defineComponent({
             isBurgerVisible: false,
         }
     },
+    setup () {
+        const { flatPages,  fetchFlatPages, } =  useFlatPages()
+        fetchFlatPages()
+        return {
+            flatPages,
+        }
+    },
     mounted() {
         document.body.addEventListener('scroll', () => {
             if (this.$device.isMobile) {
@@ -48,11 +61,6 @@ export default defineComponent({
         }, {
             passive: true,
         })
-    },
-    watch:{
-        $route()  {
-
-        },
     },
     methods: {
         toggleBurger() {

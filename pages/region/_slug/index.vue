@@ -34,7 +34,7 @@
     </div>
  </div>
 </template>
-<script>
+<script lang="ts">
 import { defineComponent, computed, watch, useMeta, useContext, } from '@nuxtjs/composition-api'
 
 import { useRegion, } from '@/composition/region'
@@ -59,8 +59,7 @@ export default defineComponent({
         const title = computed(()=> {
             return region?.value?.name ? region?.value?.name + ' округ' : ''
         })
-        useMeta({ title: title, })
-      
+        useMeta(() => ({ title: title.value, }))
         const {  breadcrumbs,  } =  useBreadcrumbs()
         const { route, } = useContext()
         watch(title, () => {

@@ -34,17 +34,20 @@
 
 
 
-<script>
-import {defineComponent, useContext, onMounted, computed, useMeta, ref, useFetch,} from '@nuxtjs/composition-api'
+<script lang="ts">
+import { defineComponent, useContext, computed, useMeta, ref, useFetch, watch, } from '@nuxtjs/composition-api'
+import moment from 'moment'
+
+import { useAxios,} from '@/composition/axios'
+import { Post, } from '@/modules/types'
+import { useHelpers, } from '@/composition/helpers'
+import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
-import Btn from '~/components/Generic/Btn.vue'
+import Btn from '@/components/Generic/Btn.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
-import {useAxios,} from '@/composition/axios';
-import {Post,} from '@/modules/types';
-import moment from 'moment';
-import {useHelpers,} from '@/composition/helpers';
+
 
 export default defineComponent({
     name:'index',
@@ -58,11 +61,11 @@ export default defineComponent({
     setup() {
         const { $axios, error,} = useAxios()
 
-        const { route,} = useContext()
+        const { route, } = useContext()
         const slug=route.value.params.slug
 
-        const postDate = ref()
-        const post = ref({})
+        const postDate = ref('')
+        const post = ref<Post>({} as Post)
 
         const { humanDateDiff, } = useHelpers()
 
@@ -73,9 +76,36 @@ export default defineComponent({
             postDate.value = humanDateDiff(post.value.post_date)
         })
 
-        const title = computed(()=> post.value?.title)
-        useMeta({ title: title, })
+        useMeta(() => ({ title: post.value.title }))
 
+        const { breadcrumbs, } = useBreadcrumbs()
+        if (!post.value.region) {
+            breadcrumbs.value = [
+            {
+              url: '/top',
+              title: 'Топ кандидатов',
+            }
+          ]
+        }
+        else {
+          breadcrumbs.value = [
+            {
+              url: '/',
+              title: 'Краснодарский край'
+            },
+            {
+              url: `/region/${post.value.region.slug}`,
+              title: `${post.value.region.name} округ`,
+            }
+          ]
+        if (post.value.district) {
+          breadcrumbs.value.push({
+            url: `/region/${post.value.region.slug}/${post.value.district.slug}`,
+            title: `${post.value.district.name}`,
+          })
+        }
+      }
+      
         return {
             post,
             postDate,

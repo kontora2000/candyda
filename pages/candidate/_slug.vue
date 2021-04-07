@@ -85,6 +85,7 @@ import CandidateNews from '@/components/Candidate/CandidateNews.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
+import { useBreadcrumbs, } from '~/composition/breadcrumbs'
 
 
 export default defineComponent({
@@ -120,14 +121,10 @@ export default defineComponent({
                 ageText.value = -1*age.value + ' ' + numWord(-age.value, ['год', 'года', 'лет'])
                 isVoted.value = localStorage.getItem(candidate.value.slug)!==null
             })
-            const title = computed(()=>fullName.value || '')
-            useMeta({ title, })
-
-            const {
-                isVisible: isGalleryVisible,
-                hide: closeGallery, }  = useToggle()
+            useMeta(() => ({ title: fullName.value, }))
+            //gallery
+            const { isVisible: isGalleryVisible, hide: closeGallery, }  = useToggle()
             const currentImg = ref(0)
-
             const openGallery = (index) => {
                 currentImg.value = index
                 isGalleryVisible.value = true
@@ -135,6 +132,35 @@ export default defineComponent({
                 document.body.style.position = 'fixed'
                 document.querySelector('html').style.overflow = 'hidden'
                 document.querySelector('.gallery-lightbox-wrapper').focus() 
+            }
+
+        
+            const { breadcrumbs, } = useBreadcrumbs()
+            if (!candidate.value.region) {
+                breadcrumbs.value = [
+                    {
+                        url: '/news',
+                        title: 'Новости',
+                    }
+                ]
+            }
+            else {
+                breadcrumbs.value = [
+                    {
+                        url: '/',
+                        title: 'Краснодарский край',
+                    },
+                    {
+                        url: `/region/${candidate.value.region.slug}`,
+                        title: `${candidate.value.region.name} округ`,
+                    }
+                ]
+                if (candidate.value.district) {
+                    breadcrumbs.value.push({
+                        url: `/region/${candidate.value.region.slug}/${candidate.value.district.slug}`,
+                        title: `${candidate.value.district.name}`,
+                    })
+                }
             }
 
             return {

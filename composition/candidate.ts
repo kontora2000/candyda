@@ -29,7 +29,6 @@ export const useCandidate = () => {
         error({ statusCode: response.status, message:'Не удалось загрузить данные кандидата, попробуйте позже' })
       }
     } catch (e) {
-      console.error(e)
       error({ statusCode:404, message:'Страниц не найдена' })
     }
   })
