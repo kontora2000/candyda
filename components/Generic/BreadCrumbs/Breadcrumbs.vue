@@ -10,22 +10,18 @@
 
 
 <script lang="ts">
-import { defineComponent, PropType, useContext, watch, } from '@nuxtjs/composition-api'
+import { defineComponent, useContext, watch, } from '@nuxtjs/composition-api'
 import { useHelpers,  } from '@/composition/helpers'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 
 export default defineComponent({
     name:'Breadcrumbs',
     setup () {
-        const { breadcrumbs, isBreadcrumbsVisible, } =  useBreadcrumbs()
+        const { breadcrumbs, isBreadcrumbsVisible, checkVisibility, } =  useBreadcrumbs()
         const { route, } = useContext()
-        isBreadcrumbsVisible.value =  
-            route.value.path.includes('region') || 
-            route.value.path.includes('district') || 
-            route.value.name === 'news-slug' || 
-            route.value.name == 'candidate-slug'
+        checkVisibility(route)
         watch(route, () => {
-            isBreadcrumbsVisible.value =  route.value.path.includes('region') || route.value.path.includes('district')
+            checkVisibility(route)
         })
         const { generateKey, } = useHelpers()
         return {
@@ -48,6 +44,10 @@ export default defineComponent({
   top: 9rem;
   left: 0;
   z-index: 1;
+}
+
+.breadrcumb:last-child::after {
+    content: '';
 }
 
 .breadcrumb::after {
