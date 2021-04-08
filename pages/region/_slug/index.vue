@@ -1,38 +1,37 @@
 <template>
- <div v-if="region" class="main-bottom-wrapper grid-main">
-   <div class="region-title" v-if="region && region.name">
-      <b v-if="region.number">
-         №{{ region.number  }} 
-      </b>
-        {{ region.name }} <br /> округ</div>
-   <div class="cont-wrapper cont-wrapper-left" v-if="region.posts && region.posts.length > 0">
-       <div class="cont-header-wrapper">
-         <h3 class="cont-header">Новости округа</h3>
-      </div>
-      <div class="news-block-cards-wrapper block-cards-wrapper">
-        <NewsBlockCard  v-for="post in region.posts"
-          :key="post.id"
-          :post="post" /> 
-      </div>
+  <div v-if="region" class="main-bottom-wrapper grid-main">
+    <div class="region-title-wrapper" v-if="region && region.name">
+      <div class="region-title-number" v-if="region.number">№{{ region.number  }}</div>
+      <h1 class="region-title">{{ region.name }}<br />округ</h1>
     </div>
-    <div class="cont-wrapper cont-wrapper-right" v-if="region.candidates && region.candidates.length > 0">
-      <div class="cont-header-wrapper">
-         <h3 class="cont-header">Кандидаты округа</h3>
-      </div>
-      <div class="top-candidates-cards-wrapper block-cards-wrapper">
-        <CandidateCard 
-          v-for="candidate in region.candidates" 
-          :key="candidate.slug"
-          :candidate="candidate" />
-      </div>
-     </div>
-     <div class="cont-wrapper cont-wrapper-right" v-if="region.parties && region.parties.length > 0">
+  <div class="cont-wrapper cont-wrapper-left" v-if="region.posts && region.posts.length > 0">
+    <div class="cont-header-wrapper">
+      <h3 class="cont-header">Новости округа</h3>
+    </div>
+    <div class="news-block-cards-wrapper block-cards-wrapper">
+      <NewsBlockCard  v-for="post in region.posts"
+        :key="post.id"
+        :post="post" /> 
+    </div>
+  </div>
+  <div class="cont-wrapper cont-wrapper-right" v-if="region.candidates && region.candidates.length > 0">
+    <div class="cont-header-wrapper">
+        <h3 class="cont-header">Кандидаты округа</h3>
+    </div>
+    <div class="top-candidates-cards-wrapper block-cards-wrapper">
+      <CandidateCard 
+        v-for="candidate in region.candidates" 
+        :key="candidate.slug"
+        :candidate="candidate" />
+    </div>
+    </div>
+    <div class="cont-wrapper cont-wrapper-right" v-if="region.parties && region.parties.length > 0">
       <div class="cont-header-wrapper">
          <h3 class="cont-header">Партии в&nbsp;округе</h3>
       </div>
-       <PartyBlock v-if="region.parties" :parties="region.parties" />
+      <PartyBlock v-if="region.parties" :parties="region.parties" />
     </div>
- </div>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent, computed, watch, useMeta, useContext, } from '@nuxtjs/composition-api'
@@ -78,24 +77,27 @@ export default defineComponent({
     },
 })
 </script>
-<style scoped>
 
-.region-title {
+
+
+<style scoped>
+.region-title-wrapper {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 5.2rem;
-  line-height: 4.8rem;
   position: absolute;
-  top: calc(112px + 0.51rem);
-  left: 30%;
-  letter-spacing: -0.01em;
+  top: calc(9.2rem + 2rem);
+  left: calc((100vw - 49.6rem - 1.6rem) / 32 * 9 + 9.6rem + .8rem);
 }
 
-.region-title b {
-  display: block;
+.region-title-number {
   font-size: 12rem;
+  font-weight: 400;
+  letter-spacing: -.04em;
+  line-height: 10rem;
+  margin-right: 2.4rem;
+}
+
+.region-title {
+  margin-top: .4rem;
 }
 
 .main-bottom-wrapper {

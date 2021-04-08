@@ -456,7 +456,7 @@ grid-column: 9/28;
     grid-column: 2/17;
     grid-template-columns: repeat(15, calc((100vw - 49.6rem - 1.6rem) / 32));
     grid-column-gap: 1.6rem;
-    grid-row: span 3;
+    grid-row: span 4;
 }
 .page-bottom-wrapper .cont-wrapper-left {
     grid-row: span 2;

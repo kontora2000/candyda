@@ -81,6 +81,7 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    filter: blur(40px);
 }
 
 /*.bg-circles-canvas {
@@ -103,10 +104,9 @@ export default defineComponent({
 
 .bg-circle {
   position: relative;
-  filter: blur(56px);
   border-radius: 50%;
   display: none;
-  opacity: .84;
+  opacity: .88;
   transition: all .45s ease-in-out;
 }
 

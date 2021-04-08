@@ -5,7 +5,7 @@
         <div class="page-content-filter-wrapper"></div>
       </aside>
       <div class="page-wrapper page-top">
-        <h1 class="page-header page-top-header">Топ партий</h1>
+        <h1 class="page-header page-top-header">Партии</h1>
         <PartyTop />
       </div>
     </div>

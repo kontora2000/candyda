@@ -23,19 +23,22 @@ export default defineComponent({
 
 <style scoped>
 .footer-nav {
-  font-size: 1.6rem;
-  margin-bottom: 1.2rem;
+  margin-right: 2.4rem;
 }
 
 .footer-nav ul li {
-  margin-right: 1.6rem;
-  display: inline-flex;
+  display: flex;
+  margin-bottom: .8rem;
+  min-width: 14rem;
 }
 
 .footer-nav .nav-link.link-underline-solid {
   border-bottom-color: var(--Black20);
+  border-bottom-width: 1.5px;
   color: var(--Black32);
   display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 500;
   line-height: 2rem;
 }
 
