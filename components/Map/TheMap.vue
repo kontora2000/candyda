@@ -246,6 +246,7 @@ export default defineComponent({
 
 <style scoped>
 .map-cont {
+	filter: drop-shadow(rgba(0, 102, 204, 0.2) 0px 22px 64px);
 	grid-column: 1/33;
 	position: relative;
 	margin-top: 1.2rem;
@@ -254,6 +255,10 @@ export default defineComponent({
 
 .minus-one {
   z-index: -1;
+}
+
+.map-svg {
+	filter: drop-shadow(rgba(0, 131, 204, 0.72) 0px 12px 16px);
 }
 
 .map-svg .o-city {
