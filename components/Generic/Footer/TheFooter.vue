@@ -6,6 +6,7 @@
         <div class="copyright text-small">
           ©&thinsp;2021, Duma.one Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
         </div>
+        <div class="footer-logo-wrapper"></div>
       </footer>
     </div>
   </div>
@@ -41,11 +42,18 @@ footer {
   background: var(--Black3);
   border-radius: 12px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   padding: 1.2rem;
   position: sticky;
   position: -webkit-sticky;
+}
+
+.footer-logo-wrapper {
+  height: 4rem;
+  margin-left: 2rem;
+  min-width: 3.6rem;
+  width: 3.6rem;
 }
 
 .copyright {

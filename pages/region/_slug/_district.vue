@@ -1,35 +1,37 @@
 <template>
  <div v-if="district">
-   <div class="cont-wrapper" v-if="district.posts && district.posts.length > 0">
-       <div class="cont-header-wrapper cont-wrapper-left">
-         <h3 class="cont-header">Новости района</h3>
-      </div>
-      <div class="news-block-cards-wrapper block-cards-wrapper">
-        <NewsBlockCard  v-for="post in district.posts"
-          :key="post.id"
-          :post="post" /> 
-      </div>
+    <div class="cont-wrapper" v-if="district.posts && district.posts.length > 0">
+        <div class="cont-header-wrapper cont-wrapper-left">
+            <h3 class="cont-header">Новости района</h3>
+        </div>
+        <div class="news-block-cards-wrapper block-cards-wrapper">
+            <NewsBlockCard  v-for="post in district.posts"
+            :key="post.id"
+            :post="post" /> 
+        </div>
     </div>
-    
     <div class="cont-wrapper cont-wrapper-right" v-if="district.candidates && district.candidates.length > 0" >
         <div class="cont-header-wrapper">
           <h3 class="cont-header">Кандидаты района</h3>
         </div>
         <div class="top-candidates-cards-wrapper block-cards-wrapper">
-        <CandidateCard 
+            <CandidateCard 
           v-for="candidate in district.candidates" 
           :key="candidate.slug"
           :candidate="candidate" />
-      </div>
-     </div>
-     <div class="cont-wrapper cont-wrapper-right"  v-if="district.parties && district.parties.length > 0">
-      <div class="cont-header-wrapper">
-         <h3 class="cont-header">Партии в&nbsp;районе</h3>
-      </div>
-       <PartyBlock :parties="district.parties" />
+        </div>
+    </div>
+    <div class="cont-wrapper cont-wrapper-right"  v-if="district.parties && district.parties.length > 0">
+        <div class="cont-header-wrapper">
+            <h3 class="cont-header">Партии в&nbsp;районе</h3>
+        </div>
+        <PartyBlock :parties="district.parties" />
     </div>
  </div>
 </template>
+
+
+
 <script>
 import { defineComponent, useMeta, computed, } from '@nuxtjs/composition-api'
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
