@@ -11,7 +11,6 @@ const searchRequestBody = ref<SearchRequestBody> ({
   tags: [] as Array<string>,
   words: [] as Array<string>,
 })
-const results = ref([])
 
 export const useSearch = () => {
    
@@ -23,6 +22,7 @@ export const useSearch = () => {
         const response =  await $axios.post('/search', searchRequestBody.value)
         if (response.status === 200) {
           searchResults.value = response.data
+          console.log(searchResults.value)
         }
         else {
           console.log('error while search request')
@@ -57,7 +57,7 @@ export const useSearch = () => {
       isSearchOpen,
       searchString,
       searchBlocks,
-      results,
+      searchResults,
       hasResults,
       searchInputPlaceholder,
       searchInputPadding,
