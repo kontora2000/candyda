@@ -5,10 +5,10 @@
   </aside> 
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent,  } from '@nuxtjs/composition-api'
 import LocationFilter from '@/components/Generic/LocationFilter/LocationFilter.vue'
-import Breadcrumbs from '../BreadCrumbs/Breadcrumbs.vue'
+import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
 
 export default defineComponent({
     name:'TheAside',

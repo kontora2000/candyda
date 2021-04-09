@@ -1,7 +1,9 @@
 <template>
 <div class="cont-wrapper" v-if="parties">
   <div class="cont-header-wrapper">
-    <h3 class="cont-header"><nuxt-link to="/party" class="link-underline-solid">Партии</nuxt-link></h3>
+    <h3 class="cont-header">
+      <nuxt-link to="/party" class="link-underline-solid">Партии</nuxt-link>
+    </h3>
   </div>
   <div class="party-cards-wrapper">
     <PartyCard 
