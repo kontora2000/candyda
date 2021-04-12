@@ -59,53 +59,26 @@ export default defineComponent({
     },
     head:{},
     setup() {
-        const { $axios, error,} = useAxios()
-
-        const { route, } = useContext()
-        const slug=route.value.params.slug
-
+        const { humanDateDiff, } = useHelpers()
         const postDate = ref('')
         const post = ref<Post>({} as Post)
-
-        const { humanDateDiff, } = useHelpers()
-
+        const { $axios, error,} = useAxios()
+        const { route, } = useContext()
+        const slug=route.value.params.slug
         const { fetch: fetchPost, } = useFetch(async () => {
             post.value = await $axios.$get('/post/' + slug)
             if (!post.value.slug) error({statusCode: 404,})
             moment.locale('ru')
             postDate.value = humanDateDiff(post.value.post_date)
         })
+        
+        const { setPostBreadCrumbs, } = useBreadcrumbs()
+        watch(post, () => {
+          setPostBreadCrumbs(post.value)
+        })
 
         useMeta(() => ({ title: post.value.title }))
 
-        const { breadcrumbs, } = useBreadcrumbs()
-        if (!post.value.region) {
-            breadcrumbs.value = [
-            {
-              url: '/top',
-              title: 'Топ кандидатов',
-            }
-          ]
-        }
-        else {
-          breadcrumbs.value = [
-            {
-              url: '/',
-              title: 'Краснодарский край'
-            },
-            {
-              url: `/region/${post.value.region.slug}`,
-              title: `${post.value.region.name} округ`,
-            }
-          ]
-        if (post.value.district) {
-          breadcrumbs.value.push({
-            url: `/region/${post.value.region.slug}/${post.value.district.slug}`,
-            title: `${post.value.district.name}`,
-          })
-        }
-      }
-      
         return {
             post,
             postDate,

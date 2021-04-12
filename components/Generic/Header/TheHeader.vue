@@ -12,8 +12,6 @@
 <script>
 import { defineComponent,  } from '@nuxtjs/composition-api'
 
-import { useBreadcrumbs, } from '@/composition/breadcrumbs'
-
 import HeaderLogo from '@/components/Generic/Header/HeaderLogo'
 import HeaderNavbar from '@/components/Generic/Header/HeaderNavbar'
 import HeaderSearchbar from '@/components/Generic/Header/HeaderSearchbar'
