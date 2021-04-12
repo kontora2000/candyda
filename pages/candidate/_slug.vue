@@ -135,7 +135,6 @@ export default defineComponent({
                 document.querySelector('html').style.overflow = 'hidden'
                 document.querySelector('.gallery-lightbox-wrapper').focus() 
             }
-
             return {
                 candidate,
                 isVoted,
