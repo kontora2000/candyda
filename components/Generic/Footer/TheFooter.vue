@@ -6,7 +6,11 @@
         <div class="copyright text-small">
           ©&thinsp;2021, Duma.one Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
         </div>
-        <div class="footer-logo-wrapper"></div>
+        <div class="footer-logo-wrapper">
+          <svg class="footer-logo-svg logo-small">
+            <use xlink:href="/sprite.svg#logo-small" />
+          </svg>
+        </div>
       </footer>
     </div>
   </div>
@@ -54,6 +58,12 @@ footer {
   margin-left: 2rem;
   min-width: 3.6rem;
   width: 3.6rem;
+}
+
+.footer-logo-svg {
+  width: inherit;
+  height: inherit;
+  fill: var(--Black16);
 }
 
 .copyright {

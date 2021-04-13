@@ -8,7 +8,7 @@
                         :key="candidate.id"
                         :candidate="candidate"/>
          <div class="showmore-btn-wrapper">
-            <nuxt-link to="/top" ><btn class="button-transparent">Смотреть весь&nbsp;топ</btn></nuxt-link>
+            <nuxt-link to="/top" ><btn class="button-transparent">Весь&nbsp;рейтинг</btn></nuxt-link>
          </div>
       </div>
    </div>

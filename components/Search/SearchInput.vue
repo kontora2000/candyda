@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSearch" class="search-form">
     <svg class="icon-search-svg icon-svg">
-         <use xlink:href="/sprite.svg#icon-search" />
+      <use xlink:href="/sprite.svg#icon-search" />
     </svg>
     <input 
       @focus="onFocus"
@@ -14,8 +14,8 @@
       @>
       <transition name="fade-fast">
         <div class="search-close" v-if="isCloseButtonVisible" @click="onCloseButtonClick">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <path d="M15.5 14.4618L1.06673 0L0 1.06886L14.4333 15.5304L0.0608999 29.9311L1.12763 31L15.5 16.5992L29.8724 31L30.9391 29.9311L16.5667 15.5304L31 1.06886L29.9333 0L15.5 14.4618Z" />
+          <svg class="icon-close-svg icon-svg">
+            <use xlink:href="/sprite.svg#icon-close" />
           </svg>
         </div>
       </transition>
@@ -25,8 +25,8 @@
           v-for="(block, index) in searchBlocks"
           :key="generateKey(index)"> 
             <span class="search-block-delete" @click.prevent="deleteBlock(index)">  
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32">
-                    <path d="M15.5 14.4618L1.06673 0L0 1.06886L14.4333 15.5304L0.0608999 29.9311L1.12763 31L15.5 16.5992L29.8724 31L30.9391 29.9311L16.5667 15.5304L31 1.06886L29.9333 0L15.5 14.4618Z" />
+              <svg class="icon-search-delete-svg icon-svg">
+                  <use xlink:href="/sprite.svg#icon-search-delete" />
               </svg>
             </span>
             <span class="search-block-text">
@@ -135,111 +135,111 @@ export default defineComponent({
 })
 </script>
 <style scoped>
-  .search-form {
-    grid-column: 2/32;
-    position: relative;
-  }
+.search-form {
+  grid-column: 2/32;
+  position: relative;
+}
 
-  .search-input {
-    width: calc(100vw - 8rem);
-    padding-left: 6rem;
-    transition: all .15s ease-in-out;
-  }
+.search-input {
+  width: calc(100vw - 8rem);
+  padding-left: 6rem;
+  transition: all .15s ease-in-out;
+}
 
-  .search-close {
-    height: 6.4rem;
-    width: 6.4rem;
-    max-width: 6.4rem;
-    max-height: 6.4rem;
-    position: absolute;
-    right: 0;
-    top: 0;
-    border-radius: 100px;
-    background: var(--Azure16);
-    cursor: pointer;
-    transition: all .15s ease-in-out;
-  }
+.search-close {
+  height: 6.4rem;
+  width: 6.4rem;
+  max-width: 6.4rem;
+  max-height: 6.4rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 100px;
+  background: var(--Azure16);
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+}
 
-  .search-close:hover {
-    background: var(--Azure84);
-  }
+.search-close:hover {
+  background: var(--Azure84);
+  transform: translateY(-.8rem);
+}
 
-  .search-close svg {
-    fill: var(--Black100);
-    position: relative;
-    left: 16px;
-    top: 16px;
-    max-width: 6.4rem;
-    max-height: 6.4rem;
-    transition: fill .15s ease-in-out;
-  }
-  .search-close:hover svg {
-    fill: var(--White100);
-  }
+.search-close svg {
+  fill: var(--Black100);
+  position: relative;
+  left: 16px;
+  top: 16px;
+  max-width: 3.2rem;
+  max-height: 3.2rem;
+  transition: fill .15s ease-in-out;
+}
+.search-close:hover svg {
+  fill: var(--White100);
+}
 
-  .search-blocks-wrapper {
-    position: absolute;
-    top: 0.5rem;
-    margin-left: 6rem;
-    line-height: 2.3rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-  }
+.search-blocks-wrapper {
+  position: absolute;
+  top: 0.5rem;
+  margin-left: 6rem;
+  line-height: 2.3rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
 
+.search-block {
+  background: var(--Azure100);
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border-radius: 40px;
+  box-sizing: border-box;
+  padding: calc(2rem - .5rem) 1.6rem;
+  margin-left: .9rem;
+  color: var(--White100);
+}
 
-  .search-block {
-    background: var(--Azure100);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    border-radius: 40px;
-    box-sizing: border-box;
-    padding: calc(2rem - .5rem) 1.6rem;
-    margin-left: .9rem;
-    color: var(--White100);
-  }
+.search-block:first-of-type {
+  margin-left: 0;
+} 
 
-  .search-block:first-of-type {
-    margin-left: 0;
-  } 
+.search-block-text {
+  padding: 0;
+  margin-left: 0.95rem;
+}
 
-  .search-block-text {
-    padding: 0;
-    margin-left: 0.95rem;
-  }
+.search-block-delete {
+  cursor: pointer;
+  padding: 0;
+  height: 2rem;
+  width: 2rem;
+}
 
-  .search-block-delete {
-    cursor: pointer;
-    padding: 0;
-    height: 16px;
-    width: 16px;
-  }
-  
-  .search-block-delete svg{
-    height: 100%;
-    width: 100%;
-    fill: var(--White100);
-  }
+.icon-search-delete-svg {
+  display: inline-block;
+  fill: var(--White56);
+  height: inherit;
+  width: inherit;
+  transition: fill .15s ease-in-out;
+}
+.search-block-delete:hover .icon-search-delete-svg {
+  fill: var(--White100);
+}
 
-  .search-block-delete:hover svg{
-    fill: var(--Black100);
-  }
+.icon-search-svg {
+  width: 3.2rem;
+  height: 2.6rem;
+  position: absolute;
+  z-index: 102;
+  left: 2rem;
+  top: 1.9rem;
+}
 
-  .icon-search-svg {
-   width: inherit;
-   height: inherit;
-   position: absolute;
-   z-index: 102;
-   left: 2rem;
-   top: 1.9rem;
-  }
-
-  .icon-search-svg use {
-    fill: var(--Black32);
-  }
-
-  
+.icon-search-svg use {
+  fill: var(--Black32);
+}
 </style>

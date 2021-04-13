@@ -22,12 +22,10 @@
                        v-touch="() => onVote(candidate.slug)" @click="onVote(candidate.slug)">
                      <btn class="vote-button"
                           :disabled="isVoted"
-                          :loading="isLoading">
-                         Проголосовать
-                     </btn>
+                          :loading="isLoading"><svg class="icon-votes-counter icon-svg"><use xlink:href="/sprite.svg#icon-check" /></svg><span>Проголосовать</span></btn>
                   </div>
                </div>
-               <div class="candidate-age candidate-info-row">{{ ageText }} / Родился {{ candidate.birthdate }}</div>
+               <div class="candidate-age candidate-info-row">{{ ageText }}<sup>родился {{ candidate.birthdate }}</sup></div>
                <div class="candidate-edu candidate-info-row" v-if="candidate.party">
                   <div class="candidate-info-row-header">Партия</div>
                   <div class="candidate-info-row-content" >
@@ -213,7 +211,8 @@ export default defineComponent({
    margin-right: 3.2rem;
 }
 
-.candidate-top-votes sup {
+.candidate-top-votes sup,
+.candidate-age sup {
    margin-left: .4rem;
    position: relative;
    top: -6px;
@@ -225,6 +224,19 @@ export default defineComponent({
 
 .vote-button {
    width: 100%;
+}
+
+.vote-button>.icon-votes-counter {
+   fill: var(--White100);
+   display: inline-block;
+   height: 1.8rem;
+   width: 2.4rem;
+   margin-right: .8rem;
+   position: relative;
+   top: .1rem;
+}
+.vote-button:disabled>.icon-votes-counter {
+   fill: var(--Black16);
 }
 
 .candidate-about-wrapper {

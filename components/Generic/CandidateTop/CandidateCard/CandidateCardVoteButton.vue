@@ -5,9 +5,9 @@
            @click.prevent="$emit('vote')"
 
       >
-         <span class="icon icon-votes-counter">
+         <svg class="icon-svg icon-votes-counter">
             <use xlink:href="/sprite.svg#icon-check" />
-         </span>
+         </svg>
          <span class="votes-counter-small-digits">{{ votes }}</span>
       </div>
    </div>
@@ -69,8 +69,16 @@ export default defineComponent({
 
 .icon-votes-counter {
    display: inline-block;
-   width: 1.6rem;
-   height: 1.3rem;
+   fill: var(--White56);
+   height: 1.6rem;
+   width: 2rem;
+   position: relative;
+   top: .1rem;
+}
+.first.candidate-card-cont .icon-votes-counter,
+.second.candidate-card-cont .icon-votes-counter {
+   height: 2.4rem;
+   width: 3.2rem;
 }
 
 .icon-votes-counter>use {
