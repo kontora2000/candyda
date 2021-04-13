@@ -268,6 +268,7 @@ export default defineComponent({
 .candidate-gallery-img-cont {
    border-radius: 12px;
    grid-column: span 7;
+   margin-top: 1.6rem;
    overflow: hidden;
 }
 

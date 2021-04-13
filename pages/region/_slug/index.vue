@@ -4,33 +4,35 @@
       <div class="region-title-number" v-if="region.number">№{{ region.number  }}</div>
       <h1 class="region-title">{{ region.name }}<br />округ</h1>
     </div>
-  <div class="cont-wrapper cont-wrapper-left" v-if="region.posts && region.posts.length > 0">
-    <div class="cont-header-wrapper">
-      <h3 class="cont-header">Новости округа</h3>
+    <div class="cont-wrapper cont-wrapper-left" v-if="region.posts && region.posts.length > 0">
+      <div class="cont-header-wrapper">
+        <h3 class="cont-header">Новости округа</h3>
+      </div>
+      <div class="news-block-cards-wrapper block-cards-wrapper">
+        <NewsBlockCard class="news-card-cont-small"
+          v-for="post in region.posts"
+          :key="post.id"
+          :post="post" /> 
+      </div>
     </div>
-    <div class="news-block-cards-wrapper block-cards-wrapper">
-      <NewsBlockCard  v-for="post in region.posts"
-        :key="post.id"
-        :post="post" /> 
-    </div>
-  </div>
-  <div class="cont-wrapper cont-wrapper-right" v-if="region.candidates && region.candidates.length > 0">
-    <div class="cont-header-wrapper">
-        <h3 class="cont-header">Кандидаты округа</h3>
-    </div>
-    <div class="top-candidates-cards-wrapper block-cards-wrapper">
-      <CandidateCard 
-        v-for="candidate in region.candidates" 
-        :key="candidate.slug"
-        :candidate="candidate" />
-    </div>
+    <div class="cont-wrapper cont-wrapper-right" v-if="region.candidates && region.candidates.length > 0">
+      <div class="cont-header-wrapper">
+          <h3 class="cont-header">Кандидаты округа</h3>
+      </div>
+      <div class="top-candidates-cards-wrapper block-cards-wrapper">
+        <CandidateCard 
+          v-for="candidate in region.candidates" 
+          :key="candidate.slug"
+          :candidate="candidate" />
+      </div>
     </div>
     <div class="cont-wrapper cont-wrapper-right" v-if="region.parties && region.parties.length > 0">
       <div class="cont-header-wrapper">
-         <h3 class="cont-header">Партии в&nbsp;округе</h3>
+          <h3 class="cont-header">Партии в&nbsp;округе</h3>
       </div>
       <PartyBlock v-if="region.parties" :parties="region.parties" />
     </div>
+    <TheFooter />
   </div>
 </template>
 <script lang="ts">
@@ -42,6 +44,7 @@ import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import PartyBlock from '@/components/Party/PartyBlock.vue'
+import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
 export default defineComponent({
     layout: 'map',
@@ -51,6 +54,7 @@ export default defineComponent({
         CandidateCard,
         NewsBlockCard,
         PartyBlock,
+        TheFooter,
     },
     setup () {
         const { region, fetchRegion, } = useRegion()

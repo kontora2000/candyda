@@ -14,7 +14,7 @@
          </div>
          <div class="page-wrapper page-top" 
           v-else-if="candidates && candidates.length===0 && locationFilter.region!=='' && !isLoading">
-            <p>Нет подходящих кандидатов</p>
+            <h1 class="page-header page-top-header">Нет подходящих кандидатов</h1>
          </div>
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">

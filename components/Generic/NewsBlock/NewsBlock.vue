@@ -7,7 +7,7 @@
          <NewsBlockCard class="news-card-cont-small"
              v-for="post in posts"
              :key="post.id"
-             :post="post"/>
+             :post="post" />
           <template v-if="isNeedToUpload">
               <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page === 2" @click="upload"
               >

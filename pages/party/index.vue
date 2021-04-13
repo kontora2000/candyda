@@ -1,25 +1,25 @@
 <template>
-  <div class="page-content-superwrapper">
-    <div class="page-news-wrapper page-content-wrapper grid-main">
-      <aside class="page-aside-wrapper">
-        <div class="page-content-filter-wrapper"></div>
-      </aside>
-      <div class="page-wrapper page-top">
-        <h1 class="page-header page-top-header">Партии</h1>
-        <PartyTop />
+   <div class="page-content-superwrapper">
+      <div class="page-parties-wrapper page-content-wrapper grid-main">
+         <TheAside />
+         <div class="page-wrapper page-top">
+            <h1 class="page-header page-top-header">Партии</h1>
+            <PartyTop />
+         </div>
       </div>
-    </div>
-    <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
-          <NewsBlock class="cont-wrapper-left"/>
-          <TheFooter />
+      <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
+         <NewsBlock class="cont-wrapper-left"/>
+         <CandidateTop class="cont-wrapper-right" />
+         <TheFooter />
       </div>
-  </div>
+   </div>
 </template>
 
 <script>
 import { defineComponent, useMeta, } from '@nuxtjs/composition-api'
 import PartyTop from '@/components/Party/PartyTop.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
+import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
 export default defineComponent({
@@ -28,6 +28,7 @@ export default defineComponent({
     components: { 
         PartyTop,
         NewsBlock,
+        CandidateTop,
         TheFooter,
     },
     setup () {

@@ -20,23 +20,17 @@
                 </div>
                 <div class="gallery-lightbox-left" @click="left" v-on:touch="left" >
                     <svg class="icon-arrow-svg icon-arrow-left-svg">
-                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 31" id="icon-arrow-left">
-                            <path d="M0.556274 14.2684L31.1548 0L32 1.81262L2.72729 15.4626L32 29.1128L31.1548 30.9254L0.556274 16.657V14.2684Z"/>
-                        </symbol>
+                      <use xlink:href="/sprite.svg#icon-arrow-left" />
                     </svg>
                 </div>
                 <div class="gallery-lightbox-right" @click="right" v-on:touch="right">
                     <svg class="icon-arrow-svg icon-arrow-right-svg">
-                        <symbol xmlns="http://www.w3.org/2000/svg"  id="icon-arrow-right">
-                            <path d="M32 14.2684L1.40149 0L0.556274 1.81262L29.829 15.4626L0.556274 29.1128L1.40149 30.9254L32 16.657V14.2684Z"/>
-                        </symbol>
+                        <use xlink:href="/sprite.svg#icon-arrow-right" />
                     </svg>
                 </div>
                 <div class="gallery-lightbox-close" @click="onClose" v-on:touch="onClose">
                     <svg class="icon-close-svg">
-                        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="icon-close">
-                            <path d="M15.5564 14.1421L29.6985 0L31.1127 1.41422L16.9706 15.5563L31.1128 29.6985L29.6986 31.1127L15.5564 16.9705L1.41418 31.1127L0 29.6985L14.1422 15.5563L0.00012207 1.41422L1.41431 0L15.5564 14.1421Z"/>
-                        </symbol>
+                        <use xlink:href="/sprite.svg#icon-close" />
                     </svg>
                 </div>
             </div>
@@ -145,20 +139,25 @@ export default defineComponent({
 .gallery-lightbox-close {
   cursor: pointer;
   position: absolute;
-  left: 1.6rem;
+  right: 1.6rem;
   top: 3.2rem;
-  transition: transform .175s ease-in-out;
+  transition: transform .15s ease-in-out;
   will-change: transform;
 }
 .gallery-lightbox-close:hover {
   transform: scale(1.075);
 }
+
+.gallery-lightbox-close .icon-close-svg {
+  width: 4rem;
+  height: 4rem;
+}
 .gallery-lightbox-close .icon-close-svg>use {
-  fill: var(--White56);
-  transition: fill .175s ease-in-out;
+  fill: var(--Black100);
+  transition: fill .15s ease-in-out;
 }
 .gallery-lightbox-close:hover .icon-close-svg>use {
-  fill: var(--White100);
+  fill: var(--Black64);
 }
 .gallery-lightbox-left,
 .gallery-lightbox-right {
@@ -180,6 +179,8 @@ export default defineComponent({
 .gallery-lightbox-right .icon-arrow-svg {
   top: calc(50vh - 1.8rem);
   position: absolute;
+  height: 4.8rem;
+  width: 4.8rem;
 }
 .gallery-lightbox-left .icon-arrow-svg {
   left: 1.6rem;
@@ -188,11 +189,11 @@ export default defineComponent({
   right: 1.6rem;
 }
 .icon-arrow-svg>use {
-  fill: var(--White56);
+  fill: var(--Black100);
 }
 .gallery-lightbox-left:hover>.icon-arrow-svg>use,
 .gallery-lightbox-right:hover>.icon-arrow-svg>use {
-  fill: var(--White100);
+  fill: var(--Black64);
 }
 .gallery-lightbox-numb {
   color: var(--Black100);
