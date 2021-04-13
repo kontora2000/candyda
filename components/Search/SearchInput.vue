@@ -25,8 +25,8 @@
           v-for="(block, index) in searchBlocks"
           :key="generateKey(index)"> 
             <span class="search-block-delete" @click.prevent="deleteBlock(index)">  
-              <svg class="icon-search-delete-svg icon-svg">
-                  <use xlink:href="/sprite.svg#icon-search-delete" />
+              <svg class="icon-cross-small-svg icon-svg">
+                  <use xlink:href="/sprite.svg#icon-cross-small" />
               </svg>
             </span>
             <span class="search-block-text">
@@ -219,14 +219,14 @@ export default defineComponent({
   width: 2rem;
 }
 
-.icon-search-delete-svg {
+.icon-cross-small-svg {
   display: inline-block;
   fill: var(--White56);
   height: inherit;
   width: inherit;
   transition: fill .15s ease-in-out;
 }
-.search-block-delete:hover .icon-search-delete-svg {
+.search-block-delete:hover .icon-cross-small-svg {
   fill: var(--White100);
 }
 

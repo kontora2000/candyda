@@ -82,3 +82,12 @@ export default defineComponent({
     },
 })
 </script>
+
+
+
+<style scoped>
+.page-content-filter-wrapper {
+    position: relative;
+    top: 10rem;
+}
+</style>

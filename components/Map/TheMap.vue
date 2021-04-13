@@ -4,7 +4,7 @@
 			width="1228.16px" height="648.03px" viewBox="0 0 1228.16 648.03"
 			style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
 			<style type="text/css">
-			polygon {stroke-width: .5px; stroke: var(--Azure32);}
+			polygon {stroke-width: 1px; stroke: var(--Azure32);}
 			</style>
 			<!--<defs>
 				<filter id="shadow-o-city" x="0" y="0" width="100%" height="100%">

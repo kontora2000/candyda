@@ -9,10 +9,12 @@
       @click="open = !open">
         {{ selected.name }}
         <div class="select-icon" >
-          <span v-if="selected.slug" name="icon-close" @click="$emit('clear')" >&times;</span>
-          <svg class="icon-arrow-down" v-else width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1.5L9.5 11.5L18 1.5" stroke-width="1.8"/>
+          <svg class="icon-cross-small icon-svg" v-if="selected.slug" name="icon-close" @click="$emit('clear')" >
+            <use xlink:href="/sprite.svg#icon-cross-small" />
           </svg>
+          <svg class="icon-arrow-down icon-svg" v-else>
+              <use xlink:href="/sprite.svg#icon-select-arrow-down" />
+          </svg> 
         </div>
     </div>
   
@@ -118,7 +120,7 @@ export default defineComponent({
   right: 1em;
   max-width: 2rem;
   max-height: 2rem;
-  top: calc(50% - .7rem);
+  top: calc(50% - .9rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,12 +137,13 @@ export default defineComponent({
 .filter-select .select-icon > svg {
   max-width: 2rem;
   max-height: 2rem;
-  stroke: var(--Black100);
+  fill: var(--Black100);
   transition: all .15s ease-in-out;
 }
 
-.selected:hover .icon-arrow-down {
-  stroke: var(--White100);
+.selected:hover .icon-arrow-down,
+.selected:hover .icon-cross-small {
+  fill: var(--White100);
 }
 
 .filter-select .items {
