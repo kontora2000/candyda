@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { defineComponent,  ref, onMounted,  } from '@nuxtjs/composition-api'
+import { defineComponent,  ref, onMounted, watch,  } from '@nuxtjs/composition-api'
 import { useSearch, } from '@/composition/search'
 import { useHelpers, } from '@/composition/helpers'
 
@@ -51,25 +51,24 @@ export default defineComponent({
             parseSearchString, 
             searchInputPlaceholder, 
             searchInputPadding,
-            resetPlaceholder,       
+            resetPlaceholder,  
+            searchRequest,     
+            searchResults,
         } = useSearch()
 
         const { generateKey, } = useHelpers() 
         const isCloseButtonVisible = ref(false)
         const basePadding = '6rem'
-
         const searchInputWidth = ref('100%')
         let computedWidth = '100%'
-
         onMounted(() => {
             computedWidth = document.querySelector('.search-input').offsetWidth + 'px'
             searchInputWidth.value = computedWidth
         })
-
         const onFocus = () => {
             isSearchOpen.value = true
             searchInputWidth.value = '94%'
-            emit('searchFocus')
+            emit('search-focus')
             searchInputPlaceholder.value = ''
             window.setTimeout(() => {             
                 isCloseButtonVisible.value = true
@@ -87,13 +86,12 @@ export default defineComponent({
         const onCloseButtonClick = () => {  
             searchBlocks.value = []
             searchString.value = ''
-
             isCloseButtonVisible.value = false
             searchInputPadding.value = '6rem'
             searchInputWidth.value = computedWidth
             resetPlaceholder()
             window.setTimeout(() => { isSearchOpen.value = false;  }, 150) 
-            emit('searchClose')
+            emit('search-close')
         }
         const handleSearch = () => {
             if (searchString.value.trim !== '') {
@@ -106,12 +104,19 @@ export default defineComponent({
         }
         const deleteBlock = (ind) => {
             searchBlocks.value.splice(ind, 1)
+
             window.setTimeout(() => {
                 searchInputPadding.value = (searchBlocks.value.length > 0) ? 
                     `calc(${basePadding} + ${document.querySelector('.search-blocks-wrapper').offsetWidth}px + 1rem)` :
                     '6rem'
             }, 10)
         }
+
+        watch(searchBlocks, ()=> {
+            if (searchBlocks.value.length > 0) { searchRequest() } 
+            else { searchResults.value = {} }
+        })
+
         return {
             searchBlocks,
             searchString,

@@ -15,9 +15,9 @@
 
 <script>
 import { defineComponent, ref, } from '@nuxtjs/composition-api'
-import SearchInput from '~/components/Search/SearchInput.vue'
-import SearchResults from '~/components/Search/SearchResults.vue'
-import { useSearch, } from '~/composition/search'
+import SearchInput from '@/components/Search/SearchInput.vue'
+import SearchResults from '@/components/Search/SearchResults.vue'
+import { useSearch, } from '@/composition/search'
 
 export default defineComponent({
     name:'HeaderSearchbar',
@@ -31,11 +31,9 @@ export default defineComponent({
         const onFocus = () => {
             isShowResults.value = true
         }
-
         const onSearchClose = () => {
             isShowResults.value = false
         }
-
         return {
             isShowResults,
             isSearchOpen,

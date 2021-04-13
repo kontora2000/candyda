@@ -3,7 +3,7 @@
     <div class="main-bottom-wrapper grid-main">
       <NewsBlock class="cont-wrapper-left" />
       <CandidateTop class="cont-wrapper-right" />
-      <PartyTop class="cont-wrapper-right" />
+      <PartyTop class="cont-wrapper-right" v-show="!$device.isMobile"/>
       <TheFooter />
     </div>
   </main>

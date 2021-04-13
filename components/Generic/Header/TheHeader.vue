@@ -5,7 +5,6 @@
       <HeaderSearchbar  style="z-index:100"/>
       <HeaderAbout  v-if="!$device.isMobile"/>
       <HeaderBurger  v-if="$device.isMobile" />
-      <Breadcrumbs />
    </header>
 </template>
 
@@ -17,8 +16,6 @@ import HeaderNavbar from '@/components/Generic/Header/HeaderNavbar'
 import HeaderSearchbar from '@/components/Generic/Header/HeaderSearchbar'
 import HeaderAbout from '@/components/Generic/Header/HeaderAbout'
 import HeaderBurger from '@/components/Generic/Header/HeaderBurger'
-import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs'
-
 
 export default defineComponent({
     name:'TheHeader',
@@ -28,7 +25,6 @@ export default defineComponent({
         HeaderSearchbar,
         HeaderAbout,
         HeaderBurger,
-        Breadcrumbs,
     },
 })
 </script>

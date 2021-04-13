@@ -2,7 +2,7 @@
    <div class="page-content-superwrapper">
       <div class="page-candidate-wrapper page-content-wrapper grid-main">
          <aside class="page-aside-wrapper">
-            <div class="breadcrumbs-news breadcrumbs"><a class="link-underline-solid" href="#">Туапсинский округ</a> / <a class="link-underline-solid" href="#">Геленджик</a> / <a class="link-underline-solid" href="#">Кандидаты</a></div>
+           <breadcrumbs />
          </aside>
          <div class="candidate-wrapper">
             <div class="candidate-ava" v-if="candidate.ava">
@@ -72,21 +72,20 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, useContext, computed, useMeta, watch, ref, } from '@nuxtjs/composition-api'
 import { useCandidate, } from '@/composition/candidate'
 import { useHelpers, } from '@/composition/helpers'
 import { useToggle, } from '@/composition/toggle'
+import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 
 import Btn from '@/components/Generic/Btn.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
-import CandidateGallery from '@/components/Candidate/CandidateGallery'
+import CandidateGallery from '@/components/Candidate/CandidateGallery.vue'
 import CandidateNews from '@/components/Candidate/CandidateNews.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
-
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
-import { useBreadcrumbs, } from '~/composition/breadcrumbs'
-
+import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
 
 export default defineComponent({
     transition: 'fade',
@@ -97,6 +96,7 @@ export default defineComponent({
         CandidateNews,
         TheFooter,
         NewsBlock,
+        Breadcrumbs,
     },
     head:{},
     setup() {
@@ -107,7 +107,6 @@ export default defineComponent({
                 fetchCandidate,
                 onVote,
                 isVoted,
-                isLoading,
                 localVotes,
                 fullName,
                 age,
@@ -118,7 +117,9 @@ export default defineComponent({
             const votesText = computed( () => numWord(localVotes.value, ['голос', 'голоса', 'голосов']))
             const ageText = ref('')
             watch(age, ()=> {
-                ageText.value = -1*age.value + ' ' + numWord(-age.value, ['год', 'года', 'лет'])
+                if (age.value) {
+                    ageText.value = -1*age.value + ' ' + numWord(-age.value, ['год', 'года', 'лет'])
+                }
                 isVoted.value = localStorage.getItem(candidate.value.slug)!==null
                 const { setCandidateBreadcrumbs, } = useBreadcrumbs()
                 setCandidateBreadcrumbs(candidate.value)
@@ -132,14 +133,16 @@ export default defineComponent({
                 isGalleryVisible.value = true
                 document.body.style.overflowY = 'hidden'
                 document.body.style.position = 'fixed'
-                document.querySelector('html').style.overflow = 'hidden'
-                document.querySelector('.gallery-lightbox-wrapper').focus() 
+                const htmlRoot = document.querySelector('html')
+                if (htmlRoot)  htmlRoot.style.overflow = 'hidden'
+                const lightbox:HTMLFormElement|null =  document.querySelector('.gallery-lightbox-wrapper')
+                if (lightbox) lightbox.focus()
             }
+
             return {
                 candidate,
                 isVoted,
                 votesText,
-                isLoading,
                 localVotes,
                 ageText,
                 fullName,
@@ -262,15 +265,11 @@ export default defineComponent({
    width: 100%;
 }
 
-
-
 @media (min-width: 1460px) {
    .candidate-wrapper {
       grid-column: 9/28;
    }
 }
-
-
 
 @media (max-width: 460px) {
    .candidate-wrapper {
