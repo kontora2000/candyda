@@ -2,7 +2,7 @@
    <div class="page-content-superwrapper">
       <article class="page-news-wrapper page-content-wrapper grid-main">
          <aside class="page-aside-wrapper">
-            <div class="breadcrumbs-news breadcrumbs"><a class="link-underline-solid" href="#">Туапсинский округ</a> / <a class="link-underline-solid" href="#">Геленджик</a> / <a class="link-underline-solid" href="#">Новости</a></div>
+            <Breadcrumbs />
             <div class="date-publication">{{ postDate }}</div>
          </aside>
          <h2 class="article-header">{{
@@ -43,15 +43,16 @@ import { Post, } from '@/modules/types'
 import { useHelpers, } from '@/composition/helpers'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 
+import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import Btn from '@/components/Generic/Btn.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
-
 export default defineComponent({
     name:'index',
     components: {
+        Breadcrumbs,
         NewsBlockCard,
         Btn,
         CandidateTop,
