@@ -50,6 +50,8 @@ export default defineComponent({
   }
   .party-card-pic {
     object-fit: cover;
+    max-height: 100%;
+    max-width: 100%;
   }
 
   .party-card-content-wrapper {
