@@ -69,7 +69,8 @@ export const useBreadcrumbs = () => {
       route.value.path.includes('region') || 
       route.value.path.includes('district') || 
       route.value.name === 'news-slug' || 
-      route.value.name == 'candidate-slug'
+      route.value.name == 'candidate-slug' ||
+      route.value.name == 'party-index' 
   }
 
   return {

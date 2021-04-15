@@ -73,6 +73,10 @@ export default defineComponent({
             window.setTimeout(() => {             
                 isCloseButtonVisible.value = true
             }, 150) 
+            document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden'
+            document.body.style.position = document.body.style.position === 'fixed' ? '' : 'fixed'
+            const htmlElem = document.querySelector('html')
+            htmlElem.style.overflow = htmlElem.style.overflow === 'hidden' ?  '' : 'hidden'
         }
         const onBlur = () => {
             // // if (searchBlocks.value.length == 0 && searchString.value === '') {
@@ -92,6 +96,10 @@ export default defineComponent({
             resetPlaceholder()
             window.setTimeout(() => { isSearchOpen.value = false;  }, 150) 
             emit('search-close')
+            document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden'
+            document.body.style.position = document.body.style.position === 'fixed' ? '' : 'fixed'
+            const htmlElem = document.querySelector('html')
+            htmlElem.style.overflow = htmlElem.style.overflow === 'hidden' ?  '' : 'hidden'
         }
         const handleSearch = () => {
             if (searchString.value.trim !== '') {

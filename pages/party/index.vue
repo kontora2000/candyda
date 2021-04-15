@@ -15,12 +15,13 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, useMeta, } from '@nuxtjs/composition-api'
 import PartyTop from '@/components/Party/PartyTop.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
+import { useBreadcrumbs } from '~/composition/breadcrumbs'
 
 export default defineComponent({
     name: 'PartyIndex',
@@ -34,6 +35,14 @@ export default defineComponent({
     setup () {
         const { title, }  = useMeta()
         title.value = 'Топ партий'
+        const { breadcrumbs, } = useBreadcrumbs()
+        breadcrumbs.value = [
+           {
+              url: '/party',
+              title: 'Партии',
+           }
+        ]
+          
     },
 })
 </script>
