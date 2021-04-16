@@ -1,6 +1,6 @@
 <template>
  <div class="grid-main search-results-wrapper">
-    <template v-if="searchResults">
+    <template v-if="hasResults">
         <div class="search-results-page-header-wrapper">
             <h1 class="search-results-page-header">Нашли</h1>
         </div>
@@ -25,7 +25,7 @@
             :post="post" />
         </div>
     </template>
-    <div v-else>Ничего не&nbsp;нашли</div>
+    <div v-else-if="searchResults.posts">Ничего не&nbsp;нашли</div>
   </div>
 </template>
 
@@ -56,12 +56,18 @@ export default defineComponent({
             numWord(searchResults.value.tags.length, ['тэг', 'тэга','тэгов']) : '')
         const partyCount = computed(() => searchResults.value.parties ? 
             numWord(searchResults.value.parties.length, ['партия', 'партии','партий']) : '')
+        const hasResults = computed(() => 
+            (searchResults.posts && searchResults.posts.length  > 0) || 
+            (searchResults.candidates && searchResults.candidates.length > 0) || 
+            (searchResults.parties && searchResults.parties.length > 0) || 
+            (searchResults.tags && searchResults.tags.length > 0))
         return {
             searchResults,
             postsCount,
             candidatesCount,
             tagsCount,
             partyCount,
+            hasResults,
         }
     },
 })
