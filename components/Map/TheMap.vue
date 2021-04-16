@@ -169,14 +169,54 @@
 			</nuxt-link>
 			<nuxt-link to="/region/o-tuapsinskiy" class="link-to-o">
 				<g class="o-cont" id="o-tuapsinskiy">
-					<polygon id="novorossiysk" class="o-city" points="251.52,271.69 265.81,255.9 222.72,213.72 183.11,209.7 123.83,259.15 
-						176.88,276.23 214.72,270.62 216.77,255.61 229.76,252.38 	"/>
-					<polygon id="gelendzhik" class="o-city" points="407.73,295.83 265.81,255.9 251.52,271.69 298.5,313.38 372.82,336.95 	"/>
-					<polygon id="severskiy" class="o-city" points="499,227.74 434.32,217.24 433.28,194.62 407.73,190.86 348.55,279.18 
+					<g class="o-city-cont">
+						<polygon id="goryachiy-kluch" class="o-city" points="615.18,246.59 499,227.74 443.76,305.97 545.69,334.66 	"/>
+						<g class="o-city-title-cont">
+							<path class="o-bg" d="M515,279.8c0-7.2,0-10.8,1.8-13.3c0.6-0.8,1.3-1.5,2.1-2.1c2.5-1.8,6.1-1.8,13.3-1.8h77.2
+								c7.2,0,10.8,0,13.3,1.8c0.8,0.6,1.5,1.3,2.1,2.1c1.8,2.5,1.8,4.5,1.8,11.7v-5.6c0,7.2,0,10.8-1.8,13.3c-0.6,0.8-1.3,1.5-2.1,2.1
+								c-2.5,1.8-6.1,1.8-13.3,1.8h-91.6c-1.2,0-1.8,0-2.2-0.3c-0.1-0.1-0.3-0.2-0.4-0.4c-0.3-0.4-0.3-1-0.3-2.2V279.8z"/>
+							<text class="o-title o-city-title" transform="matrix(1 0 0 1 524.5604 280.3022)">Горячий Ключ</text>
+						</g>
+					</g>
+					<g class="o-city-cont">
+						<polygon id="severskiy" class="o-city" points="499,227.74 434.32,217.24 433.28,194.62 407.73,190.86 348.55,279.18 
 						443.76,305.97"/>
-					<polygon id="goryachiy-kluch" class="o-city" points="615.18,246.59 499,227.74 443.76,305.97 545.69,334.66 	"/>
-					<polygon id="tuapsinskiy" class="o-city" points="407.73,295.83 372.82,336.95 446.83,360.42 521.49,421.79 596.58,391.63 
+						<g class="o-city-title-cont">
+							<path class="o-bg" d="M407.5,247.3c0-7.2,0-10.8,1.8-13.3c0.6-0.8,1.3-1.5,2.1-2.1c2.5-1.8,6.1-1.8,13.3-1.8H522
+								c7.2,0,10.8,0,13.3,1.8c0.8,0.6,1.5,1.3,2.1,2.1c1.8,2.5,1.8,4.5,1.8,11.7v-5.6c0,7.2,0,10.8-1.8,13.3c-0.6,0.8-1.3,1.5-2.1,2.1
+								c-2.5,1.8-6.1,1.8-13.3,1.8H410.4c-1.2,0-1.8,0-2.2-0.3c-0.1-0.1-0.3-0.2-0.4-0.4c-0.3-0.4-0.3-1-0.3-2.2V247.3z"/>
+							<text class="o-title o-city-title" transform="matrix(1 0 0 1 417.0425 247.7352)">Северский район</text>
+						</g>
+					</g>
+					<g class="o-city-cont">
+						<polygon id="novorossiysk" class="o-city" points="251.52,271.69 265.81,255.9 222.72,213.72 183.11,209.7 123.83,259.15 
+							176.88,276.23 214.72,270.62 216.77,255.61 229.76,252.38"/>
+						<g class="o-city-title-cont">
+							<path class="o-bg" d="M200.5,232.7c0-7.2,0-10.8,1.8-13.3c0.6-0.8,1.3-1.5,2.1-2.1c2.5-1.8,6.1-1.8,13.3-1.8h82
+								c7.2,0,10.8,0,13.3,1.8c0.8,0.6,1.5,1.3,2.1,2.1c1.8,2.5,1.8,4.5,1.8,11.7v-5.6c0,7.2,0,10.8-1.8,13.3c-0.6,0.8-1.3,1.5-2.1,2.1
+								c-2.5,1.8-6.1,1.8-13.3,1.8h-96.4c-1.2,0-1.8,0-2.2-0.3c-0.1-0.1-0.3-0.2-0.4-0.4c-0.3-0.4-0.3-1-0.3-2.2V232.7z"/>
+							<text class="o-title o-city-title" transform="matrix(1 0 0 1 210.0358 233.2007)">Новороссийск</text>
+						</g>
+					</g>
+					<g class="o-city-cont">
+						<polygon id="gelendzhik" class="o-city" points="407.73,295.83 265.81,255.9 251.52,271.69 298.5,313.38 372.82,336.95"/>
+						<g class="o-city-title-cont">
+							<path class="o-bg" d="M317.1,283.4c0-7.2,0-10.8,1.8-13.3c0.6-0.8,1.3-1.5,2.1-2.1c2.5-1.8,6.1-1.8,13.3-1.8h59.6
+								c7.2,0,10.8,0,13.3,1.8c0.8,0.6,1.5,1.3,2.1,2.1c1.8,2.5,1.8,4.5,1.8,11.7v-5.6c0,7.2,0,10.8-1.8,13.3c-0.6,0.8-1.3,1.5-2.1,2.1
+								c-2.5,1.8-6.1,1.8-13.3,1.8h-74c-1.2,0-1.8,0-2.2-0.3c-0.1-0.1-0.3-0.2-0.4-0.4c-0.3-0.4-0.3-1-0.3-2.2V283.4z"/>
+							<text class="o-title o-city-title" transform="matrix(1 0 0 1 326.5792 283.8333)">Геленджик</text>
+						</g>
+					</g>
+					<g class="o-city-cont">
+						<polygon id="tuapsinskiy" class="o-city" points="407.73,295.83 372.82,336.95 446.83,360.42 521.49,421.79 596.58,391.63 
 						620.51,355.71"/>
+						<g class="o-city-title-cont">
+							<path class="o-bg" d="M460.1,345.3c0-7.2,0-10.8,1.8-13.3c0.6-0.8,1.3-1.5,2.1-2.1c2.5-1.8,6.1-1.8,13.3-1.8h117.2
+								c7.2,0,10.8,0,13.3,1.8c0.8,0.6,1.5,1.3,2.1,2.1c1.8,2.5,1.8,4.5,1.8,11.7v-5.6c0,7.2,0,10.8-1.8,13.3c-0.6,0.8-1.3,1.5-2.1,2.1
+								c-2.5,1.8-6.1,1.8-13.3,1.8H462.9c-1.2,0-1.8,0-2.2-0.3c-0.1-0.1-0.3-0.2-0.4-0.4c-0.3-0.4-0.3-1-0.3-2.2V345.3z"/>
+							<text class="o-title o-city-title" transform="matrix(1 0 0 1 469.5731 345.735)">Туапсинский район</text>
+						</g>
+					</g>
 				</g>
 				<g class="o-title-cont">
 					<path class="o-bg" d="M410.25,259.38c0-9,0-13.5,2.29-16.65c0.74-1.02,1.64-1.91,2.65-2.65
@@ -194,7 +234,7 @@
 					<g class="o-city-cont">
 						<polygon id="kurganinskiy" class="o-city" points="938.44,244.36 880.76,190.45 777.26,175.01 725.43,193.7 834.01,212.83 
 							875.44,259.78"/>
-						<foreignObject width="100" height="50" requiredExtensions="http://www.w3.org/1999/xhtml">
+						<foreignObject class="" width="100" height="50" requiredExtensions="http://www.w3.org/1999/xhtml">
 							<div class="o-title-cont">
 								<div class="o-title">Курганинский</div>
 								<div class="o-header">Район</div>
@@ -229,9 +269,8 @@
 			<nuxt-link to="/region/o-sochinskiy" class="link-to-o">
 				<g class="o-cont" id="o-sochinskiy">
 					<g class="o-city-cont">
-						<path id="apsheronskiy" class="o-city" d="M682.55,429.61l9.37-56.49c0,0,62.55,26.72,62.57,26.65
-						c0.16-0.39,13.03-40.82,13.03-40.82l-63.07-24.29l-8.63-45.45l-98.49-19.99l-51.63,65.44l74.82,21.05l-23.93,35.92L682.55,429.61z"
-						/>
+						<polygon id="apsheronskiy" class="o-city" points="767.5,358.9 704.4,334.7 695.8,289.2 597.3,269.2 545.7,334.7 620.5,355.7 
+							596.6,391.6 682.5,429.6 691.9,373.1 754.5,399.8"/>
 						<g class="o-city-title-cont">
 							<path class="o-bg" d="M668.3,329.1c0-9,0-13.5,2.3-16.7c0.7-1,1.6-1.9,2.7-2.7c3.2-2.3,7.7-2.3,16.7-2.3h144
 								c9,0,13.5,0,16.7,2.3c1,0.7,1.9,1.6,2.7,2.7c2.3,3.2,2.3,5.7,2.3,14.7v-7c0,9,0,13.5-2.3,16.7c-0.7,1-1.6,1.9-2.7,2.7
@@ -350,6 +389,11 @@ export default defineComponent({
 	cursor: pointer;
 }
 
+/*  
+.o-city-title-cont {
+	display: none;
+} */
+
 .o-bg {
 	fill: var(--Azure100);
 }
@@ -381,6 +425,10 @@ export default defineComponent({
 	font-size: 1.3rem;
 	text-transform: uppercase;
 	letter-spacing: .075em;
+}
+
+.o-city-title {
+	font-size: 1.05rem;
 }
 
 .link-to-o>.o-cont {
