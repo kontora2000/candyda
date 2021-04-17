@@ -41,6 +41,10 @@ export default defineComponent({
   font-weight: 500;
   line-height: 2rem;
 }
+.footer-nav .nav-link.link-underline-solid:hover {
+  border-bottom-color: var(--Gray100);
+  color: var(--Gray100);
+}
 
 
 
