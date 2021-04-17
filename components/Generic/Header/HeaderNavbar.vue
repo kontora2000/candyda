@@ -86,6 +86,7 @@ export default defineComponent({
         const handleScroll = () => {
             if (page.value !== '/') { 
                 isBurgerOpen.value = false
+                isScrolled.value = true
             }
             else {
                 window.setTimeout(() => {
@@ -98,14 +99,15 @@ export default defineComponent({
         watch(page, () => {
             if (timerID > 0) window.clearTimeout(timerID)
             isBurgerOpen.value = (page.value==='/' && window.pageYOffset <= 150)
+            isScrolled.value = page.value !== '/' || window.pageYOffset > 150
+
             document.addEventListener('scroll', handleScroll,  {passive: true,})
         })        
         onMounted(() => {
             isBurgerOpen.value = (page.value==='/' && window.pageYOffset <= 150)
-            isScrolled.value = window.pageYOffset > 150
+            isScrolled.value = page.value !== '/' || window.pageYOffset > 150
             document.addEventListener('scroll', handleScroll,  {passive: true,})
         })
-
         return {
             isBurgerOpen,
             isBurgerVisible,
