@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import { defineComponent, useContext, ref, computed, onMounted,  watch, } from '@nuxtjs/composition-api'
-import {  useFlatPages, } from '@/composition/flatpages'
+import { useFlatPages, } from '@/composition/flatpages'
 import HeaderLogo from './HeaderLogo.vue'
 
 
