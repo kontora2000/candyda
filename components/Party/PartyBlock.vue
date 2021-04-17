@@ -7,6 +7,8 @@
   </div>
 </template>
 
+
+
 <script lang="ts">
 import { PropType, } from '@nuxtjs/composition-api'
 import PartyCard from './PartyCard.vue'
@@ -24,3 +26,10 @@ export default {
     }
 }
 </script>
+
+
+<style scoped>
+.party-card-block {
+  grid-column: 2/14;
+}
+</style>
