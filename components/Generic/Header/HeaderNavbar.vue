@@ -17,7 +17,7 @@
         @mouseleave="startBurgerTimer">
         <header-logo />
         <nav class="site-nav">
-          <ul key="burger-open">
+          <ul key="burger-open" :class="{ scrolled: isScrolled }">
             <li><nuxt-link to="/news" class="nav-link link-underline-solid">Новости</nuxt-link></li>
             <li><nuxt-link to="/top" class="nav-link link-underline-solid">Топ кандидатов</nuxt-link></li>
             <li><nuxt-link to="/party" class="nav-link link-underline-solid">Партии</nuxt-link></li>
@@ -34,7 +34,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, useContext, ref, computed, onMounted,  watch, } from '@nuxtjs/composition-api'
 import {  useFlatPages, } from '@/composition/flatpages'
 import HeaderLogo from './HeaderLogo.vue'
@@ -45,7 +45,7 @@ export default defineComponent({
     name:'HeaderNavbar',
     setup () {
         const { route, } = useContext()
-
+        const isScrolled = ref(false)
         const isBurgerOpen = ref(false)
         let timerID = 0
 
@@ -90,26 +90,26 @@ export default defineComponent({
             else {
                 window.setTimeout(() => {
                     isBurgerOpen.value =  window.pageYOffset <= 150
+                    isScrolled.value = window.pageYOffset > 150
                 }, 200)                
             }
             return false
         } 
-
         watch(page, () => {
             if (timerID > 0) window.clearTimeout(timerID)
             isBurgerOpen.value = (page.value==='/' && window.pageYOffset <= 150)
             document.addEventListener('scroll', handleScroll,  {passive: true,})
-        })
-
-        
+        })        
         onMounted(() => {
             isBurgerOpen.value = (page.value==='/' && window.pageYOffset <= 150)
+            isScrolled.value = window.pageYOffset > 150
             document.addEventListener('scroll', handleScroll,  {passive: true,})
         })
 
         return {
             isBurgerOpen,
             isBurgerVisible,
+            isScrolled,
             openBurger,
             startBurgerTimer,
             resetBurgerTimer,
@@ -157,6 +157,10 @@ export default defineComponent({
   -webkit-backdrop-filter: blur(32px);
   backdrop-filter: blur(32px);
   padding: 0 .8rem .6rem;
+}
+
+.scrolled li a {
+  background: var(--White100) !important;
 }
 
 .nav-link-burger {
