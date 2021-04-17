@@ -5,7 +5,7 @@
             <h1 class="search-results-page-header">Нашли</h1>
         </div>
         <div class="cont-wrapper cont-wrapper-left cont-wrapper-search-results search-results-candidates" v-if="searchResults.candidates && searchResults.candidates.length > 0">
-            <h2 class="search-result-header">{{ candidatesCount }}</h2>
+            <h2 class="search-result-header">{{ searchResults.candidates.length}} {{ candidatesCount }}</h2>
             <div class="search-result-grid">
                 <CandidateCard v-for="candidate in searchResults.candidates"
                 :key="candidate.id"
@@ -13,19 +13,19 @@
             </div>
         </div>
         <div class="cont-wrapper cont-wrapper-right cont-wrapper-search-results search-results-tags" v-if="searchResults.tags && searchResults.tags.length > 0">
-            <h2 class="cont-header">{{ tagsCount }}</h2>
+            <h2 class="cont-header">{{ searchResults.tags.length  }}{{ tagsCount }}</h2>
         </div> 
         <div class="cont-wrapper cont-wrapper-right cont-wrapper-search-results search-results-parties" v-if="searchResults.parties && searchResults.parties.length > 0">
-            <h2 class="cont-header">{{ partyCount }}</h2>
+            <h2 class="cont-header">{{ searchResults.parties.length  }} {{ partyCount }}</h2>
         </div>
         <div class="cont-wrapper cont-wrapper-left cont-wrapper-search-results search-results-posts" v-if="searchResults.posts && searchResults.posts.length > 0">
-        <h2 class="search-result-header">{{ postsCount }}</h2>
+        <h2 class="search-result-header">{{ searchResults.posts.length  }}{{ postsCount }}</h2>
         <news-block-card v-for="post in searchResults.posts" 
             :key="post.id"
             :post="post" />
         </div>
     </template>
-    <div v-elsye-if="searchResults.posts">Ничего не&nbsp;нашли</div>
+    <div v-else>Ничего не&nbsp;нашли</div>
   </div>
 </template>
 
@@ -56,11 +56,13 @@ export default defineComponent({
             numWord(searchResults.value.tags.length, ['тэг', 'тэга','тэгов']) : '')
         const partyCount = computed(() => searchResults.value.parties ? 
             numWord(searchResults.value.parties.length, ['партия', 'партии','партий']) : '')
-        const hasResults = computed(() => 
-            (searchResults.posts && searchResults.posts.length  > 0) || 
-            (searchResults.candidates && searchResults.candidates.length > 0) || 
-            (searchResults.parties && searchResults.parties.length > 0) || 
-            (searchResults.tags && searchResults.tags.length > 0))
+        const hasResults = computed(() => {
+            return   (searchResults.value.posts && searchResults.value.posts.length  > 0) || 
+            (searchResults.value.candidates && searchResults.value.candidates.length > 0) || 
+            (searchResults.value.parties && searchResults.value.parties.length > 0) || 
+            (searchResults.value.tags && searchResults.value.tags.length > 0)
+        })
+     
         return {
             searchResults,
             postsCount,
