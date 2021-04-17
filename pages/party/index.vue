@@ -1,7 +1,7 @@
 <template>
    <div class="page-content-superwrapper">
       <div class="page-parties-wrapper page-content-wrapper grid-main">
-         <TheAside />
+         <TheAside :filter="false" />
          <div class="page-wrapper page-top">
             <h1 class="page-header page-top-header">Партии</h1>
             <PartyTop />
