@@ -21,7 +21,7 @@ import PartyTop from '@/components/Party/PartyTop.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
-import { useBreadcrumbs } from '~/composition/breadcrumbs'
+import { useBreadcrumbs, } from '~/composition/breadcrumbs'
 
 export default defineComponent({
     name: 'PartyIndex',
