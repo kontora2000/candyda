@@ -25,7 +25,7 @@
             :post="post" />
         </div>
     </template>
-    <div v-else-if="searchResults.posts">Ничего не&nbsp;нашли</div>
+    <div v-elsye-if="searchResults.posts">Ничего не&nbsp;нашли</div>
   </div>
 </template>
 
