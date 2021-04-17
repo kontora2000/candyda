@@ -14,6 +14,9 @@ export const usePartyList = () => {
         isNeedToUpload.value = result.next_page_url !== null
         page.value = isNeedToUpload ? page.value : page.value + 1
         parties.value = result
+        if (parties.value) {
+          if (parties.value?.length > 5) parties.value.length = 5
+        }
       }
       catch(e) {
           error({ statusCode: e?.response?.status })
