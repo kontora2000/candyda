@@ -159,8 +159,16 @@ export default defineComponent({
   padding: 0 .8rem .6rem;
 }
 
-.scrolled li a {
-  background: var(--White100) !important;
+.scrolled .nav-link {
+  background-color: var(--Black100) !important;
+  border-radius: 8px;
+  border-bottom: 0;
+  color: var(--White100);
+  padding: 1px 4px 3px;
+  transition: background-color .15s ease-in-out;
+}
+.scrolled .nav-link:hover {
+  background-color: var(--Gray100) !important;
 }
 
 .nav-link-burger {

@@ -7,9 +7,11 @@
           ©&thinsp;2021, Duma.one Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
         </div>
         <div class="footer-logo-wrapper">
-          <svg class="footer-logo-svg logo-small">
-            <use xlink:href="/sprite.svg#logo-small" />
-          </svg>
+          <nuxt-link to="/" class="footer-logo-link">
+            <svg class="footer-logo-svg logo-small">
+              <use xlink:href="/sprite.svg#logo-small" />
+            </svg>
+          </nuxt-link>
         </div>
       </footer>
     </div>
@@ -60,10 +62,21 @@ footer {
   width: 3.6rem;
 }
 
+.footer-logo-link {
+  display: block;
+  height: inherit;
+  width: inherit;
+}
+
 .footer-logo-svg {
   width: inherit;
   height: inherit;
   fill: var(--Black16);
+  transition: fill .15s ease-in-out;
+}
+
+.footer-logo-link:hover .footer-logo-svg {
+  fill: var(--Gray100);
 }
 
 .copyright {
