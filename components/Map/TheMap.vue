@@ -234,12 +234,6 @@
 					<g class="o-city-cont">
 						<polygon id="kurganinskiy" class="o-city" points="938.44,244.36 880.76,190.45 777.26,175.01 725.43,193.7 834.01,212.83 
 							875.44,259.78"/>
-						<foreignObject class="" width="100" height="50" requiredExtensions="http://www.w3.org/1999/xhtml">
-							<div class="o-title-cont">
-								<div class="o-title">Курганинский</div>
-								<div class="o-header">Район</div>
-							</div>
-						</foreignObject>
 					</g>
 					<polygon id="labinskiy" class="o-city" points="1008.59,310.44 1025.78,299.41 938.44,244.36 875.44,259.78 979.26,376.34 
 						1107.77,403.53"/>
