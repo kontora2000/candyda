@@ -20,7 +20,7 @@
         </div>
         <div class="cont-wrapper cont-wrapper-left cont-wrapper-search-results search-results-posts" v-if="searchResults.posts && searchResults.posts.length > 0">
         <h2 class="search-result-header">{{ searchResults.posts.length  }}{{ postsCount }}</h2>
-        <news-block-card v-for="post in searchResults.posts" 
+        <NewBlockCard v-for="post in searchResults.posts" 
             :key="post.id"
             :post="post" />
         </div>
