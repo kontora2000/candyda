@@ -261,11 +261,11 @@
 				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-sochinskiy" class="link-to-o">
-				<g class="o-cont" id="o-sochinskiy">
-					<g class="o-city-cont">
+				<g class="o-cont o-cont-district" id="o-sochinskiy">
+					<g class="o-city-cont" @click="this.$router.push('/region/o-sochinskiy/apsheronskiy')">
 						<polygon id="apsheronskiy" class="o-city" points="767.5,358.9 704.4,334.7 695.8,289.2 597.3,269.2 545.7,334.7 620.5,355.7 
 							596.6,391.6 682.5,429.6 691.9,373.1 754.5,399.8"/>
-						<g class="o-city-title-cont">
+						<g class="o-city-title-cont" >
 							<path class="o-bg" d="M668.3,329.1c0-9,0-13.5,2.3-16.7c0.7-1,1.6-1.9,2.7-2.7c3.2-2.3,7.7-2.3,16.7-2.3h144
 								c9,0,13.5,0,16.7,2.3c1,0.7,1.9,1.6,2.7,2.7c2.3,3.2,2.3,5.7,2.3,14.7v-7c0,9,0,13.5-2.3,16.7c-0.7,1-1.6,1.9-2.7,2.7
 								c-3.2,2.3-7.7,2.3-16.7,2.3h-162c-1.5,0-2.2,0-2.8-0.4c-0.2-0.1-0.3-0.3-0.4-0.4c-0.4-0.5-0.4-1.3-0.4-2.8V329.1z"/>
@@ -308,7 +308,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, useContext, watch, ref, } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted, watch, ref, useContext, useRouter } from '@nuxtjs/composition-api'
 
 import { useMap, } from '@/composition/map'
 
@@ -341,7 +341,6 @@ export default defineComponent({
                 isMinusOne.value = false
             }
         })
-
         return {
           isMinusOne,
         }
@@ -350,6 +349,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.o-city-title-cont {
+  display: none;
+}
+
 .map-cont {
 	/*filter: drop-shadow(rgba(0, 102, 204, 0.2) 0px 22px 64px);*/
 	grid-column: 1/33;

@@ -46,8 +46,10 @@ export const useMap = () => {
     }
     if (box) {
       const titles = document.querySelectorAll('.o-title-cont')
+      const cityTitles =    document.querySelectorAll('.o-city-title-cont')
       const regs = document.querySelectorAll(`.o-cont:not(#${slug})`)
       gsap.to(titles, {duration:0.2, autoAlpha: 0, })
+      gsap.to(cityTitles, {duration:0.2, autoAlpha: 0, })
       gsap.to(regs, {duration:0.2, autoAlpha: 0, })
       const adyg: HTMLElement | null = document.querySelector('#o-adygeya')
       if (adyg) {
@@ -55,6 +57,11 @@ export const useMap = () => {
       }  
       gsap.set(`#${slug}`, { display: '', })
       gsap.set(`#${slug}`, { autoAlpha: 1, })
+      const insideCityTitles = document.querySelectorAll(`#${slug} .o-city-title-cont`)
+      debugger
+      if (insideCityTitles.length > 0) {
+        gsap.to(insideCityTitles, { duration: 0.2, autoAlpha: 1, })
+      }
       animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
     }
   }
