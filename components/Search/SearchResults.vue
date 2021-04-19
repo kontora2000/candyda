@@ -5,7 +5,7 @@
             <h1 class="search-results-page-header">Нашли</h1>
         </div>
         <div class="cont-wrapper cont-wrapper-left cont-wrapper-search-results search-results-candidates" v-if="searchResults.candidates && searchResults.candidates.length > 0">
-            <h2 class="search-result-header">{{ searchResults.candidates.length}} {{ candidatesCount }}</h2>
+            <h2 class="search-result-header">{{ searchResults.candidates.length}}&nbsp;{{ candidatesCount }}</h2>
             <div class="search-result-grid">
                 <CandidateCard v-for="candidate in searchResults.candidates"
                 :key="candidate.id"
@@ -13,19 +13,19 @@
             </div>
         </div>
         <div class="cont-wrapper cont-wrapper-right cont-wrapper-search-results search-results-tags" v-if="searchResults.tags && searchResults.tags.length > 0">
-            <h2 class="cont-header">{{ searchResults.tags.length  }}{{ tagsCount }}</h2>
+            <h2 class="search-result-header">{{ searchResults.tags.length  }}&nbsp;{{ tagsCount }}</h2>
         </div> 
         <div class="cont-wrapper cont-wrapper-right cont-wrapper-search-results search-results-parties" v-if="searchResults.parties && searchResults.parties.length > 0">
-            <h2 class="cont-header">{{ searchResults.parties.length  }} {{ partyCount }}</h2>
+            <h2 class="search-result-header">{{ searchResults.parties.length  }}&nbsp;{{ partyCount }}</h2>
         </div>
-        <div class="cont-wrapper cont-wrapper-left cont-wrapper-search-results search-results-posts" v-if="searchResults.posts && searchResults.posts.length > 0">
-        <h2 class="search-result-header">{{ searchResults.posts.length  }}{{ postsCount }}</h2>
-        <NewBlockCard v-for="post in searchResults.posts" 
+        <div class="cont-wrapper cont-wrapper-search-results search-results-posts" v-if="searchResults.posts && searchResults.posts.length > 0">
+        <h2 class="search-result-header">{{ searchResults.posts.length  }}&nbsp;{{ postsCount }}</h2>
+        <NewsBlockCard v-for="post in searchResults.posts" 
             :key="post.id"
             :post="post" />
         </div>
     </template>
-    <div v-else-if="searchResults.posts">Ничего не&nbsp;нашли</div>
+    <h1 v-else-if="searchResults.posts">Ничего не&nbsp;нашли</h1>
   </div>
 </template>
 
@@ -76,7 +76,7 @@ export default defineComponent({
 </script>
 
 
-<style scoped>
+<style>
 .search-results-wrapper {
     grid-column: 2/32;
     margin-top: 6.4rem;
@@ -110,9 +110,33 @@ export default defineComponent({
     grid-column-gap: 1.6rem;
 }
 
+.search-results-wrapper .cont-wrapper-left {
+    grid-column: span 16;
+}
+
+.search-results-wrapper .cont-wrapper-right {
+    grid-column: span 12;
+}
+
 .search-result-grid .candidate-card-cont.card-cont {
     grid-column: span 4;
     grid-row: span 1;
     margin-top: 3.2rem;
+}
+
+.search-results-posts {
+    grid-column: 3/31;
+    grid-template-columns: repeat(28, calc((100vw - 49.6rem - 1.6rem) / 32));
+    grid-column-gap: 1.6rem;
+}
+
+.search-results-posts .news-card-cont.card-cont {
+    grid-column: span 7;
+    height: 28rem;
+}
+.search-results-posts .news-card-cont.card-cont:nth-child(2),
+.search-results-posts .news-card-cont.card-cont:nth-child(3) {
+    grid-column: span 14;
+    height: 36rem;
 }
 </style>
