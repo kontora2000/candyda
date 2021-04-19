@@ -14,13 +14,18 @@
         </div>
         <div class="cont-wrapper cont-wrapper-right cont-wrapper-search-results search-results-tags" v-if="searchResults.tags && searchResults.tags.length > 0">
             <h2 class="search-result-header">{{ searchResults.tags.length  }}&nbsp;{{ tagsCount }}</h2>
+            <Tag class="search-results-tag" v-for="tag in searchResults.tags" 
+              :key="tag.id" 
+            >
+              {{ tag.name }}
+            </Tag>
         </div> 
         <div class="cont-wrapper cont-wrapper-right cont-wrapper-search-results search-results-parties" v-if="searchResults.parties && searchResults.parties.length > 0">
             <h2 class="search-result-header">{{ searchResults.parties.length  }}&nbsp;{{ partyCount }}</h2>
         </div>
         <div class="cont-wrapper cont-wrapper-search-results search-results-posts" v-if="searchResults.posts && searchResults.posts.length > 0">
         <h2 class="search-result-header">{{ searchResults.posts.length  }}&nbsp;{{ postsCount }}</h2>
-        <NewsBlockCard v-for="post in searchResults.posts" 
+        <news-block-card v-for="post in searchResults.posts" 
             :key="post.id"
             :post="post" />
         </div>
@@ -37,13 +42,14 @@ import { useSearch, } from '@/composition/search'
 import { useHelpers, } from '@/composition/helpers'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import CandidateCard from '../Generic/CandidateTop/CandidateCard/CandidateCard.vue'
-
+import Tag from '@/components/Generic/Tag.vue'
 
 export default defineComponent({
     name: 'SearchResults',
     components: { 
         NewsBlockCard, 
         CandidateCard,
+        Tag,
     },
     setup () {
         const { searchResults,  } = useSearch()

@@ -38,7 +38,7 @@ export default defineComponent({
 
 
 
-<style scoped>
+<style>
 .news-card-cont {
   overflow: hidden;
 }

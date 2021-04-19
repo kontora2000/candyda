@@ -14,7 +14,7 @@
           </div>
           <h1 class="page-party-header">{{ party.name  }}</h1>
         </div>
-        <div class="page-party-about"><p>Абзац о партии</p></div>
+        <div class="page-party-about" v-if="party.description">{{ party.description }}</div>
         <h3 class="page-party-header-candidates">Кандидаты от&nbsp;партии</h3>
         <CandidateCard 
           v-for="candidate in party.candidates" 
@@ -45,12 +45,12 @@ import TheAside from '@/components/Generic/Aside/TheAside.vue'
 
 export default defineComponent( {
     components: {
-      CandidateCard, 
-      Btn,
-      NewsBlock,
-      PartyTop,
-      TheFooter,
-      TheAside,
+        CandidateCard, 
+        Btn,
+        NewsBlock,
+        PartyTop,
+        TheFooter,
+        TheAside,
     },
     name: 'slug',
     transition: 'fade',
@@ -69,7 +69,7 @@ export default defineComponent( {
 </script>
 
 
-<style scoped>
+<style>
 .page-party {
   display: grid;
   grid-template-columns: repeat(20,calc((100% - 30.4rem) / 20));
