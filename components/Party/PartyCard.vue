@@ -11,6 +11,8 @@
   </nuxt-link>
 </template>
 
+
+
 <script lang="ts">
 import { defineComponent, PropType, } from '@nuxtjs/composition-api'
 
@@ -32,6 +34,9 @@ export default defineComponent({
     }
 })
 </script>
+
+
+
 <style scoped>
   .party-card-cont {
     padding: 1.6rem .8rem;

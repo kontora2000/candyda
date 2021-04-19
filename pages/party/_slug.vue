@@ -7,6 +7,11 @@
           <div class="page-party-header-emblem-wrapper">
             <img :src="party.logo" :alt="party.name" class="page-party-header-emblem">
           </div>
+          <div class="party-card-pic-wrapper" >
+            <img 
+              v-if="party.logo" 
+              class="party-card-pic" :src="`https://api.prostokontora.ru/storage/${party.logo}`" />
+          </div>
           <h1 class="page-party-header">{{ party.name  }}</h1>
         </div>
         <div class="page-party-about"><p>Абзац о партии</p></div>
