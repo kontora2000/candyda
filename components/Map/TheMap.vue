@@ -308,7 +308,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, watch, ref, useContext, useRouter } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted, watch, ref, useContext, } from '@nuxtjs/composition-api'
 
 import { useMap, } from '@/composition/map'
 
@@ -317,7 +317,6 @@ export default defineComponent({
     setup () {
         const { route, } = useContext()
         const { mapSvg, zoomTo, setTo, resetViewBox, } = useMap()
-
         onMounted(() => {
             const slug = route.value.params.slug
             mapSvg.value = document.querySelector('.map-svg') as SVGAElement
