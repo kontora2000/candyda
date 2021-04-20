@@ -1,7 +1,6 @@
 import { ref, useContext, useFetch } from '@nuxtjs/composition-api'
-import { useAxios } from './axios'
+import { useAxios, } from './axios'
 import { Distritct,  } from '@/modules/types'
-
 
 export const useDistrict = () => {
   const { $axios, error, } = useAxios()
@@ -9,7 +8,6 @@ export const useDistrict = () => {
   console.log(route.value)
   const slug = route.value.params.district
   const district = ref<Distritct>({} as Distritct)
-
   const { fetch: fetchDistrict, } =  useFetch( async()=>{
     try {
       const response= await $axios.get('/district/' + slug)

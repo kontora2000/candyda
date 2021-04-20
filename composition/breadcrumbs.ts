@@ -10,9 +10,11 @@ export const useBreadcrumbs = () => {
   const setBreadcrumbs = (b: Breadcrumb[]) => {
     breadcrumbs.value = b
   }
+  
   const getBreadcrumbs = () => {
     return breadcrumbs.value
   }
+
   const setCandidateBreadcrumbs = (candidate:Candidate) => {
     if (!candidate.region) {
       breadcrumbs.value = [
@@ -39,6 +41,7 @@ export const useBreadcrumbs = () => {
       }  
     }
   }
+
   const setPostBreadCrumbs = (post: Post) => {
     if (!post.region) {
       breadcrumbs.value = [ postsURL ]
@@ -62,6 +65,7 @@ export const useBreadcrumbs = () => {
       }
     }
   }
+
   const setDistrictBreadcrumbs = (district: Distritct) => {
     breadcrumbs.value = [
       mainPageURL,
@@ -69,14 +73,10 @@ export const useBreadcrumbs = () => {
           url: district.region?.slug || '',
           title: (district.region?.name + ' округ') || '',
       },
-      // {
-      //     url: `/region/${district.region?.slug}/district.value.slug` || '',
-      //     title: district.name || '',
-      // }
   ]
 } 
 
- 
+
   const checkVisibility = (route) => {
     isBreadcrumbsVisible.value =  
       route.value.path.includes('region') || 
