@@ -96,7 +96,7 @@ export default defineComponent( {
   margin-bottom: 3.2rem;
 }
 
-.candidate-card-cont {
+.page-party .candidate-card-cont {
   grid-column: span 4;
   margin-bottom: 3.2rem;
 }

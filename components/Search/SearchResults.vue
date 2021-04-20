@@ -145,4 +145,29 @@ export default defineComponent({
     grid-column: span 14;
     height: 36rem;
 }
+
+.search-results-posts .news-card-cont.card-cont:nth-child(2) .news-card-content-wrapper,
+.search-results-posts .news-card-cont.card-cont:nth-child(3) .news-card-content-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: calc(100% - 2.4rem);
+	justify-content: space-between;
+	margin: 1.2rem .8rem;
+}
+
+.search-results-posts .news-card-cont.card-cont:nth-child(2).with-image .news-card-header,
+.search-results-posts .news-card-cont.card-cont:nth-child(3).with-image .news-card-header {
+font-size: 2.8rem;
+line-height: 3.6rem;
+-webkit-line-clamp: 3;
+width: 100%;
+}
+
+.search-results-posts .news-card-cont.card-cont:nth-child(2).with-image .news-card-content-wrapper,
+.search-results-posts .news-card-cont.card-cont:nth-child(3).with-image .news-card-content-wrapper {
+height: 13.6rem;
+margin-top: 0;
+position: absolute;
+bottom: 0;
+}
 </style>

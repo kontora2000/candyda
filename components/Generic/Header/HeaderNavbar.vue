@@ -162,15 +162,20 @@ export default defineComponent({
 }
 
 .scrolled .nav-link {
-  background-color: var(--Black100) !important;
+  background-color: var(--Azure16) !important;
   border-radius: 8px;
   border-bottom: 0;
-  color: var(--White100);
-  padding: 1px 4px 3px;
-  transition: background-color .15s ease-in-out;
+  color: var(--Black100);
+  display: inline-flex;
+  padding: 0 4px 2px;
+  transition: background-color .15s ease-in-out,
+              color .15s ease-in-out;
+  -webkit-backdrop-filter: blur(32px);
+          backdrop-filter: blur(32px);
 }
 .scrolled .nav-link:hover {
-  background-color: var(--Gray100) !important;
+  background-color: var(--Azure100) !important;
+  color: var(--White100);
 }
 
 .nav-link-burger {
