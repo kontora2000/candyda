@@ -1,5 +1,5 @@
 <template>
-	<div class="map-cont" :class="{ 'minus-one': isMinusOne  }">
+	<div class="map-cont">
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			width="1228.16px" height="648.03px" viewBox="0 0 1228.16 648.03" preserveAspectRatio="xMidYMid meet"
 			style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
@@ -262,7 +262,7 @@
 			</nuxt-link>
 			<nuxt-link to="/region/o-sochinskiy" class="link-to-o">
 				<g class="o-cont o-cont-district" id="o-sochinskiy">
-					<g class="o-city-cont" @click.prevent="this.$router.push('/region/o-sochinskiy/apsheronskiy')">
+					<g class="o-city-cont" @click.prevent="$router.push('/region/o-sochinskiy/apsheronskiy')">
 						<polygon id="apsheronskiy" class="o-city" points="767.5,358.9 704.4,334.7 695.8,289.2 597.3,269.2 545.7,334.7 620.5,355.7 
 							596.6,391.6 682.5,429.6 691.9,373.1 754.5,399.8"/>
 						<g class="o-city-title-cont" >

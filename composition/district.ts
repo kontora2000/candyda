@@ -6,6 +6,7 @@ import { Distritct,  } from '@/modules/types'
 export const useDistrict = () => {
   const { $axios, error, } = useAxios()
   const { route,  } = useContext()
+  console.log(route.value)
   const slug = route.value.params.district
   const district = ref<Distritct>({} as Distritct)
 

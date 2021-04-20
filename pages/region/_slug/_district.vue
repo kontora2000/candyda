@@ -1,5 +1,11 @@
 <template>
- <div v-if="district">
+ <div v-if="district" class="main-bottom-wrapper grid-main">
+     <aside class="page-aside-wrapper">
+        <Breadcrumbs />
+    </aside>
+    <div class="region-title-wrapper" v-if="district && district.name">
+      <h1 class="region-title">{{ district.name }}<br /></h1>
+    </div>
     <div class="cont-wrapper" v-if="district.posts && district.posts.length > 0">
         <div class="cont-header-wrapper cont-wrapper-left">
             <h3 class="cont-header">Новости района</h3>
@@ -32,50 +38,100 @@
 
 
 
-<script>
-import { defineComponent, useMeta, computed, } from '@nuxtjs/composition-api'
+<script lang="ts">
+import { defineComponent, watch, useMeta,  } from '@nuxtjs/composition-api'
+import { useDistrict, } from '@/composition/district'
+import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import PartyBlock from '@/components/Party/PartyBlock.vue'
-import { useDistrict, } from '~/composition/district'
+import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
 
 export default defineComponent({
-    layout: 'map',
     transition: 'fade',
     head: {},
     components: { 
         CandidateCard, 
         NewsBlockCard, 
         PartyBlock,
+        Breadcrumbs,
     },
     setup () {
         const { fetchDistrict, district, } = useDistrict()
         fetchDistrict()
-
-        const title = computed(() => district?.value?.title)
-        useMeta({ title: title, })
-
-        const { route, } = useContext()
-        watch(title, () => {
-            breadcrumbs.value = [
-                {
-                    url: '/',
-                    title: 'Краснодарский край',
-                },
-                {
-                    url: district.region.path || '',
-                    title: district.region.name || '',
-                },
-                {
-                    url: route.value.path || '',
-                    title: district.name || '',
-                }
-            ]
+        const { setDistrictBreadcrumbs, } = useBreadcrumbs()
+        watch(district, () => {
+            if (district.value.name) {
+                setDistrictBreadcrumbs(district.value)
+            }
+            
         })
-
+        useMeta(() => ({ 
+            title: district.value?.name || '', 
+        }))
         return {
             district, 
         }
     },
 })
 </script>
+
+<style scoped>
+.region-title-wrapper {
+  display: flex;
+  position: absolute;
+  top: calc(9.2rem + 2rem);
+  left: calc((100vw - 49.6rem - 1.6rem) / 32 * 9 + 9.6rem + .8rem);
+}
+
+.region-title-number {
+  font-size: 12rem;
+  font-weight: 400;
+  letter-spacing: -.04em;
+  line-height: 10rem;
+  margin-right: 2.4rem;
+}
+
+.region-title {
+  margin-top: .4rem;
+}
+
+.main-bottom-wrapper {
+  grid-column: 1/33;
+  grid-row-gap: 4rem;
+  grid-template-rows: 90rem 1fr 1fr;
+}
+
+.candidate-card-cont {
+   grid-column: span 4;
+}
+.candidate-card-cont {
+   margin-top: 3.2rem;
+}
+.candidate-card-cont:first-child,
+.candidate-card-cont:nth-child(2),
+.candidate-card-cont:nth-child(3) {
+   margin-top: 0;
+}
+
+
+
+@media (max-width: 460px) {
+  .main-bottom-wrapper {
+    grid-column: 1/7;
+    grid-template-rows: auto;
+  }
+
+  .main-bottom-wrapper .cont-wrapper-right {
+    grid-row: 1/2;
+  }
+
+  .main-bottom-wrapper .cont-wrapper-left {
+    grid-row: 2/3;
+  }
+
+  .main-bottom-wrapper .footer-wrapper {
+    grid-row: 3/3;
+  }
+}
+</style>
