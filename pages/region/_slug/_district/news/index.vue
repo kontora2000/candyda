@@ -1,7 +1,7 @@
 <template>
    <div class="page-content-superwrapper">
       <div class="page-news-wrapper page-content-wrapper grid-main">
-         <TheAside />
+         <TheAside :filter="false" />
          <div class="page-wrapper">
             <h1 class="page-header">Новости</h1>
             <template v-if="posts && posts.length > 0">
@@ -12,7 +12,7 @@
                <template v-if="isNeedToUpload">
                   <div class="showmore-btn-wrapper page-news-showmore-btn-wrapper"
                        v-if="isNeedToUpload && page === 2"
-                       @click="upload"
+                       @click="fetchPostsByLocation($route.params.district, 'district')"
                   >
                      <btn class="page-news-showmore-btn">Показать больше</btn>
                   </div>
@@ -27,7 +27,6 @@
          </div>
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
-         <CandidateTop class="cont-wrapper-left"/>
          <TheFooter />
       </div>
    </div>
@@ -35,48 +34,39 @@
 
 
 <script lang="ts">
-import { defineComponent, useMeta, watch, useFetch, } from '@nuxtjs/composition-api'
+import { defineComponent, useMeta, useFetch, useContext, } from '@nuxtjs/composition-api'
+import { usePostList, } from '@/composition/posts'
 
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import Btn from '@/components/Generic/Btn.vue'
-import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
-import {usePostList,} from '@/composition/posts';
-import { useLocationFilter, } from '@/composition/filter'
-import TheAside from '~/components/Generic/Aside/TheAside.vue'
+import TheAside from '@/components/Generic/Aside/TheAside.vue'
 
 export default defineComponent({
-    name:'index',
     components: {
         NewsBlockCard,
         Btn,
-        CandidateTop,
         TheFooter,
         TheAside,
     },
     head:{},
     setup() {
-        const { fetchPosts, posts, page, isNeedToUpload, upload, onScroll, filterPosts, } = usePostList()
-        const { fetch, } = useFetch(() => fetchPosts())
+        const { fetchPostsByLocation, posts, page, isNeedToUpload, } = usePostList()
+        page.value = 1
+        const { route, } = useContext()
+        const { fetch, } = useFetch(async () => fetchPostsByLocation(route.value.params?.district, 'district'))
         const { title, } = useMeta()
-        const { locationFilter, } = useLocationFilter()
-        watch(locationFilter, () => {
-            page.value = 1
-            if (locationFilter.value.region === '') {
-                fetchPosts()
-            }
-            filterPosts(locationFilter.value)
-        }, {
-            deep: true,
-        })
-
+        const onScroll = ($state) => {
+            fetchPostsByLocation(route.value.params?.district, 'district')
+            if ($state && !isNeedToUpload.value) $state.complete()
+            if ($state && isNeedToUpload.value) $state.loaded()
+        }
         title.value = 'Новости'
         return {
-            fetchPosts,
+            fetchPostsByLocation,
             posts,
             page,
             isNeedToUpload,
-            upload,
             onScroll,
         }
     },

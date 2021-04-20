@@ -29,7 +29,10 @@ export const useMap = () => {
     }
     const titles = document.querySelectorAll('.o-title-cont')
     const regs = document.querySelectorAll('.o-cont')
+    const cityTitles =  document.querySelectorAll('.o-city-title-cont')
+
     gsap.to(titles, {duration:0.2, autoAlpha: 1, })
+    gsap.to(cityTitles, {duration:0.2, autoAlpha: 0, })
     gsap.to(regs, {duration:0.2, autoAlpha: 1, })
     animateViewBox('0 0 1228.16 648.03')               
   }
@@ -79,7 +82,9 @@ export const useMap = () => {
     if (box) {
       const titles = document.querySelectorAll('.o-title-cont')
       const regs = document.querySelectorAll(`.o-cont:not(#${slug})`)
+      const cityTitles =  document.querySelectorAll('.o-city-title-cont')
       gsap.set(titles, { autoAlpha: 0, })
+      gsap.set(cityTitles, { autoAlpha: 0, })
       gsap.set(regs, { autoAlpha: 0, })
       const adyg: HTMLElement | null = document.querySelector('#o-adygeya')
       if (adyg) {

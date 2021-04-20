@@ -10,9 +10,9 @@ export const usePostList = () => {
     const  isNeedToUpload = ref(false)
     const posts = ref<Post[]>([])
 
-    const { locationFilter ,} = useLocationFilter()
+    const { locationFilter, } = useLocationFilter()
 
-    const { fetch: fetchPosts } = useFetch(async () => {
+    const fetchPosts  = async () => {
         try {
             const result = await $axios.get('/post/list?page=' + page.value )
             isNeedToUpload.value = result.data.last_page !== page.value
@@ -22,13 +22,12 @@ export const usePostList = () => {
         catch(e) {
             error({ statusCode: e?.response?.status })
         }
-    })
+    }
 
     const filterPosts = async (filter: LocationFilter, ) => {
       page.value = 1
-      debugger
       try {
-        const result = await $axios.post('/post/filter/' + page.value, filter )
+        const result = await $axios.post('/post/filter?page=' + page.value, filter )
         isNeedToUpload.value = result.data.last_page !== page.value
         posts.value = page.value === 1 ? result.data : [...posts.value,...result.data]
         page.value = isNeedToUpload ? page.value + 1 : page.value
@@ -38,6 +37,20 @@ export const usePostList = () => {
       }
     }
 
+    const fetchPostsByLocation = async (slug:string, type = 'region') => {
+      try {
+        const result = await $axios.get(`/post/by_${type}/${slug}?page=${page.value}` )
+        isNeedToUpload.value = result.data.last_page !== page.value
+        posts.value = page.value === 1 ? result.data.data : [...posts.value,...result.data.data]
+        page.value = isNeedToUpload ? page.value + 1 : page.value
+    }
+      catch(e) {
+        console.error(e)
+      }
+    }
+
+  
+    
     const  upload = async ($state) => {
         try {
             const result = await $axios.get('/post/list?page=' + page.value )
@@ -71,6 +84,7 @@ export const usePostList = () => {
         posts,
         fetchPosts,
         filterPosts,
+        fetchPostsByLocation,
         page,
         upload,
         onScroll,
