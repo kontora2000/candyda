@@ -60,9 +60,10 @@ export const useMap = () => {
       const insideCityTitles = document.querySelectorAll(`#${slug} .o-city-title-cont`)
       debugger
       if (insideCityTitles.length > 0) {
-        gsap.to(insideCityTitles, { duration: 0.2, autoAlpha: 1, })
+        gsap.to(insideCityTitles, { duration: 0.2, autoAlpha: 1, opacity:1,  })
       }
-      animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
+      
+      animateViewBox(`${box.x} ${box.y} 350 350`)
     }
   }
 
