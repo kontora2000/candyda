@@ -81,6 +81,7 @@ export interface Distritct {
    candidadates?: Candidate[];
    posts?: Post[];
    tags?: Tag[];
+   region?: Region;
 }
 
 export interface Region {

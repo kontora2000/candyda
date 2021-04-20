@@ -58,7 +58,6 @@ export const useMap = () => {
       gsap.set(`#${slug}`, { display: '', })
       gsap.set(`#${slug}`, { autoAlpha: 1, })
       const insideCityTitles = document.querySelectorAll(`#${slug} .o-city-title-cont`)
-      debugger
       if (insideCityTitles.length > 0) {
         gsap.to(insideCityTitles, { duration: 0.2, autoAlpha: 1, opacity:1,  })
       }
@@ -88,7 +87,11 @@ export const useMap = () => {
       }  
       gsap.set(`#${slug}`, { display: '', })
       gsap.set(`#${slug}`, { autoAlpha: 1, })
-      mapSvg.value.setAttribute('viewBox', `${box.x} ${box.y} ${box.width} ${box.height}`)
+      const insideCityTitles = document.querySelectorAll(`#${slug} .o-city-title-cont`)
+      if (insideCityTitles.length > 0) {
+        gsap.to(insideCityTitles, { duration: 0.2, autoAlpha: 1, opacity:1,  })
+      }
+      mapSvg.value.setAttribute('viewBox', `${box.x} ${box.y} 350 350`)
     }
   }
 

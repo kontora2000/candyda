@@ -1,5 +1,8 @@
 <template>
   <div v-if="region" class="main-bottom-wrapper grid-main">
+    <aside class="page-aside-wrapper">
+        <Breadcrumbs />
+    </aside>
     <div class="region-title-wrapper" v-if="region && region.name">
       <div class="region-title-number" v-if="region.number">№{{ region.number  }}</div>
       <h1 class="region-title">{{ region.name }}<br />округ</h1>
@@ -45,6 +48,7 @@ import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/Candi
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import PartyBlock from '@/components/Party/PartyBlock.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
+import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
 
 export default defineComponent({
     layout: 'map',
@@ -55,6 +59,7 @@ export default defineComponent({
         NewsBlockCard,
         PartyBlock,
         TheFooter,
+        Breadcrumbs,
     },
     setup () {
         const { region, fetchRegion, } = useRegion()

@@ -1,5 +1,5 @@
 import { ref,  } from '@nuxtjs/composition-api'
-import { Breadcrumb, Candidate, Post, } from '@/modules/types'
+import { Breadcrumb, Candidate, Distritct, Post, } from '@/modules/types'
 import { mainPageURL, topURL, postsURL, } from '@/modules/links'
 
 const breadcrumbs  = ref<Breadcrumb[]>([] as Breadcrumb[])
@@ -57,19 +57,33 @@ export const useBreadcrumbs = () => {
       if (post.district) {
         breadcrumbs.value.push({
           url: `/region/${post.region.slug}/${post.district.slug}`,
-          title: post.district.name.includes('г.') ? `${post.district.name}` : `${post.district.name} район`,
+          title: post.district.name,
         })
       }
     }
   }
-  
+  const setDistrictBreadcrumbs = (district: Distritct) => {
+    breadcrumbs.value = [
+      mainPageURL,
+      {
+          url: district.region?.slug || '',
+          title: (district.region?.name + ' округ') || '',
+      },
+      // {
+      //     url: `/region/${district.region?.slug}/district.value.slug` || '',
+      //     title: district.name || '',
+      // }
+  ]
+} 
+
+ 
   const checkVisibility = (route) => {
-    debugger
     isBreadcrumbsVisible.value =  
       route.value.path.includes('region') || 
       route.value.path.includes('district') || 
       route.value.name === 'news-slug' || 
       route.value.name == 'candidate-slug' ||
+      route.value.name == 'region-slug-district' ||
       route.value.name == 'party-index' 
   }
 
@@ -80,6 +94,7 @@ export const useBreadcrumbs = () => {
     getBreadcrumbs,
     setCandidateBreadcrumbs,
     setPostBreadCrumbs,
+    setDistrictBreadcrumbs,
     checkVisibility,
   }
 }
