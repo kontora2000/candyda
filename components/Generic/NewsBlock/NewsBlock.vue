@@ -27,7 +27,7 @@
 
 
 <script>
-import { defineComponent,  } from '@nuxtjs/composition-api'
+import { defineComponent,  useFetch, } from '@nuxtjs/composition-api'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn'
 import { usePostList, } from '@/composition/posts';
@@ -40,6 +40,7 @@ export default defineComponent({
     },
     setup() {
         const { fetchPosts, posts, page, isNeedToUpload, upload, onScroll, } = usePostList()
+        const { fetch, } = useFetch(() => fetchPosts())
         return {
             fetchPosts,
             posts,

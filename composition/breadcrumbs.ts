@@ -55,12 +55,22 @@ export const useBreadcrumbs = () => {
         {
           url: `/region/${post.region.slug}`,
           title: `${post.region.name} округ`,
-        }
+        },
       ]
       if (post.district) {
         breadcrumbs.value.push({
           url: `/region/${post.region.slug}/${post.district.slug}`,
           title: post.district.name,
+        }, 
+        {
+          url: `/region/${post.region.slug}/${post.district.slug}/news`,
+          title: 'Новости'
+        })
+      }
+      else {
+        breadcrumbs.value.push({
+          url: `/region/${post.region.slug}/news`,
+          title: 'Новости'
         })
       }
     }

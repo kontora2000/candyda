@@ -15,6 +15,7 @@
             :key="post.id"
             :post="post" /> 
         </div>
+        <nuxt-link class="showmore-btn" v-if="district.posts.length > 11">Показать все</nuxt-link>
     </div>
     <div class="cont-wrapper cont-wrapper-right" v-if="district.candidates && district.candidates.length > 0" >
         <div class="cont-header-wrapper">
