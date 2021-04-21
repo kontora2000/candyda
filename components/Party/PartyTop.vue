@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+import { defineComponent, watch, } from '@nuxtjs/composition-api'
 import Btn from '@/components/Generic/Btn'
 import { usePartyList, } from '@/composition/parties'
 import PartyCard from './PartyCard.vue'
@@ -33,6 +33,11 @@ export default defineComponent({
     setup() {
         const { parties, fetchParties,  }  = usePartyList()
         fetchParties()
+        watch(parties, () => {
+            if (parties.value) {
+                if (parties.value?.length > 5) parties.value.length = 5
+            }
+        })
         return {
             parties, fetchParties,
         }

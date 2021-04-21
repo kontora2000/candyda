@@ -64,6 +64,10 @@ export default defineComponent({
         const { fetch, } = useFetch(() => fetchPosts())
         const { title, } = useMeta()
         const { locationFilter, } = useLocationFilter()
+        locationFilter.value = {
+            region: '',
+            district: '',
+        }
         watch(locationFilter, () => {
             page.value = 1
             debugger
