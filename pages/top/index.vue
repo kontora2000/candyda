@@ -51,7 +51,7 @@ export default defineComponent({
     },
     head:{},
     setup() {
-        const { candidates, filterCandidates, } = useCandidateList()
+        const { candidates, filterCandidates, page, isNeedToUpload, } = useCandidateList()
         const isLoading = ref(true)
         const { $axios, error, } = useAxios()
         const { fetch: fethcC, } =  useFetch(async  () => {
@@ -60,17 +60,16 @@ export default defineComponent({
                 const result = await $axios.$get('/candidates/top')
                 candidates.value = result
                 isLoading.value = false
-
             }
             catch(e) {
                 error({ statusCode: e?.response?.status, })
             }
         })
-
         const { title, } = useMeta()
         title.value = 'Топ кандидатов'
         const { locationFilter, } = useLocationFilter()
         watch(locationFilter, () => {
+            page.value = 1
             if (!locationFilter.value.region || locationFilter.value.region.trim() === '') {
                 fethcC()
                 return 
@@ -83,6 +82,7 @@ export default defineComponent({
             candidates,
             locationFilter,
             isLoading,
+            isNeedToUpload,
         }
     },
 })
