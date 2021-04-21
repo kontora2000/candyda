@@ -1,7 +1,7 @@
-import {useAxios} from "~/composition/axios";
-import {ref, useContext, useFetch} from "@nuxtjs/composition-api";
-import { LocationFilter, Post } from "~/modules/types";
-import { useLocationFilter } from "./filter";
+import {useAxios} from '@/composition/axios'
+import {ref, useContext, } from "@nuxtjs/composition-api"
+import { LocationFilter, Post } from "@/modules/types"
+import { useLocationFilter, } from "@/composition/filter"
 
 export const usePostList = () => {
     const { $axios, } = useAxios()
@@ -25,11 +25,10 @@ export const usePostList = () => {
     }
 
     const filterPosts = async (filter: LocationFilter, ) => {
-      page.value = 1
       try {
         const result = await $axios.post('/post/filter?page=' + page.value, filter )
         isNeedToUpload.value = result.data.last_page !== page.value
-        posts.value = page.value === 1 ? result.data : [...posts.value,...result.data]
+        posts.value = page.value === 1 ? result.data.data : [...posts.value,...result.data.data]
         page.value = isNeedToUpload ? page.value + 1 : page.value
     }
       catch(e) {
@@ -50,21 +49,23 @@ export const usePostList = () => {
     }
 
   
-    
     const  upload = async ($state) => {
         try {
-            const result = await $axios.get('/post/list?page=' + page.value )
-            isNeedToUpload.value = result.data.last_page !== page.value
-            posts.value = page.value === 1 ? result.data.data : [...posts.value,...result.data.data]
-            page.value = isNeedToUpload.value ? page.value + 1 : page.value
-
+            if (locationFilter.value.region !== '' ) {
+              filterPosts(locationFilter.value)
+            }
+            else {
+              const result = await $axios.get('/post/list?page=' + page.value )
+              isNeedToUpload.value = result.data.last_page !== page.value
+              posts.value = page.value === 1 ? result.data.data : [...posts.value,...result.data.data]
+              page.value = isNeedToUpload.value ? page.value + 1 : page.value  
+            }
         }
         catch(e) {
             error({ statusCode: e?.response?.status })
         }
     }
-
-  
+    
     const  onScroll = async ($state) => {
         try {
             const result = await $axios.get('/post/list?page=' + page.value )
