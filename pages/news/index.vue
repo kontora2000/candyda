@@ -74,8 +74,8 @@ export default defineComponent({
         }, {
             deep: true,
         })
-
         title.value = 'Новости'
+        
         return {
             fetchPosts,
             posts,
