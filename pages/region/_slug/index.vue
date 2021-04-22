@@ -90,11 +90,18 @@ export default defineComponent({
 
 
 <style scoped>
+.page-aside-wrapper {
+  position: absolute;
+  left: 4.8rem;
+  top: calc(9.2rem + 3rem);
+  width: calc((100vw - 49.6rem - 1.6rem) / 32 * 7 + 9.6rem );
+}
+
 .region-title-wrapper {
   display: flex;
   position: absolute;
   top: calc(9.2rem + 2rem);
-  left: calc((100vw - 49.6rem - 1.6rem) / 32 * 9 + 9.6rem + .8rem);
+  left: calc((100vw - 49.6rem - 1.6rem) / 32 * 9 + 9.6rem + 1.6rem);
 }
 
 .region-title-number {

@@ -14,11 +14,13 @@
         </div>
         <div class="cont-wrapper cont-wrapper-right cont-wrapper-search-results search-results-tags" v-if="searchResults.tags && searchResults.tags.length > 0">
             <h2 class="search-result-header">{{ searchResults.tags.length  }}&nbsp;{{ tagsCount }}</h2>
-            <Tag class="search-results-tag" v-for="tag in searchResults.tags" 
-              :key="tag.id" 
-            >
-              {{ tag.name }}
-            </Tag>
+            <div class="search-results-tags-wrapper">
+                <Tag class="search-results-tag" v-for="tag in searchResults.tags" 
+                :key="tag.id" 
+                >
+                {{ tag.name }}
+                </Tag>
+            </div>
         </div> 
         <div class="cont-wrapper cont-wrapper-right cont-wrapper-search-results search-results-parties" v-if="searchResults.parties && searchResults.parties.length > 0">
             <h2 class="search-result-header">{{ searchResults.parties.length  }}&nbsp;{{ partyCount }}</h2>
@@ -169,5 +171,9 @@ height: 13.6rem;
 margin-top: 0;
 position: absolute;
 bottom: 0;
+}
+
+.search-results-tags-wrapper {
+    grid-column: 1/-1;
 }
 </style>

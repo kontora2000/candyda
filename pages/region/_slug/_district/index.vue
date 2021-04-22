@@ -6,7 +6,7 @@
     <div class="region-title-wrapper" v-if="district && district.name">
       <h1 class="region-title">{{ district.name }}<br /></h1>
     </div>
-    <div class="cont-wrapper" v-if="district.posts && district.posts.length > 0">
+    <div class="cont-wrapper cont-wrapper-left" v-if="district.posts && district.posts.length > 0">
         <div class="cont-header-wrapper cont-wrapper-left">
             <h3 class="cont-header">Новости района</h3>
         </div>
@@ -82,7 +82,7 @@ export default defineComponent({
   display: flex;
   position: absolute;
   top: calc(9.2rem + 2rem);
-  left: calc((100vw - 49.6rem - 1.6rem) / 32 * 9 + 9.6rem + .8rem);
+  left: calc((100vw - 49.6rem - 1.6rem) / 32 * 9 + 9.6rem + 1.6rem);
 }
 
 .region-title-number {
