@@ -76,6 +76,7 @@ export interface Distritct {
    id?: number;
    slug: string;
    name: string;
+   num: number;
    parent?: string;
    parties?: Party[];
    candidadates?: Candidate[];
