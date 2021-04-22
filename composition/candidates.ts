@@ -34,7 +34,7 @@ export const useCandidateList = () => {
     const filterCandidates = async (filter: LocationFilter) => {
       if (!filter.region && filter.region === '') return
       try {
-        const response = await $axios.post(`/candidates/filter/${page.value}`, filter,)
+        const response = await $axios.post(`/candidates/filter?page=${page.value}`, filter,)
         if (response.status === 200) {
           candidates.value = response.data
           isNeedToUpload.value = false
@@ -52,6 +52,7 @@ export const useCandidateList = () => {
         filterCandidates,
         candidates,
         page,
+        isNeedToUpload,
     }
 }
 

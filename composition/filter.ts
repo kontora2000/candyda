@@ -42,6 +42,13 @@ export const useLocationFilter = () => {
       console.error(e)
     }
    }
+
+   const resetFilter = () => {
+     locationFilter.value = {
+       region: '',
+       district: '',
+     }
+   }
    
    
    return {
@@ -50,6 +57,7 @@ export const useLocationFilter = () => {
     filterRegions,
     getFilter,
     setFilter,
+    resetFilter,
     fetchRegions,
     fetchDistricts,
    }

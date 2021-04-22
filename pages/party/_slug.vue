@@ -1,7 +1,7 @@
 <template>
   <div class="page-content-superwrapper" v-if="party.slug">
     <div class="page-party-wrapper page-content-wrapper grid-main">
-      <TheAside />
+      <TheAside :filter="false" />
       <div class="page-wrapper page-party">
         <div class="page-party-header-cont">
           <div class="page-party-header-emblem-wrapper">

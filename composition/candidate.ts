@@ -1,15 +1,15 @@
-import {ref, computed, useFetch, useContext,} from '@nuxtjs/composition-api'
+import { ref, computed, useFetch, useContext, } from '@nuxtjs/composition-api'
 import { Candidate, } from '@/modules/types.ts'
 import { useAxios, } from './axios'
 import moment from 'moment'
-import {useVotes} from "~/composition/votes";
+import { useVotes, } from "@/composition/votes";
 
 export const useCandidate = () => {
   const { route, } = useContext()
   const slug = route.value.params.slug
   const { $axios, error } = useAxios()
   const candidate=ref<Candidate>({} as Candidate)
-  const { onVote, isVoted, localVotes, } = useVotes(slug)
+  const { onVote, isVoted, localVotes, localNum, } = useVotes(slug)
   const gallery = ref([])
   const momentDate = ref<moment.Moment>( moment())
 
@@ -23,6 +23,7 @@ export const useCandidate = () => {
         momentDate.value = moment(candidate.value.birthdate)
         candidate.value.birthdate = momentDate.value.format('D MMMM YYYY')
         localVotes.value = candidate.value.votes
+        localNum.value = candidate.value.num
         gallery.value = JSON.parse(candidate.value.gallery)
       }
       else {
@@ -32,6 +33,7 @@ export const useCandidate = () => {
       error({ statusCode:404, message:'Страниц не найдена' })
     }
   })
+  
   fetchCandidate()
 
   const fullName = computed(() => (candidate.value?.surname || '') + ' '
@@ -49,6 +51,7 @@ export const useCandidate = () => {
     candidate,
     fetchCandidate,
     localVotes,
+    localNum,
     isVoted,
     fullName,
     gallery,

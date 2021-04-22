@@ -22,6 +22,7 @@ export interface Candidate {
   name: string;
   surname: string;
   patronymic: string;
+  num: number;
   status: string;
   slug: string;
   partID: number;

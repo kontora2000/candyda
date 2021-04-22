@@ -24,6 +24,9 @@
                    </infinite-loading>
                </template>
             </template>
+            <div v-else-if="locationFilter.region!==''">
+              Нет подходящих новостей
+            </div>
          </div>
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
@@ -37,13 +40,14 @@
 <script lang="ts">
 import { defineComponent, useMeta, watch, useFetch, } from '@nuxtjs/composition-api'
 
+import {usePostList,} from '@/composition/posts'
+import { useLocationFilter, } from '@/composition/filter'
+
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import Btn from '@/components/Generic/Btn.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
-import {usePostList,} from '@/composition/posts';
-import { useLocationFilter, } from '@/composition/filter'
-import TheAside from '~/components/Generic/Aside/TheAside.vue'
+import TheAside from '@/components/Generic/Aside/TheAside.vue'
 
 export default defineComponent({
     name:'index',
@@ -60,24 +64,31 @@ export default defineComponent({
         const { fetch, } = useFetch(() => fetchPosts())
         const { title, } = useMeta()
         const { locationFilter, } = useLocationFilter()
+        locationFilter.value = {
+            region: '',
+            district: '',
+        }
         watch(locationFilter, () => {
             page.value = 1
+            debugger
             if (locationFilter.value.region === '') {
                 fetchPosts()
             }
-            filterPosts(locationFilter.value)
+            else filterPosts(locationFilter.value)
         }, {
             deep: true,
         })
-
         title.value = 'Новости'
+        
         return {
             fetchPosts,
             posts,
             page,
+            locationFilter,
             isNeedToUpload,
             upload,
             onScroll,
+            
         }
     },
 

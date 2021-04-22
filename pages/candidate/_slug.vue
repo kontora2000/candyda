@@ -15,7 +15,7 @@
                </div>
                <div class="candidate-rating-wrapper candidate-info-row">
                   <div class="candidate-rating">
-                     <span class="candidate-top-rating" v-if="candidate.num">ТОП-{{ candidate.num }}</span>
+                     <span class="candidate-top-rating" v-if="localNum">ТОП-{{ localNum}}</span>
                      <span class="candidate-top-votes" v-if="localVotes !== null && localVotes !== 'undefined'">{{ localVotes }}<sup>{{ votesText }}</sup></span>
                   </div>
                   <div class="candidate-vote-button-wrapper" v-if="localVotes !== null && localVotes !== 'undefined'"
@@ -106,6 +106,7 @@ export default defineComponent({
                 onVote,
                 isVoted,
                 localVotes,
+                localNum,
                 fullName,
                 age,
                 gallery, } = useCandidate()
@@ -136,12 +137,14 @@ export default defineComponent({
                 const lightbox:HTMLFormElement|null =  document.querySelector('.gallery-lightbox-wrapper')
                 if (lightbox) lightbox.focus()
             }
-
+            const isLoading = false
             return {
                 candidate,
                 isVoted,
                 votesText,
                 localVotes,
+                localNum,
+                isLoading,
                 ageText,
                 fullName,
                 gallery,
