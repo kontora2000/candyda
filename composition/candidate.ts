@@ -1,8 +1,8 @@
-import {ref, computed, useFetch, useContext,} from '@nuxtjs/composition-api'
+import { ref, computed, useFetch, useContext, } from '@nuxtjs/composition-api'
 import { Candidate, } from '@/modules/types.ts'
 import { useAxios, } from './axios'
 import moment from 'moment'
-import {useVotes} from "~/composition/votes";
+import { useVotes, } from "@/composition/votes";
 
 export const useCandidate = () => {
   const { route, } = useContext()
@@ -33,6 +33,7 @@ export const useCandidate = () => {
       error({ statusCode:404, message:'Страниц не найдена' })
     }
   })
+  
   fetchCandidate()
 
   const fullName = computed(() => (candidate.value?.surname || '') + ' '

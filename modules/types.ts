@@ -22,6 +22,7 @@ export interface Candidate {
   name: string;
   surname: string;
   patronymic: string;
+  num: number;
   status: string;
   slug: string;
   partID: number;
@@ -76,7 +77,6 @@ export interface Distritct {
    id?: number;
    slug: string;
    name: string;
-   num: number;
    parent?: string;
    parties?: Party[];
    candidadates?: Candidate[];
