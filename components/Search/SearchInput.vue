@@ -112,7 +112,6 @@ export default defineComponent({
         }
         const deleteBlock = (ind) => {
             searchBlocks.value.splice(ind, 1)
-
             window.setTimeout(() => {
                 searchInputPadding.value = (searchBlocks.value.length > 0) ? 
                     `calc(${basePadding} + ${document.querySelector('.search-blocks-wrapper').offsetWidth}px + 1rem)` :
@@ -121,6 +120,14 @@ export default defineComponent({
         }
 
         watch(searchBlocks, ()=> {
+            if (!isSearchOpen.value) {
+                onFocus()
+                window.setTimeout(() => {  
+                    searchInputPadding.value = `calc(${basePadding} + ${document.querySelector('.search-blocks-wrapper').offsetWidth}px + 1rem)`
+                }, 10)
+                searchRequest()
+                return
+            }
             if (searchBlocks.value.length > 0) { searchRequest() } 
             else { searchResults.value = {} }
         })

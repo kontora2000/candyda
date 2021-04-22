@@ -5,7 +5,7 @@ import { SearchRequestBody, SearchResults, } from "~/modules/types"
 
 const isSearchOpen = ref(false)
 const searchString = ref<string>('')
-const searchBlocks = ref([])
+const searchBlocks = ref<string[]>([])
 const searchResults = ref<SearchResults[]>([])
 const searchRequestBody = ref<SearchRequestBody> ({
   tags: [] as Array<string>,

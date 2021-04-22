@@ -5,9 +5,7 @@
             <Breadcrumbs />
             <div class="date-publication">{{ postDate }}</div>
          </aside>
-         <h2 class="article-header">{{
-             post.title
-           }}</h2>
+         <h2 class="article-header">{{ post.title }}</h2>
          <div class="news-cover-wrapper" v-if="post.cover">
             <div class="news-cover">
                <img class="news-cover-img" :src="'https://api.prostokontora.ru/storage/' + post.cover" />
@@ -18,11 +16,14 @@
             </div>
          </div>
          <div class="article-paragraphs" v-html="post.content">
-
          </div>
          <div class="tags-wrapper">
-            <a class="button tag"
-               v-for="tag in post.tags" :key="tag.id" >{{ tag.name }}</a>
+            <tag 
+               v-for="tag in post.tags"
+               :tag="tag" 
+               :key="tag.id" >
+                {{ tag.name }}
+            </tag>
          </div>
       </article>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
@@ -37,15 +38,16 @@
 <script lang="ts">
 import { defineComponent, useContext, computed, useMeta, ref, useFetch, watch, } from '@nuxtjs/composition-api'
 import moment from 'moment'
-
-import { useAxios,} from '@/composition/axios'
 import { Post, } from '@/modules/types'
+
+import { useAxios, } from '@/composition/axios'
 import { useHelpers, } from '@/composition/helpers'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 
 import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import Btn from '@/components/Generic/Btn.vue'
+import Tag from '@/components/Generic/Tag.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
@@ -57,7 +59,8 @@ export default defineComponent({
         Btn,
         CandidateTop,
         TheFooter,
-    },
+        Tag  
+      },
     head:{},
     setup() {
         const { humanDateDiff, } = useHelpers()
@@ -72,14 +75,11 @@ export default defineComponent({
             moment.locale('ru')
             postDate.value = humanDateDiff(post.value.post_date)
         })
-        
         const { setPostBreadCrumbs, } = useBreadcrumbs()
         watch(post, () => {
           setPostBreadCrumbs(post.value)
         })
-
         useMeta(() => ({ title: post.value.title }))
-
         return {
             post,
             postDate,
