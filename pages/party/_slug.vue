@@ -10,8 +10,8 @@
               class="page-party-header-emblem" :src="`https://api.prostokontora.ru/storage/${party.logo}`" />
           </div>
           <h1 class="page-party-header">{{ party.name  }}</h1>
+          <div class="page-party-about" v-if="party.description">{{ party.description }}</div>
         </div>
-        <div class="page-party-about" v-if="party.description">{{ party.description }}</div>
         <h3 class="page-party-header-candidates">Кандидаты от&nbsp;партии</h3>
         <CandidateCard 
           v-for="candidate in party.candidates" 
@@ -76,6 +76,7 @@ export default defineComponent( {
 .page-party-header-cont {
   grid-column: 1/20;
   grid-row: span 1;
+  margin-bottom: 6.4rem;
 }
 
 .page-party-header-emblem-wrapper {
@@ -102,7 +103,7 @@ export default defineComponent( {
 .page-party-about {
   grid-column: 1/20;
   grid-row: span 1;
-  margin: 3.2rem 0 6.4rem;
+  margin-top: 3.2rem;
 }
 .page-party-about>p {
   margin-top: 0;
