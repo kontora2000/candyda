@@ -65,7 +65,7 @@ export const useMap = () => {
         gsap.to(insideCityTitles, { duration: 0.2, autoAlpha: 1, opacity:1,  })
       }
       
-      animateViewBox(`${box.x} ${box.y} 350 350`)
+      animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
     }
   }
 
@@ -96,7 +96,7 @@ export const useMap = () => {
       if (insideCityTitles.length > 0) {
         gsap.to(insideCityTitles, { duration: 0.2, autoAlpha: 1, opacity:1,  })
       }
-      mapSvg.value.setAttribute('viewBox', `${box.x} ${box.y} 350 350`)
+      mapSvg.value.setAttribute('viewBox', `${box.x} ${box.y} ${box.width} ${box.height}`)
     }
   }
 
