@@ -46,7 +46,15 @@ export default defineComponent({
 </script>
 
 <style scoped>
- .party-cards-wrapper {
-   grid-column: 2/14;
- }
+.party-cards-wrapper {
+  grid-column: 2/14;
+}
+
+
+
+@media (max-width: 460px) {
+  .party-cards-wrapper {
+    grid-column: 1/-1;
+  }
+}
 </style>

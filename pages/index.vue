@@ -3,7 +3,7 @@
     <div class="main-bottom-wrapper grid-main">
       <NewsBlock class="cont-wrapper-left" />
       <CandidateTop class="cont-wrapper-right" />
-      <PartyTop class="cont-wrapper-right" v-show="!$device.isMobile"/>
+      <PartyTop class="cont-wrapper-right party-top-cont" v-show="!$device.isMobile"/>
       <TheFooter />
     </div>
   </main>
@@ -49,16 +49,20 @@ export default defineComponent({
     grid-template-rows: auto;
   }
 
+  .main-bottom-wrapper .party-top-cont {
+    grid-row: 2/3;
+  }
+
   .main-bottom-wrapper .cont-wrapper-right {
     grid-row: 1/2;
   }
 
   .main-bottom-wrapper .cont-wrapper-left {
-    grid-row: 2/3;
+    grid-row: 3/4;
   }
 
   .main-bottom-wrapper .footer-wrapper {
-    grid-row: 3/3;
+    grid-row: 4/5;
   }
 }
 </style>

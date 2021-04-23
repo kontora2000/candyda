@@ -5,12 +5,9 @@
       <div class="page-wrapper page-party">
         <div class="page-party-header-cont">
           <div class="page-party-header-emblem-wrapper">
-            <img :src="party.logo" :alt="party.name" class="page-party-header-emblem">
-          </div>
-          <div class="party-card-pic-wrapper" >
             <img 
               v-if="party.logo" 
-              class="party-card-pic" :src="`https://api.prostokontora.ru/storage/${party.logo}`" />
+              class="page-party-header-emblem" :src="`https://api.prostokontora.ru/storage/${party.logo}`" />
           </div>
           <h1 class="page-party-header">{{ party.name  }}</h1>
         </div>
@@ -79,6 +76,27 @@ export default defineComponent( {
 .page-party-header-cont {
   grid-column: 1/20;
   grid-row: span 1;
+}
+
+.page-party-header-emblem-wrapper {
+  display: inline-block;
+  margin-right: 1.2rem;
+  max-width: 9.2rem;
+  max-height: 9.2rem;
+  vertical-align: top;
+}
+
+.page-party-header-emblem {
+  max-width: inherit;
+  object-fit: contain;
+  max-height: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-party-header {
+  display: inline-block;
 }
 
 .page-party-about {
