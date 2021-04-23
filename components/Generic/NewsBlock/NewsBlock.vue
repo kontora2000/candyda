@@ -4,13 +4,22 @@
          <h3 class="cont-header">Последние <nuxt-link to="/news" class="link-underline-solid">новости</nuxt-link></h3>
       </div>
       <div class="news-block-cards-wrapper block-cards-wrapper">
-         <NewsBlockCard
+         <NewsBlockCard class="news-card-cont-small"
              v-for="post in posts"
              :key="post.id"
-             :post="post"/>
-         <div class="showmore-btn-wrapper" v-if="page === 2 && isNeedToUpload">
-            <btn>Показать больше</btn>
-         </div>
+             :post="post" />
+          <template v-if="isNeedToUpload">
+              <div class="showmore-btn-wrapper" v-if="isNeedToUpload && page === 2" @click="upload"
+              >
+                  <btn>Показать больше</btn>
+              </div>
+              <infinite-loading v-else-if="page > 2" style="margin-top: 10px" class="showmore-btn-wrapper"
+                                spinner="spiral"
+                                @infinite="onScroll" >
+                  <div slot="no-more" />
+                  <div slot="no-results" />
+              </infinite-loading>
+          </template>
       </div>
    </div>
 </template>
@@ -18,12 +27,10 @@
 
 
 <script>
-import { defineComponent,  onMounted, } from '@nuxtjs/composition-api'
-
+import { defineComponent,  useFetch, } from '@nuxtjs/composition-api'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard'
 import Btn from '@/components/Generic/Btn'
-import {usePostList,} from '@/composition/posts';
-
+import { usePostList, } from '@/composition/posts';
 
 export default defineComponent({
     name:'NewsBlock',
@@ -31,17 +38,16 @@ export default defineComponent({
         NewsBlockCard,
         Btn,
     },
-    ssr: false,
     setup() {
-        const { fetchPosts, posts, page, isNeedToUpload, } = usePostList()
-        onMounted(async () => {
-            await fetchPosts()
-        })
+        const { fetchPosts, posts, page, isNeedToUpload, upload, onScroll, } = usePostList()
+        const { fetch, } = useFetch(() => fetchPosts())
         return {
             fetchPosts,
             posts,
             page,
             isNeedToUpload,
+            upload,
+            onScroll,
         }
     },
 })
@@ -50,5 +56,4 @@ export default defineComponent({
 
 
 <style scoped>
-
 </style>

@@ -3,6 +3,7 @@
       <ul>
         <li><nuxt-link to="/news" class="nav-link link-underline-solid">Новости</nuxt-link></li>
         <li><nuxt-link to="/top" class="nav-link link-underline-solid">Топ кандидатов</nuxt-link></li>
+        <li><nuxt-link to="/party" class="nav-link link-underline-solid">Партии</nuxt-link></li>
         <li><nuxt-link to="/about" class="nav-link link-underline-solid">О проекте</nuxt-link></li>
       </ul>
    </nav>
@@ -22,26 +23,42 @@ export default defineComponent({
 
 <style scoped>
 .footer-nav {
-  font-size: 1.6rem;
-  margin-bottom: 1.2rem;
+  margin-right: 2.4rem;
 }
 
 .footer-nav ul li {
-  margin-right: 1.6rem;
-  display: inline-flex;
+  display: flex;
+  margin-bottom: .8rem;
+  min-width: 14rem;
 }
 
 .footer-nav .nav-link.link-underline-solid {
   border-bottom-color: var(--Black20);
+  border-bottom-width: 1.5px;
   color: var(--Black32);
   display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 500;
   line-height: 2rem;
 }
+.footer-nav .nav-link.link-underline-solid:hover {
+  border-bottom-color: var(--Gray100);
+  color: var(--Gray100);
+}
+
 
 
 @media (max-width: 460px) {
   .footer-nav ul li {
     margin-right: .8rem;
+  }
+}
+
+
+
+@media (max-width: 360px) {
+  .footer-nav ul li {
+    font-size: 1.4rem;
   }
 }
 </style>

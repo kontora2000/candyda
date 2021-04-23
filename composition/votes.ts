@@ -5,9 +5,9 @@ export  const  useVotes = (slug) => {
     const voteButtonDisabled = ref(false)
     const isLoading = ref(false)
     const { $axios, } = useAxios()
-    const isVoted = ref(false)
+    const isVoted = ref(true)
     const localVotes = ref<number>(0)
-
+    const localNum = ref<number>()
     const onVote = async (slug) => {
         isLoading.value = true
         if (!voteButtonDisabled.value &&  !isVoted.value) {
@@ -15,9 +15,12 @@ export  const  useVotes = (slug) => {
             try {
                 const result = await $axios.$post('candidates/vote/' + slug)
                 isLoading.value = false
-                if (result) localVotes.value = result.votes
-                isVoted.value = true
-                localStorage.setItem(`${slug}`, 'true')
+                if (result) {
+                  localVotes.value = result.votes
+                  isVoted.value = true
+                  localNum.value = result.num
+                  localStorage.setItem(`${slug}`, 'true')
+                }
             }
             catch (e) {
                 console.error(e)
@@ -27,8 +30,9 @@ export  const  useVotes = (slug) => {
     return {
         isVoted,
         voteButtonDisabled,
-        onVote,
         localVotes,
+        localNum,
         isLoading,
+        onVote,
     }
 }

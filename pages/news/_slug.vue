@@ -2,27 +2,37 @@
    <div class="page-content-superwrapper">
       <article class="page-news-wrapper page-content-wrapper grid-main">
          <aside class="page-aside-wrapper">
-            <div class="breadcrumbs-news breadcrumbs"><a class="link-underline-solid" href="#">Туапсинский округ</a> / <a class="link-underline-solid" href="#">Геленджик</a> / <a class="link-underline-solid" href="#">Новости</a></div>
+            <Breadcrumbs />
             <div class="date-publication">{{ postDate }}</div>
          </aside>
+<<<<<<< HEAD
          <h2 class="article-header">{{
              post.title
            }}</h2>
          <div class="news-cover-wrapper" v-if="post.cover">
             <div class="news-cover">
                <img class="news-cover-img" :src="post.cover" />
+=======
+         <h2 class="article-header">{{ post.title }}</h2>
+         <div class="news-cover-wrapper" v-if="post.cover">
+            <div class="news-cover">
+               <img class="news-cover-img" :src="'https://api.prostokontora.ru/storage/' + post.cover" />
+>>>>>>> abb7854be8dce745dc33316f6ab7f0558b28041e
             </div>
-            <div class="news-cover-comment-wrapper">
-               <div class="news-cover-comment">{{ post.image.description }}</div>
-               <div class="news-cover-copyright text-small">{{ post.image.source }}</div>
+            <div class="news-cover-comment-wrapper" v-if="post.cover_source || post.cover_descr">
+               <div class="news-cover-comment">{{ post.cover_descr }}</div>
+               <div class="news-cover-copyright text-small">{{ post.cover_source }}</div>
             </div>
          </div>
          <div class="article-paragraphs" v-html="post.content">
-
          </div>
          <div class="tags-wrapper">
-            <a class="button tag"
-               v-for="tag in post.tags" :key="tag.id" >{{ tag.name }}</a>
+            <tag 
+               v-for="tag in post.tags"
+               :tag="tag" 
+               :key="tag.id" >
+                {{ tag.name }}
+            </tag>
          </div>
       </article>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
@@ -34,44 +44,51 @@
 
 
 
-<script>
-import {defineComponent, useContext, onMounted, computed, useMeta, ref, useFetch,} from '@nuxtjs/composition-api'
+<script lang="ts">
+import { defineComponent, useContext, computed, useMeta, ref, useFetch, watch, } from '@nuxtjs/composition-api'
+import moment from 'moment'
+import { Post, } from '@/modules/types'
 
+import { useAxios, } from '@/composition/axios'
+import { useHelpers, } from '@/composition/helpers'
+import { useBreadcrumbs, } from '@/composition/breadcrumbs'
+
+import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
-import Btn from '~/components/Generic/Btn.vue'
+import Btn from '@/components/Generic/Btn.vue'
+import Tag from '@/components/Generic/Tag.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
-import {useAxios,} from '@/composition/axios';
-import {Post,} from '@/modules/types';
-import moment from 'moment';
 
 export default defineComponent({
     name:'index',
     components: {
+        Breadcrumbs,
         NewsBlockCard,
         Btn,
         CandidateTop,
         TheFooter,
-    },
+        Tag  
+      },
     head:{},
     setup() {
+        const { humanDateDiff, } = useHelpers()
+        const postDate = ref('')
+        const post = ref<Post>({} as Post)
         const { $axios, error,} = useAxios()
-
-        const { route,} = useContext()
+        const { route, } = useContext()
         const slug=route.value.params.slug
-
-        const postDate = ref()
-        const post = ref({})
         const { fetch: fetchPost, } = useFetch(async () => {
             post.value = await $axios.$get('/post/' + slug)
             if (!post.value.slug) error({statusCode: 404,})
             moment.locale('ru')
-            postDate.value = moment(post.value.post_date).format('DD MMMM YYYY в HH:MM')
+            postDate.value = humanDateDiff(post.value.post_date)
         })
-
-        const title = computed(()=> post.value?.title)
-        useMeta({ title: title, })
-
+        const { setPostBreadCrumbs, } = useBreadcrumbs()
+        watch(post, () => {
+          setPostBreadCrumbs(post.value)
+        })
+        useMeta(() => ({ title: post.value.title }))
         return {
             post,
             postDate,
@@ -105,22 +122,26 @@ article .date-publication {
    width: 100%;
 }
 
-.news-cover-img {
+.news-cover-img,
+.news-image img {
    width: 100%;
    height: 100%;
    max-height: 64rem;
    object-fit: cover;
 }
 
-.news-cover-comment-wrapper {
+.news-cover-comment-wrapper,
+.news-image-comment-wrapper {
    margin-top: .8rem;
 }
 
-.news-cover-copyright {
+.news-cover-copyright,
+.news-image-copyright {
    color: var(--Black32);
 }
 
-.news-cover-copyright:before {
+.news-cover-copyright:before,
+.news-image-copyright:before {
    content: '©';
    display: inline-block;
    margin-right: .4rem;
@@ -130,11 +151,9 @@ article .date-publication {
    grid-column: 9/28;
 }
 
-.article-paragraphs p {
-   font-family: var(--font-serif);
-   font-size: 2.4rem;
-   line-height: 3.2rem;
-   margin-top: 3.2rem;
+.article-paragraphs .image img {
+   width: 100%;
+   height: auto;
 }
 
 .tags-wrapper {
@@ -143,7 +162,12 @@ article .date-publication {
 }
 
 
+
 @media (max-width: 460px) {
+   .article.page-news-wrapper {
+      margin-top: 0;
+   }
+
    .article-header {
       grid-column: 1/7;
    }
@@ -157,8 +181,18 @@ article .date-publication {
    .article-paragraphs {
       grid-column: 1/7;
    }
+   .article-paragraphs p:first-child {
+      margin-top: 0;
+   }
    .tags-wrapper {
       grid-column: 1/7;
+   }
+}
+
+@media (max-width: 360px) {
+   .article-header {
+      font-size: 2.8rem;
+      line-height: 3.2rem;
    }
 }
 </style>

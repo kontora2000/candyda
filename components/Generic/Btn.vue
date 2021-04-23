@@ -1,7 +1,9 @@
 <template>
    <button v-if="!loading"
            :disabled="loading || disabled"
-           @click.prevent="$emit('click', $event)">
+           @click="$emit('click', $event)"
+           @tap="$emit('click')"
+   >
        <slot />
    </button>
     <div v-else>

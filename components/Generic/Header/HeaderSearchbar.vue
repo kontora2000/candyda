@@ -1,20 +1,48 @@
 <template>
-   <div class="search-input-wrapper" v-if="!$device.isMobile">
-      <input class="search-input" type="search" placeholder="Введите округ / район или город / имя кандидата / новость"/>
+   <div class="search-input-wrapper" 
+    :class="{ 'search-input-wrapper-wide grid-main': isSearchOpen   }"
+    v-if="!$device.isMobile">
+      <SearchInput  
+        @search-focus="onFocus" 
+        @search-close="onSearchClose"/>
+      <transition name="fade-fast">
+        <SearchResults v-if="isShowResults"/>
+      </transition>
    </div>
 </template>
 
 
 
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
+import { defineComponent, ref, } from '@nuxtjs/composition-api'
+import SearchInput from '@/components/Search/SearchInput.vue'
+import SearchResults from '@/components/Search/SearchResults.vue'
+import { useSearch, } from '@/composition/search'
 
 export default defineComponent({
     name:'HeaderSearchbar',
+    components: { 
+        SearchInput,
+        SearchResults,
+    },
+    setup () {
+        const { isSearchOpen, } = useSearch()
+        const isShowResults = ref(false)
+        const onFocus = () => {
+            isShowResults.value = true
+        }
+        const onSearchClose = () => {
+            isShowResults.value = false
+        }
+        return {
+            isShowResults,
+            isSearchOpen,
+            onFocus,
+            onSearchClose,
+        }
+    },
 })
 </script>
-
-
 
 <style scoped>
 .search-input-wrapper {
@@ -22,8 +50,9 @@ export default defineComponent({
    grid-row: 1/1;
 }
 
-.search-input {
-   width: 100%;
+.search-input-wrapper-wide {
+    position: fixed;
+    top: 2.8rem;
 }
 
 @media (max-width: 460px) {

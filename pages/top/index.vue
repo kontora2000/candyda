@@ -1,16 +1,20 @@
 <template>
    <div class="page-content-superwrapper">
       <div class="page-news-wrapper page-content-wrapper grid-main">
-         <aside class="page-aside-wrapper">
-            <div class="page-content-filter-wrapper"></div>
-         </aside>
-         <div class="page-wrapper page-top">
+         <TheAside />
+         <div class="page-wrapper page-top" v-if="candidates && candidates.length > 0">
             <h1 class="page-header page-top-header">Топ кандидатов</h1>
             <CandidateCard
-                v-for="candidate in candidates"
+                v-for="(candidate, index) in candidates"
+                :is-first="index === 0"
+                :is-second="index === 1"
                 :key="candidate.id"
                 :candidate="candidate"
             />
+         </div>
+         <div class="page-wrapper page-top" 
+          v-else-if="candidates && candidates.length===0 && locationFilter.region!=='' && !isLoading">
+            <h1 class="page-header page-top-header">Нет подходящих кандидатов</h1>
          </div>
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
@@ -22,14 +26,19 @@
 
 
 
-<script>
-import { defineComponent, useMeta, } from '@nuxtjs/composition-api'
+<script lang="ts">
+import { defineComponent, ref, useMeta, useFetch, watch, } from '@nuxtjs/composition-api'
 
-import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
-import Btn from '@/components/Generic/Btn'
-import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
-import TheFooter from '@/components/Generic/Footer/TheFooter'
-import {useCandidateList,} from '@/composition/candidates';
+import { useCandidateList, } from '@/composition/candidates'
+import { useAxios, } from '@/composition/axios'
+import { useLocationFilter, } from '@/composition/filter'
+
+import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
+import Btn from '@/components/Generic/Btn.vue'
+import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
+import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
+import TheAside from '@/components/Generic/Aside/TheAside.vue'
+
 
 export default defineComponent({
     name:'index',
@@ -38,19 +47,42 @@ export default defineComponent({
         Btn,
         NewsBlock,
         TheFooter,
+        TheAside,
     },
     head:{},
     setup() {
-        const { candidates, fetchCandidatesTop, page, isNeedToUpload, } = useCandidateList()
-        fetchCandidatesTop()
-
+        const { candidates, filterCandidates, page, isNeedToUpload, } = useCandidateList()
+        const isLoading = ref(true)
+        const { $axios, error, } = useAxios()
+        const { fetch: fethcC, } =  useFetch(async  () => {
+            try {
+                isLoading.value = true
+                const result = await $axios.$get('/candidates/top')
+                candidates.value = result
+                isLoading.value = false
+            }
+            catch(e) {
+                error({ statusCode: e?.response?.status, })
+            }
+        })
         const { title, } = useMeta()
         title.value = 'Топ кандидатов'
-
+        const { locationFilter, } = useLocationFilter()
+        watch(locationFilter, () => {
+            page.value = 1
+            if (!locationFilter.value.region || locationFilter.value.region.trim() === '') {
+                fethcC()
+                return 
+            }
+            filterCandidates(locationFilter.value)
+        }, 
+        { deep: true, })
+        
         return {
             candidates,
+            locationFilter,
+            isLoading,
             isNeedToUpload,
-            page,
         }
     },
 })
@@ -61,8 +93,9 @@ export default defineComponent({
 <style scoped>
 .page-top {
    display: grid;
-   grid-template-columns: repeat(19, calc((100% - (1.6rem * 18)) / 19));
+   grid-template-columns: repeat(20,calc((100% - 30.4rem) / 20));
    grid-column-gap: 1.6rem;
+   grid-column: 9/29;
 }
 
 .page-top-header {
@@ -74,15 +107,40 @@ export default defineComponent({
    margin-bottom: 3.2rem;
 }
 
+.candidate-card-cont:nth-child(2) {
+   grid-column: span 12;
+   grid-row: span 2;
+   max-height: 35rem;
+ 
+}
+
+.candidate-card-cont:nth-child(3) {
+  grid-column: span 8;
+  grid-row: span 2;
+  max-height: 80%;
+  align-self:end;
+
+}
+
+
 
 @media (max-width: 460px) {
    .page-top {
 		grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
-		grid-column-gap: 1.2rem;
+      grid-column-gap: 1.2rem;
+      grid-column: 1/7;
    }
 
    .candidate-card-cont {
-      grid-column: span 2;
+      grid-column: span 3;
    }
 }
+
+
+
+/*@media (max-width: 360px) {
+   .candidate-card-cont {
+      grid-column: span 3;
+   }
+}*/
 </style>

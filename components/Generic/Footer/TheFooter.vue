@@ -4,7 +4,14 @@
       <footer>
         <FooterNavBar />
         <div class="copyright text-small">
-          ©&thinsp;2020, Duma.one Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
+          ©&thinsp;2021, Duma.one Все права защищены. При полном или частичном использовании материалов ссылка на ресурс обязательна
+        </div>
+        <div class="footer-logo-wrapper">
+          <nuxt-link to="/" class="footer-logo-link">
+            <svg class="footer-logo-svg logo-small">
+              <use xlink:href="/sprite.svg#logo-small" />
+            </svg>
+          </nuxt-link>
         </div>
       </footer>
     </div>
@@ -41,15 +48,51 @@ footer {
   background: var(--Black3);
   border-radius: 12px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   padding: 1.2rem;
   position: sticky;
   position: -webkit-sticky;
 }
 
+.footer-logo-wrapper {
+  height: 4rem;
+  margin-left: 2rem;
+  min-width: 3.6rem;
+  width: 3.6rem;
+}
+
+.footer-logo-link {
+  display: block;
+  height: inherit;
+  width: inherit;
+}
+
+.footer-logo-svg {
+  width: inherit;
+  height: inherit;
+  fill: var(--Black16);
+  transition: fill .15s ease-in-out;
+}
+
+.footer-logo-link:hover .footer-logo-svg {
+  fill: var(--Gray100);
+}
+
 .copyright {
     color: var(--Black16);
-    line-height: 1.2rem;
+    line-height: 1.4rem;
+}
+
+
+
+@media (max-width: 360px) {
+  .footer-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  footer {
+    padding: .8rem;
+  }
 }
 </style>

@@ -1,9 +1,6 @@
 <template>
    <div class="page-content-superwrapper">
       <div class="page-content-wrapper grid-main">
-         <aside class="page-aside-wrapper">
-            <div class="page-content-filter-wrapper"></div>
-         </aside>
          <div class="page-wrapper">
             <h1 class="page-header">О проекте</h1>
              <p>Lorem ipsum dolor sit amet</p>
@@ -11,8 +8,9 @@
          </div>
       </div>
       <div class="page-bottom-wrapper grid-main">
-         <NewsBlock class="cont-wrapper-left"/>
-         <CandidateTop class="cont-wrapper-right"/>
+         <NewsBlock class="cont-wrapper-left" />
+         <CandidateTop class="cont-wrapper-right" />
+         <PartyTop class="cont-wrapper-right" />
          <TheFooter />
       </div>
    </div>
@@ -25,6 +23,7 @@ import {defineComponent, useMeta,} from '@nuxtjs/composition-api'
 
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop'
+import PartyTop from '~/components/Party/PartyTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter'
 
 export default defineComponent({
@@ -32,6 +31,7 @@ export default defineComponent({
     components: {
         NewsBlock,
         CandidateTop,
+        PartyTop,
         TheFooter,
     },
     head:{},
@@ -43,6 +43,5 @@ export default defineComponent({
 </script>
 
 
-<style scoped>
 
-</style>
+<style scoped></style>

@@ -1,6 +1,7 @@
 <template>
   <div class="layout-inner grid-main">
     <BgCircles />
+    <SearchOverlay />
     <TheHeader />
     <nuxt />
   </div>
@@ -13,11 +14,13 @@ import TheHeader from '@/components/Generic/Header/TheHeader.vue'
 import BgCircles from '@/components/Generic/Bg/BgCircles.vue'
 
 import { defineComponent, } from '@nuxtjs/composition-api'
+import SearchOverlay from '~/components/Search/SearchOverlay.vue'
 
 export default defineComponent({
     components: {
         BgCircles,
         TheHeader,
+        SearchOverlay,
     },
 })
 </script>

@@ -8,17 +8,18 @@
                         :key="candidate.id"
                         :candidate="candidate"/>
          <div class="showmore-btn-wrapper">
-            <btn @click="redirect('/top')">Смотреть весь&nbsp;топ</btn>
+            <nuxt-link to="/top" ><btn class="button-transparent">Весь&nbsp;рейтинг</btn></nuxt-link>
          </div>
       </div>
    </div>
 </template>
 <script>
-import { defineComponent, useContext, onMounted, } from '@nuxtjs/composition-api'
+import { defineComponent, useContext,  useFetch,} from '@nuxtjs/composition-api'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard'
 import Btn from '@/components/Generic/Btn'
 import {useCandidateList,} from '@/composition/candidates';
+import {useAxios,} from '@/composition/axios';
 
 export default defineComponent({
     name:'CandidateTop',
@@ -28,8 +29,18 @@ export default defineComponent({
     },
     setup() {
         const { redirect, } = useContext()
-        const { fetchCandidatesTop, candidates, page, } = useCandidateList()
-        fetchCandidatesTop()
+        const { $axios, } = useAxios()
+        const { candidates, page,  } = useCandidateList()
+        const { fetch: fetchC, } = useFetch(async() => {
+            try {
+                const result = await $axios.$get('/candidates/list/1')
+                candidates.value = result.data
+            }
+            catch(e) {
+                error({ statusCode: e?.response?.status, })
+            }
+        })
+
         return {
             candidates,
             page,
@@ -44,19 +55,42 @@ export default defineComponent({
 .candidate-card-cont {
    grid-column: span 4;
 }
-.candidate-card-cont:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
+.candidate-card-cont {
    margin-top: 3.2rem;
 }
+.candidate-card-cont:first-child,
+.candidate-card-cont:nth-child(2),
+.candidate-card-cont:nth-child(3) {
+   margin-top: 0;
+}
+
+
 
 @media (max-width: 460px) {
+   .top-candidates-cards-wrapper {
+      margin-top: 1.2rem;
+   }
    .candidate-card-cont {
-      grid-column: span 2;
+      grid-column: span 3;
+      margin-top: 2rem;
+   }
+   .candidate-card-cont:first-child,
+   .candidate-card-cont:nth-child(2) {
+      margin-top: 0;
+   }
+   .candidate-card-cont:nth-child(3) {
+      margin-top: 2rem;
    }
 }
 
-@media (max-width: 360px) {
+
+
+/*@media (max-width: 360px) {
 	.candidate-card-cont {
       grid-column: span 3;
    }
-}
+   .candidate-card-cont:nth-child(3) {
+      margin-top: 2rem;
+   }
+}*/
 </style>

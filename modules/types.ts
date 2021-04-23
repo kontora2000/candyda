@@ -1,36 +1,51 @@
 export interface Post {
-  id: number | null;
+  id?: number;
   content: string;
   subcontent: string;
   title: string;
   excerpt: string;
   subtitle: string;
   slug: string;
-  imageID: number | null;
-  galleryID: number | null;
-  locationID: number | null;
-  tags: Tag[];
+  imageID?: number;
+  galleryID?: number;
+  locationID?: number;
   date: string;
   created_at: string;
   post_date: string;
+  region?: Region;
+  district?: Distritct;
+  tags: Tag[];
 }
 
 export interface Candidate {
-  id: number | null;
+  id?: number;
   name: string;
   surname: string;
+  patronymic: string;
+  num: number;
   status: string;
   slug: string;
   partID: number;
   votes: number;
-  avatarID: number | null;
+  avatarID?: number | null;
   avatar: string;
-  galleryID: number | null;
-  gallery: Image[],
+  galleryID?: number | null;
+  gallery: string;
   description: string;
-  tagID: number | null;
+  tagID?: number | null;
   created_at: string;
   birthdate: string;
+  region?: Region;
+  district?: Distritct;
+}
+
+export interface Party {
+  id: number | null;
+  name: string;
+  slug: string;
+  logo: string;
+  description: string;
+  candidates: Candidate[] | null;
 }
 
 export interface Tag {
@@ -56,4 +71,57 @@ export interface PageResponse {
   'next_page': number;
   'prev_page': number;
   'last_page': number;
+}
+
+export interface Distritct {
+   id?: number;
+   slug: string;
+   name: string;
+   parent?: string;
+   parties?: Party[];
+   candidadates?: Candidate[];
+   posts?: Post[];
+   tags?: Tag[];
+   region?: Region;
+}
+
+export interface Region {
+  id: number;
+  slug: string;
+  name: string;
+  parties?: Party[];
+  candidadates?: Candidate[];
+  districts?: Distritct[];
+  posts?: Post[];
+}
+
+export interface SearchRequestBody {
+  tags: Array<string> | null;
+  words: Array<string> | null; 
+}
+
+export interface SearchResults {
+  posts: Post[];
+  tags: Tag[];
+  parties: Party[];
+  candidates: Candidate[];
+}
+
+
+export interface Breadcrumb {
+   url: string;
+   title: string;
+}
+
+
+export interface FlatPage {
+  id: number;
+  title: string;
+  content: string;
+  slug: string;
+}
+
+export interface LocationFilter {
+  region: string | null;
+  district: string | null;
 }
