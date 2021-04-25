@@ -173,7 +173,11 @@ position: absolute;
 bottom: 0;
 }
 
+.search-results-tags {
+grid-template-rows: 6.8rem auto;
+}
+
 .search-results-tags-wrapper {
-    grid-column: 1/-1;
+grid-column: 1/-1;
 }
 </style>

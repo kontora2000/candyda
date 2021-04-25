@@ -21,9 +21,7 @@
             <tag 
                v-for="tag in post.tags"
                :tag="tag" 
-               :key="tag.id" >
-                {{ tag.name }}
-            </tag>
+               :key="tag.id" >{{ tag.name }}</tag>
          </div>
       </article>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">

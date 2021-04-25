@@ -193,6 +193,10 @@ export default defineComponent({
    margin-top: 2.4rem;
 }
 
+.candidate-status-wrapper {
+   margin-top: 0;
+}
+
 .candidate-info-row-header {
    color: var(--Black20);
 }
