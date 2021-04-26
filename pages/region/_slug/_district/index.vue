@@ -37,6 +37,10 @@
               :candidate="candidate" />
         </div>
       </div>
+      <div class="district-history-wrapper" v-if="district.history && district.history!==''">
+        <h3>История выборов</h3>
+        <District-history :history="candidate.history"/>
+      </div>
     </div>
     <div class="cont-wrapper cont-wrapper-left district-posts-wrapper" v-if="district.posts && district.posts.length > 0">
         <div class="cont-header-wrapper">
@@ -70,6 +74,7 @@ import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/Candi
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import PartyBlock from '@/components/Party/PartyBlock.vue'
 import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
+import DistrictHistory from '~/components/District/DistrictHistory.vue'
 
 export default defineComponent({
     transition: 'fade',
@@ -78,7 +83,8 @@ export default defineComponent({
         CandidateCard, 
         NewsBlockCard, 
         PartyBlock,
-        Breadcrumbs,
+        Breadcrumb,
+        DistrictHistorys,
     },
     setup () {
         const { thousandSeparator, } = useHelpers()
