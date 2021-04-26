@@ -25,7 +25,7 @@
           <span class="district-info-count" v-else>Не указано</span>
         </div>
       </div>
-      <div class="page-wrapper" v-if="district.candidates && district.candidates.length > 0" >
+       <div class="page-wrapper" v-if="district.candidates && district.candidates.length > 0" >
         <div class="district-candidates-header">
           <h3>Кандидаты района</h3>
         </div>
@@ -37,24 +37,25 @@
               :candidate="candidate" />
         </div>
       </div>
-      <div class="cont-wrapper cont-wrapper-left district-posts-wrapper " v-if="district.posts && district.posts.length > 0">
-          <div class="cont-header-wrapper cont-wrapper-left">
-              <h3 class="cont-header">Новости района</h3>
-          </div>
-          <div class="news-block-cards-wrapper block-cards-wrapper">
-              <NewsBlockCard  v-for="post in district.posts"
-                class="news-card-cont-small"
-                :key="post.id"
-                :post="post" /> 
-          </div>
-          <nuxt-link class="showmore-btn" v-if="district.posts.length > 11">Показать все</nuxt-link>
-      </div>
-      <div class="cont-wrapper cont-wrapper-right"  v-if="district.parties && district.parties.length > 0">
-          <div class="cont-header-wrapper" >
-              <h3 class="cont-header">Партии в&nbsp;районе</h3>
-          </div>
-          <PartyBlock :parties="district.parties" />
-      </div>
+    </div>
+   
+    <div class="cont-wrapper cont-wrapper-left district-posts-wrapper" v-if="district.posts && district.posts.length > 0">
+        <div class="cont-header-wrapper">
+            <h3 class="cont-header">Новости района</h3>
+        </div>
+        <div class="news-block-cards-wrapper block-cards-wrapper">
+            <NewsBlockCard  v-for="post in district.posts"
+              class="news-card-cont-small"
+              :key="post.id"
+              :post="post" /> 
+        </div>
+        <nuxt-link class="showmore-btn" v-if="district.posts.length > 11">Показать все</nuxt-link>
+    </div>
+    <div class="cont-wrapper cont-wrapper-right"  v-if="district.parties && district.parties.length > 0">
+        <div class="cont-header-wrapper" >
+            <h3 class="cont-header">Партии в&nbsp;районе</h3>
+        </div>
+        <PartyBlock :parties="district.parties" />
     </div>
  </div>
 </template>
