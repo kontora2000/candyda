@@ -9,6 +9,20 @@
         :alt="district.name"/>
       <h1 class="region-title">{{ district.name }}<br /></h1>
     </div>
+    <div class="region-info-wrapper">
+      <div class="region-info-row">
+        <span class="region-info-icon"></span>
+        <span class="region-info-header">Избиратели:</span>
+        <span class="region-info-count" v-if="district.votes">{{ district.votes  }} чел.</span>
+        <span class="region-info-count" v-else>Не указано</span>
+      </div>
+      <div class="region-info-row" v-if="distrcit.votes">
+        <span class="region-info-icon"></span>
+        <span class="region-info-header">Население:</span>
+        <span class="region-info-count" v-if="district.population">{{ district.population }} чел.</span>
+        <span class="region-info-count" v-else>Не указано</span>
+      </div>
+    </div>
     <div class="cont-wrapper cont-wrapper-left" v-if="district.posts && district.posts.length > 0">
         <div class="cont-header-wrapper cont-wrapper-left">
             <h3 class="cont-header">Новости района</h3>
