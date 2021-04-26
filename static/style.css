@@ -45,7 +45,7 @@
     --Black16: rgba(37, 37, 37, .16);
     --Black3: rgba(37, 37, 37, .03);
     --Black0: rgba(37, 37, 37, 0);
-	--Black92: rgba(37,37,37, .92);
+	  --Black92: rgba(37,37,37, .92);
 
     --White100: rgba(255, 255, 255, 1);
     --White84: rgba(255, 255, 255, .84);
@@ -57,7 +57,7 @@
     --White16: rgba(255, 255, 255, .16);
     --White0: rgba(255, 255, 255, 0);
 
-	--Gray100: rgba(92, 92, 92, 1);
+	  --Gray100: rgba(92, 92, 92, 1);
     --GraySuperLight100: rgba(250, 250, 250, 1);
     --GrayLight100: rgba(218, 218, 218, 1);
 
@@ -66,8 +66,8 @@
     --Azure100: rgba(44, 179, 255, 1);
     --Azure84: rgba(44, 179, 255, .84);
     --Azure32: rgba(44, 179, 255, .32);
-	--Azure16: rgba(44, 179, 255, .16);
-	--Azure12: rgba(44, 179, 255, .12);
+	  --Azure16: rgba(44, 179, 255, .16);
+  	--Azure12: rgba(44, 179, 255, .12);
     --Azure6: rgba(44, 179, 255, .06);
 
     --font-default: 'Golos', 'Helvetica', 'Arial', sans-serif;

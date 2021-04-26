@@ -4,8 +4,8 @@ import { Region,  } from '@/modules/types'
 
 
 export const useRegion = () => {
-  const { $axios, error, } = useAxios()
-  const { route,  } = useContext()
+  const { $axios, } = useAxios()
+  const { route, error,  } = useContext()
   const slug = route.value.params.slug
   const region = ref<Region>({} as Region)
 
