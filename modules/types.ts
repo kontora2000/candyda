@@ -23,6 +23,7 @@ export interface Candidate {
   surname: string;
   patronymic: string;
   num: number;
+ 
   status: string;
   slug: string;
   partID: number;
@@ -37,6 +38,7 @@ export interface Candidate {
   birthdate: string;
   region?: Region;
   district?: Distritct;
+ 
 }
 
 export interface Party {
@@ -77,6 +79,8 @@ export interface Distritct {
    id?: number;
    slug: string;
    name: string;
+   voters?: number;
+   population?: number;
    parent?: string;
    parties?: Party[];
    candidadates?: Candidate[];

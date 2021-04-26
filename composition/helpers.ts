@@ -35,6 +35,8 @@ export const useHelpers = () => {
       return Math.floor(Math.random() * max) + min  
     }
 
+    const thousandSeparator = (n: number) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
     const generateKey = (id: number) => {
       return  Symbol(Date.now())
     }
@@ -42,6 +44,7 @@ export const useHelpers = () => {
     return {
         numWord,
         humanDateDiff,
+        thousandSeparator,
         randomInRange,
         generateKey,
     }
