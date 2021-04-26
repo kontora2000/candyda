@@ -4,6 +4,9 @@
         <Breadcrumbs />
     </aside>
     <div class="region-title-wrapper" v-if="district && district.name">
+      <img v-if="district.logo" 
+        :src="district.logo" 
+        :alt="district.name"/>
       <h1 class="region-title">{{ district.name }}<br /></h1>
     </div>
     <div class="cont-wrapper cont-wrapper-left" v-if="district.posts && district.posts.length > 0">
