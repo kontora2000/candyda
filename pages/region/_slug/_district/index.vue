@@ -1,55 +1,58 @@
 <template>
- <div v-if="district" class="main-bottom-wrapper grid-main">
+ <div v-if="district" class="page-content-wrapper district-content-wrapper grid-main">
      <aside class="page-aside-wrapper">
         <Breadcrumbs />
     </aside>
-    <div class="region-title-wrapper" v-if="district && district.name">
-      <img v-if="district.logo" 
-        :src="district.logo" 
-        :alt="district.name"/>
-      <h1 class="region-title">{{ district.name }}<br /></h1>
-    </div>
-    <div class="region-info-wrapper">
-      <div class="region-info-row">
-        <span class="region-info-icon"></span>
-        <span class="region-info-header">Избиратели:</span>
-        <span class="region-info-count" v-if="district.votes">{{ district.votes  }} чел.</span>
-        <span class="region-info-count" v-else>Не указано</span>
+    <div class="district-wrapper">
+      <div class="district-title-wrapper" v-if="district && district.name">
+        <img v-if="district.logo" 
+          class="district-title-logo"
+          :src="'https://api.prostokontora.ru/storage/' + district.logo" 
+          :alt="district.name"/>
+        <h1 class="district-title">{{ district.name }}</h1>
       </div>
-      <div class="region-info-row">
-        <span class="region-info-icon"></span>
-        <span class="region-info-header">Население:</span>
-        <span class="region-info-count" v-if="district.population">{{ district.population }} чел.</span>
-        <span class="region-info-count" v-else>Не указано</span>
+      <div class="district-info-wrapper">
+        <div class="district-info-row">
+          <span class="district-info-icon"></span>
+          <span class="district-info-header">Избиратели:</span>
+          <span class="district-info-count" v-if="district.votes">{{ district.votes }} чел.</span>
+          <span class="district-info-count" v-else>Не указано</span>
+        </div>
+        <div class="district-info-row">
+          <span class="district-info-icon"></span>
+          <span class="district-info-header">Население:</span>
+          <span class="district-info-count" v-if="district.population">{{ district.population }} чел.</span>
+          <span class="district-info-count" v-else>Не указано</span>
+        </div>
       </div>
-    </div>
-    <div class="cont-wrapper cont-wrapper-left" v-if="district.posts && district.posts.length > 0">
-        <div class="cont-header-wrapper cont-wrapper-left">
-            <h3 class="cont-header">Новости района</h3>
-        </div>
-        <div class="news-block-cards-wrapper block-cards-wrapper">
-            <NewsBlockCard  v-for="post in district.posts"
-            :key="post.id"
-            :post="post" /> 
-        </div>
-        <nuxt-link class="showmore-btn" v-if="district.posts.length > 11">Показать все</nuxt-link>
-    </div>
-    <div class="cont-wrapper cont-wrapper-right" v-if="district.candidates && district.candidates.length > 0" >
-        <div class="cont-header-wrapper">
-          <h3 class="cont-header">Кандидаты района</h3>
-        </div>
-        <div class="top-candidates-cards-wrapper block-cards-wrapper">
-            <CandidateCard 
-          v-for="candidate in district.candidates" 
-          :key="candidate.slug"
-          :candidate="candidate" />
-        </div>
-    </div>
-    <div class="cont-wrapper cont-wrapper-right"  v-if="district.parties && district.parties.length > 0">
-        <div class="cont-header-wrapper">
-            <h3 class="cont-header">Партии в&nbsp;районе</h3>
-        </div>
-        <PartyBlock :parties="district.parties" />
+      <div class="cont-wrapper cont-wrapper-left" v-if="district.posts && district.posts.length > 0">
+          <div class="cont-header-wrapper cont-wrapper-left">
+              <h3 class="cont-header">Новости района</h3>
+          </div>
+          <div class="news-block-cards-wrapper block-cards-wrapper">
+              <NewsBlockCard  v-for="post in district.posts"
+              :key="post.id"
+              :post="post" /> 
+          </div>
+          <nuxt-link class="showmore-btn" v-if="district.posts.length > 11">Показать все</nuxt-link>
+      </div>
+      <div class="cont-wrapper cont-wrapper-right" v-if="district.candidates && district.candidates.length > 0" >
+          <div class="cont-header-wrapper">
+            <h3 class="cont-header">Кандидаты района</h3>
+          </div>
+          <div class="top-candidates-cards-wrapper block-cards-wrapper">
+              <CandidateCard 
+            v-for="candidate in district.candidates" 
+            :key="candidate.slug"
+            :candidate="candidate" />
+          </div>
+      </div>
+      <div class="cont-wrapper cont-wrapper-right"  v-if="district.parties && district.parties.length > 0">
+          <div class="cont-header-wrapper">
+              <h3 class="cont-header">Партии в&nbsp;районе</h3>
+          </div>
+          <PartyBlock :parties="district.parties" />
+      </div>
     </div>
  </div>
 </template>
@@ -92,14 +95,43 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.region-title-wrapper {
-  display: flex;
-  position: absolute;
-  top: calc(9.2rem + 2rem);
-  left: calc((100vw - 49.6rem - 1.6rem) / 32 * 9 + 9.6rem + 1.6rem);
+.district-wrapper {
+  grid-column: 9/32;
 }
 
-.region-title-number {
+.district-content-wrapper {
+  margin-top:5.2rem;
+}
+
+.district-title-wrapper {
+  display: flex;
+  align-items: center;
+  
+}
+
+.district-info-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-top: 6rem;
+}
+
+.district-info-row {
+  display: flex;
+  /* flex: 0.3 1; */
+  flex-direction: column;
+}
+
+.district-info-header {
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+}
+
+.district-info-row:first-of-type {
+  margin-right: 13rem;
+}
+
+.district-title-number {
   font-size: 12rem;
   font-weight: 400;
   letter-spacing: -.04em;
@@ -107,8 +139,19 @@ export default defineComponent({
   margin-right: 2.4rem;
 }
 
-.region-title {
-  margin-top: .4rem;
+.district-title-logo {
+  max-width: 6.5rem;
+  max-height: 8.2rem;
+  margin-right: 2rem;
+  align-self: center;
+}
+
+.district-title {
+  margin-top: 0rem;
+}
+
+.district-info-wrapper  {
+
 }
 
 .main-bottom-wrapper {
