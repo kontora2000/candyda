@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/composition-api": "^0.16.4",
+    "@nuxtjs/composition-api": "^0.23.3",
     "@nuxtjs/svg-sprite": "^0.5.2",
     "create-nuxt-app": "^3.4.0",
     "gsap": "^3.6.1",

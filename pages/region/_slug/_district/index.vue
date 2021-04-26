@@ -16,7 +16,7 @@
         <span class="region-info-count" v-if="district.votes">{{ district.votes  }} чел.</span>
         <span class="region-info-count" v-else>Не указано</span>
       </div>
-      <div class="region-info-row" v-if="distrcit.votes">
+      <div class="region-info-row">
         <span class="region-info-icon"></span>
         <span class="region-info-header">Население:</span>
         <span class="region-info-count" v-if="district.population">{{ district.population }} чел.</span>
@@ -54,8 +54,6 @@
  </div>
 </template>
 
-
-
 <script lang="ts">
 import { defineComponent, watch, useMeta,  } from '@nuxtjs/composition-api'
 import { useDistrict, } from '@/composition/district'
@@ -82,7 +80,6 @@ export default defineComponent({
             if (district.value.name) {
                 setDistrictBreadcrumbs(district.value)
             }
-            
         })
         useMeta(() => ({ 
             title: district.value?.name || '', 

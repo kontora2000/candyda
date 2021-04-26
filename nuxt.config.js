@@ -44,7 +44,7 @@ export default {
   */
     buildModules: [
         '@nuxt/typescript-build',
-        '@nuxtjs/composition-api',
+        '@nuxtjs/composition-api/module',
         '@nuxtjs/svg-sprite'
     ],
     /*
