@@ -14,13 +14,13 @@
       <div class="district-info-wrapper">
         <div class="district-info-row">
           <span class="district-info-icon"></span>
-          <span class="district-info-header">Избиратели:</span>
+          <span class="district-info-header">Избиратели</span>
           <span class="district-info-count" v-if="district.votes">{{ district.votes }} чел.</span>
           <span class="district-info-count" v-else>Не указано</span>
         </div>
         <div class="district-info-row">
           <span class="district-info-icon"></span>
-          <span class="district-info-header">Население:</span>
+          <span class="district-info-header">Население</span>
           <span class="district-info-count" v-if="district.population">{{ district.population }} чел.</span>
           <span class="district-info-count" v-else>Не указано</span>
         </div>
@@ -122,9 +122,10 @@ export default defineComponent({
 }
 
 .district-info-header {
-  font-weight: 600;
+  font-weight: 550;
   font-size: 2.4rem;
   line-height: 2.4rem;
+  margin-bottom: 1.2rem;
 }
 
 .district-info-row:first-of-type {
