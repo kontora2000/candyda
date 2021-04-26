@@ -74,7 +74,7 @@ import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/Candi
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import PartyBlock from '@/components/Party/PartyBlock.vue'
 import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
-import DistrictHistory from '~/components/District/DistrictHistory.vue'
+import DistrictHistory from '@/components/District/DistrictHistory.vue'
 
 export default defineComponent({
     transition: 'fade',
@@ -83,8 +83,8 @@ export default defineComponent({
         CandidateCard, 
         NewsBlockCard, 
         PartyBlock,
-        Breadcrumb,
-        DistrictHistorys,
+        Breadcrumbs,
+        DistrictHistory,
     },
     setup () {
         const { thousandSeparator, } = useHelpers()
