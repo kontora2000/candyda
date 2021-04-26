@@ -1,5 +1,5 @@
 <template>
- <div v-if="district" class="main-bottom-wrapper grid-main">
+ <div v-if="district" class="main-bottom-wrapper grid-main district-content-wrapper">
      <aside class="page-aside-wrapper">
         <Breadcrumbs />
     </aside>
@@ -38,7 +38,6 @@
         </div>
       </div>
     </div>
-   
     <div class="cont-wrapper cont-wrapper-left district-posts-wrapper" v-if="district.posts && district.posts.length > 0">
         <div class="cont-header-wrapper">
             <h3 class="cont-header">Новости района</h3>
