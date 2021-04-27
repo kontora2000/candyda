@@ -70,7 +70,6 @@ export default defineComponent({
         }
         watch(locationFilter, () => {
             page.value = 1
-            debugger
             if (locationFilter.value.region === '') {
                 fetchPosts()
             }

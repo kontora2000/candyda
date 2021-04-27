@@ -8,7 +8,11 @@ const mapSvg = ref<SVGAElement>({} as SVGAElement)
 export const useMap = () => {
   const isAnimating = ref(false)
   const isRegionOpened = ref(false)
-  const animateViewBox = (viewBox: string) => {
+  const animateViewBox = (viewBox: string, isInstant = false) => {
+    if (isInstant) {
+      mapSvg.value.setAttribute('viewBox', viewBox) 
+      return
+    } 
     if (!isAnimating.value) {
         isAnimating.value = true
         gsap.to(mapSvg.value, {
@@ -72,7 +76,21 @@ export const useMap = () => {
           isRegionOpened.value = true
         } }, )
       }
-      animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
+      switch (slug) {
+        case 'o-krasnodarskiy':
+          animateViewBox(`${box.x - 25} ${box.y + 25} 185 20`)
+          break;
+        case 'o-krasnoarmeyskiy':
+          animateViewBox(`${box.x - 90} ${box.y} 380 120`)
+          break;
+        case 'o-armavirskiy':
+          animateViewBox(`${box.x - 90} ${box.y - 80} ${box.width + 50} ${box.height - 50}`)
+        case 'o-sochinskiy': 
+          animateViewBox(`${box.x} ${box.y - 50} ${box.width} ${box.height + 50}`)
+        default:       
+          animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
+          break;
+      }
     }
   }
 
@@ -106,7 +124,21 @@ export const useMap = () => {
         gsap.set(insideCityTitles, { display: 'block', })
         gsap.to(insideCityTitles, { duration: 0.2, autoAlpha: 1, opacity:1,  })
       }
-      mapSvg.value.setAttribute('viewBox', `${box.x} ${box.y} ${box.width} ${box.height}`)
+      switch (slug) {
+        case 'o-krasnodarskiy':
+          animateViewBox(`${box.x - 25} ${box.y + 25} 185 20`, true)
+          break;
+        case 'o-krasnoarmeyskiy':
+          animateViewBox(`${box.x - 90} ${box.y} 380 120`, true)
+          break;
+        case 'o-armavirskiy':
+          animateViewBox(`${box.x - 90} ${box.y - 80} ${box.width + 50} ${box.height - 50}`, true)
+        case 'o-sochinskiy': 
+          animateViewBox(`${box.x} ${box.y - 50} ${box.width} ${box.height + 50}`, true)
+        default:       
+          animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`, true)
+          break;
+      }
       isRegionOpened.value = true
     }
   }

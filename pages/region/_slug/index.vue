@@ -65,7 +65,6 @@ export default defineComponent({
         const { region, fetchRegion, } = useRegion()
         fetchRegion()
         const title = computed(()=> {
-            debugger
             return region?.value?.name ? region?.value?.name + ' округ' : ''
         })
         useMeta(() => ({ title: title.value, }))
