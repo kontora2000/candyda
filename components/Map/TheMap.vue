@@ -1,5 +1,24 @@
 <template>
 	<div class="map-cont">
+		<div class="map-labels">
+			<div class="map-labels-wrapper map-labels-slavyanskiy">
+				<div class="map-label-city map-label-city-krymskiy">
+					<div class="map-label-city-title">Крымский район</div>
+				</div>
+				<div class="map-label-city map-label-city-abinskiy">
+					<div class="map-label-city-title">Абинский район</div>
+				</div>
+				<div class="map-label-city map-label-city-anapa">
+					<div class="map-label-city-title">Анапа</div>
+				</div>
+				<div class="map-label-city map-label-city-temrukskiy">
+					<div class="map-label-city-title">Темрюкский район</div>
+				</div>
+				<div class="map-label-city map-label-city-slavyanskiy">
+					<div class="map-label-city-title">Славянский район</div>
+				</div>
+			</div>
+		</div>
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			width="1228.16px" height="648.03px" viewBox="0 0 1228.16 648.03" preserveAspectRatio="xMidYMid meet"
 			style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
@@ -282,50 +301,20 @@
 					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-slavyanskiy/slavyanskiy')">
 						<polygon id="slavyanskiy" class="o-city" points="357.91,106.88 302.72,108.07 254.75,110.06 227.42,149.06 236.24,178.17 
 						319.78,179.78"/>
-						<g class="o-city-title-cont">
-							<path class="o-bg" d="M281.4,140.8c0-3.5,0-5.2,0.9-6.4c0.3-0.4,0.6-0.7,1-1c1.2-0.9,3-0.9,6.4-0.9h49.7
-							c3.5,0,5.2,0,6.4,0.9c0.4,0.3,0.7,0.6,1,1c0.9,1.2,0.9,2.2,0.9,5.7v-2.7c0,3.5,0,5.2-0.9,6.4c-0.3,0.4-0.6,0.7-1,1
-							c-1.2,0.9-3,0.9-6.4,0.9h-56.7c-0.6,0-0.9,0-1.1-0.1c-0.1,0-0.1-0.1-0.2-0.2c-0.1-0.2-0.1-0.5-0.1-1.1V140.8z"/>
-							<text class="o-title o-city-title" transform="matrix(1 0 0 1 286.0115 140.9836)">Славянский район</text>
-						</g>
 					</g>
 					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-slavyanskiy/abinskiy')">
 						<polygon id="abinskiy" class="o-city" points="348.55,279.18 407.73,190.86 334.46,180.06 265.81,255.9 	"/>
-						<g class="o-city-title-cont">
-							<path class="o-bg" d="M332.7,224.7c0-3.5,0-5.2,0.9-6.4c0.3-0.4,0.6-0.7,1-1c1.2-0.9,3-0.9,6.4-0.9H385
-							c3.5,0,5.2,0,6.4,0.9c0.4,0.3,0.7,0.6,1,1c0.9,1.2,0.9,2.2,0.9,5.7v-2.7c0,3.5,0,5.2-0.9,6.4c-0.3,0.4-0.6,0.7-1,1
-							c-1.2,0.9-3,0.9-6.4,0.9h-50.9c-0.6,0-0.9,0-1.1-0.1c-0.1,0-0.1-0.1-0.2-0.2c-0.1-0.2-0.1-0.5-0.1-1.1V224.7z"/>
-							<text class="o-title o-city-title" transform="matrix(1 0 0 1 337.3105 224.946)">Абинский район</text>
-						</g>
 					</g>
 					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-slavyanskiy/krymskiy')">
 						<polygon id="krymskiy" class="o-city" points="236.24,178.17 191.62,184.95 183.11,209.7 222.72,213.72 265.81,255.9 
 						334.46,180.06"/>
-						<g class="o-city-title-cont">
-							<path class="o-bg" d="M274.6,200.2c0-3.5,0-5.2,0.9-6.4c0.3-0.4,0.6-0.7,1-1c1.2-0.9,3-0.9,6.4-0.9h45.5
-							c3.5,0,5.2,0,6.4,0.9c0.4,0.3,0.7,0.6,1,1c0.9,1.2,0.9,2.2,0.9,5.7v-2.7c0,3.5,0,5.2-0.9,6.4c-0.3,0.4-0.6,0.7-1,1
-							c-1.2,0.9-3,0.9-6.4,0.9H276c-0.6,0-0.9,0-1.1-0.1c-0.1,0-0.1-0.1-0.2-0.2c-0.1-0.2-0.1-0.5-0.1-1.1V200.2z"/>
-							<text class="o-title o-city-title" transform="matrix(1 0 0 1 279.205 200.4562)">Крымский район</text>
-						</g>
 					</g>
 					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-slavyanskiy/temrukskiy')">
 						<polygon id="temrukskiy" class="o-city" points="236.24,178.17 227.42,149.06 164.01,158.14 79.53,144.42 57.8,154.53 
 						92.64,162.59 74.85,174.2 9.3,173.78 0,185.81 90.01,200.41"/>
-						<g class="o-city-title-cont">
-							<path class="o-bg" d="M147.4,171c0-3.5,0-5.2,0.9-6.4c0.3-0.4,0.6-0.7,1-1c1.2-0.9,3-0.9,6.4-0.9h51.7
-							c3.5,0,5.2,0,6.4,0.9c0.4,0.3,0.7,0.6,1,1c0.9,1.2,0.9,2.2,0.9,5.7v-2.7c0,3.5,0,5.2-0.9,6.4c-0.3,0.4-0.6,0.7-1,1
-							c-1.2,0.9-3,0.9-6.4,0.9h-58.7c-0.6,0-0.9,0-1.1-0.1c-0.1,0-0.1-0.1-0.2-0.2c-0.1-0.2-0.1-0.5-0.1-1.1V171z"/>
-							<text class="o-title o-city-title" transform="matrix(1 0 0 1 151.9883 171.1927)">Темрюкский район</text>
-						</g>
 					</g>
 					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-slavyanskiy/anapa')">
 						<polygon id="anapa" class="o-city" points="191.62,184.95 90.01,200.41 123.83,259.15 183.11,209.7 	"/>
-						<g class="o-city-title-cont">
-							<path class="o-bg" d="M134.9,213.8c0-3.5,0-5.2,0.9-6.4c0.3-0.4,0.6-0.7,1-1c1.2-0.9,3-0.9,6.4-0.9h12.6
-							c3.5,0,5.2,0,6.4,0.9c0.4,0.3,0.7,0.6,1,1c0.9,1.2,0.9,2.2,0.9,5.7v-2.7c0,3.5,0,5.2-0.9,6.4c-0.3,0.4-0.6,0.7-1,1
-							c-1.2,0.9-3,0.9-6.4,0.9h-19.5c-0.6,0-0.9,0-1.1-0.1c-0.1,0-0.1-0.1-0.2-0.2c-0.1-0.2-0.1-0.5-0.1-1.1V213.8z"/>
-							<text class="o-title o-city-title" transform="matrix(1 0 0 1 139.5388 214.0074)">Анапа</text>
-						</g>
 					</g>
 				</g>
 				<g class="o-title-cont">
@@ -679,6 +668,51 @@ export default defineComponent({
 .link-to-o:hover>.o-cont {
 	transform: translateY(-2rem);
 }
+
+
+/* хтмл плашки карты */
+
+.map-labels {
+	position: absolute;
+}
+
+.map-label-city {
+	display: flex;
+	background: var(--Azure100);
+	border-radius: 12px 12px 12px 2px;
+	padding: .4rem .8rem;
+	position: absolute;
+}
+
+.map-label-city-title {
+	color: var(--White100);
+	font-size: 1.6rem;
+	line-height: 2rem;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+}
+
+.map-label-city-krymskiy {
+	left: 58vw;
+	top: 44vh;
+}
+.map-label-city-abinskiy {
+	left: 78vw;
+	top: 54vh;
+}
+.map-label-city-anapa {
+	left: 32vw;
+	top: 52vh;
+}
+.map-label-city-temrukskiy {
+	left: 28vw;
+	top: 32vh;
+}
+.map-label-city-slavyanskiy {
+	left: 66vw;
+	top: 20vh;
+}
+
 
 
 @media (max-width: 460px) {
