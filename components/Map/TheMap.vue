@@ -695,22 +695,26 @@ export default defineComponent({
 .map-label-city-krymskiy {
 	left: 58vw;
 	top: 44vh;
+	display: none;
 }
 .map-label-city-abinskiy {
 	left: 78vw;
 	top: 54vh;
+	display: none;
 }
 .map-label-city-anapa {
-	left: 32vw;
-	top: 52vh;
+	left: 420px;
+	top: 320px;
 }
 .map-label-city-temrukskiy {
 	left: 28vw;
 	top: 32vh;
+	display: none;
 }
 .map-label-city-slavyanskiy {
 	left: 66vw;
 	top: 20vh;
+	display: none;
 }
 
 
