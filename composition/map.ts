@@ -126,7 +126,7 @@ export const useMap = () => {
       }
       switch (slug) {
         case 'o-krasnodarskiy':
-          animateViewBox(`${box.x - 25} ${box.y + 25} 185 20`, true)
+          animateViewBox(`${box.x - 90} ${box.y + 25} 320 20`, true)
           break;
         case 'o-krasnoarmeyskiy':
           animateViewBox(`${box.x - 90} ${box.y} 380 120`, true)
