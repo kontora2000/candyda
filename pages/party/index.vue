@@ -57,7 +57,6 @@ export default defineComponent({
         fetchParties()
         watch(locationFilter, () => {
             page.value = 1
-            debugger
             if (locationFilter.value.region === '') {
                 fetchParties()
             }
