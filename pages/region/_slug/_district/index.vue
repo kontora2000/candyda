@@ -148,9 +148,10 @@ export default defineComponent({
 }
 
 .district-info-header {
-  font-weight: 600;
+  font-weight: 550;
   font-size: 2.4rem;
   line-height: 2.4rem;
+  margin-bottom: 1.2rem;
 }
 
 .district-info-row:first-of-type {
