@@ -2,20 +2,25 @@
 	<div class="map-cont">
 		<div class="map-labels">
 			<div class="map-labels-wrapper map-labels-slavyanskiy">
-				<div class="map-label-city map-label-city-krymskiy">
-					<div class="map-label-city-title">Крымский район</div>
+				<div class="map-label-area map-label-area-krymskiy">
+					<div class="map-label-area-emblem"></div>
+					<div class="map-label-area-title">Крымский район</div>
 				</div>
-				<div class="map-label-city map-label-city-abinskiy">
-					<div class="map-label-city-title">Абинский район</div>
+				<div class="map-label-area map-label-area-abinskiy">
+					<div class="map-label-area-emblem"></div>
+					<div class="map-label-area-title">Абинский район</div>
 				</div>
-				<div class="map-label-city map-label-city-anapa">
-					<div class="map-label-city-title">Анапа</div>
+				<div class="map-label-area map-label-area-anapa">
+					<div class="map-label-area-emblem"></div>
+					<div class="map-label-area-title">Анапа</div>
 				</div>
-				<div class="map-label-city map-label-city-temrukskiy">
-					<div class="map-label-city-title">Темрюкский район</div>
+				<div class="map-label-area map-label-area-temrukskiy">
+					<div class="map-label-area-emblem"></div>
+					<div class="map-label-area-title">Темрюкский район</div>
 				</div>
-				<div class="map-label-city map-label-city-slavyanskiy">
-					<div class="map-label-city-title">Славянский район</div>
+				<div class="map-label-area map-label-area-slavyanskiy">
+					<div class="map-label-area-emblem"></div>
+					<div class="map-label-area-title">Славянский район</div>
 				</div>
 			</div>
 		</div>
@@ -676,42 +681,53 @@ export default defineComponent({
 	position: absolute;
 }
 
-.map-label-city {
-	display: flex;
+.map-label-area {
+	align-items: center;
 	background: var(--Azure100);
 	border-radius: 12px 12px 12px 2px;
+	cursor: pointer;
+	display: flex;
+	height: 4.4rem;
 	padding: .4rem .8rem;
 	position: absolute;
 }
 
-.map-label-city-title {
-	color: var(--White100);
-	font-size: 1.6rem;
-	line-height: 2rem;
-	text-transform: uppercase;
-	letter-spacing: .05em;
+.map-label-area-emblem {
+	display: inline-flex;
+	width: 2.8rem;
+	height: 3.2rem;
+	margin: .2rem .6rem 0 0;
+	position: relative;
 }
 
-.map-label-city-krymskiy {
+.map-label-area-title {
+	color: var(--White100);
+	font-size: 1.4rem;
+	line-height: 2rem;
+	text-transform: uppercase;
+	letter-spacing: .04em;
+}
+
+.map-label-area-krymskiy {
 	left: 58vw;
 	top: 44vh;
 	display: none;
 }
-.map-label-city-abinskiy {
+.map-label-area-abinskiy {
 	left: 78vw;
 	top: 54vh;
 	display: none;
 }
-.map-label-city-anapa {
+.map-label-area-anapa {
 	left: 420px;
 	top: 320px;
 }
-.map-label-city-temrukskiy {
+.map-label-area-temrukskiy {
 	left: 28vw;
 	top: 32vh;
 	display: none;
 }
-.map-label-city-slavyanskiy {
+.map-label-area-slavyanskiy {
 	left: 66vw;
 	top: 20vh;
 	display: none;
