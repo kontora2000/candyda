@@ -4,7 +4,6 @@ import { gsap, } from 'gsap'
 const mapSvg = ref<SVGAElement>({} as SVGAElement)
 
 // type Viewbox = `${number} ${number} ${number} ${number}`
-
 export const useMap = () => {
   const isAnimating = ref(false)
   const isRegionOpened = ref(false)
@@ -93,7 +92,6 @@ export const useMap = () => {
       }
     }
   }
-
   const setTo = (slug) => {
     isRegionOpened.value = false
     const el: SVGAElement | null = document.querySelector('#' + slug)
@@ -143,6 +141,19 @@ export const useMap = () => {
     }
   }
 
+  const initiCityLabels = () => {
+    const anapa = document.querySelector('.map-label-city-anapa')  as HTMLElement
+    debugger
+    if (anapa) {
+    let top = 0, left = 0
+      top = parseInt(window.getComputedStyle(anapa).top.replace('px', ''), 10)
+      left = parseInt(anapa.style.left.replace('px', ''), 10)
+    anapa.style.top = (mapSvg.value.getBBox().height / 648) * top + 'px'
+    anapa.style.left = (mapSvg.value.getBBox().width / 1228) * left + 'px'
+    anapa.style.display = 'flex'
+    }
+  }
+
   return {
       mapSvg,
       isAnimating,
@@ -151,5 +162,6 @@ export const useMap = () => {
       resetViewBox,
       zoomTo,
       setTo,
+      initiCityLabels,
   }
 }

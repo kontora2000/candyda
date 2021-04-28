@@ -8,7 +8,7 @@
 				<div class="map-label-city map-label-city-abinskiy">
 					<div class="map-label-city-title">Абинский район</div>
 				</div>
-				<div class="map-label-city map-label-city-anapa">
+				<div class="map-label-city map-label-city-anapa" style="left: 420px;top: 320px;">
 					<div class="map-label-city-title">Анапа</div>
 				</div>
 				<div class="map-label-city map-label-city-temrukskiy">
@@ -533,7 +533,7 @@ export default defineComponent({
     name:'TheMap',
     setup () {
         const { route, } = useContext()
-        const { mapSvg, zoomTo, setTo, resetViewBox, isRegionOpened, } = useMap()
+        const { mapSvg, zoomTo, setTo, resetViewBox, isRegionOpened, initiCityLabels, } = useMap()
         onMounted(() => {
             const slug = route.value.params.slug
             mapSvg.value = document.querySelector('.map-svg') as SVGAElement
@@ -542,6 +542,7 @@ export default defineComponent({
                     setTo(slug)
                 }
             }
+            initiCityLabels()
         })
         const  isMinusOne = ref(false)
         watch(route, () => {
@@ -566,7 +567,6 @@ export default defineComponent({
             router.push(url.substring(0, url.lastIndexOf('/')))
           }
         }
-
         return {
           isMinusOne,
           onDesClick,
@@ -677,7 +677,7 @@ export default defineComponent({
 }
 
 .map-label-city {
-	display: flex;
+	display: none;
 	background: var(--Azure100);
 	border-radius: 12px 12px 12px 2px;
 	padding: .4rem .8rem;

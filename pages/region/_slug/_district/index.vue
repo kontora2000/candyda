@@ -52,7 +52,7 @@
               :key="post.id"
               :post="post" /> 
         </div>
-        <nuxt-link class="showmore-btn" v-if="district.posts.length > 11">Показать все</nuxt-link>
+        <nuxt-link class="showmore-btn" to="/" v-if="district.posts.length > 11">Показать все</nuxt-link>
     </div>
     <div class="cont-wrapper cont-wrapper-right"  v-if="district.parties && district.parties.length > 0">
         <div class="cont-header-wrapper" >
