@@ -2,26 +2,7 @@
 	<div class="map-cont">
 		<div class="map-labels">
 			<div class="map-labels-wrapper map-labels-slavyanskiy">
-				<div class="map-label-area map-label-area-krymskiy">
-					<div class="map-label-area-emblem"></div>
-					<div class="map-label-area-title">Крымский район</div>
-				</div>
-				<div class="map-label-area map-label-area-abinskiy">
-					<div class="map-label-area-emblem"></div>
-					<div class="map-label-area-title">Абинский район</div>
-				</div>
-				<div class="map-label-area map-label-area-anapa">
-					<div class="map-label-area-emblem"></div>
-					<div class="map-label-area-title">Анапа</div>
-				</div>
-				<div class="map-label-area map-label-area-temrukskiy">
-					<div class="map-label-area-emblem"></div>
-					<div class="map-label-area-title">Темрюкский район</div>
-				</div>
-				<div class="map-label-area map-label-area-slavyanskiy">
-					<div class="map-label-area-emblem"></div>
-					<div class="map-label-area-title">Славянский район</div>
-				</div>
+				<MapLabel slug="anapa" region="temrukskiy" top="320" left="420">Анапа</MapLabel>
 			</div>
 		</div>
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -533,9 +514,14 @@
 import { defineComponent, onMounted, watch, ref, useContext, useRouter, } from '@nuxtjs/composition-api'
 
 import { useMap, } from '@/composition/map'
+import MapLabel from './MapLabel.vue'
 
-export default defineComponent({
+export default defineComponent(
+  {
     name:'TheMap',
+    components: { 
+      MapLabel, 
+    },
     setup () {
         const { route, } = useContext()
         const { mapSvg, zoomTo, setTo, resetViewBox, isRegionOpened, initiCityLabels, } = useMap()
@@ -681,32 +667,6 @@ export default defineComponent({
 	position: absolute;
 }
 
-.map-label-area {
-	align-items: center;
-	background: var(--Azure100);
-	border-radius: 12px 12px 12px 2px;
-	cursor: pointer;
-	display: flex;
-	height: 4.4rem;
-	padding: .4rem .8rem;
-	position: absolute;
-}
-
-.map-label-area-emblem {
-	display: inline-flex;
-	width: 2.8rem;
-	height: 3.2rem;
-	margin: .2rem .6rem 0 0;
-	position: relative;
-}
-
-.map-label-area-title {
-	color: var(--White100);
-	font-size: 1.4rem;
-	line-height: 2rem;
-	text-transform: uppercase;
-	letter-spacing: .04em;
-}
 
 .map-label-area-krymskiy {
 	left: 58vw;
