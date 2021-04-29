@@ -1,12 +1,16 @@
 <template>
-  <div class="map-label-area" :style="computedPosition">
+  <div>
+    <transition name="fade025">
+      <div class="map-label-area" :style="computedPosition" v-show="isVisible" >
         <div class="map-label-area-emblem" v-if="logo && logo!==''">
-          <img :src="storageURL + logo" :alt="slug">
+            <img :src="storageURL + logo" :alt="slug">
+          </div>
+          <div class="map-label-area-title">
+            <slot />
         </div>
-        <div class="map-label-area-title">
-          <slot />
-        </div>
-	</div>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script lang="ts">
@@ -61,15 +65,34 @@ export default defineComponent({
     // })
     const logo = ref<string>('')
     const storageURL = process.env.storageURL
+
     watch(district,() => {
       if (district.value.logo)
         logo.value = district.value.logo
+    })
+
+    const isVisible  = ref(false)
+    const { route, } = useContext()
+    const checkVisibility = () => {
+      if (route.value.name === 'region-slug') {
+        isVisible.value = route.value.params.slug === ('o-'+props.region)
+      }
+      else {
+        isVisible.value = false
+      }
+    }
+    onMounted(()=> {
+      checkVisibility()
+    })
+    watch(route, () => {
+      checkVisibility()
     })
 
     return {
       logo,
       computedPosition,
       storageURL,
+      isVisible,
     }
   },
 })
