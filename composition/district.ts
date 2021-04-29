@@ -37,7 +37,7 @@ export const useDistrict = () => {
     }
     catch(error) {
       console.error(error)
-      error({ statusCode:404, message:'Страница не найдена' })
+      // error({ statusCode:404, message:'Страница не найдена' })
     }
   }
   
