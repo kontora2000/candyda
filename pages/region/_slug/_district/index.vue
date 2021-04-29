@@ -130,7 +130,7 @@ export default defineComponent({
 .district-info-wrapper {
   display: flex;
   flex-direction: row;
-  margin-top: 6rem;
+  margin: 6rem 0 8rem;
   font-family: var(--font-default);
   letter-spacing: -0.01em;
 }

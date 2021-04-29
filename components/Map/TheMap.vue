@@ -2,7 +2,65 @@
 	<div class="map-cont">
 		<div class="map-labels">
 			<div class="map-labels-wrapper map-labels-slavyanskiy">
+<<<<<<< HEAD
 				<MapLabel slug="anapa" region="slavyanskiy" :top="320" :left="420">Анапа</MapLabel>
+=======
+				<MapLabel slug="r_anapa" region="slavyanskiy" :top="320" :left="420">Анапа</MapLabel>
+				<MapLabel slug="r_krymskiy" region="slavyanskiy" :top="200" :left="500">Крымский район</MapLabel>
+				<MapLabel slug="r_temrukskiy" region="slavyanskiy" :top="250" :left="600">Темрюкский район</MapLabel>
+				<MapLabel slug="r_abinskiy" region="slavyanskiy" :top="250" :left="600">Абинский район</MapLabel>
+				<MapLabel slug="r_slavyanskiy" region="slavyanskiy" :top="250" :left="600">Славянский район</MapLabel>
+			</div>
+			<div class="map-labels-wrapper map-labels-tuapsinskiy">
+				<MapLabel slug="r_novorossiysk" region="tuapsinskiy" :top="320" :left="420">Новороссийск</MapLabel>
+				<MapLabel slug="r_gelendzhik" region="tuapsinskiy" :top="200" :left="500">Геленджик</MapLabel>
+				<MapLabel slug="r_tuapsinskiy" region="tuapsinskiy" :top="250" :left="600">Туапскинский район</MapLabel>
+				<MapLabel slug="r_goryachiy_kluch" region="tuapsinskiy" :top="250" :left="600">Горячий Ключ</MapLabel>
+				<MapLabel slug="r_severskiy" region="tuapsinskiy" :top="250" :left="600">Северский район</MapLabel>
+			</div>
+			<div class="map-labels-wrapper map-labels-sochinskiy">
+				<MapLabel slug="r_sochi" region="sochinskiy" :top="320" :left="420">Сочи</MapLabel>
+				<MapLabel slug="r_belorechenskiy" region="sochinskiy" :top="200" :left="500">Белореченский район</MapLabel>
+				<MapLabel slug="r_apsheronskiy" region="sochinskiy" :top="250" :left="600">Апшеронский район</MapLabel>
+			</div>
+			<div class="map-labels-wrapper map-labels-armavirskiy">
+				<MapLabel slug="r_armavir" region="armavirskiy" :top="320" :left="420">Армавир</MapLabel>
+				<MapLabel slug="r_mostovskiy" region="armavirskiy" :top="200" :left="500">Мостовский район</MapLabel>
+				<MapLabel slug="r_labinskiy" region="armavirskiy" :top="250" :left="600">Лабинский район</MapLabel>
+				<MapLabel slug="r_otradnenskiy" region="armavirskiy" :top="250" :left="600">Отрадненский район</MapLabel>
+				<MapLabel slug="r_uspenskiy" region="armavirskiy" :top="250" :left="600">Успенский район</MapLabel>
+				<MapLabel slug="r_novokubanskiy" region="armavirskiy" :top="250" :left="600">Новокубанский район</MapLabel>
+				<MapLabel slug="r_kurganinskiy" region="armavirskiy" :top="250" :left="600">Курганинский район</MapLabel>
+				<MapLabel slug="r_gulkevichskiy" region="armavirskiy" :top="250" :left="600">Гулькевичский район</MapLabel>
+			</div>
+			<div class="map-labels-wrapper map-labels-tihoretskiy">
+				<MapLabel slug="r_tbilisskiy" region="tihoretskiy" :top="320" :left="420">Тбилисский район</MapLabel>
+				<MapLabel slug="r_ust-labisnkiy" region="tihoretskiy" :top="200" :left="500">Усть-Лабинский район</MapLabel>
+				<MapLabel slug="r_kavkazskiy" region="tihoretskiy" :top="250" :left="600">Кавказский район</MapLabel>
+				<MapLabel slug="r_korenovskiy" region="tihoretskiy" :top="250" :left="600">Кореновский район</MapLabel>
+				<MapLabel slug="r_vyselkovskiy" region="tihoretskiy" :top="250" :left="600">Выселковский район</MapLabel>
+				<MapLabel slug="r_tihoretskiy" region="tihoretskiy" :top="250" :left="600">Тихорецкий район</MapLabel>
+				<MapLabel slug="r_novopokrovskiy" region="tihoretskiy" :top="250" :left="600">Новопокровский район</MapLabel>
+				<MapLabel slug="r_beloglinskiy" region="tihoretskiy" :top="250" :left="600">Белоглинский район</MapLabel>
+			</div>
+			<div class="map-labels-wrapper map-labels-krasnoarmeyskiy">
+				<MapLabel slug="r_dinskoy" region="krasnoarmeyskiy" :top="320" :left="420">Динской район</MapLabel>
+				<MapLabel slug="r_krasnoarmeyskiy" region="krasnoarmeyskiy" :top="200" :left="500">Красноармейский район</MapLabel>
+				<MapLabel slug="r_kalininskiy" region="krasnoarmeyskiy" :top="250" :left="600">Калининский район</MapLabel>
+				<MapLabel slug="r_timashevskiy" region="krasnoarmeyskiy" :top="250" :left="600">Тимашевский район</MapLabel>
+			</div>
+			<div class="map-labels-wrapper map-labels-kanevskoy">
+				<MapLabel slug="r_pavlovskiy" region="kanevskoy" :top="320" :left="420">Павловский район</MapLabel>
+				<MapLabel slug="r_krylovskiy" region="kanevskoy" :top="200" :left="500">Крыловский район</MapLabel>
+				<MapLabel slug="r_kushevskiy" region="kanevskoy" :top="250" :left="600">Кущевский район</MapLabel>
+				<MapLabel slug="r_bruhovetskiy" region="kanevskoy" :top="250" :left="600">Брюховецкий район</MapLabel>
+				<MapLabel slug="r_kanevskoy" region="kanevskoy" :top="250" :left="600">Каневской район</MapLabel>
+				<MapLabel slug="r_leningradskiy" region="kanevskoy" :top="250" :left="600">Ленинградский район</MapLabel>
+				<MapLabel slug="r_starominskiy" region="kanevskoy" :top="250" :left="600">Староминский район</MapLabel>
+				<MapLabel slug="r_primorsko-ahtarskiy" region="kanevskoy" :top="250" :left="600">Приморско–Ахтарский район</MapLabel>
+				<MapLabel slug="r_eyskiy" region="kanevskoy" :top="250" :left="600">Ейский район</MapLabel>
+				<MapLabel slug="r_sherbinovskiy" region="kanevskoy" :top="250" :left="600">Щербиновский район</MapLabel>
+>>>>>>> 9c21ca52f8411a95914fb22297bd8a30f71ff921
 			</div>
 		</div>
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
