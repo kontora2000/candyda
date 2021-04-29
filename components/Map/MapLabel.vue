@@ -116,6 +116,14 @@ export default defineComponent({
 	position: relative;
 }
 
+.map-label-area-emblem>img {
+  display: block;
+  width: 2.8rem;
+  height: 3.2rem;
+  max-width: 2.8rem;
+  object-fit: contain;
+}
+
 .map-label-area-title {
 	color: var(--White100);
 	font-size: 1.4rem;
