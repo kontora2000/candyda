@@ -2,9 +2,6 @@
 	<div class="map-cont">
 		<div class="map-labels">
 			<div class="map-labels-wrapper map-labels-slavyanskiy">
-<<<<<<< HEAD
-				<MapLabel slug="anapa" region="slavyanskiy" :top="320" :left="420">Анапа</MapLabel>
-=======
 				<MapLabel slug="r_anapa" region="slavyanskiy" :top="320" :left="420">Анапа</MapLabel>
 				<MapLabel slug="r_krymskiy" region="slavyanskiy" :top="200" :left="500">Крымский район</MapLabel>
 				<MapLabel slug="r_temrukskiy" region="slavyanskiy" :top="250" :left="600">Темрюкский район</MapLabel>
@@ -60,7 +57,6 @@
 				<MapLabel slug="r_primorsko-ahtarskiy" region="kanevskoy" :top="250" :left="600">Приморско–Ахтарский район</MapLabel>
 				<MapLabel slug="r_eyskiy" region="kanevskoy" :top="250" :left="600">Ейский район</MapLabel>
 				<MapLabel slug="r_sherbinovskiy" region="kanevskoy" :top="250" :left="600">Щербиновский район</MapLabel>
->>>>>>> 9c21ca52f8411a95914fb22297bd8a30f71ff921
 			</div>
 		</div>
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -724,33 +720,6 @@ export default defineComponent(
 .map-labels {
 	position: absolute;
 }
-
-
-.map-label-area-krymskiy {
-	left: 58vw;
-	top: 44vh;
-	display: none;
-}
-.map-label-area-abinskiy {
-	left: 78vw;
-	top: 54vh;
-	display: none;
-}
-.map-label-area-anapa {
-	left: 420px;
-	top: 320px;
-}
-.map-label-area-temrukskiy {
-	left: 28vw;
-	top: 32vh;
-	display: none;
-}
-.map-label-area-slavyanskiy {
-	left: 66vw;
-	top: 20vh;
-	display: none;
-}
-
 
 
 @media (max-width: 460px) {
