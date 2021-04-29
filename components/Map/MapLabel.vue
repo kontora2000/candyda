@@ -40,10 +40,21 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const computedPosition = computed(() => { return {
-      top: props.top + 'px',
-      left: props.left + 'px',
+    const top = ref(props.top)
+    const left = ref(props.left)
+    const computedPosition = computed(() => { 
+      return {
+        top: top.value + 'px',
+        left: left.value + 'px',
     }})
+    onMounted(() => {
+      if (screen) {
+         if (screen.height !== 800) {}
+        top.value = (screen.height / 800 * props.top) - 44
+      }
+    })
+
+  
     const { route, } = useContext()
     const isVisible  = ref(false)
     const checkVisibility = () => {
@@ -75,6 +86,7 @@ export default defineComponent({
       }
     })
 
+    
     return {
       district,
       computedPosition,
