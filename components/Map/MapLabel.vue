@@ -1,12 +1,22 @@
 <template>
-  <div class="map-label-area" :style="computedPosition">
-        <div class="map-label-area-emblem" v-if="logo">{{}}</div>
-        <div class="map-label-area-title"><slot /></div>
-	</div>
+  <div>
+    <transition name="fade025">
+      <div class="map-label-area" :style="computedPosition" v-show="isVisible" >
+        <div class="map-label-area-emblem" v-if="logo && logo!==''">
+            <img :src="storageURL + logo" :alt="slug">
+          </div>
+          <div class="map-label-area-title">
+            <slot />
+        </div>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, } from '@nuxtjs/composition-api'
+import { defineComponent, PropType, ref, computed, onMounted, watch, useFetch, useContext, } from '@nuxtjs/composition-api'
+import { useAxios, } from '@/composition/axios'
+import { Distritct, } from '@/modules/types'
 
 export default defineComponent({
   name: 'MapLabel',
@@ -28,20 +38,61 @@ export default defineComponent({
       type: Number as PropType<number>,
       required: true,
     },
-    // isVisible: {
-    //   type: Boolean as PropType<boolean>,
-    //   default: false,
-    // }
   },
   setup(props) {
-    const logo = false
+    const district = ref<Distritct>({} as Distritct)
+    const { $axios, error, } = useAxios()
+    const  { fetch: fetchDistrictBySlug, }  = useFetch(async () => {
+      try {
+      const response = await $axios.get('/district/' + props.slug)
+      if (response.status === 200) {
+        district.value = response.data
+        if (!district.value.slug) error({ statusCode:404, message:'Страница не найдена' })
+      }
+    }
+    catch(error) {
+      console.error(error)
+      }
+    })
+    fetchDistrictBySlug()
     const computedPosition = computed(() => { return {
       top: props.top + 'px',
       left: props.left + 'px',
     }})
+    // onMounted(() => {
+    //   if (props.slug && props.slug!=='')
+    //    fetchDistrictBySlug(props.slug)
+    // })
+    const logo = ref<string>('')
+    const storageURL = process.env.storageURL
+
+    watch(district,() => {
+      if (district.value.logo)
+        logo.value = district.value.logo
+    })
+
+    const isVisible  = ref(false)
+    const { route, } = useContext()
+    const checkVisibility = () => {
+      if (route.value.name === 'region-slug') {
+        isVisible.value = route.value.params.slug === ('o-'+props.region)
+      }
+      else {
+        isVisible.value = false
+      }
+    }
+    onMounted(()=> {
+      checkVisibility()
+    })
+    watch(route, () => {
+      checkVisibility()
+    })
+
     return {
       logo,
       computedPosition,
+      storageURL,
+      isVisible,
     }
   },
 })

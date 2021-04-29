@@ -13,6 +13,15 @@
 }
 
 
+.fade025-enter-active, .fade-fast-leave-active {
+  transition: opacity .25s;
+  transition-delay: 0.2s;
+}
+.fade025-enter, .fade-fast-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
+
+
 .page-enter-active,
 .page-leave-active {
   transition: opacity 0.5s;
