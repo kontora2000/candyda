@@ -722,33 +722,6 @@ export default defineComponent(
 }
 
 
-.map-label-area-krymskiy {
-	left: 58vw;
-	top: 44vh;
-	display: none;
-}
-.map-label-area-abinskiy {
-	left: 78vw;
-	top: 54vh;
-	display: none;
-}
-.map-label-area-anapa {
-	left: 420px;
-	top: 320px;
-}
-.map-label-area-temrukskiy {
-	left: 28vw;
-	top: 32vh;
-	display: none;
-}
-.map-label-area-slavyanskiy {
-	left: 66vw;
-	top: 20vh;
-	display: none;
-}
-
-
-
 @media (max-width: 460px) {
 	.map-cont {
 		grid-column: 1/7;
