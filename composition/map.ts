@@ -34,11 +34,11 @@ export const useMap = () => {
     isRegionOpened.value = false
     const titles = document.querySelectorAll('.o-title-cont')
     const regs = document.querySelectorAll('.o-cont')
-    const cityTitles =  document.querySelectorAll('.o-city-title-cont')
+    // const cityTitles =  document.querySelectorAll('.o-city-title-cont')
     gsap.to(titles, {duration:0.2, autoAlpha: 1, })
-    gsap.set(cityTitles, { display: 'none', })
+    // gsap.set(cityTitles, { display: 'none', })
 
-    gsap.to(cityTitles, {duration:0.2, autoAlpha: 0, })
+    // gsap.to(cityTitles, {duration:0.2, autoAlpha: 0, })
     gsap.to(regs, {duration:0.2, autoAlpha: 1, })
     animateViewBox('0 0 1228.16 648.03')               
   }
