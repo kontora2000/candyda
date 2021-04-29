@@ -1,8 +1,8 @@
 import { ref, } from '@nuxtjs/composition-api'
 import { gsap, } from 'gsap'
+import { Distritct } from '~/modules/types'
 
 const mapSvg = ref<SVGAElement>({} as SVGAElement)
-
 // type Viewbox = `${number} ${number} ${number} ${number}`
 export const useMap = () => {
   const isAnimating = ref(false)
@@ -154,6 +154,7 @@ export const useMap = () => {
     anapa.style.display = 'flex'
     }
   }
+  
 
   return {
       mapSvg,

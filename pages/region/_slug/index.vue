@@ -39,7 +39,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, computed, watch, useMeta, useContext, } from '@nuxtjs/composition-api'
+import { defineComponent, computed, watch, useMeta, useContext, useFetch, } from '@nuxtjs/composition-api'
 
 import { useRegion, } from '@/composition/region'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
@@ -63,13 +63,13 @@ export default defineComponent({
     },
     setup () {
         const { region, fetchRegion, } = useRegion()
-        fetchRegion()
+        const { fetch, } = useFetch(fetchRegion)
+        fetch()
         const title = computed(()=> {
             return region?.value?.name ? region?.value?.name + ' округ' : ''
         })
         useMeta(() => ({ title: title.value, }))
         const {  breadcrumbs,  } =  useBreadcrumbs()
-        const { route, } = useContext()
         watch(region, () => {
             breadcrumbs.value = [
                 {

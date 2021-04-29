@@ -47,3 +47,14 @@ export const useDistrict = () => {
     fetchDistrictBySlug,
   }
 } 
+
+
+// export const useDistricts = () => {
+//   const districts = ref<Distritct[]>([])
+  
+//   const fetchDistricts = useFetch ()
+
+//   return {
+//     districts,
+//   }
+// }
