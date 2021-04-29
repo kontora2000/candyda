@@ -1,12 +1,18 @@
 <template>
   <div class="map-label-area" :style="computedPosition">
-        <div class="map-label-area-emblem" v-if="logo">{{}}</div>
-        <div class="map-label-area-title"><slot /></div>
+        <div class="map-label-area-emblem" v-if="logo && logo!==''">
+          <img :src="logo" :alt="slug">
+        </div>
+        <div class="map-label-area-title">
+          <slot />
+        </div>
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, } from '@nuxtjs/composition-api'
+import { defineComponent, PropType, ref, computed, onMounted, watch, } from '@nuxtjs/composition-api'
+import { useAxios } from '~/composition/axios'
+import { useDistrict } from '~/composition/district'
 
 export default defineComponent({
   name: 'MapLabel',
@@ -28,17 +34,26 @@ export default defineComponent({
       type: Number as PropType<number>,
       required: true,
     },
-    // isVisible: {
-    //   type: Boolean as PropType<boolean>,
-    //   default: false,
-    // }
   },
   setup(props) {
-    const logo = false
+    const { fetchDistrictBySlug, district, } = useDistrict()
     const computedPosition = computed(() => { return {
       top: props.top + 'px',
       left: props.left + 'px',
     }})
+
+    onMounted(() => {
+      if (props.slug && props.slug!=='')
+       fetchDistrictBySlug(props.slug)
+    })
+
+    const logo = ref<string>('')
+
+    watch(district,() => {
+      if (district.value.logo)
+        logo.value = district.value.logo
+    })
+
     return {
       logo,
       computedPosition,

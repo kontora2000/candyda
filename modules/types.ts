@@ -87,7 +87,9 @@ export interface Distritct {
    posts?: Post[];
    tags?: Tag[];
    region?: Region;
+   logo?:string;
 }
+
 
 export interface Region {
   id: number;

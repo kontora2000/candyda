@@ -2,7 +2,7 @@
 	<div class="map-cont">
 		<div class="map-labels">
 			<div class="map-labels-wrapper map-labels-slavyanskiy">
-				<MapLabel slug="anapa" region="temrukskiy" top="320" left="420">Анапа</MapLabel>
+				<MapLabel slug="anapa" region="temrukskiy" :top="320" :left="420">Анапа</MapLabel>
 			</div>
 		</div>
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
