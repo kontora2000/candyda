@@ -21,14 +21,14 @@
 				<MapLabel slug="apsheronskiy" region="sochinskiy" :top="206" :left="480">Апшеронский район</MapLabel>
 			</div>
 			<div class="map-labels-wrapper map-labels-armavirskiy">
-				<MapLabel slug="armavir" region="armavirskiy" :top="320" :left="420">Армавир</MapLabel>
-				<MapLabel slug="mostovskiy" region="armavirskiy" :top="200" :left="500">Мостовский район</MapLabel>
-				<MapLabel slug="labinskiy" region="armavirskiy" :top="250" :left="600">Лабинский район</MapLabel>
-				<MapLabel slug="otradnenskiy" region="armavirskiy" :top="250" :left="600">Отрадненский район</MapLabel>
-				<MapLabel slug="uspenskiy" region="armavirskiy" :top="250" :left="600">Успенский район</MapLabel>
-				<MapLabel slug="novokubanskiy" region="armavirskiy" :top="250" :left="600">Новокубанский район</MapLabel>
-				<MapLabel slug="kurganinskiy" region="armavirskiy" :top="250" :left="600">Курганинский район</MapLabel>
-				<MapLabel slug="gulkevichskiy" region="armavirskiy" :top="250" :left="600">Гулькевичский район</MapLabel>
+				<MapLabel slug="armavir" region="armavirskiy" :top="200" :left="680">Армавир</MapLabel>
+				<MapLabel slug="mostovskiy" region="armavirskiy" :top="410" :left="560">Мостовский район</MapLabel>
+				<MapLabel slug="labinskiy" region="armavirskiy" :top="340" :left="700">Лабинский район</MapLabel>
+				<MapLabel slug="otradnenskiy" region="armavirskiy" :top="400" :left="940">Отрадненский район</MapLabel>
+				<MapLabel slug="uspenskiy" region="armavirskiy" :top="232" :left="820">Успенский район</MapLabel>
+				<MapLabel slug="novokubanskiy" region="armavirskiy" :top="140" :left="660">Новокубанский район</MapLabel>
+				<MapLabel slug="kurganinskiy" region="armavirskiy" :top="152" :left="440">Курганинский район</MapLabel>
+				<MapLabel slug="gulkevichskiy" region="armavirskiy" :top="100" :left="488">Гулькевичский район</MapLabel>
 			</div>
 			<div class="map-labels-wrapper map-labels-tihoretskiy">
 				<MapLabel slug="tbilisskiy" region="tihoretskiy" :top="320" :left="660">Тбилисский район</MapLabel>
@@ -41,22 +41,22 @@
 				<MapLabel slug="beloglinskiy" region="tihoretskiy" :top="140" :left="1060">Белоглинский район</MapLabel>
 			</div>
 			<div class="map-labels-wrapper map-labels-krasnoarmeyskiy">
-				<MapLabel slug="dinskoy" region="krasnoarmeyskiy" :top="280" :left="788">Динской район</MapLabel>
-				<MapLabel slug="krasnoarmeyskiy" region="krasnoarmeyskiy" :top="228" :left="440">Красноармейский район</MapLabel>
-				<MapLabel slug="kalininskiy" region="krasnoarmeyskiy" :top="250" :left="600">Калининский район</MapLabel>
-				<MapLabel slug="timashevskiy" region="krasnoarmeyskiy" :top="250" :left="600">Тимашевский район</MapLabel>
+				<MapLabel slug="dinskoy" region="krasnoarmeyskiy" :top="264" :left="800">Динской район</MapLabel>
+				<MapLabel slug="krasnoarmeyskiy" region="krasnoarmeyskiy" :top="220" :left="440">Красноармейский район</MapLabel>
+				<MapLabel slug="kalininskiy" region="krasnoarmeyskiy" :top="132" :left="620">Калининский район</MapLabel>
+				<MapLabel slug="timashevskiy" region="krasnoarmeyskiy" :top="112" :left="840">Тимашевский район</MapLabel>
 			</div>
 			<div class="map-labels-wrapper map-labels-kanevskoy">
-				<MapLabel slug="pavlovskiy" region="kanevskoy" :top="320" :left="420">Павловский район</MapLabel>
-				<MapLabel slug="krylovskiy" region="kanevskoy" :top="200" :left="500">Крыловский район</MapLabel>
-				<MapLabel slug="kushevskiy" region="kanevskoy" :top="250" :left="600">Кущевский район</MapLabel>
-				<MapLabel slug="bruhovetskiy" region="kanevskoy" :top="250" :left="600">Брюховецкий район</MapLabel>
-				<MapLabel slug="kanevskoy" region="kanevskoy" :top="250" :left="600">Каневской район</MapLabel>
-				<MapLabel slug="leningradskiy" region="kanevskoy" :top="250" :left="600">Ленинградский район</MapLabel>
-				<MapLabel slug="starominskiy" region="kanevskoy" :top="250" :left="600">Староминский район</MapLabel>
-				<MapLabel slug="primorsko-ahtarskiy" region="kanevskoy" :top="250" :left="600">Приморско–Ахтарский район</MapLabel>
-				<MapLabel slug="eyskiy" region="kanevskoy" :top="250" :left="600">Ейский район</MapLabel>
-				<MapLabel slug="sherbinovskiy" region="kanevskoy" :top="250" :left="600">Щербиновский район</MapLabel>
+				<MapLabel slug="pavlovskiy" region="kanevskoy" :top="276" :left="980">Павловский район</MapLabel>
+				<MapLabel slug="krylovskiy" region="kanevskoy" :top="188" :left="1020">Крыловский район</MapLabel>
+				<MapLabel slug="kushevskiy" region="kanevskoy" :top="124" :left="836">Кущевский район</MapLabel>
+				<MapLabel slug="bruhovetskiy" region="kanevskoy" :top="344" :left="580">Брюховецкий район</MapLabel>
+				<MapLabel slug="kanevskoy" region="kanevskoy" :top="264" :left="500">Каневской район</MapLabel>
+				<MapLabel slug="leningradskiy" region="kanevskoy" :top="228" :left="728">Ленинградский район</MapLabel>
+				<MapLabel slug="starominskiy" region="kanevskoy" :top="164" :left="600">Староминский район</MapLabel>
+				<MapLabel slug="primorsko-ahtarskiy" region="kanevskoy" :top="320" :left="172">Приморско–Ахтарский район</MapLabel>
+				<MapLabel slug="eyskiy" region="kanevskoy" :top="156" :left="272">Ейский район</MapLabel>
+				<MapLabel slug="sherbinovskiy" region="kanevskoy" :top="128" :left="452">Щербиновский район</MapLabel>
 			</div>
 		</div>
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -476,6 +476,14 @@ export default defineComponent(
 
 .map-labels {
 	position: absolute;
+}
+
+.map-label-area-emblem {
+	display: inline-flex;
+	width: 2.8rem;
+	height: 3.2rem;
+	margin: .2rem .6rem 0 0;
+	position: relative;
 }
 
 
