@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade025">
-      <div class="map-label-area" :style="computedPosition" v-show="isVisible" >
+      <div class="map-label-area" :style="computedPosition" v-show="isVisible" @click="onDesClick">
         <div class="map-label-area-emblem" v-if="district && district.logo && district.logo!==''">
             <img :src="storageURL + district.logo" :alt="slug">
           </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, computed, onMounted, watch, useContext, } from '@nuxtjs/composition-api'
+import { defineComponent, PropType, ref, computed, onMounted, watch, useContext, useRouter, } from '@nuxtjs/composition-api'
 import { useRegion, } from '@/composition/region'
 import { Distritct, } from '@/modules/types'
 
@@ -85,13 +85,21 @@ export default defineComponent({
         }
       }
     })
-
+    const router = useRouter()
+    const onDesClick = () => {
+        if (isVisible.value)
+          router.push(`${props.region}/${props.slug}`)
+        else {
+          // router.push(`${props.region}/${props.slug}`)
+        }
+      }
     
     return {
       district,
       computedPosition,
       storageURL,
       isVisible,
+      onDesClick,
     }
   },
 })
