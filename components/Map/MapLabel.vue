@@ -88,10 +88,7 @@ export default defineComponent({
     const router = useRouter()
     const onDesClick = () => {
         if (isVisible.value)
-          router.push(`${props.region}/${props.slug}`)
-        else {
-          // router.push(`${props.region}/${props.slug}`)
-        }
+          router.push(`o-${props.region}/${props.slug}`)
       }
     
     return {
