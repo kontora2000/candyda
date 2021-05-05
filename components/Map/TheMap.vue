@@ -4,7 +4,7 @@
 			<div class="map-labels-wrapper map-labels-slavyanskiy">
 				<MapLabel slug="anapa" region="slavyanskiy" :top="300" :left="420">Анапа</MapLabel>
 				<MapLabel slug="krymskiy" region="slavyanskiy" :top="256" :left="720">Крымский район</MapLabel>
-				<MapLabel slug="temrukskiy" region="slavyanskiy" :top="180" :left="400">Темрюкский район</MapLabel>
+				<MapLabel slug="temryukskiy" region="slavyanskiy" :top="180" :left="400">Темрюкский район</MapLabel>
 				<MapLabel slug="abinskiy" region="slavyanskiy" :top="332" :left="1012">Абинский район</MapLabel>
 				<MapLabel slug="slavyanskiy" region="slavyanskiy" :top="108" :left="832">Славянский район</MapLabel>
 			</div>
@@ -12,7 +12,7 @@
 				<MapLabel slug="novorossiysk" region="tuapsinskiy" :top="100" :left="180">Новороссийск</MapLabel>
 				<MapLabel slug="gelendzhik" region="tuapsinskiy" :top="220" :left="480">Геленджик</MapLabel>
 				<MapLabel slug="tuapsinskiy" region="tuapsinskiy" :top="340" :left="880">Туапскинский район</MapLabel>
-				<MapLabel slug="goryachiy_kluch" region="tuapsinskiy" :top="180" :left="960">Горячий Ключ</MapLabel>
+				<MapLabel slug="goryachiy-klyuch" region="tuapsinskiy" :top="180" :left="960">Горячий Ключ</MapLabel>
 				<MapLabel slug="severskiy" region="tuapsinskiy" :top="140" :left="700">Северский район</MapLabel>
 			</div>
 			<div class="map-labels-wrapper map-labels-sochinskiy">
@@ -32,11 +32,11 @@
 			</div>
 			<div class="map-labels-wrapper map-labels-tihoretskiy">
 				<MapLabel slug="tbilisskiy" region="tihoretskiy" :top="320" :left="660">Тбилисский район</MapLabel>
-				<MapLabel slug="ust-labisnkiy" region="tihoretskiy" :top="356" :left="416">Усть-Лабинский район</MapLabel>
+				<MapLabel slug="ust-labinskiy" region="tihoretskiy" :top="356" :left="416">Усть-Лабинский район</MapLabel>
 				<MapLabel slug="kavkazskiy" region="tihoretskiy" :top="252" :left="860">Кавказский район</MapLabel>
 				<MapLabel slug="korenovskiy" region="tihoretskiy" :top="252" :left="120">Кореновский район</MapLabel>
 				<MapLabel slug="vyselkovskiy" region="tihoretskiy" :top="200" :left="400">Выселковский район</MapLabel>
-				<MapLabel slug="tihoretskiy" region="tihoretskiy" :top="168" :left="640">Тихорецкий район</MapLabel>
+				<MapLabel slug="tihoreckiy" region="tihoretskiy" :top="168" :left="640">Тихорецкий район</MapLabel>
 				<MapLabel slug="novopokrovskiy" region="tihoretskiy" :top="96" :left="820">Новопокровский район</MapLabel>
 				<MapLabel slug="beloglinskiy" region="tihoretskiy" :top="140" :left="1060">Белоглинский район</MapLabel>
 			</div>
@@ -49,14 +49,14 @@
 			<div class="map-labels-wrapper map-labels-kanevskoy">
 				<MapLabel slug="pavlovskiy" region="kanevskoy" :top="276" :left="980">Павловский район</MapLabel>
 				<MapLabel slug="krylovskiy" region="kanevskoy" :top="188" :left="1020">Крыловский район</MapLabel>
-				<MapLabel slug="kushevskiy" region="kanevskoy" :top="124" :left="836">Кущевский район</MapLabel>
-				<MapLabel slug="bruhovetskiy" region="kanevskoy" :top="344" :left="580">Брюховецкий район</MapLabel>
+				<MapLabel slug="kushchevskiy" region="kanevskoy" :top="124" :left="836">Кущевский район</MapLabel>
+				<MapLabel slug="bryuhoveckiy" region="kanevskoy" :top="344" :left="580">Брюховецкий район</MapLabel>
 				<MapLabel slug="kanevskoy" region="kanevskoy" :top="264" :left="500">Каневской район</MapLabel>
 				<MapLabel slug="leningradskiy" region="kanevskoy" :top="228" :left="728">Ленинградский район</MapLabel>
 				<MapLabel slug="starominskiy" region="kanevskoy" :top="164" :left="600">Староминский район</MapLabel>
 				<MapLabel slug="primorsko-ahtarskiy" region="kanevskoy" :top="320" :left="172">Приморско–Ахтарский район</MapLabel>
 				<MapLabel slug="eyskiy" region="kanevskoy" :top="156" :left="272">Ейский район</MapLabel>
-				<MapLabel slug="sherbinovskiy" region="kanevskoy" :top="128" :left="452">Щербиновский район</MapLabel>
+				<MapLabel slug="shcherbinovskiy" region="kanevskoy" :top="128" :left="452">Щербиновский район</MapLabel>
 			</div>
 		</div>
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
