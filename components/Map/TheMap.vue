@@ -4,7 +4,7 @@
 			<div class="map-labels-wrapper map-labels-slavyanskiy">
 				<MapLabel slug="anapa" region="slavyanskiy" :top="300" :left="420">Анапа</MapLabel>
 				<MapLabel slug="krymskiy" region="slavyanskiy" :top="256" :left="720">Крымский район</MapLabel>
-				<MapLabel slug="temrukskiy" region="slavyanskiy" :top="180" :left="400">Темрюкский район</MapLabel>
+				<MapLabel slug="temryukskiy" region="slavyanskiy" :top="180" :left="400">Темрюкский район</MapLabel>
 				<MapLabel slug="abinskiy" region="slavyanskiy" :top="332" :left="1012">Абинский район</MapLabel>
 				<MapLabel slug="slavyanskiy" region="slavyanskiy" :top="108" :left="832">Славянский район</MapLabel>
 			</div>
@@ -385,8 +385,8 @@ export default defineComponent(
         }
         return {
           isMinusOne,
-          onDesClick,
           isRegionOpened,
+          onDesClick,
         }
     },
 })
