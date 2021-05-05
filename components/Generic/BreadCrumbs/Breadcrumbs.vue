@@ -38,9 +38,9 @@ export default defineComponent({
 <style scoped>
 .breadcrumbs-wrapper {
   color: var(--Black100);
-  line-height: 2.8rem;
+  line-height: 3.2rem;
   position: relative;
-  top: -.4rem;
+  top: -.8rem;
   left: 0;
   z-index: 1;
 }

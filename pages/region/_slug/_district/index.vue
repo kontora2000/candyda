@@ -5,22 +5,36 @@
     </aside>
     <div class="district-wrapper">
       <div class="district-title-wrapper" v-if="district && district.name">
-        <img v-if="district.logo" 
-          class="district-title-logo"
-          :src="'https://api.prostokontora.ru/storage/' + district.logo" 
-          :alt="district.name"/>
+        <div class="district-title-logo-wrapper">
+          <img v-if="district.logo" 
+            class="district-title-logo"
+            :src="'https://api.prostokontora.ru/storage/' + district.logo" 
+            :alt="district.name"/>
+        </div>
         <h1 class="district-title">{{ district.name }}</h1>
       </div>
       <div class="district-info-wrapper">
         <div class="district-info-row">
-          <span class="district-info-icon"></span>
-          <span class="district-info-header">Избиратели:</span>
+          <div class="district-info-row-header">
+            <span class="district-info-icon icon-electorat-wrapper">
+              <svg class="icon-electorat icon-svg">
+                <use xlink:href="/sprite.svg#icon-electorat" />
+              </svg>
+            </span>
+            <span class="district-info-header">Избиратели</span>
+          </div>
           <span class="district-info-count" v-if="district.voters">{{ localVoters }} человек</span>
           <span class="district-info-count" v-else>Не указано</span>
         </div>
         <div class="district-info-row">
-          <span class="district-info-icon"></span>
-          <span class="district-info-header">Население:</span>
+          <div class="district-info-row-header">
+            <span class="district-info-icon icon-population-wrapper">
+              <svg class="icon-population icon-svg">
+                <use xlink:href="/sprite.svg#icon-population" />
+              </svg>
+            </span>
+            <span class="district-info-header">Население</span>
+          </div>
           <span class="district-info-count" v-if="district.population">{{ localPopulation }} человек</span>
           <span class="district-info-count" v-else>Не указано</span>
         </div>
@@ -124,7 +138,7 @@ export default defineComponent({
 
 .district-title-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .district-info-wrapper {
@@ -139,6 +153,17 @@ export default defineComponent({
   font-size: 2rem;
   line-height: 2.4rem;
   margin-top: 1.3rem;
+}
+
+.icon-electorat-wrapper,
+.icon-population-wrapper {
+  display: inline-block;
+}
+
+.icon-electorat,
+.icon-population {
+  height: 2.6rem;
+  width: 3.6rem;
 }
 
 .district-info-row {
@@ -166,15 +191,20 @@ export default defineComponent({
   margin-right: 2.4rem;
 }
 
-.district-title-logo {
-  max-width: 6.5rem;
-  max-height: 8.2rem;
+.district-title-logo-wrapper {
+  width: 6.5rem;
+  height: 8.2rem;
   margin-right: 2rem;
   align-self: center;
 }
 
+.district-title-logo {
+  max-width: 6.5rem;
+  max-height: 8.2rem;
+}
+
 .district-title {
-  margin-top: 0rem;
+  margin-top: .8rem;
 }
 
 .page-wrapper {
