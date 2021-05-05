@@ -90,7 +90,6 @@ export default defineComponent({
         if (isVisible.value)
           router.push(`o-${props.region}/${props.slug}`)
       }
-    
     return {
       district,
       computedPosition,

@@ -349,7 +349,7 @@ export default defineComponent(
     },
     setup () {
         const { route, } = useContext()
-        const { mapSvg, zoomTo, setTo, resetViewBox, isRegionOpened, initiCityLabels, } = useMap()
+        const { mapSvg, zoomTo, setTo, resetViewBox, isRegionOpened, } = useMap()
         onMounted(() => {
             const slug = route.value.params.slug
             mapSvg.value = document.querySelector('.map-svg') as SVGAElement
@@ -358,7 +358,6 @@ export default defineComponent(
                     setTo(slug)
                 }
             }
-            initiCityLabels()
         })
         const  isMinusOne = ref(false)
         watch(route, () => {

@@ -80,7 +80,7 @@ export const useBreadcrumbs = () => {
     breadcrumbs.value = [
       mainPageURL,
       {
-          url: district.region?.slug || '',
+          url: '/region/' + district.region?.slug || '',
           title: (district.region?.name + ' округ') || '',
       },
   ]

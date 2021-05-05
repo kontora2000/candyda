@@ -141,19 +141,7 @@ export const useMap = () => {
     }
   }
 
-  const initiCityLabels = () => {
-    const anapa = document.querySelector('.map-label-area-anapa')  as HTMLElement
-    debugger
-    if (anapa) {
-    let top = 0, left = 0
-      top = parseInt(window.getComputedStyle(anapa).top.replace('px', ''), 10)
-      left = parseInt(anapa.style.left.replace('px', ''), 10)
-    if (screen.height !== 800) 
-      anapa.style.top = (((screen.height / 800) * top) - anapa.offsetHeight ) + 'px'
-    // anapa.style.left = (mapSvg.value.getBBox().width / 1228) * left + 'px'
-    anapa.style.display = 'flex'
-    }
-  }
+  
   
 
   return {
@@ -164,6 +152,5 @@ export const useMap = () => {
       resetViewBox,
       zoomTo,
       setTo,
-      initiCityLabels,
   }
 }
