@@ -101,7 +101,8 @@ export default defineComponent({
   display: flex;
   position: absolute;
   top: calc(9.2rem + 2rem);
-  left: calc((100vw - 49.6rem - 1.6rem) / 32 * 9 + 9.6rem + 1.6rem);
+  /*left: calc((100vw - 49.6rem - 1.6rem) / 32 * 9 + 9.6rem + 1.6rem);*/
+  left: calc((100vw - 49.6rem - 1.6rem) / 32 * 8 + 12.8rem + .8rem);
 }
 
 .region-title-number {
