@@ -136,6 +136,18 @@ export default defineComponent({
 }
 
 
+@media (min-width: 1460px) {
+  .page-aside-wrapper {
+    left: calc((1460px - 49.6rem - 1.6rem)/32 + ((100vw - 1460px)/2) + 1.6rem);
+    width: calc(((1460px - 49.6rem - 1.6rem)/32)*7 + 9.6rem);
+  }
+
+  .region-title-wrapper {
+    left: calc((1460px - 49.6rem - 1.6rem)/32*8 + ((100vw - 1460px)/2) + 12.8rem);
+  }
+}
+
+
 
 @media (max-width: 460px) {
   .main-bottom-wrapper {

@@ -124,7 +124,7 @@ export default defineComponent({
 
 
 <style scoped>
-.logo-nav-cont.fixed { 
+.logo-nav-cont.fixed {
   top: 2.2rem;
   margin-left: calc(((100vw - 49.6rem - 1.6rem) / 32) + 1.6rem);
   margin-top: 2rem;
@@ -183,6 +183,14 @@ export default defineComponent({
   border-radius: 16px;
   -webkit-backdrop-filter: blur(32px);
   backdrop-filter: blur(32px);*/
+}
+
+
+@media (min-width: 1460px) {
+  .logo-nav-cont.fixed {
+    /*margin-left: calc(((100vw - 49.6rem - 1.6rem) / 32) + 1.6rem);*/
+    margin-left: calc(((1460px - 49.6rem - 1.6rem)/32) + 1.6rem);
+  }
 }
 
 @media (max-width: 460px) {
