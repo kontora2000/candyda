@@ -15,14 +15,26 @@
       </div>
       <div class="district-info-wrapper">
         <div class="district-info-row">
-          <span class="district-info-icon"></span>
-          <span class="district-info-header">Избиратели</span>
+          <div class="district-info-row-header">
+            <span class="district-info-icon icon-electorat-wrapper">
+              <svg class="icon-electorat icon-svg">
+                <use xlink:href="/sprite.svg#icon-electorat" />
+              </svg>
+            </span>
+            <span class="district-info-header">Избиратели</span>
+          </div>
           <span class="district-info-count" v-if="district.voters">{{ localVoters }} человек</span>
           <span class="district-info-count" v-else>Не указано</span>
         </div>
         <div class="district-info-row">
-          <span class="district-info-icon"></span>
-          <span class="district-info-header">Население</span>
+          <div class="district-info-row-header">
+            <span class="district-info-icon icon-population-wrapper">
+              <svg class="icon-population icon-svg">
+                <use xlink:href="/sprite.svg#icon-population" />
+              </svg>
+            </span>
+            <span class="district-info-header">Население</span>
+          </div>
           <span class="district-info-count" v-if="district.population">{{ localPopulation }} человек</span>
           <span class="district-info-count" v-else>Не указано</span>
         </div>
@@ -141,6 +153,17 @@ export default defineComponent({
   font-size: 2rem;
   line-height: 2.4rem;
   margin-top: 1.3rem;
+}
+
+.icon-electorat-wrapper,
+.icon-population-wrapper {
+  display: inline-block;
+}
+
+.icon-electorat,
+.icon-population {
+  height: 2.6rem;
+  width: 3.6rem;
 }
 
 .district-info-row {
