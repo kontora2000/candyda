@@ -8,11 +8,13 @@
             <div class="candidate-ava" v-if="candidate.ava">
               <img class="candidate-ava-img"  :src="'https://api.prostokontora.ru/storage/' + candidate.ava" />
             </div>
-            <div class="candidate-info-wrapper">
+            <div class="candidate-info-wrapper candidate-info-wrapper-name">
                <h2 class="page-candidate-header">{{ fullName }}</h2>
                <div class="candidate-status-wrapper candidate-info-row" v-if="candidate.status">
                   <span class="candidate-status">{{  candidate.status.name }}</span>
                </div>
+            </div>
+            <div class="candidate-info-wrapper candidate-info-wrapper-other">
                <div class="candidate-rating-wrapper candidate-info-row">
                   <div class="candidate-rating">
                      <span class="candidate-top-rating" v-if="localNum">ТОП-{{ localNum}}</span>
@@ -172,6 +174,7 @@ export default defineComponent({
 
 .candidate-ava {
    grid-column: 1/12;
+   grid-row: 1/6;
    display: inline-flex;
    height: 50rem;
    margin-right: .8rem;
@@ -187,6 +190,13 @@ export default defineComponent({
 
 .candidate-info-wrapper {
    grid-column: 12/22;
+}
+
+.candidate-info-wrapper-name {
+   grid-row: 1/2;
+}
+.candidate-info-wrapper-other {
+   grid-row: 2/6;
 }
 
 .candidate-info-row {
@@ -295,11 +305,14 @@ export default defineComponent({
    .candidate-wrapper {
       grid-column: 1/7;
       grid-column-gap: 1.2rem;
+      grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
    }
 
    .candidate-ava {
       grid-column: 1/7;
+      grid-row: 2/3;
       height: 40rem;
+      margin-top: 2rem;
       margin-right: 0;
       width: 100%;
    }
@@ -308,8 +321,48 @@ export default defineComponent({
       grid-column: 1/7;
    }
 
+   .candidate-info-wrapper-name {
+      grid-row: 1/2;
+      margin-top: 2rem;
+   }
+   .page-candidate-header {
+      margin-bottom: .8rem;
+   }
+
+   .candidate-info-wrapper-other {
+      grid-row: 3/4;
+   }
+   .candidate-rating-wrapper {
+      margin-top: 1.6rem;
+   }
+   .candidate-age {
+      margin-top: 4rem;
+   }
+
    .candidate-about-wrapper {
       grid-column: 1/7;
+   }
+
+   .candidate-gallery-cont {
+      grid-column: 1/7;
+      grid-template-columns: repeat(6, calc((100vw - 4rem - 2.4rem) / 6));
+      grid-column-gap: .8rem;
+   }
+
+   .candidate-gallery-cont h3 {
+      grid-column: 1/-1;
+   }
+
+   .candidate-gallery-wrapper {
+      grid-column: 1/-1;
+      grid-template-columns: repeat(6, calc((100vw - 4rem - 2.4rem) / 6));
+      grid-column-gap: .8rem;
+   }
+
+   .candidate-gallery-img-cont {
+      border-radius: 8px;
+      grid-column: span 3;
+      margin-top: .8rem;
    }
 }
 

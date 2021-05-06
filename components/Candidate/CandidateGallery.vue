@@ -102,6 +102,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .gallery-lightbox-wrapper {
+  outline: none;
   z-index: 101;
 }
 .gallery-lightbox-overlay {
@@ -203,7 +204,48 @@ export default defineComponent({
   text-align: center;
   width: 100vw;
 }
+
+
+
+@media (max-width: 460px) {
+  .gallery-lightbox-body {
+    height: calc(100vh - 3.2rem);
+  }
+
+  .gallery-lightbox-close {
+    right: .4rem;
+  }
+
+  .gallery-lightbox-current-image {
+    object-fit: contain;
+    max-width: 100vw;
+  }
+
+  .gallery-lightbox-left,
+  .gallery-lightbox-right {
+    width: 4.8rem;
+  }
+
+  .gallery-lightbox-left .icon-arrow-svg {
+    left: .4rem;
+  }
+  .gallery-lightbox-right .icon-arrow-svg {
+    right: .4rem;
+  }
+
+  .gallery-lightbox-left .icon-arrow-svg,
+  .gallery-lightbox-right .icon-arrow-svg {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .icon-arrow-svg>use {
+    fill: var(--White100);
+    mix-blend-mode: difference;
+  }
+  .gallery-lightbox-left:hover>.icon-arrow-svg>use,
+  .gallery-lightbox-right:hover>.icon-arrow-svg>use {
+    fill: var(--White100);
+  }
+}
 </style>
-
-
-
