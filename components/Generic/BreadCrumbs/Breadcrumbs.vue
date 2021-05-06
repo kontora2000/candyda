@@ -38,9 +38,10 @@ export default defineComponent({
 <style scoped>
 .breadcrumbs-wrapper {
   color: var(--Black100);
-  line-height: 3.2rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
   position: relative;
-  top: -.8rem;
+  top: .4rem;
   left: 0;
   z-index: 1;
 }
@@ -55,6 +56,6 @@ export default defineComponent({
 }
 
 .breadcrumb-url {
-  border-bottom: 2px solid;
+  border-bottom: 1px solid;
 }
 </style>

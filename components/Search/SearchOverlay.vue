@@ -36,6 +36,7 @@ export default defineComponent({
     z-index: 99;
     top: 0px;
     left: 0px;
+    transition: all .25s ease-in-out;
   }
 
   .blur {
@@ -43,7 +44,8 @@ export default defineComponent({
   }
 
   .firefox-opacity {
-    opacity: 0.5;
-    background-color:var(--WHite100);
+    opacity: 0.97;
+    background-color:var(--White100);
+    transition: all .25s ease-in-out;
   }
 </style>

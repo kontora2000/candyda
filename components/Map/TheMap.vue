@@ -32,7 +32,7 @@
 			</div>
 			<div class="map-labels-wrapper map-labels-tihoretskiy">
 				<MapLabel slug="tbilisskiy" region="tihoretskiy" :top="320" :left="660">Тбилисский район</MapLabel>
-				<MapLabel slug="ust-labinskiy" region="tihoretskiy" :top="356" :left="416">Усть-Лабинский район</MapLabel>
+				<MapLabel slug="ust-labinskiy" region="tihoretskiy" :top="356" :left="416"><nobr>Усть-Лабинский</nobr> район</MapLabel>
 				<MapLabel slug="kavkazskiy" region="tihoretskiy" :top="252" :left="860">Кавказский район</MapLabel>
 				<MapLabel slug="korenovskiy" region="tihoretskiy" :top="252" :left="120">Кореновский район</MapLabel>
 				<MapLabel slug="vyselkovskiy" region="tihoretskiy" :top="200" :left="400">Выселковский район</MapLabel>
@@ -54,7 +54,7 @@
 				<MapLabel slug="kanevskoy" region="kanevskoy" :top="264" :left="500">Каневской район</MapLabel>
 				<MapLabel slug="leningradskiy" region="kanevskoy" :top="228" :left="728">Ленинградский район</MapLabel>
 				<MapLabel slug="starominskiy" region="kanevskoy" :top="164" :left="600">Староминский район</MapLabel>
-				<MapLabel slug="primorsko-ahtarskiy" region="kanevskoy" :top="320" :left="172">Приморско–Ахтарский район</MapLabel>
+				<MapLabel slug="primorsko-ahtarskiy" region="kanevskoy" :top="320" :left="172"><nobr>Приморско–Ахтарский</nobr> район</MapLabel>
 				<MapLabel slug="eyskiy" region="kanevskoy" :top="156" :left="272">Ейский район</MapLabel>
 				<MapLabel slug="shcherbinovskiy" region="kanevskoy" :top="128" :left="452">Щербиновский район</MapLabel>
 			</div>
