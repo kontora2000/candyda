@@ -49,6 +49,7 @@ import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import PartyBlock from '@/components/Party/PartyBlock.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
+import { useMap, } from '~/composition/map'
 
 export default defineComponent({
     layout: 'map',
@@ -62,15 +63,18 @@ export default defineComponent({
         Breadcrumbs,
     },
     setup () {
-        const { region, fetchRegion, } = useRegion()
+        const { region, fetchRegion,  } = useRegion()
         const { fetch, } = useFetch(fetchRegion)
         fetch()
+        const { isRegionOpened, } = useMap()
+
         const title = computed(()=> {
             return region?.value?.name ? region?.value?.name + ' округ' : ''
         })
         useMeta(() => ({ title: title.value, }))
         const {  breadcrumbs,  } =  useBreadcrumbs()
         watch(region, () => {
+            isRegionOpened.value = true
             breadcrumbs.value = [
                 {
                     url: '/',
@@ -78,7 +82,6 @@ export default defineComponent({
                 }
             ]
         })
-
         return {
             region,
             fetchRegion,

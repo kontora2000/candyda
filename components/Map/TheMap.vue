@@ -85,10 +85,10 @@
 					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/krylovskiy')">
 						<polygon id="krylovskiy" class="o-city" points="619.95,52.21 735.87,54.44 707.46,27.78 632.27,25.74"/>
 					</g>
-					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/sherbinovskiy')">
-						<polygon id="sherbinovskiy" class="o-city" points="437.92,39.28 481.5,39.62 503.29,20.55 495.63,2.68 439.79,0 433.16,5.23 451.37,6.77"/>
+					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/shcherbinovskiy')">
+						<polygon id="shcherbinovskiy" class="o-city" points="437.92,39.28 481.5,39.62 503.29,20.55 495.63,2.68 439.79,0 433.16,5.23 451.37,6.77"/>
 					</g>
-					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/kushevskiy')">
+					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/kushchevskiy')">
 						<polygon id="kushevskiy" class="o-city" points="560,40.23 625.29,40.74 632.27,25.74 683.47,27.13 687.51,9.04 560.07,3.99"/>
 					</g>
 					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/eyskiy')">
@@ -104,12 +104,12 @@
 					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/kanevskoy')" >
 						<polygon id="kanevskoy" class="o-city" points="602.48,89.73 611.79,69.73 530.44,69.73 531.24,40.01 461.73,39.46 434.34,69.73 465.2,79.76"/>
 					</g>
-					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/primorsko-akhtarskiy')">
-						<polygon id="primorsko-akhtarskiy" class="o-city" points="465.2,79.76 434.34,69.73 427.85,76.89 381.03,62.69 375.56,73.13 
+					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/primorsko-ahtarskiy')">
+						<polygon id="primorsko-ahtarskiy" class="o-city" points="465.2,79.76 434.34,69.73 427.85,76.89 381.03,62.69 375.56,73.13 
 						323.9,76.19 302.72,108.07 447.47,104.95"/>
 					</g>
-					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/bruhovetskiy')">
-						<polygon id="bruhovetskiy" class="o-city" points="596.9,101.73 602.48,89.73 465.2,79.76 447.47,104.95"/>
+					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/bryuhoveckiy')">
+						<polygon id="bryuhoveckiy" class="o-city" points="596.9,101.73 602.48,89.73 465.2,79.76 447.47,104.95"/>
 					</g>
 				</g>
 				<g class="o-title-cont" :class="{ 'city-cont-hover': isRegionOpened }">
@@ -131,8 +131,8 @@
 					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-tihoretskiy/beloglinskiy')">
 						<polygon id="beloglinskiy" class="o-city" points="862.1,114.5 908.1,116.7 921.7,103.9 830,56.3 785.3,55.4"/>
 					</g>
-					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }"  @click.prevent="onDesClick('/region/o-tihoretskiy/tihoretskiy')">
-						<polygon id="tihoretskiy" class="o-city" points="718.78,130.8 797.02,111.35 763.07,80.34 667,85.96"/>
+					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }"  @click.prevent="onDesClick('/region/o-tihoretskiy/tihoreckiy')">
+						<polygon id="tihoreckiy" class="o-city" points="718.78,130.8 797.02,111.35 763.07,80.34 667,85.96"/>
 					</g>
 					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-tihoretskiy/kavkazskiy')">
 						<polygon id="kavkazskiy" class="o-city" points="767.52,146.64 867.5,146.33 854.79,114.13 797.02,111.35 758.68,120.88"/>
@@ -217,7 +217,7 @@
 						<polygon id="krymskiy" class="o-city" points="236.24,178.17 191.62,184.95 183.11,209.7 222.72,213.72 265.81,255.9 
 						334.46,180.06"/>
 					</g>
-					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-slavyanskiy/temrukskiy')">
+					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-slavyanskiy/temryukskiy')">
 						<polygon id="temrukskiy" class="o-city" points="236.24,178.17 227.42,149.06 164.01,158.14 79.53,144.42 57.8,154.53 
 						92.64,162.59 74.85,174.2 9.3,173.78 0,185.81 90.01,200.41"/>
 					</g>
@@ -237,7 +237,7 @@
 			</nuxt-link>
 			<nuxt-link to="/region/o-tuapsinskiy" class="link-to-o">
 				<g class="o-cont" id="o-tuapsinskiy">
-					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDisClick('/region/o-tuapsinskiy/goryachiy-kluch')" >
+					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDisClick('/region/o-tuapsinskiy/goryachiy-klyuch')" >
 						<polygon id="goryachiy-klyuch" class="o-city" points="615.18,246.59 499,227.74 443.76,305.97 545.69,334.66"/>
 					</g>
 					<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-tuapsinskiy/severskiy')" >
@@ -365,6 +365,7 @@ export default defineComponent(
             if (slug) {
                 if (route.value.name === 'region-slug') {
                     zoomTo(slug)
+                    isRegionOpened.value = true
                     isMinusOne.value = true
                 }
             }
