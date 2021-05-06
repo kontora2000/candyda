@@ -1,9 +1,9 @@
 <template>
    <div class="page-content-superwrapper">
       <div class="page-news-wrapper page-content-wrapper grid-main">
+         <h1 class="page-header">Новости</h1>
          <TheAside />
          <div class="page-wrapper">
-            <h1 class="page-header">Новости</h1>
             <template v-if="posts && posts.length > 0">
               <NewsBlockCard class="news-card-cont-big" 
                   v-for="post in posts"
@@ -107,6 +107,8 @@ export default defineComponent({
 }
 
 @media (max-width: 460px) {
-
+    .page-wrapper {
+        grid-row: 3/4;
+    }
 }
 </style>

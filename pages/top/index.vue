@@ -1,9 +1,10 @@
 <template>
    <div class="page-content-superwrapper">
       <div class="page-news-wrapper page-content-wrapper grid-main">
+         <h1 class="page-header page-top-header">Топ кандидатов</h1>
          <TheAside />
          <div class="page-wrapper page-top" v-if="candidates && candidates.length > 0">
-            <h1 class="page-header page-top-header">Топ кандидатов</h1>
+            
             <CandidateCard
                 v-for="(candidate, index) in candidates"
                 :is-first="index === 0"
@@ -98,23 +99,19 @@ export default defineComponent({
    grid-column: 9/29;
 }
 
-.page-top-header {
-   grid-column: 1/-1;
-}
-
 .candidate-card-cont {
    grid-column: span 4;
    margin-bottom: 3.2rem;
 }
 
-.candidate-card-cont:nth-child(2) {
+.candidate-card-cont:first-child {
    grid-column: span 12;
    grid-row: span 2;
    max-height: 35rem;
  
 }
 
-.candidate-card-cont:nth-child(3) {
+.candidate-card-cont:nth-child(2) {
   grid-column: span 8;
   grid-row: span 2;
   max-height: 80%;
@@ -131,8 +128,8 @@ export default defineComponent({
    }
 
    .candidate-card-cont,
-   .candidate-card-cont:nth-child(2),
-   .candidate-card-cont:nth-child(3) {
+   .candidate-card-cont:first-child,
+   .candidate-card-cont:nth-child(2) {
       grid-column: span 3;
       grid-row: span 1;
       max-height: 220px;

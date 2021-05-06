@@ -119,4 +119,29 @@ export default defineComponent( {
   grid-column: span 4;
   margin-bottom: 3.2rem;
 }
+
+@media (max-width: 460px) {
+  .page-party-wrapper .page-aside-wrapper {
+    display: none;
+  }
+
+  .page-party {
+    grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
+    grid-column-gap: 1.2rem;
+    grid-column: 1/7;
+  }
+
+  .page-party-header-cont {
+    grid-column: 1/-1;
+    margin-bottom: 4rem;
+  }
+
+  .page-party-header-candidates {
+    grid-column: 1/-1;
+  }
+
+  .page-party .candidate-card-cont {
+    grid-column: span 3;
+  }
+}
 </style>

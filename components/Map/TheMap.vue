@@ -490,7 +490,7 @@ export default defineComponent(
 @media (max-width: 460px) {
 	.map-cont {
 		grid-column: 1/7;
-		margin-top: -4rem;
+		margin-top: 1.2rem;
 		margin-bottom: -8rem;
 		min-height: 60vh;
 	}

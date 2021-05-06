@@ -302,10 +302,16 @@ export default defineComponent({
 }
 
 @media (max-width: 460px) {
+   .page-aside-wrapper {
+      grid-row: 1/2;
+      margin-bottom: .8rem;
+   }
+
    .candidate-wrapper {
       grid-column: 1/7;
       grid-column-gap: 1.2rem;
       grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
+      grid-row: 2/3;
    }
 
    .candidate-ava {

@@ -88,7 +88,7 @@ export default defineComponent({
 <style scoped>
 .page-content-filter-wrapper {
     position: relative;
-    top: 10rem;
+    top: 8rem;
 }
 
 

@@ -1,15 +1,15 @@
 <template>
    <div class="page-content-superwrapper">
       <div class="page-parties-wrapper page-content-wrapper grid-main">
+         <h1 class="page-header page-top-header">Партии</h1>
          <TheAside />
          <div class="page-wrapper page-top">
             <template v-if="parties && parties.length > 0">
-                <h1 class="page-header page-top-header">Партии</h1>
-                <PartyCard class="party-page-card"
-                  v-for="party in parties"
-                  :party="party"
-                  :key="party.id" 
-                />
+               <PartyCard class="party-page-card"
+               v-for="party in parties"
+               :party="party"
+               :key="party.id" 
+               />
             </template>
             <template v-else-if="locationFilter.region!==''">
               <h1 class="page-header page-top-header">Нет подходящих партий</h1>
@@ -122,11 +122,22 @@ export default defineComponent({
    .page-top {
 		grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
       grid-column-gap: 1.2rem;
+      grid-column: 1/-1;
+      grid-row: 3/4;
+   }
+
+   .page-party {
+      grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
+      grid-column-gap: 1.2rem;
       grid-column: 1/7;
    }
 
    .candidate-card-cont {
       grid-column: span 3;
+   }
+
+   .party-page-card {
+      grid-column: 1/-1;
    }
 }
 
