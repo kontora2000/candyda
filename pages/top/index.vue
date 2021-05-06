@@ -123,19 +123,22 @@ export default defineComponent({
 }
 
 
-
 @media (max-width: 460px) {
    .page-top {
-		grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
+      grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
       grid-column-gap: 1.2rem;
       grid-column: 1/7;
    }
 
-   .candidate-card-cont {
+   .candidate-card-cont,
+   .candidate-card-cont:nth-child(2),
+   .candidate-card-cont:nth-child(3) {
       grid-column: span 3;
+      grid-row: span 1;
+      max-height: 220px;
+      min-height: 220px;
    }
 }
-
 
 
 /*@media (max-width: 360px) {

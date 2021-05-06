@@ -51,6 +51,7 @@ export default defineComponent({
 @media (max-width: 460px) {
   .footer-nav ul li {
     margin-right: .8rem;
+    margin-bottom: 1.2rem;
   }
 }
 

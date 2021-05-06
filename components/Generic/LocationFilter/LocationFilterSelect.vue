@@ -176,4 +176,12 @@ export default defineComponent({
 .selectHide {
   display: none;
 }
+
+
+@media (max-width: 460px) {
+  .filter-select {
+    margin-top: 1.6rem;
+    max-width: 100%;
+  }
+}
 </style>

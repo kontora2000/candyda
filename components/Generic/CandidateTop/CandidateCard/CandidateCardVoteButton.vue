@@ -92,6 +92,22 @@ export default defineComponent({
 }
 
 
+@media (max-width: 460px) {
+   .first.candidate-card-cont .votes-counter-small,
+   .second.candidate-card-cont .votes-counter-small {
+      font-size: 2rem;
+      line-height: 2rem;
+      padding: .2rem .8rem .4rem .6rem;
+      top: -1.2rem;
+   }
+
+   .first.candidate-card-cont .icon-votes-counter,
+   .second.candidate-card-cont .icon-votes-counter {
+      height: 1.6rem;
+      width: 2rem;
+   }
+}
+
 
 @media (max-width: 360px) {
    .votes-counter-small {

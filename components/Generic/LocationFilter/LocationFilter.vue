@@ -90,4 +90,11 @@ export default defineComponent({
     position: relative;
     top: 10rem;
 }
+
+
+@media (max-width: 460px) {
+    .page-content-filter-wrapper {
+        top: 0;
+    }
+}
 </style>

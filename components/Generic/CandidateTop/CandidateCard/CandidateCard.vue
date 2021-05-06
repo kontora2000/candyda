@@ -115,6 +115,11 @@ export default defineComponent({
    .candidate-card-ava-small-wrapper {
       min-height: 22rem;
    }
+   .first .candidate-card-name-wrapper,
+   .second .candidate-card-name-wrapper {
+      font-size: 2rem;
+      line-height: 2.4rem;
+   }
 }
 
 
