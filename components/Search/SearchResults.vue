@@ -107,13 +107,13 @@ export default defineComponent({
 }
 
 .search-result-header {
-    grid-column: 1/end;
+    grid-column: 1/-1;
     margin-bottom: 0;
 }
 
 .search-result-grid {
     display: grid;
-    grid-column: 1/end;
+    grid-column: 1/-1;
     grid-template-columns: repeat(15, calc((100vw - 49.6rem - 1.6rem) / 32));
     grid-column-gap: 1.6rem;
 }
@@ -179,5 +179,60 @@ grid-template-rows: 6.8rem auto;
 
 .search-results-tags-wrapper {
 grid-column: 1/-1;
+}
+
+
+@media (max-width: 460px) {
+    .search-results-wrapper {
+        margin-top: 4rem;
+    }
+
+    .search-results-page-header-wrapper {
+        grid-column: 1/-1;
+        writing-mode: horizontal-tb;
+    }
+
+    .cont-wrapper-search-results {
+        margin-bottom: 4rem;
+    }
+
+    .search-results-page-header {
+        margin: 0;
+        position: relative;
+        top: 0;
+        transform: none;
+    }
+
+    .search-results-wrapper .cont-wrapper-right {
+        grid-column: 1/-1;
+    }
+
+    .search-results-posts {
+        grid-column: 1/-1;
+    }
+
+    .search-results-tags {
+        grid-template-rows: 5.2rem auto;
+    }
+
+    .search-result-grid,
+    .search-results-posts {
+        grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
+        grid-column-gap: 1.2rem;
+    }
+
+    .search-result-grid .candidate-card-cont.card-cont {
+        grid-column: span 3;
+    }
+
+    .search-results-posts .news-card-cont.card-cont:nth-child(2),
+    .search-results-posts .news-card-cont.card-cont:nth-child(3) {
+        grid-column: 1/-1;
+        height: 36rem;
+    }
+
+    .news-card-cont:not(:first-child) {
+        margin-top: 2rem;
+    }
 }
 </style>

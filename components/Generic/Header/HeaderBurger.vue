@@ -97,7 +97,7 @@ export default defineComponent({
     position: absolute;
     right: 0;
     width: 10.4rem;
-    z-index: 2;
+    z-index: 3;
     transition: all .15s ease-in-out;
 }
 .burger.burger-close {
@@ -133,7 +133,7 @@ export default defineComponent({
     top: -2.8rem;
     left: -1.2rem;
     width: 100vw;
-    z-index: 1;
+    z-index: 2;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
 }
@@ -175,5 +175,12 @@ export default defineComponent({
     width: 8rem;
     transform: rotate(-45deg);
     margin-top: 1.2rem;
+}
+
+
+@media (max-width: 460px) {
+    .burger-search {
+        position: fixed;
+    }
 }
 </style>

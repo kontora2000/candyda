@@ -46,7 +46,7 @@ export default defineComponent({
 	.logo-wrapper {
 		grid-column: 1/4;
         position: relative;
-        z-index: 2;
+        z-index: 3;
 	}
 
     .logo-link {
