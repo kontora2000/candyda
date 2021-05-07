@@ -57,7 +57,11 @@
               </span>     
         </span>
       </div>
-    <span class="search-input-icon"></span>
+    <span class="search-input-icon">
+      <svg class="icon-search-svg icon-svg">
+        <use xlink:href="/sprite.svg#icon-search" />
+      </svg>
+    </span>
   </form>
 </template>
 
