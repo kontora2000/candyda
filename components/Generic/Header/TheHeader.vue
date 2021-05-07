@@ -2,7 +2,7 @@
    <header class="grid-main">
       <HeaderNavbar v-if="!$device.isMobile" />
       <HeaderLogo v-if="$device.isMobile"/>
-      <HeaderSearchbar  style="z-index:100"/>
+      <HeaderSearchbar  style="z-index:100" v-if="!$device.isMobile"/>
       <HeaderAbout  v-if="!$device.isMobile"/>
       <HeaderBurger  v-if="$device.isMobile" />
    </header>

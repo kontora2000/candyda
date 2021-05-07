@@ -50,9 +50,7 @@ export const useSearch = () => {
     const resetPlaceholder = () => {
       searchInputPlaceholder.value = 'Введите округ / район или город / имя кандидата / новость'
     }
-
     const searchInputPadding = ref<string>('6rem')
-
     return {
       isSearchOpen,
       searchString,
