@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handleSearch" class="search-form">
+  <form @submit.prevent="handleSearch" class="search-form" v-if="!$device.isMobile">
     <svg class="icon-search-svg icon-svg">
       <use xlink:href="/sprite.svg#icon-search" />
     </svg>
@@ -10,10 +10,11 @@
       :style="{ 'padding-left': searchInputPadding, width: searchInputWidth}"
       type="text" 
       :placeholder="searchInputPlaceholder"
-      v-model="searchString"
-      @>
+      v-model="searchString">
       <transition name="fade-fast">
-        <div class="search-close" v-if="isCloseButtonVisible" @click="onCloseButtonClick">
+        <div class="search-close" 
+          v-if="isCloseButtonVisible" 
+          @click="onCloseButtonClick">
           <svg class="icon-close-svg icon-svg">
             <use xlink:href="/sprite.svg#icon-close" />
           </svg>
@@ -32,6 +33,31 @@
           <span class="search-block-text">{{ block }}</span>
         </span>
       </div>
+  </form>
+  <!-- Мобильный поиск --> 
+  <form v-else @submit.prevent="handleSearch">
+    <input name="search"
+       class="search-input" 
+       type="text"  
+       v-model="searchString"
+       :placeholder="searchInputPlaceholder"
+      :style="{ 'padding-left': searchInputPadding}" />
+    <div class="search-blocks-wrapper">
+          <span 
+            class="search-block"
+            v-for="(block, index) in searchBlocks"
+            :key="generateKey(index)"> 
+              <span class="search-block-delete" @click.prevent="deleteBlock(index)">  
+                <svg class="icon-cross-small-svg icon-svg">
+                    <use xlink:href="/sprite.svg#icon-cross-small" />
+                </svg>
+              </span>
+              <span class="search-block-text">
+                {{ block }} 
+              </span>     
+        </span>
+      </div>
+    <span class="search-input-icon"></span>
   </form>
 </template>
 
@@ -53,7 +79,6 @@ export default defineComponent({
             searchRequest,     
             searchResults,
         } = useSearch()
-
         const { generateKey, } = useHelpers() 
         const isCloseButtonVisible = ref(false)
         const basePadding = '6rem'
@@ -116,7 +141,6 @@ export default defineComponent({
                     '6rem'
             }, 10)
         }
-
         watch(searchBlocks, ()=> {
             if (!isSearchOpen.value) {
                 onFocus()
@@ -129,7 +153,6 @@ export default defineComponent({
             if (searchBlocks.value.length > 0) { searchRequest() } 
             else { searchResults.value = {} }
         })
-
         return {
             searchBlocks,
             searchString,

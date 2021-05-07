@@ -43,13 +43,13 @@ import { defineComponent, computed, watch, useMeta, useContext, useFetch, } from
 
 import { useRegion, } from '@/composition/region'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
+import { useMap, } from '@/composition/map'
 
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import PartyBlock from '@/components/Party/PartyBlock.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
-import { useMap, } from '~/composition/map'
 
 export default defineComponent({
     layout: 'map',
@@ -67,12 +67,11 @@ export default defineComponent({
         const { fetch, } = useFetch(fetchRegion)
         fetch()
         const { isRegionOpened, } = useMap()
-
         const title = computed(()=> {
             return region?.value?.name ? region?.value?.name + ' округ' : ''
         })
         useMeta(() => ({ title: title.value, }))
-        const {  breadcrumbs,  } =  useBreadcrumbs()
+        const { breadcrumbs, } =  useBreadcrumbs()
         watch(region, () => {
             isRegionOpened.value = true
             breadcrumbs.value = [
@@ -149,8 +148,6 @@ export default defineComponent({
     left: calc((1460px - 49.6rem - 1.6rem)/32*8 + ((100vw - 1460px)/2) + 12.8rem);
   }
 }
-
-
 
 @media (max-width: 460px) {
   .main-bottom-wrapper {

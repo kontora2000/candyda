@@ -1,12 +1,13 @@
 <template>
   <transition name="fade-fast" appear>
-    <div class="overlay blur" :class="{ 'firefox-opacity': isFirefox, }" v-show="isSearchOpen"/>
+    <div class="overlay blur" :class="{ 'firefox-opacity': isFirefox, }" v-show="isSearchOpen && !$device.isMobile"/>
         {{ $device }}
   </transition>
 </template>
+
 <script>
 import { defineComponent, onMounted, ref, } from '@nuxtjs/composition-api'
-import { useSearch, } from '~/composition/search'
+import { useSearch, } from '@/composition/search'
 
 export default defineComponent({
     name:'SearchOverlay',

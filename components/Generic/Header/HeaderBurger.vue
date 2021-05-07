@@ -1,6 +1,7 @@
 <template>
-    <div class="burger-menu"  @click="toggleBurger">
+    <div class="burger-menu"  >
             <a class="burger"
+              @click="toggleBurger"
                v-touch="() => toggleBurger"
                :class="{ 'burger-close': !isBurgerVisible, 'burger-open': isBurgerVisible }"
                key="b_button">
@@ -11,22 +12,21 @@
             </a>
             <transition name="fade">
                 <div class="burger-overlay" v-if="isBurgerVisible">
-                    <nav class="site-nav-burger" key="b_menu">
+                    <nav class="site-nav-burger" key="b_menu" v-if="!isSearchOpen">
                             <ul>
                                 <li><nuxt-link to="/news" class="nav-link link-underline-solid">Новости</nuxt-link></li>
                                 <li><nuxt-link to="/top" class="nav-link link-underline-solid">Топ кандидатов</nuxt-link></li>
                                 <li><nuxt-link to="/party" class="nav-link link-underline-solid">Партии</nuxt-link></li>
                                 <li><nuxt-link to="/about" class="nav-link link-underline-solid">О проекте</nuxt-link></li>
                                 <li v-for="flatPage in flatPages" 
-                                  :key="flatPage.id"
-                                >
-                                  <nuxt-link :to="`/page/${flatPage.slug}`" class="nav-link link-underline-solid">{{ flatPage.title }}</nuxt-link>
+                                  :key="flatPage.id">
+                                    <nuxt-link :to="`/page/${flatPage.slug}`" class="nav-link link-underline-solid">{{ flatPage.title }}</nuxt-link>
                                 </li>
                             </ul>
                     </nav>
+                    <SearchResults v-if="isSearchOpen"/>
                     <div class="burger-search">
-                        <input name="search" class="search-input" type="search"  />
-                        <span class="search-input-icon"></span>
+                        <SearchInput/>
                     </div>
                 </div>
         </transition>
@@ -34,23 +34,28 @@
 </template>
 
 <script>
-import { defineComponent, } from '@nuxtjs/composition-api'
-import { useFlatPages, } from '~/composition/flatpages'
+import { defineComponent, ref, useContext, } from '@nuxtjs/composition-api'
+import { useFlatPages, } from '@/composition/flatpages'
+import { useSearch, } from '@/composition/search'
+
+import SearchInput from '@/components/Search/SearchInput.vue'
+import SearchResults from '@/components/Search/SearchResults.vue'
 
 export default defineComponent({
     name:'HeaderBurger',
-    ssr: false,
-    data() {
-        return  {
-            isMobile: this.$device.isMobile,
-            isBurgerVisible: false,
-        }
+    components:{
+        SearchInput,
+        SearchResults,
     },
     setup () {
         const { flatPages,  fetchFlatPages, } =  useFlatPages()
+        const {  isSearchOpen, } = useSearch()
         fetchFlatPages()
+        const  isBurgerVisible = ref(false)
         return {
             flatPages,
+            isBurgerVisible,
+            isSearchOpen,
         }
     },
     mounted() {

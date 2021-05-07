@@ -11,8 +11,6 @@
    </div>
 </template>
 
-
-
 <script>
 import { defineComponent, ref, } from '@nuxtjs/composition-api'
 import SearchInput from '@/components/Search/SearchInput.vue'
