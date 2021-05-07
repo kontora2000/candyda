@@ -51,7 +51,6 @@ export default defineComponent({
 }
 
 
-
 @media (max-width: 460px) {
   .party-cards-wrapper {
     grid-column: 1/-1;

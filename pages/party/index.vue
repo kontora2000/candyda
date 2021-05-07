@@ -31,6 +31,7 @@ import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 import { usePartyList, } from '@/composition/parties'
 import { useLocationFilter, } from '@/composition/filter'
 
+import Btn from '@/components/Generic/Btn.vue'
 import NewsBlock from '@/components/Generic/NewsBlock/NewsBlock.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
@@ -40,12 +41,13 @@ import TheAside from '@/components/Generic/Aside/TheAside.vue'
 export default defineComponent({
     name: 'PartyIndex',
     head: {},
-    components: { 
-        PartyCard,
-        NewsBlock,
-        CandidateTop,
-        TheFooter,
-        TheAside,
+    components: {
+      Btn,
+      PartyCard,
+      NewsBlock,
+      CandidateTop,
+      TheFooter,
+      TheAside,
     },
     setup () {
         const { title, }  = useMeta()
@@ -90,10 +92,6 @@ export default defineComponent({
    grid-template-columns: repeat(20,calc((100% - 30.4rem) / 20));
    grid-column-gap: 1.6rem;
    grid-column: 9/29;
-}
-
-.page-top-header {
-   grid-column: 1/-1;
 }
 
 .candidate-card-cont {

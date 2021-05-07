@@ -85,12 +85,14 @@ footer {
 }
 
 
-
-@media (max-width: 360px) {
+@media (max-width: 460px) {
   .footer-wrapper {
     margin-bottom: 2rem;
   }
+}
 
+
+@media (max-width: 360px) {
   footer {
     padding: .8rem;
   }

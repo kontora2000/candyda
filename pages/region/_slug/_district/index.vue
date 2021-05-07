@@ -1,7 +1,7 @@
 <template>
- <div v-if="district" class="main-bottom-wrapper grid-main district-content-wrapper">
-     <aside class="page-aside-wrapper">
-        <Breadcrumbs />
+  <div v-if="district" class="grid-main district-content-wrapper">
+    <aside class="page-aside-wrapper">
+      <Breadcrumbs />
     </aside>
     <div class="district-wrapper">
       <div class="district-title-wrapper" v-if="district && district.name">
@@ -39,7 +39,7 @@
           <span class="district-info-count" v-else>Не указано</span>
         </div>
       </div>
-       <div class="page-wrapper" v-if="district.candidates && district.candidates.length > 0" >
+      <div class="page-wrapper" v-if="district.candidates && district.candidates.length > 0" >
         <div class="district-candidates-header">
           <h3>Кандидаты района</h3>
         </div>
@@ -56,26 +56,33 @@
         <District-history :history="candidate.history"/>
       </div>
     </div>
-    <div class="cont-wrapper cont-wrapper-left district-posts-wrapper" v-if="district.posts && district.posts.length > 0">
-        <div class="cont-header-wrapper">
-            <h3 class="cont-header">Новости района</h3>
-        </div>
-        <div class="news-block-cards-wrapper block-cards-wrapper">
-            <NewsBlockCard  v-for="post in district.posts"
-              class="news-card-cont-small"
-              :key="post.id"
-              :post="post" /> 
-        </div>
-        <nuxt-link class="showmore-btn" to="/" v-if="district.posts.length > 11">Показать все</nuxt-link>
+    <div class="main-bottom-wrapper grid-main">
+      <div class="cont-wrapper cont-wrapper-left district-posts-wrapper" v-if="district.posts && district.posts.length > 0">
+          <div class="cont-header-wrapper">
+              <h3 class="cont-header">Новости района</h3>
+          </div>
+          <div class="news-block-cards-wrapper block-cards-wrapper">
+              <NewsBlockCard  v-for="post in district.posts"
+                class="news-card-cont-small"
+                :key="post.id"
+                :post="post" /> 
+          </div>
+          <div class="showmore-btn-wrapper">
+            <nuxt-link class="showmore-btn button" to="/" v-if="district.posts.length > 11">Показать все</nuxt-link>
+          </div>
+      </div>
+      <div class="cont-wrapper cont-wrapper-right"  v-if="district.parties && district.parties.length > 0">
+          <div class="cont-header-wrapper" >
+              <h3 class="cont-header">Партии в&nbsp;районе</h3>
+          </div>
+          <PartyBlock :parties="district.parties" />
+      </div>
+      <TheFooter />
     </div>
-    <div class="cont-wrapper cont-wrapper-right"  v-if="district.parties && district.parties.length > 0">
-        <div class="cont-header-wrapper" >
-            <h3 class="cont-header">Партии в&nbsp;районе</h3>
-        </div>
-        <PartyBlock :parties="district.parties" />
-    </div>
- </div>
+  </div>
 </template>
+
+
 
 <script lang="ts">
 import { defineComponent, watch, useMeta, ref, } from '@nuxtjs/composition-api'
@@ -84,21 +91,25 @@ import { useHelpers, } from '@/composition/helpers'
 import { useDistrict, } from '@/composition/district'
 import { useBreadcrumbs, } from '@/composition/breadcrumbs'
 
+import Btn from '@/components/Generic/Btn.vue'
 import CandidateCard from '@/components/Generic/CandidateTop/CandidateCard/CandidateCard.vue'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import PartyBlock from '@/components/Party/PartyBlock.vue'
 import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
 import DistrictHistory from '@/components/District/DistrictHistory.vue'
+import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
 export default defineComponent({
     transition: 'fade',
     head: {},
-    components: { 
+    components: {
+        Btn,
         CandidateCard, 
         NewsBlockCard, 
         PartyBlock,
         Breadcrumbs,
         DistrictHistory,
+        TheFooter,
     },
     setup () {
         const { thousandSeparator, } = useHelpers()
@@ -127,13 +138,17 @@ export default defineComponent({
 })
 </script>
 
+
+
 <style scoped>
-.district-wrapper {
-  grid-column: 9/32;
+.district-content-wrapper {
+  grid-column: 1/-1;
+  margin-top: 5.2rem;
 }
 
-.district-content-wrapper {
-  margin-top:5.2rem;
+.district-wrapper {
+  grid-column: 9/32;
+  margin-bottom: 12rem;
 }
 
 .district-title-wrapper {
@@ -242,12 +257,70 @@ export default defineComponent({
 }
 
 
-
-
 @media (max-width: 460px) {
+  .page-aside-wrapper {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+  }
+
+  .district-wrapper {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+  }
+
   .main-bottom-wrapper {
-    grid-column: 1/7;
+    grid-column: 1/-1;
+    grid-row: 3/4;
     grid-template-rows: auto;
+  }
+
+  .district-title-logo-wrapper {
+    margin-right: 1.6rem;
+  }
+
+  .district-title {
+    font-size: 3.2rem;
+    line-height: 3.6rem;
+    margin-top: -.4rem;
+  }
+
+  .district-info-wrapper {
+    flex-direction: column;
+    margin: 3.2rem 0 6rem;
+  }
+
+  .district-info-row {
+    width: 100%;
+    display: block;
+  }
+  .district-info-row:first-of-type {
+    margin-right: 0;
+  }
+  .district-info-row:not(:last-child) {
+    margin-bottom: 1.2rem;
+  }
+
+  .district-info-row-header {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  .district-info-header {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  .district-candidates-wrapper {
+    grid-template-columns: repeat(6, calc((100vw - 6rem - 2.4rem) / 6));
+    grid-column-gap: 1.2rem;
+  }
+
+  .district-candidates-card {
+    grid-column: span 3;
+  }
+
+  .party-card-block {
+    grid-column: 1/-1;
   }
 
   .main-bottom-wrapper .cont-wrapper-right {

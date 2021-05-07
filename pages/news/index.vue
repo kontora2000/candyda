@@ -31,6 +31,7 @@
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">
          <CandidateTop class="cont-wrapper-left"/>
+         <PartyTop class="cont-wrapper-right party-top-cont" v-show="!$device.isMobile"/>
          <TheFooter />
       </div>
    </div>
@@ -46,6 +47,7 @@ import { useLocationFilter, } from '@/composition/filter'
 import NewsBlockCard from '@/components/Generic/NewsBlock/NewsBlockCard.vue'
 import Btn from '@/components/Generic/Btn.vue'
 import CandidateTop from '@/components/Generic/CandidateTop/CandidateTop.vue'
+import PartyTop from '@/components/Party/PartyTop.vue'
 import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 import TheAside from '@/components/Generic/Aside/TheAside.vue'
 
@@ -55,6 +57,7 @@ export default defineComponent({
         NewsBlockCard,
         Btn,
         CandidateTop,
+        PartyTop,
         TheFooter,
         TheAside,
     },
