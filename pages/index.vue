@@ -38,8 +38,6 @@ export default defineComponent({
 <style scoped>
 .main-bottom-wrapper {
   grid-column: 1/33;
-  grid-row-gap: 4rem;
-  grid-template-rows: 90rem 1fr 1fr;
 }
 
 

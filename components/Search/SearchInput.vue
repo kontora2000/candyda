@@ -20,18 +20,16 @@
         </div>
       </transition>
       <div class="search-blocks-wrapper">
-          <span 
-          class="search-block"
-          v-for="(block, index) in searchBlocks"
-          :key="generateKey(index)"> 
-            <span class="search-block-delete" @click.prevent="deleteBlock(index)">  
-              <svg class="icon-cross-small-svg icon-svg">
-                  <use xlink:href="/sprite.svg#icon-cross-small" />
-              </svg>
-            </span>
-            <span class="search-block-text">
-              {{ block }} 
-            </span>     
+        <span 
+        class="search-block"
+        v-for="(block, index) in searchBlocks"
+        :key="generateKey(index)"> 
+          <span class="search-block-delete" @click.prevent="deleteBlock(index)">  
+            <svg class="icon-cross-small-svg icon-svg">
+                <use xlink:href="/sprite.svg#icon-cross-small" />
+            </svg>
+          </span>
+          <span class="search-block-text">{{ block }}</span>
         </span>
       </div>
   </form>

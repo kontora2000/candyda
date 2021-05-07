@@ -461,13 +461,14 @@ main {
     grid-column: 2/17;
     grid-template-columns: repeat(15, calc((100vw - 49.6rem - 1.6rem) / 32));
     grid-column-gap: 1.6rem;
-    grid-row: span 4;
+    grid-row: span 3;
 }
 .page-bottom-wrapper .cont-wrapper-left {
     grid-row: span 2;
 }
 
 .cont-wrapper-left .block-cards-wrapper {
+	align-content: flex-start;
     grid-column: 2/16;
     display: grid;
     grid-template-columns: repeat(14, calc((100vw - 49.6rem - 1.6rem) / 32));
@@ -482,6 +483,7 @@ main {
 }
 
 .cont-wrapper-right .block-cards-wrapper {
+	align-content: flex-start;
     grid-column: 2/14;
     display: grid;
     grid-template-columns: repeat(12, calc((100vw - 49.6rem - 1.6rem) / 32));
