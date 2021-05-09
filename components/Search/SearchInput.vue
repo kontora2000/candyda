@@ -52,9 +52,7 @@
                     <use xlink:href="/sprite.svg#icon-cross-small" />
                 </svg>
               </span>
-              <span class="search-block-text">
-                {{ block }} 
-              </span>     
+              <span class="search-block-text">{{ block }}</span>
         </span>
       </div>
     <span class="search-input-icon">
