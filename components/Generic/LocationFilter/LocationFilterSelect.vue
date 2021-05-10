@@ -96,7 +96,7 @@ export default defineComponent({
   padding-top:2rem;
   cursor: pointer;
   user-select: none;
-  background-color: var(--Azure16);
+  background-color: var(--GraySuperLight72);
   -webkit-backdrop-filter: blur(32px);
   backdrop-filter: blur(32px);
   font-size: 2rem;
@@ -111,7 +111,7 @@ export default defineComponent({
 }
 
 .filter-select .selected:hover {
-  background-color: var(--Azure100);
+  background-color: var(--Blue100);
   color: var(--White100);
 }
 
@@ -154,7 +154,7 @@ export default defineComponent({
   left: 0;
   right: 0;
   z-index: 1;
-  background-color:var(--Azure16);
+  background-color:var(--GraySuperLight72);
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
 }
@@ -169,7 +169,7 @@ export default defineComponent({
 }
 
 .filter-select .items .select-item:hover {
-  background-color: var(--Azure100);
+  background-color: var(--Blue100);
   color: var(--White100);
 }
 

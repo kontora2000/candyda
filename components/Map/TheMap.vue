@@ -1,6 +1,9 @@
 <template>
 	<div class="map-cont">
 		<div class="map-labels">
+			<div style="display: none;" class="map-labels-districts-wrapper map-labels-wrapper">
+				<MapLabel slug="anapa" :top="300" :left="420">Каневской</MapLabel>
+			</div>
 			<div class="map-labels-wrapper map-labels-slavyanskiy">
 				<MapLabel slug="anapa" region="slavyanskiy" :top="300" :left="420">Анапа</MapLabel>
 				<MapLabel slug="krymskiy" region="slavyanskiy" :top="256" :left="720">Крымский район</MapLabel>
@@ -63,7 +66,8 @@
 			width="1228.16px" height="648.03px" viewBox="0 0 1228.16 648.03" 
 			style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
 			<style type="text/css">
-			polygon {stroke-width: 1px; stroke: var(--Azure32);}
+			polygon {}
+			.o-city {stroke-width: 1px; stroke-color: #C2D8EF; stroke-dasharray: 4px;}
 			</style>
 			<!--<defs>
 				<filter id="shadow-o-city" x="0" y="0" width="100%" height="100%">
@@ -410,11 +414,11 @@ export default defineComponent(
 }
 
 .map-svg .o-city {
-	fill: rgba(203, 231, 247, 0.64);
+	fill: rgba(238, 244, 253, 1);
 	transition: fill .25s ease-in-out;
 }
 .link-to-o:hover .o-city {
-	fill: rgba(203, 231, 247, 1);
+	fill: rgba(44, 154, 255, 1);
 }
 
 .map-svg .o-city#o-adygeya {
@@ -432,7 +436,7 @@ export default defineComponent(
 } */
 
 .o-bg {
-	fill: var(--Azure100);
+	fill: var(--Blue100);
 }
 
 .o-header-number,

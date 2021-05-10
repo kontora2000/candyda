@@ -38,7 +38,7 @@ export default defineComponent({
    transition: fill .15s ease-in-out;
 }
 .logo-link:hover .logo-link-svg {
-   fill: var(--Black64);
+   fill: var(--Blue100);
 }
 
 

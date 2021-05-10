@@ -193,13 +193,13 @@ export default defineComponent({
   right: 0;
   top: 0;
   border-radius: 100px;
-  background: var(--Azure16);
+  background: var(--GraySuperLight72);
   cursor: pointer;
   transition: all .15s ease-in-out;
 }
 
 .search-close:hover {
-  background: var(--Azure84);
+  background: var(--Blue100);
   transform: translateY(-.8rem);
 }
 
@@ -228,7 +228,7 @@ export default defineComponent({
 }
 
 .search-block {
-  background: var(--Azure100);
+  background: var(--Blue100);
   cursor: default;
   display: flex;
   align-items: center;

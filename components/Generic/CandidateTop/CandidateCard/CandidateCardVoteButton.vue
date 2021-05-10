@@ -43,7 +43,7 @@ export default defineComponent({
 }
 
 .votes-counter-small {
-   background-color: var(--Azure100);
+   background-color: var(--Blue100);
    display: inline-block;
    border-radius: 300px;
    float: right;

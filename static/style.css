@@ -45,7 +45,7 @@
     --Black16: rgba(37, 37, 37, .16);
     --Black3: rgba(37, 37, 37, .03);
     --Black0: rgba(37, 37, 37, 0);
-	  --Black92: rgba(37,37,37, .92);
+	--Black92: rgba(37,37,37, .92);
 
     --White100: rgba(255, 255, 255, 1);
     --White84: rgba(255, 255, 255, .84);
@@ -57,18 +57,19 @@
     --White16: rgba(255, 255, 255, .16);
     --White0: rgba(255, 255, 255, 0);
 
-	  --Gray100: rgba(92, 92, 92, 1);
-    --GraySuperLight100: rgba(250, 250, 250, 1);
+	--Gray100: rgba(92, 92, 92, 1);
+    --GraySuperLight100: rgba(238, 244, 253, 1);
+	--GraySuperLight72: rgba(238, 244, 253, .72);
     --GrayLight100: rgba(218, 218, 218, 1);
 
     --Red100: rgba(255, 0, 0, 1);
 
-    --Azure100: rgba(44, 179, 255, 1);
-    --Azure84: rgba(44, 179, 255, .84);
-    --Azure32: rgba(44, 179, 255, .32);
-	  --Azure16: rgba(44, 179, 255, .16);
-  	--Azure12: rgba(44, 179, 255, .12);
-    --Azure6: rgba(44, 179, 255, .06);
+	--Blue100: rgba(44, 154, 255, 1);
+	--Blue84: rgba(44, 154, 255, .84);
+	--Blue32: rgba(44, 154, 255, .32);
+	--Blue16: rgba(44, 154, 255, .16);
+	--Blue12: rgba(44, 154, 255, .12);
+	--Blue6: rgba(44, 154, 255, .06);
 
     --font-default: 'Golos', 'Helvetica', 'Arial', sans-serif;
     --font-serif: 'Wremena', 'Times', 'Times New Roman', serif;
@@ -187,14 +188,14 @@ a {
 	transition: all .175s ease-in-out;
 }
 a:hover {
-	color: var(--Black64);
+	color: var(--Blue100);
 }
 
 .article-paragraphs a {
 	border-bottom: .5px solid var(--Black32);
 }
 .article-paragraphs a:hover {
-	border-bottom-color: var(--Black64);
+	border-bottom-color: var(--Blue100);
 }
 
 /* a * {
@@ -221,7 +222,7 @@ input[type=datetime],
 input[type=tel],
 input[type=search],
 textarea {
-    background: var(--Azure12);
+    background: var(--GraySuperLight72);
     backdrop-filter: blur(32px);
 	box-sizing: border-box;
 	border: none;
@@ -263,7 +264,7 @@ textarea::placeholder {
 button,
 input[type=button],
 input[type=submit] {
-	background: var(--Azure100);
+	background: var(--Blue100);
 	border: none;
 	border-radius: 300px;
 	color: var(--White100);
@@ -284,7 +285,7 @@ input[type=submit] {
 button:hover,
 input[type=button]:hover,
 input[type=submit]:hover {
-	background: var(--Azure84);
+	background: var(--Blue84);
 	color: var(--White100);
 	transform: translateY(-.8rem);
 }
@@ -302,19 +303,19 @@ input[type=submit]:disabled {
 
 .button-transparent {
 	background: transparent;
-	color: var(--Azure100);
-	border: 2px solid var(--Azure100);
+	color: var(--Blue100);
+	border: 2px solid var(--Blue100);
 	padding: 1.8rem 2.4rem 2rem;
 }
 .button-transparent:hover {
-	background: var(--Azure84);
+	background: var(--Blue84);
 	border-color: transparent;
 	color: var(--White100);
 	transform: translateY(-.8rem);
 }
 
 .button-blur {
-    background: var(--Azure12);
+    background: var(--GraySuperLight72);
     backdrop-filter: blur(32px);
     color: var(--Black100);
 }
@@ -337,7 +338,7 @@ ul {
 	letter-spacing: 0;
 	-webkit-text-fill-color: transparent;
 	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: var(--Black);
+	-webkit-text-stroke-color: var(--Black100);
 }
 
 .icon-svg {
@@ -395,7 +396,7 @@ main {
 
 
 .loading-spiral {
-	border-color: var(--Azure12) !important;
+	border-color: var(--GraySuperLight72) !important;
 	border-right-color: transparent !important;
 }
 
@@ -502,13 +503,17 @@ main {
 }
 
 .card-cont {
-    background: var(--Azure12);
+    background-color: var(--GraySuperLight72);
     backdrop-filter: blur(32px);
     border-radius: 12px;
     display: block;
-    transition: transform .125s ease-in-out;
+    transition: transform .125s ease-in-out,
+				background-color .15s linear,
+				color .15s linear;
 }
 .card-cont:hover {
+	background-color: var(--Blue100);
+	color: var(--White100);
     transform: scale(1.05);
 }
 
@@ -521,24 +526,28 @@ main {
 .date-publication {
     color: var(--Black32);
     font-size: 1.2rem;
+	transition: color .125s ease-in-out;
+}
+.card-cont:hover .date-publication {
+	color: var(--White56);
 }
 
 .tag {
 	background-color: transparent;
-	border: 1.5px solid var(--Azure100);
-	color: var(--Azure100);
+	border: 1.5px solid var(--Blue100);
+	color: var(--Blue100);
 	margin-bottom: .8rem;
 }
 .tag:not(:first-child) {
 	margin-left: .8rem;
 }
 .tag:hover {
-	background-color: var(--Azure100);
+	background-color: var(--Blue100);
 	color: var(--White100);
 }
 .tag::before {
 	content: '#';
-	color: var(--Azure100);
+	color: var(--Blue100);
 	display: inline-block;
 	margin-right: .2rem;
 	transition: all .175s ease-in-out;
