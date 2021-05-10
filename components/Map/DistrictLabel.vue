@@ -11,7 +11,7 @@
   </transition>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, PropType, ref, computed, onMounted, watch, useContext, useRouter, } from '@nuxtjs/composition-api'
 import { useRegion, } from '@/composition/region'
 import { Distritct, } from '@/modules/types'
@@ -20,26 +20,37 @@ export default defineComponent({
   name: 'MapLabel',
   props: {
     slug: {
-      type: String as PropType<string>,
+      type: String,
       require: true
     },
     region: {
-      type: String as PropType<string>,
+      type: String,
       require: true,
       default: '',
     },
     top: {
-      type: Number as PropType<number>,
+      type: Number,
       required: true,
     },
     left: {
-      type: Number as PropType<number>,
+      type: Number,
       required: true,
+    },
+    mobileTop: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    mobileLeft: {
+      type: Number,
+      required: false,
+      default: 0,
     },
   },
   setup(props) {
-    const top = ref(props.top)
-    const left = ref(props.left)
+    const { $device, } = useContext()
+    const top = ref(($device.isMobile && props.mobileTop) ?  props.mobileTop : props.top )
+    const left = ref(($device.isMobile && props.mobileLeft) ?  props.mobileLeft : props.left )
     const computedPosition = computed(() => { 
       return {
         top: top.value + 'px',
@@ -68,12 +79,12 @@ export default defineComponent({
       checkVisibility()
     })
     const storageURL = process.env.storageURL
-    const district = ref<Distritct>({} as Distritct)
+    const district = ref({})
     const { currentRegion, }  = useRegion()
     watch(currentRegion,() => { 
       if (currentRegion.value?.districts) {
         for (let i=0; i< currentRegion.value.districts.length; i++ ) {
-          const localDistrict: Distritct = currentRegion.value.districts[i]
+          const localDistrict = currentRegion.value.districts[i]
           if (localDistrict.slug === props.slug) {
             district.value = localDistrict
             break
