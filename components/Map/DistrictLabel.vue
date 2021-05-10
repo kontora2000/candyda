@@ -4,7 +4,9 @@
       <div class="map-label-area-emblem" v-if="district && district.logo && district.logo!==''">
           <img :src="storageURL + district.logo" :alt="slug">
         </div>
-        <div class="map-label-area-title"><slot /></div>
+        <div class="map-label-area-title">
+          <slot />
+        </div>
     </div>
   </transition>
 </template>
@@ -48,9 +50,7 @@ export default defineComponent({
          if (screen.height !== 800) {}
         top.value = (screen.height / 800 * props.top) - 44
       }
-    })
-
-  
+    })  
     const { route, } = useContext()
     const isVisible  = ref(false)
     const checkVisibility = () => {

@@ -203,7 +203,7 @@
 import { defineComponent, onMounted, watch, ref, useContext, useRouter, } from '@nuxtjs/composition-api'
 
 import { useMap, } from '@/composition/map'
-import MapLabel from './MapLabel.vue'
+import MapLabel from './DistrictLabel.vue'
 import RegionLabel from './RegionLabel.vue'
 import TheLabels from './TheLabels.vue'
 
@@ -322,5 +322,22 @@ export default defineComponent(
 }
 .link-to-o:hover>.o-cont {
 	transform: translateY(-1.2rem);
+}
+
+@media (max-width: 460px) {
+	.map-cont {
+		grid-column: 1/7;
+		margin-top: 1.2rem;
+		margin-bottom: -8rem;
+		min-height: 60vh;
+	}
+	.map-svg {
+		transform: scale(1.8);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 48vh;
+	}
 }
 </style>
