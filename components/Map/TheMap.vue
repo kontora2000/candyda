@@ -4,7 +4,6 @@
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			width="1228.16px" height="648.03px" viewBox="0 0 1228.16 648.03" 
 			style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
-			<style type="text/css"></style>
 			<!--<defs>
 				<filter id="shadow-o-city" x="0" y="0" width="100%" height="100%">
 					<feOffset result="offOut" in="SourceGraphic" dx="0" dy="2" />
