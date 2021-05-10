@@ -2,10 +2,10 @@
   <div>
     <transition name="fade025">
       <div class="map-label-area" :style="computedPosition" v-show="isVisible" @click="onRegClick">
-          <div class="map-lable-number">{{ props.number }} </div>
+          <div class="map-lable-number">{{ number }} </div>
           <div class="map-label-area-title">
             <slot />
-        </div>J
+        </div>
          <div class="map-label-type">Округ</div>
       </div>
     </transition>

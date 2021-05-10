@@ -59,14 +59,20 @@
 			</div>
 			<div class="map-lables-wrapper region-labels">
 				<RegionLabel  slug="krasnoarmeyskiy" :top="320" :left="320" :number="47">Красноармейский</RegionLabel>
-			</div>	
+			</div>
 		</div>
 </template>
 <script lang="ts">
 import { defineComponent, } from '@nuxtjs/composition-api'
+import MapLabel from './MapLabel.vue'
+import RegionLabel from './RegionLabel.vue'
 
 export default defineComponent({
-    name: 'TheLabels'
+  components: {
+        MapLabel, 
+        RegionLabel 
+    },
+    name: 'TheLabels',
 })
 </script>
 <style scoped>

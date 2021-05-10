@@ -284,13 +284,15 @@ import { defineComponent, onMounted, watch, ref, useContext, useRouter, } from '
 import { useMap, } from '@/composition/map'
 import MapLabel from './MapLabel.vue'
 import RegionLabel from './RegionLabel.vue'
+import TheLabels from './TheLabels.vue'
 
 export default defineComponent(
   {
     name:'TheMap',
     components: { 
       MapLabel,
-      RegionLabel, 
+      RegionLabel,
+	  TheLabels, 
     },
     setup()
      {
