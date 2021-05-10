@@ -45,10 +45,10 @@ export default defineComponent({
         left: left.value + 'px',
     }})
     onMounted(() => {
-      if (screen) {
-         if (screen.height !== 800) {}
-        top.value = (screen.height / 800 * props.top) - 44
-      }
+    //   if (screen) {
+    //      if (screen.height !== 800) {}
+    //     top.value = (screen.height / 800 * props.top) - 44
+    //   }
     })  
     const { route, } = useContext()
     const isVisible  = ref(false)
@@ -62,7 +62,6 @@ export default defineComponent({
       checkVisibility()
     })
     const storageURL = process.env.storageURL
-   
     const router = useRouter()
     const onRegClick = () => {
         if (isVisible.value)
@@ -78,8 +77,6 @@ export default defineComponent({
 })
 </script>
 
-
-
 <style scoped>
 .map-label-area {
 	align-items: center;
@@ -88,7 +85,7 @@ export default defineComponent({
 	box-shadow: 0px 18px 47px rgba(38, 117, 255, 0.12), 0px 7.51997px 19.6355px rgba(38, 117, 255, 0.0862625), 0px 4.02054px 10.4981px rgba(38, 117, 255, 0.0715329), 0px 2.25388px 5.88513px rgba(38, 117, 255, 0.06), 0px 1.19702px 3.12555px rgba(38, 117, 255, 0.0484671), 0px 0.498106px 1.30061px rgba(38, 117, 255, 0.0337375);
 	cursor: pointer;
 	display: flex;
-  flex-direction: column;
+    flex-direction: column;
 	height: 4.4rem;
 	padding: .4rem .8rem;
 	position: absolute;
