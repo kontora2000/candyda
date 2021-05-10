@@ -144,4 +144,22 @@ export default defineComponent({
 	text-transform: uppercase;
 	letter-spacing: .04em;
 }
+
+@media (max-width: 460px) {
+  .map-label-area {
+    height: auto;
+    padding: .2rem .6rem;
+  }
+
+  .map-label-number-header,
+  .map-lable-number {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+  .map-label-area-title {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+  }
+}
 </style>
