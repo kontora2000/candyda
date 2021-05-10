@@ -1,6 +1,5 @@
 import { ref, } from '@nuxtjs/composition-api'
 import { gsap, } from 'gsap'
-import { Distritct } from '~/modules/types'
 
 const mapSvg = ref<SVGAElement>({} as SVGAElement)
 // type Viewbox = `${number} ${number} ${number} ${number}`
@@ -35,7 +34,7 @@ export const useMap = () => {
     const titles = document.querySelectorAll('.o-title-cont')
     const regs = document.querySelectorAll('.o-cont')
     // const cityTitles =  document.querySelectorAll('.o-city-title-cont')
-    gsap.to(titles, {duration:0.2, autoAlpha: 1, })
+    // gsap.to(titles, {duration:0.2, autoAlpha: 1, })
     // gsap.set(cityTitles, { display: 'none', })
 
     // gsap.to(cityTitles, {duration:0.2, autoAlpha: 0, })
@@ -58,7 +57,7 @@ export const useMap = () => {
       const titles = document.querySelectorAll('.o-title-cont')
       const cityTitles =    document.querySelectorAll('.o-city-title-cont')
       const regs = document.querySelectorAll(`.o-cont:not(#${slug})`)
-      gsap.to(titles, {duration:0.2, autoAlpha: 0, })
+      // gsap.to(titles, {duration:0.2, autoAlpha: 0, })
       // gsap.to(cityTitles, {duration:0.2, autoAlpha: 0, })
       // gsap.set(cityTitles, { display: 'none', })
       gsap.to(regs, {duration:0.2, autoAlpha: 0, })

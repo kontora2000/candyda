@@ -1,16 +1,12 @@
 <template>
-  <div>
-    <transition name="fade025">
-      <div class="map-label-area" :style="computedPosition" v-show="isVisible" @click="onDesClick">
-        <div class="map-label-area-emblem" v-if="district && district.logo && district.logo!==''">
-            <img :src="storageURL + district.logo" :alt="slug">
-          </div>
-          <div class="map-label-area-title">
-            <slot />
+  <transition name="fade025">
+    <div class="map-label-area" :style="computedPosition" v-show="isVisible" @click="onDesClick">
+      <div class="map-label-area-emblem" v-if="district && district.logo && district.logo!==''">
+          <img :src="storageURL + district.logo" :alt="slug">
         </div>
-      </div>
-    </transition>
-  </div>
+        <div class="map-label-area-title"><slot /></div>
+    </div>
+  </transition>
 </template>
 
 <script lang="ts">
@@ -100,12 +96,13 @@ export default defineComponent({
   },
 })
 </script>
+
 <style scoped>
 .map-label-area {
 	align-items: center;
 	background: var(--White100);
 	border-radius: 12px 12px 12px 2px;
-  box-shadow: 0 16px 25px 0 rgba(0, 130, 193, 0.12);
+	box-shadow: 0 16px 25px 0 rgba(0, 130, 193, 0.12);
 	cursor: pointer;
 	display: flex;
 	height: 4.4rem;

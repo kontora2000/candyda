@@ -5,8 +5,7 @@
 			width="1228.16px" height="648.03px" viewBox="0 0 1228.16 648.03" 
 			style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
 			<style type="text/css">
-			polygon {}
-			.o-city {stroke-width: 1px; stroke-color: #C2D8EF; stroke-dasharray: 4px;}
+				polygon {}
 			</style>
 			<!--<defs>
 				<filter id="shadow-o-city" x="0" y="0" width="100%" height="100%">
@@ -55,16 +54,6 @@
 						<polygon id="bryuhoveckiy" class="o-city" points="596.9,101.73 602.48,89.73 465.2,79.76 447.47,104.95"/>
 					</g>
 				</g>
-				<g class="o-title-cont" :class="{ 'city-cont-hover': isRegionOpened }">
-					<path class="o-bg" d="M550.31,51.81c0-9,0-13.5,2.29-16.65c0.74-1.02,1.64-1.91,2.65-2.65
-						c3.15-2.29,7.65-2.29,16.65-2.29h68.41c9,0,13.5,0,16.65,2.29c1.02,0.74,1.91,1.64,2.65,2.65c2.29,3.15,2.29,7.65,2.29,16.65v0.8
-						c0,9,0,13.5-2.29,16.65c-0.74,1.02-1.64,1.91-2.65,2.65c-3.15,2.29-7.65,2.29-16.65,2.29h-86.41c-1.5,0-2.25,0-2.78-0.38
-						c-0.17-0.12-0.32-0.27-0.44-0.44c-0.38-0.53-0.38-1.28-0.38-2.78V51.81z"/>
-					<text class="o-title" transform="matrix(1 0 0 1 562.21 64.206)">Каневской</text>
-					<text class="o-header" transform="matrix(1 0 0 1 562.4907 48.206)">Округ</text>
-					<text class="o-header-number" transform="matrix(1 0 0 1 635.4197 48.206)">53</text>
-					<line class="o-header-line" x1="607.31" y1="43.71" x2="632.95" y2="43.71"/>
-				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-tihoretskiy" class="link-to-o">
 				<g class="o-cont" id="o-tihoretskiy" :class="{ 'city-cont-hover': isRegionOpened }">
@@ -93,16 +82,6 @@
 						<polygon id="korenovskiy" class="o-city" points="528.38,145.64 572.99,167.05 638.02,150.88 596.9,101.73 529.53,103.18"/>
 					</g>
 				</g>
-				<g class="o-title-cont">
-					<path class="o-bg" d="M764.63,113.48c0-9,0-13.5,2.29-16.65c0.74-1.02,1.64-1.91,2.65-2.65
-						c3.15-2.29,7.65-2.29,16.65-2.29h79.41c9,0,13.5,0,16.65,2.29c1.02,0.74,1.91,1.64,2.65,2.65c2.29,3.15,2.29,7.65,2.29,16.65v0.8
-						c0,9,0,13.5-2.29,16.65c-0.74,1.02-1.64,1.91-2.65,2.65c-3.15,2.29-7.65,2.29-16.65,2.29h-97.41c-1.5,0-2.25,0-2.78-0.38
-						c-0.17-0.12-0.32-0.27-0.44-0.44c-0.38-0.53-0.38-1.28-0.38-2.78V113.48z"/>
-					<text class="o-title" transform="matrix(1 0 0 1 776.5315 125.8803)">Тихорецкий</text>
-					<text class="o-header" transform="matrix(1 0 0 1 776.8121 109.8803)">Округ</text>
-					<text class="o-header-number" transform="matrix(1 0 0 1 861.1376 109.8803)">51</text>
-					<line class="o-header-line" x1="821.63" y1="105.38" x2="858.15" y2="105.38"/>
-				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-krasnoarmeyskiy" class="link-to-o">
 				<g class="o-cont" id="o-krasnoarmeyskiy">
@@ -121,30 +100,11 @@
 						418.98,163.76 448.82,183.66 433.28,194.62"/>
 					</g>
 				</g>
-				<g class="o-title-cont">
-					<path class="o-bg" d="M413.6,114.1c0-9,0-13.5,2.3-16.7c0.7-1,1.6-1.9,2.7-2.7c3.2-2.3,7.7-2.3,16.7-2.3h128.2
-					c9,0,13.5,0,16.7,2.3c1,0.7,1.9,1.6,2.7,2.7c2.3,3.2,2.3,7.7,2.3,16.7v0.8c0,9,0,13.5-2.3,16.7c-0.7,1-1.6,1.9-2.7,2.7
-					c-3.2,2.3-7.7,2.3-16.7,2.3H417.2c-1.5,0-2.2,0-2.8-0.4c-0.2-0.1-0.3-0.3-0.4-0.4c-0.4-0.5-0.4-1.3-0.4-2.8V114.1z"/>
-					<text class="o-title" transform="matrix(1 0 0 1 425.5033 126.4801)">Красноармейский</text>
-					<text class="o-header" transform="matrix(1 0 0 1 425.784 110.4801)">Округ</text>
-					<text class="o-header-number" transform="matrix(1 0 0 1 558.246 110.4801)">47</text>
-					<line class="o-header-line" x1="470.6" y1="106" x2="555.3" y2="106"/>
-				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-krasnodarskiy" class="link-to-o">
 				<g class="o-cont" id="o-krasnodarskiy" @click.prevent="onDesClick('/region/o-krasnodarskiy/krasnodar')">
 					<polygon id="krasnodar" class="o-city" points="572.99,167.05 528.38,145.64 482.32,153.28 492.25,167.05 527.81,167.05 
 					527.12,192.41 494.8,203.69 545.93,211.22 619.26,175.19 "/>
-				</g>
-				<g class="o-title-cont">
-					<path class="o-bg" d="M548.7,166.65c0-9,0-13.5,2.29-16.65c0.74-1.02,1.64-1.91,2.65-2.65
-						c3.15-2.29,7.65-2.29,16.65-2.29h107.61c9,0,13.5,0,16.65,2.29c1.02,0.74,1.91,1.64,2.65,2.65c2.29,3.15,2.29,7.65,2.29,16.65v0.8
-						c0,9,0,13.5-2.29,16.65c-0.74,1.02-1.64,1.91-2.65,2.65c-3.15,2.29-7.65,2.29-16.65,2.29H552.3c-1.5,0-2.25,0-2.78-0.38
-						c-0.17-0.12-0.32-0.27-0.44-0.44c-0.38-0.53-0.38-1.28-0.38-2.78V166.65z"/>
-					<text class="o-title" transform="matrix(1 0 0 1 560.6021 179.048)">Краснодарский</text>
-					<text class="o-header" transform="matrix(1 0 0 1 560.8827 163.048)">Округ</text>
-					<text class="o-header-number" transform="matrix(1 0 0 1 672.2401 163.048)">46</text>
-					<line class="o-header-line" x1="605.7" y1="158.55" x2="668.95" y2="158.55"/>
 				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-slavyanskiy" class="link-to-o">
@@ -168,15 +128,6 @@
 						<polygon id="anapa" class="o-city" points="191.62,184.95 90.01,200.41 123.83,259.15 183.11,209.7 	"/>
 					</g>
 				</g>
-				<g class="o-title-cont">
-					<path class="o-bg" d="M233.9,184.6c0-9,0-13.5,2.3-16.7c0.7-1,1.6-1.9,2.7-2.7c3.2-2.3,7.7-2.3,16.7-2.3h79.7
-					c9,0,13.5,0,16.7,2.3c1,0.7,1.9,1.6,2.7,2.7c2.3,3.2,2.3,7.7,2.3,16.7v0.8c0,9,0,13.5-2.3,16.7c-0.7,1-1.6,1.9-2.7,2.7
-					c-3.2,2.3-7.7,2.3-16.7,2.3h-97.7c-1.5,0-2.2,0-2.8-0.4c-0.2-0.1-0.3-0.3-0.4-0.4c-0.4-0.5-0.4-1.3-0.4-2.8V184.6z"/>
-					<text class="o-title" transform="matrix(1 0 0 1 245.8224 196.9522)">Славянский</text>
-					<text class="o-header" transform="matrix(1 0 0 1 246.1031 180.9522)">Округ</text>
-					<text class="o-header-number" transform="matrix(1 0 0 1 329.5893 180.9522)">48</text>
-					<line class="o-header-line" x1="290.9" y1="176.5" x2="325.2" y2="176.5"/>
-				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-tuapsinskiy" class="link-to-o">
 				<g class="o-cont" id="o-tuapsinskiy">
@@ -198,15 +149,6 @@
 						<polygon id="tuapsinskiy" class="o-city" points="407.73,295.83 372.82,336.95 446.83,360.42 521.49,421.79 596.58,391.63 
 						620.51,355.71"/>
 					</g>
-				</g>
-				<g class="o-title-cont">
-					<path class="o-bg" d="M410.2,259.4c0-9,0-13.5,2.3-16.7c0.7-1,1.6-1.9,2.7-2.7c3.2-2.3,7.7-2.3,16.7-2.3h99.3
-					c9,0,13.5,0,16.7,2.3c1,0.7,1.9,1.6,2.7,2.7c2.3,3.2,2.3,7.7,2.3,16.7v0.8c0,9,0,13.5-2.3,16.7c-0.7,1-1.6,1.9-2.7,2.7
-					c-3.2,2.3-7.7,2.3-16.7,2.3H413.8c-1.5,0-2.2,0-2.8-0.4c-0.2-0.1-0.3-0.3-0.4-0.4c-0.4-0.5-0.4-1.3-0.4-2.8V259.4z"/>
-					<text class="o-title" transform="matrix(1 0 0 1 422.1505 271.7766)">Туапскинский</text>
-					<text class="o-header" transform="matrix(1 0 0 1 422.4312 255.7766)">Округ</text>
-					<text class="o-header-number" transform="matrix(1 0 0 1 525.1927 255.7766)">49</text>
-					<line class="o-header-line" x1="467.2" y1="251.3" x2="522.6" y2="251.3"/>
 				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-armavirskiy" class="link-to-o">
@@ -241,15 +183,6 @@
 						777.26,175.01"/>
 					</g>
 				</g>
-				<g class="o-title-cont">
-					<path class="o-bg" d="M921.7,244.2c0-9,0-13.5,2.3-16.7c0.7-1,1.6-1.9,2.7-2.7c3.2-2.3,7.7-2.3,16.7-2.3h91.4
-					c9,0,13.5,0,16.7,2.3c1,0.7,1.9,1.6,2.7,2.7c2.3,3.2,2.3,7.7,2.3,16.7v0.8c0,9,0,13.5-2.3,16.7c-0.7,1-1.6,1.9-2.7,2.7
-					c-3.2,2.3-7.7,2.3-16.7,2.3H925.3c-1.5,0-2.2,0-2.8-0.4c-0.2-0.1-0.3-0.3-0.4-0.4c-0.4-0.5-0.4-1.3-0.4-2.8V244.2z"/>
-					<text class="o-title" transform="matrix(1 0 0 1 933.6439 256.5683)">Армавирский</text>
-					<text class="o-header" transform="matrix(1 0 0 1 933.9245 240.5683)">Округ</text>
-					<text class="o-header-number" transform="matrix(1 0 0 1 1028.7406 240.5683)">52</text>
-					<line class="o-header-line" x1="978.7" y1="236.1" x2="1024.8" y2="236.1"/>
-				</g>
 			</nuxt-link>
 			<nuxt-link to="/region/o-sochinskiy" class="link-to-o">
 				<g class="o-cont o-cont-district" id="o-sochinskiy">
@@ -264,15 +197,6 @@
 						<polygon id="sochi" class="o-city" points="596.58,391.63 521.49,421.79 796.75,648.03 823.2,573.64 1008.59,573.64"/>
 					</g>
 				</g>
-				<g class="o-title-cont" >
-					<path class="o-bg" d="M645.2,327.9c0-9,0-13.5,2.3-16.7c0.7-1,1.6-1.9,2.7-2.7c3.2-2.3,7.7-2.3,16.7-2.3h74.4
-					c9,0,13.5,0,16.7,2.3c1,0.7,1.9,1.6,2.7,2.7c2.3,3.2,2.3,7.7,2.3,16.7v0.8c0,9,0,13.5-2.3,16.7c-0.7,1-1.6,1.9-2.7,2.7
-					c-3.2,2.3-7.7,2.3-16.7,2.3h-92.4c-1.5,0-2.2,0-2.8-0.4c-0.2-0.1-0.3-0.3-0.4-0.4c-0.4-0.5-0.4-1.3-0.4-2.8V327.9z"/>
-					<text class="o-title" transform="matrix(1 0 0 1 657.1313 340.2736)">Сочинский</text>
-					<text class="o-header" transform="matrix(1 0 0 1 657.412 324.2736)">Округ</text>
-					<text class="o-header-number" transform="matrix(1 0 0 1 733.0045 324.2736)">50</text>
-					<line class="o-header-line" x1="702.2" y1="319.8" x2="730.9" y2="319.8"/>
-				</g>
 			</nuxt-link>
 		</svg>
 	</div>
@@ -284,13 +208,15 @@ import { defineComponent, onMounted, watch, ref, useContext, useRouter, } from '
 import { useMap, } from '@/composition/map'
 import MapLabel from './MapLabel.vue'
 import RegionLabel from './RegionLabel.vue'
+import TheLabels from './TheLabels.vue'
 
 export default defineComponent(
   {
     name:'TheMap',
     components: { 
       MapLabel,
-      RegionLabel, 
+      RegionLabel,
+	  TheLabels, 
     },
     setup()
      {
@@ -366,6 +292,12 @@ export default defineComponent(
 .map-svg .o-city#o-adygeya {
 	fill: rgba(203, 231, 247, 0.2);
 }
+
+.o-city {
+	stroke-width: .5px; 
+	stroke: #C2D8EF;
+	stroke-dasharray: 4px;
+	}
 
 .link-to-o, 
 .o-title-cont {
