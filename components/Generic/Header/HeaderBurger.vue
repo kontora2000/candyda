@@ -93,7 +93,7 @@ export default defineComponent({
 
 .burger {
     display: block;
-    margin-top: .6rem;
+    margin-top: 1rem;
     position: absolute;
     right: 0;
     width: 10.4rem;

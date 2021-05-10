@@ -130,7 +130,7 @@ export default defineComponent({
 }
 
 .map-label-area-title {
-	color: var(--Azure100);
+	color: var(--Blue100);
 	font-size: 1.4rem;
 	line-height: 1.6rem;
 	text-transform: uppercase;

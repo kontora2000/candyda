@@ -55,5 +55,4 @@ export default defineComponent({
 
 
 
-<style scoped>
-</style>
+<style scoped></style>

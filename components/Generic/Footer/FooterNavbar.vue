@@ -33,17 +33,17 @@ export default defineComponent({
 }
 
 .footer-nav .nav-link.link-underline-solid {
-  border-bottom-color: var(--Black20);
+  border-bottom-color: var(--White24);
   border-bottom-width: 1.5px;
-  color: var(--Black32);
+  color: var(--White100);
   display: inline-block;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 2rem;
 }
 .footer-nav .nav-link.link-underline-solid:hover {
-  border-bottom-color: var(--Gray100);
-  color: var(--Gray100);
+  border-bottom-color: var(--White100);
+  color: var(--White100);
 }
 
 

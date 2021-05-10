@@ -212,7 +212,7 @@ export default defineComponent({
 }
 
 .candidate-rating-wrapper {
-   background: var(--Azure6);
+   background: var(--GraySuperLight72);
    border-radius: 12px;
    padding: 2.4rem 1.2rem 1.2rem;
 }
@@ -224,7 +224,7 @@ export default defineComponent({
 }
 
 .candidate-top-rating {
-   color: var(--Azure100);
+   color: var(--Blue100);
    margin-right: 3.2rem;
 }
 

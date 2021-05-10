@@ -153,7 +153,7 @@ export default defineComponent({
 }
 
 .nav-link-burger-wrapper {
-  background: var(--Azure16);
+  background: var(--GraySuperLight72);
   border-radius: 12px;
   display: inline-block;
   -webkit-backdrop-filter: blur(32px);
@@ -162,7 +162,7 @@ export default defineComponent({
 }
 
 .scrolled .nav-link {
-  background-color: var(--Azure16) !important;
+  background-color: var(--GraySuperLight72)) !important;
   border-radius: 8px;
   border-bottom: 0;
   color: var(--Black100);
@@ -174,7 +174,7 @@ export default defineComponent({
           backdrop-filter: blur(32px);
 }
 .scrolled .nav-link:hover {
-  background-color: var(--Azure100) !important;
+  background-color: var(--Blue100) !important;
   color: var(--White100);
 }
 

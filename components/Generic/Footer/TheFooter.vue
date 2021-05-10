@@ -45,7 +45,7 @@ export default defineComponent({
 }
 
 footer {
-  background: var(--Black3);
+  background: var(--Black100);
   border-radius: 12px;
   display: flex;
   flex-direction: row;
@@ -71,16 +71,16 @@ footer {
 .footer-logo-svg {
   width: inherit;
   height: inherit;
-  fill: var(--Black16);
+  fill: var(--White56);
   transition: fill .15s ease-in-out;
 }
 
 .footer-logo-link:hover .footer-logo-svg {
-  fill: var(--Gray100);
+  fill: var(--White100);
 }
 
 .copyright {
-    color: var(--Black16);
+    color: var(--White56);
     line-height: 1.4rem;
 }
 
