@@ -1,6 +1,6 @@
 <template>
   <transition name="fade025">
-    <div class="map-label-area" :style="computedPosition" v-show="isVisible" @click="onRegClick">
+    <div class="map-label-area" :style="computedPosition" v-show="isVisible" @click.prevent="onRegClick()">
         <div class="map-label-number-wrapper">
           <span class="map-label-number-header">Округ</span>
           <span class="map-label-number-line"></span>
@@ -13,37 +13,49 @@
 
 
 
-<script lang="ts">
+<script>
 import { defineComponent, PropType, ref, computed, onMounted, watch, useContext, useRouter, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'RegionLabel',
   props: {
     slug: {
-      type: String as PropType<string>,
+      type: String,
       require: true
     },
     top: {
-      type: Number as PropType<number>,
+      type: Number,
       required: true,
     },
     left: {
-      type: Number as PropType<number>,
+      type: Number,
       required: true,
     },
+    mobileTop: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    mobileLeft: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
     number: {
-        type: Number as PropType<number>,
+        type: Number,
         required: true,
     }
   },
   setup(props) {
-    const top = ref(props.top)
-    const left = ref(props.left)
+    const { $device, } = useContext()
+    const top = ref(($device.isMobile && props.mobileTop) ?  props.mobileTop : props.top )
+    const left = ref(($device.isMobile && props.mobileLeft) ?  props.mobileLeft : props.left )
     const computedPosition = computed(() => { 
       return {
         top: top.value + 'px',
         left: left.value + 'px',
     }})
+    
     onMounted(() => {
     //   if (screen) {
     //      if (screen.height !== 800) {}
