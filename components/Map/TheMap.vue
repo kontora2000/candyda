@@ -4,9 +4,7 @@
 		<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			width="1228.16px" height="648.03px" viewBox="0 0 1228.16 648.03" 
 			style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
-			<style type="text/css">
-				polygon {}
-			</style>
+			<style type="text/css"></style>
 			<!--<defs>
 				<filter id="shadow-o-city" x="0" y="0" width="100%" height="100%">
 					<feOffset result="offOut" in="SourceGraphic" dx="0" dy="2" />
@@ -281,55 +279,33 @@ export default defineComponent(
 	/*filter: drop-shadow(rgba(0, 131, 204, 0.72) 0px 12px 16px);*/
 }
 
-.map-svg .o-city {
-	fill: rgba(238, 244, 253, 1);
-	transition: fill .25s ease-in-out;
-}
-.link-to-o:hover .o-city {
-	fill: rgba(44, 154, 255, 1);
-}
-
-.map-svg .o-city#o-adygeya {
-	fill: rgba(203, 231, 247, 0.2);
-}
-
 .o-city {
+	fill: #eef4fd;
 	stroke-width: .5px; 
 	stroke: #C2D8EF;
 	stroke-dasharray: 4px;
-	}
+	transition: fill .5s linear,
+				stroke .15s linear;
+}
+.link-to-o:hover .o-city {
+	fill: #2c9aff;
+	stroke: #c2d8ef00;
+}
+
+.map-svg .o-city#o-adygeya {
+	fill: rgba(203, 231, 247, 0.12);
+	stroke: none;
+}
 
 .link-to-o, 
 .o-title-cont {
 	cursor: pointer;
 }
 
-/*  
-.o-city-title-cont {
-	display: none;
-} */
-
-.o-bg {
-	fill: var(--Blue100);
-}
-
-.o-header-number,
-.o-header {
-	fill: var(--White56);
-	font-size: 1.2rem;
-	text-transform: uppercase;
-	letter-spacing: .05em;
-	transition: fill .15s ease-in-out;
-}
-.link-to-o:hover .o-header-number,
-.link-to-o:hover .o-header {
-	fill: var(--White100);
-}
-
 .o-header-line {
 	fill: none;
 	stroke: var(--White56);
-	transition: stroke .15s ease-in-out;
+	transition: stroke .15s linear;
 }
 .link-to-o:hover .o-header-line {
 	stroke: var(--White100);
@@ -343,9 +319,9 @@ export default defineComponent(
 }
 
 .link-to-o>.o-cont {
-	transition: transform .25s ease-in-out;
+	transition: transform .2s ease-in-out;
 }
 .link-to-o:hover>.o-cont {
-	transform: translateY(-2rem);
+	transform: translateY(-1.2rem);
 }
 </style>

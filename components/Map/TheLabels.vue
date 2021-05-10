@@ -58,14 +58,14 @@
 			<MapLabel slug="shcherbinovskiy" region="kanevskoy" :top="128" :left="452">Щербиновский район</MapLabel>
 		</div>
 		<div class="map-lables-wrapper region-labels">
-			<RegionLabel  slug="krasnoarmeyskiy" :top="140" :left="548" :number="46">Краснодарский</RegionLabel>
 			<RegionLabel  slug="krasnoarmeyskiy" :top="92" :left="438" :number="47">Красноармейский</RegionLabel>
-			<RegionLabel  slug="krasnoarmeyskiy" :top="148" :left="220" :number="48">Славянский</RegionLabel>
-			<RegionLabel  slug="krasnoarmeyskiy" :top="240" :left="456" :number="49">Туапсинский</RegionLabel>
-			<RegionLabel  slug="krasnoarmeyskiy" :top="292" :left="640" :number="50">Сочинский</RegionLabel>
-			<RegionLabel  slug="krasnoarmeyskiy" :top="40" :left="700" :number="51">Тихорецкий</RegionLabel>
-			<RegionLabel  slug="krasnoarmeyskiy" :top="240" :left="980" :number="52">Армавирский</RegionLabel>
-			<RegionLabel  slug="krasnoarmeyskiy" :top="8" :left="520" :number="53">Каневской</RegionLabel>
+			<RegionLabel  slug="krasnodarskiy" :top="140" :left="548" :number="46">Краснодарский</RegionLabel>
+			<RegionLabel  slug="slavyanskiy" :top="148" :left="220" :number="48">Славянский</RegionLabel>
+			<RegionLabel  slug="tuapsinskiy" :top="240" :left="456" :number="49">Туапсинский</RegionLabel>
+			<RegionLabel  slug="sochinskiy" :top="292" :left="640" :number="50">Сочинский</RegionLabel>
+			<RegionLabel  slug="tihoreckiy" :top="40" :left="700" :number="51">Тихорецкий</RegionLabel>
+			<RegionLabel  slug="armavirskiy" :top="240" :left="980" :number="52">Армавирский</RegionLabel>
+			<RegionLabel  slug="kanevskoy" :top="8" :left="520" :number="53">Каневской</RegionLabel>
 		</div>
 	</div>
 </template>

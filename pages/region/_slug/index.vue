@@ -29,7 +29,7 @@
           :candidate="candidate" />
       </div>
     </div>
-    <div class="cont-wrapper cont-wrapper-right" v-if="region.parties && region.parties.length > 0">
+    <div class="cont-wrapper cont-wrapper-right cont-wrapper-parties" v-if="region.parties && region.parties.length > 0">
       <div class="cont-header-wrapper">
           <h3 class="cont-header">Партии в&nbsp;округе</h3>
       </div>
@@ -92,6 +92,10 @@ export default defineComponent({
 
 
 <style scoped>
+.map-cont {
+  margin-bottom: -8rem !important;
+}
+
 .page-aside-wrapper {
   position: absolute;
   left: calc((100vw - 49.6rem - 1.6rem) / 32 + .8rem + 1.6rem);
@@ -105,6 +109,7 @@ export default defineComponent({
   top: calc(9.2rem + 2rem);
   /*left: calc((100vw - 49.6rem - 1.6rem) / 32 * 9 + 9.6rem + 1.6rem);*/
   left: calc((100vw - 49.6rem - 1.6rem) / 32 * 8 + 12.8rem + .8rem);
+  pointer-events: none;
 }
 
 .region-title-number {
@@ -187,13 +192,20 @@ export default defineComponent({
   .main-bottom-wrapper .cont-wrapper-right {
     grid-row: 1/2;
   }
-
-  .main-bottom-wrapper .cont-wrapper-left {
+  .main-bottom-wrapper .cont-wrapper-parties {
     grid-row: 2/3;
   }
 
+  .main-bottom-wrapper .cont-wrapper-left {
+    grid-row: 3/4;
+  }
+
   .main-bottom-wrapper .footer-wrapper {
-    grid-row: 3/3;
+    grid-row: 4/5;
+  }
+
+  .candidate-card-cont {
+    grid-column: span 3;
   }
 }
 </style>
