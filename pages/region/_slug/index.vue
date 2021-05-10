@@ -5,7 +5,7 @@
     </aside>
     <div class="region-title-wrapper" v-if="region && region.name">
       <div class="region-title-number" v-if="region.number">№{{ region.number  }}</div>
-      <h1 class="region-title">{{ region.name }}<br />округ</h1>
+      <h1 class="region-title">{{ region.name }} <br class="region-title-br" />округ</h1>
     </div>
     <div class="cont-wrapper cont-wrapper-left" v-if="region.posts && region.posts.length > 0">
       <div class="cont-header-wrapper">
@@ -149,7 +149,36 @@ export default defineComponent({
   }
 }
 
+
 @media (max-width: 460px) {
+  .page-aside-wrapper {
+    top: 11rem;
+    left: 1.2rem;
+    width: calc(100vw - 2.4rem);
+  }
+
+  .region-title-wrapper {
+    left: 1.2rem;
+    top: 14rem;
+    width: calc(100vw - 2.4rem);
+  }
+
+  .region-title-number {
+    display: none;
+    font-size: 3.2rem;
+    font-weight: 500;
+    line-height: 3.6rem;
+    margin-right: .8rem;
+  }
+
+  .region-title {
+    margin: 0;
+  }
+
+  .region-title-br {
+    display: none;
+  }
+
   .main-bottom-wrapper {
     grid-column: 1/7;
     grid-template-rows: auto;
