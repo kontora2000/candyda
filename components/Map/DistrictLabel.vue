@@ -1,6 +1,11 @@
 <template>
   <transition name="fade025">
-    <div class="map-label-area" :style="computedPosition" v-show="isVisible" @click="onDesClick">
+    <div class="map-label-area" 
+      :style="computedPosition"
+      v-show="isVisible" 
+      @click="onDesClick" 
+      @mouseenter="onMouseEnter"
+      @mouseleave="onMouseLeave">
       <div class="map-label-area-emblem" v-if="district && district.logo && district.logo!==''">
           <img :src="storageURL + district.logo" :alt="slug">
         </div>
@@ -96,12 +101,20 @@ export default defineComponent({
         if (isVisible.value)
           router.push(`o-${props.region}/${props.slug}`)
       }
+    const onMouseEnter = () => {
+      document.querySelectorAl(props.slug).classList.add('link-to-o-hover')
+    }
+    const onMouseLeave = () => {
+      document.querySelectorAl(props.slug).classList.add('link-to-o-hover')
+    }
     return {
       district,
       computedPosition,
       storageURL,
       isVisible,
       onDesClick,
+      onMouseEnter,
+      onMouseLeave,
     }
   },
 })
