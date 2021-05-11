@@ -151,7 +151,7 @@
 							334.46,180.06"/>
 						</g>
 						<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-slavyanskiy/temryukskiy')">
-							<polygon id="temrukskiy" class="o-city" points="236.24,178.17 227.42,149.06 164.01,158.14 79.53,144.42 57.8,154.53 
+							<polygon id="temryukskiy" class="o-city" points="236.24,178.17 227.42,149.06 164.01,158.14 79.53,144.42 57.8,154.53 
 							92.64,162.59 74.85,174.2 9.3,173.78 0,185.81 90.01,200.41"/>
 						</g>
 						<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-slavyanskiy/anapa')">
