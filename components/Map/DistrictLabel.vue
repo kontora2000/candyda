@@ -102,10 +102,10 @@ export default defineComponent({
           router.push(`o-${props.region}/${props.slug}`)
       }
     const onMouseEnter = () => {
-      document.querySelectorAl(props.slug).classList.add('link-to-o-hover')
+      document.querySelector('#' + props.slug).classList.add('link-to-o-hover')
     }
     const onMouseLeave = () => {
-      document.querySelectorAl(props.slug).classList.add('link-to-o-hover')
+      document.querySelector('#' + props.slug).classList.remove('link-to-o-hover')
     }
     return {
       district,
