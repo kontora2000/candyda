@@ -15,9 +15,9 @@
 			<DistrictLabel slug="severskiy" region="tuapsinskiy" :top="140" :left="700">Северский район</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-sochinskiy">
-			<DistrictLabel slug="sochi" region="sochinskiy" :top="380" :left="520">Сочи</DistrictLabel>
-			<DistrictLabel slug="belorechenskiy" region="sochinskiy" :top="80" :left="480">Белореченский район</DistrictLabel>
-			<DistrictLabel slug="apsheronskiy" region="sochinskiy" :top="206" :left="480">Апшеронский район</DistrictLabel>
+			<DistrictLabel slug="sochi" region="sochinskiy" :top="356" :left="400">Сочи</DistrictLabel>
+			<DistrictLabel slug="belorechenskiy" region="sochinskiy" :top="44" :left="400">Белореченский район</DistrictLabel>
+			<DistrictLabel slug="apsheronskiy" region="sochinskiy" :top="200" :left="380">Апшеронский район</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-armavirskiy">
 			<DistrictLabel slug="armavir" region="armavirskiy" :top="200" :left="680">Армавир</DistrictLabel>
@@ -58,13 +58,13 @@
 			<DistrictLabel slug="shcherbinovskiy" region="kanevskoy" :top="128" :left="452">Щербиновский район</DistrictLabel>
 		</div>
 		<div class="map-lables-wrapper region-labels">
-			<RegionLabel  slug="krasnoarmeyskiy" :top="92" :left="438" :mobile-top="60" :mobile-left="0" :number="47">Красноармейский</RegionLabel>
-			<RegionLabel  slug="krasnodarskiy" :top="140" :left="548" :mobile-top="40" :mobile-left="80" :number="46">Краснодарский</RegionLabel>
-			<RegionLabel  slug="slavyanskiy" :top="148" :left="220" :mobile-top="160" :mobile-left="0" :number="48">Славянский</RegionLabel>
-			<RegionLabel  slug="tuapsinskiy" :top="240" :left="456" :mobile-top="240" :mobile-left="80" :number="49">Туапсинский</RegionLabel>
-			<RegionLabel  slug="sochinskiy" :top="292" :left="640" :mobile-top="300" :mobile-left="200" :number="50">Сочинский</RegionLabel>
-			<RegionLabel  slug="tihoretskiy" :top="40" :left="700" :mobile-top="40" :mobile-left="230" :number="51">Тихорецкий</RegionLabel>
-			<RegionLabel  slug="armavirskiy" :top="240" :left="980" :mobile-top="200" :mobile-left="218" :number="52">Армавирский</RegionLabel>
+			<RegionLabel  slug="krasnoarmeyskiy" :top="68" :left="356" :mobile-top="60" :mobile-left="0" :number="47">Красноармейский</RegionLabel>
+			<RegionLabel  slug="krasnodarskiy" :top="124" :left="480" :mobile-top="40" :mobile-left="80" :number="46">Краснодарский</RegionLabel>
+			<RegionLabel  slug="slavyanskiy" :top="120" :left="160" :mobile-top="160" :mobile-left="0" :number="48">Славянский</RegionLabel>
+			<RegionLabel  slug="tuapsinskiy" :top="240" :left="400" :mobile-top="240" :mobile-left="80" :number="49">Туапсинский</RegionLabel>
+			<RegionLabel  slug="sochinskiy" :top="292" :left="592" :mobile-top="300" :mobile-left="200" :number="50">Сочинский</RegionLabel>
+			<RegionLabel  slug="tihoretskiy" :top="68" :left="672" :mobile-top="40" :mobile-left="230" :number="51">Тихорецкий</RegionLabel>
+			<RegionLabel  slug="armavirskiy" :top="228" :left="924" :mobile-top="200" :mobile-left="218" :number="52">Армавирский</RegionLabel>
 			<RegionLabel  slug="kanevskoy" :top="8" :left="520" :mobile-top="-20" :mobile-left="140" :number="53">Каневской</RegionLabel>
 		</div>
 	</div>
