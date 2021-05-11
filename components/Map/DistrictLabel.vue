@@ -134,15 +134,16 @@ export default defineComponent({
 }
 .map-label-area::after {
   content: '';
+  background: var(--White100);
+  border-radius: 0 0 2px 0;
   display: block;
   width: 12px;
   height: 12px;
   position: absolute;
-  bottom: -6px;
-  border-radius: 0 0 2px 0;
-  background: var(--White100);
+  bottom: -10px;
+  left: 50%;
   z-index: 1;
-  transform: rotate(45deg);
+  transform: rotate(45deg) translateX(-50%);
 }
 
 .map-label-area-emblem {
