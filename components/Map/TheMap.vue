@@ -2,6 +2,30 @@
 	<div class="map-cont">
 		<TheLabels />
 		<div class="map-svg-wrapper">
+			<svg class="map-shadow-wrapper map-shadow-wrapper-1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				width="1268.3px" height="669.4px" viewBox="0 0 1268.3 669.4" xml:space="preserve">
+				<defs></defs>
+				<path class="map-shadow-stroke" d="M1183.9,333.2l11.7-10.2l-91.2-42.9l18.2-11.7l-10-47h-48.4l-52.6-42l-62,0.4l-53.9-28.5L882.6,118l7.6,0.4
+					l47.5,2.3l14-13.2L857,58.3l-46.1-0.9l-51-1l-29.3-27.5l-24.8-0.7l4.2-18.7L578.4,4.4l-0.1,19.9l-58.5-2.8L511.9,3l-57.6-2.8
+					l-6.9,5.4l18.8,1.6l-5,12l-38.4-1.1l-2.8-5.8l-78,9.6l5.3,16.7l59.5,0.7l41.7,32.9l-6.7,7.4l-48.3-14.7L388,75.7l-53.3,3.2
+					l-21.9,32.9l0,0l-49.5,2.1l-28.2,40.2l-65.4,9.4l-87.2-14.2l-22.4,10.4l35.9,8.3l-18.4,12l-67.6-0.4L0.5,192l92.9,15.1l34.9,60.6
+					l54.7,17.6l39.1-5.8l2.1-15.5l13.4-3.3l22.5,19.9l48.5,43l76.7,24.3l76.4,24.2l77.1,63.3L822.7,669l27.3-76.8h191.3l21.7-19.8
+					l-16.8-35.5l15.7-91.1l-50.9-57.2l132.6,28.1l73.5,15.6l50.7-46.2L1183.9,333.2z M704.8,443.6l9.7-58.3l64.6,27.5l13.4-42.1
+					l-65.1-25.1l-8.9-46.9l28.2-37.8l-39-46.6l-36.8,7.3l-29.4-12.1l-18.9,16.3l27.6,10l-15,19l-119.9-19.5l-66.7-10.8l-1.1-23.3
+					l63.5,9.4l52.8,7.8l75.7-37.2l109.6,19.1l112,19.7l42.8,48.4l40.2,45.2l-37.8,0.1L867.5,263l-38.7-5.7l97.6,284.2L704.8,443.6z"/>
+			</svg>
+			<svg class="map-shadow-wrapper map-shadow-wrapper-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				width="1302.4px" height="687.4px" viewBox="0 0 1302.4 687.4" xml:space="preserve">
+				<defs></defs>
+				<path class="map-shadow-stroke" d="M1215.8,342.2l12-10.5l-93.7-44.1l18.7-12l-10.2-48.2h-49.7l-54.1-43.2l-63.7,0.4l-55.4-29.3l-13.5-34.1
+					l7.8,0.4l48.7,2.3l14.4-13.5L880,59.9L832.7,59l-52.4-1l-30.1-28.3L724.8,29L729,9.8L594,4.5l-0.1,20.4L533.8,22l-8.1-18.9
+					l-59.2-2.8l-7,5.5l19.3,1.6l-5.1,12.3l-39.4-1.1l-2.9-5.9l-80.1,9.9l5.5,17.1l61.1,0.7l42.9,33.7l-6.9,7.6l-49.6-15.1l-5.8,11.1
+					L343.7,81l-22.4,33.8l0,0l-50.8,2.1l-29,41.3l-67.2,9.6l-89.5-14.5l-23,10.7l36.9,8.5l-18.9,12.3l-69.5-0.4l-9.9,12.7l95.4,15.5
+					l35.8,62.2l56.2,18.1L228,287l2.2-15.9l13.8-3.4l23.1,20.5l49.8,44.2l78.8,25l78.4,24.9l79.1,65L844.8,687l28-78.8h196.5l22.3-20.3
+					l-17.3-36.5l16.1-93.5l-52.2-58.8l136.2,28.8l75.5,16l52.1-47.4L1215.8,342.2z M723.8,455.5l9.9-59.9l66.3,28.2l13.8-43.3L747,354.9
+					l-9.1-48.2l28.9-38.8l-40-47.8l-37.8,7.5l-30.2-12.4l-19.4,16.7l28.4,10.3l-15.4,19.5l-123.1-20l-68.5-11.1l-1.1-24l65.2,9.6l54.2,8
+				l77.7-38.2l112.5,19.6l115.1,20.3l43.9,49.8l41.3,46.4l-38.8,0.1l-39.9-52l-39.7-5.9L951.3,556L723.8,455.5z"/>
+			</svg>
 			<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				width="1228.16px" height="648.03px" viewBox="0 0 1228.16 648.03" 
 				style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
@@ -13,7 +37,7 @@
 						<feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
 					</filter>
 				</defs>-->
-				<polygon id="o-adygeya" class="o-city" points="691.91,373.11 682.55,429.61 897.21,524.43 802.68,249.05 840.18,254.58 
+				<polygon id="o-adygeya" points="691.91,373.11 682.55,429.61 897.21,524.43 802.68,249.05 840.18,254.58 
 					877.83,303.63 914.6,303.56 834.01,212.83 619.26,175.19 545.93,211.22 433.28,194.62 434.32,217.24 615.18,246.59 629.67,228.22 
 					602.91,218.54 621.24,202.79 649.69,214.49 685.33,207.42 723.11,252.56 695.82,289.21 704.45,334.66 767.52,358.95 754.49,399.76 
 					"/>
@@ -51,6 +75,9 @@
 						<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/bryuhoveckiy')">
 							<polygon id="bryuhoveckiy" class="o-city" points="596.9,101.73 602.48,89.73 465.2,79.76 447.47,104.95"/>
 						</g>
+						<path class="o-kanevskoy-stroke o-stroke" d="M736.3,54.7L707.9,28l-24-0.7l4-18.1L560.5,4.2l-0.1,19.2l-56.7-2.7l-7.7-17.9l-55.8-2.7
+							l-6.6,5.2L451.8,7L447,18.7l-37.2-1l-2.7-5.6l-75.6,9.3l5.2,16.1l57.7,0.6L434.8,70l-6.5,7.2l-46.8-14.2L376,73.4l-51.7,3.1
+							l-21.2,31.9l144.8-3.1l149.4-3.2l5.6-12l142.3-8.3L736.3,54.7z"/>
 					</g>
 				</nuxt-link>
 				<nuxt-link to="/region/o-tihoretskiy" class="link-to-o">
@@ -78,7 +105,8 @@
 						</g>
 						<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-tihoretskiy/korenovskiy')">
 							<polygon id="korenovskiy" class="o-city" points="528.38,145.64 572.99,167.05 638.02,150.88 596.9,101.73 529.53,103.18"/>
-						</g>
+						</g><path class="o-tihoreckiy-stroke o-stroke" d="M908.6,116.9l13.6-12.8l-91.7-47.7l-44.7-0.9l-49.4-1l8.9,27l-77.8,4.5L602.9,90l-5.6,12
+							l-67.4,1.5l-1.1,42.5l44.6,21.4L725.9,194l51.8-18.7l-9.7-28.4l100-0.3l-12.7-32.2l7.3,0.4L908.6,116.9z M797.5,111.6"/>
 					</g>
 				</nuxt-link>
 				<nuxt-link to="/region/o-krasnoarmeyskiy" class="link-to-o">
@@ -97,12 +125,16 @@
 							<polygon id="dinskoy" class="o-city" points="494.8,203.69 527.12,192.41 527.81,167.05 492.25,167.05 482.32,153.28 
 							418.98,163.76 448.82,183.66 433.28,194.62"/>
 						</g>
+						<polygon class="o-krasnoarmeyskiy-stroke o-stroke" points="530,103.4 447.9,105.2 358.4,107.1 353.2,117 320.2,180 334.9,180.3 
+							433.7,194.9 495.3,203.9 527.6,192.7 528.3,167.3 492.7,167.3 482.8,153.5 528.8,145.9 "/>
 					</g>
 				</nuxt-link>
 				<nuxt-link to="/region/o-krasnodarskiy" class="link-to-o">
 					<g class="o-cont" id="o-krasnodarskiy" @click.prevent="onDesClick('/region/o-krasnodarskiy/krasnodar')">
 						<polygon id="krasnodar" class="o-city" points="572.99,167.05 528.38,145.64 482.32,153.28 492.25,167.05 527.81,167.05 
 						527.12,192.41 494.8,203.69 545.93,211.22 619.26,175.19 "/>
+						<polygon class="o-krasnodarskiy-stroke o-stroke" points="573.4,167.3 528.8,145.9 482.8,153.5 492.7,167.3 528.3,167.3 527.6,192.7 
+							495.3,203.9 546.4,211.5 619.7,175.4 "/>
 					</g>
 				</nuxt-link>
 				<nuxt-link to="/region/o-slavyanskiy" class="link-to-o">
@@ -125,6 +157,9 @@
 						<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-slavyanskiy/anapa')">
 							<polygon id="anapa" class="o-city" points="191.62,184.95 90.01,200.41 123.83,259.15 183.11,209.7 	"/>
 						</g>
+						<polygon class="o-slavyanskiy-stroke o-stroke" points="334.9,180.3 320.2,180 358.4,107.1 303.2,108.3 255.2,110.3 227.9,149.3 
+							164.5,158.4 80,144.7 58.3,154.8 93.1,162.8 75.3,174.5 9.8,174 0.5,186.1 90.5,200.7 124.3,259.4 183.6,210 223.2,214 266.3,256.2 
+							349,279.4 408.2,191.1 "/>
 					</g>
 				</nuxt-link>
 				<nuxt-link to="/region/o-tuapsinskiy" class="link-to-o">
@@ -147,6 +182,9 @@
 							<polygon id="tuapsinskiy" class="o-city" points="407.73,295.83 372.82,336.95 446.83,360.42 521.49,421.79 596.58,391.63 
 							620.51,355.71"/>
 						</g>
+						<polygon class="o-tuapsinskiy-stroke o-stroke" points="546.1,334.9 615.6,246.8 499.5,228 434.8,217.5 433.7,194.9 408.2,191.1 
+							349,279.4 349,279.4 266.3,256.2 223.2,214 183.6,210 124.3,259.4 177.3,276.5 215.2,270.9 217.2,255.9 230.2,252.6 252,271.9 
+							299,313.6 373.3,337.2 447.3,360.7 521.9,422 597,391.9 621,356 "/>
 					</g>
 				</nuxt-link>
 				<nuxt-link to="/region/o-armavirskiy" class="link-to-o">
@@ -180,6 +218,9 @@
 							<polygon id="gulkevichskiy" class="o-city" points="880.76,190.45 863.59,174.33 919.78,173.98 867.5,146.33 767.52,146.64 
 							777.26,175.01"/>
 						</g>
+						<path class="o-armavirskiy-stroke o-stroke" d="M1147.2,322.9l11.4-9.9l-88.4-41.6l17.6-11.3l-9.7-45.5h-46.9l-51-40.7l-60.1,0.4
+							L868,146.6l-100,0.3l9.7,28.4L725.9,194l108.6,19.1l41.4,46.9l39,43.8l-36.6,0.1l-37.7-49.1l-37.5-5.5l94.5,275.4l111.4,49.2
+							l21.1-19.2l-16.3-34.4l15.2-88.3l-49.3-55.5l128.5,27.2l71.2,15.1l49.2-44.7L1147.2,322.9z"/>
 					</g>
 				</nuxt-link>
 				<nuxt-link to="/region/o-sochinskiy" class="link-to-o">
@@ -194,6 +235,9 @@
 						<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-sochinskiy/sochi')">
 							<polygon id="sochi" class="o-city" points="596.58,391.63 521.49,421.79 796.75,648.03 823.2,573.64 1008.59,573.64"/>
 						</g>
+						<polygon class="o-sochinskiy-stroke o-stroke" points="683,429.9 692.4,373.4 754.9,400 768,359.2 704.9,334.9 696.3,289.5 723.6,252.8 
+							685.8,207.7 650.1,214.7 621.7,203 603.4,218.8 630.1,228.5 597.8,269.5 546.1,334.9 621,356 597,391.9 521.9,422 797.2,648.3 
+							823.7,573.9 1009,573.9 "/>
 					</g>
 				</nuxt-link>
 			</svg>
@@ -284,16 +328,47 @@ export default defineComponent(
 	fill: #eef4fd;
 	stroke-width: .5px; 
 	stroke: #C2D8EF;
-	stroke-dasharray: 4px;
-	transition: fill .5s linear,
+	stroke-dasharray: 1px;
+	transition: fill .15s linear,
 				stroke .15s linear;
 }
 .link-to-o:hover .o-city {
 	fill: #2c9aff;
-	stroke: #c2d8ef00;
+	stroke: rgba(255,255,255, .4);
 }
 
-.map-svg .o-city#o-adygeya {
+.o-stroke {
+	stroke: #9fd1ff;
+	stroke-width: 1px;
+	fill: none;
+	transition: stroke .15s linear;
+}
+.link-to-o:hover .o-stroke {
+	stroke: #2c9aff;
+}
+
+.map-shadow-stroke {
+	fill: none;
+	stroke: #9fd1ff;
+	stroke-width: 1px;
+}
+.map-shadow-wrapper {
+	position: absolute;
+}
+.map-shadow-wrapper-0 {
+	opacity: .2;
+	margin-top: .8rem;
+	margin-left: -3.7rem;
+	z-index: -2;
+}
+.map-shadow-wrapper-1 {
+	opacity: .4;
+	margin-left: -2rem;
+	margin-top: .4rem;
+	z-index: -1;
+}
+
+.map-svg #o-adygeya {
 	fill: rgba(203, 231, 247, 0.12);
 	stroke: none;
 }
@@ -319,12 +394,12 @@ export default defineComponent(
 	letter-spacing: .075em;
 }
 
-.link-to-o>.o-cont {
+/*.link-to-o>.o-cont {
 	transition: transform .2s ease-in-out;
 }
 .link-to-o:hover>.o-cont {
 	transform: translateY(-1.2rem);
-}
+}*/
 
 @media (max-width: 460px) {
 	.map-cont {

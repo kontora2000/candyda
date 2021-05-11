@@ -162,7 +162,7 @@ export default defineComponent({
 }
 
 .scrolled .nav-link {
-  background-color: var(--GraySuperLight72)) !important;
+  background-color: var(--GraySuperLight72) !important;
   border-radius: 8px;
   border-bottom: 0;
   color: var(--Black100);

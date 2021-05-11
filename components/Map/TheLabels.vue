@@ -63,7 +63,7 @@
 			<RegionLabel  slug="slavyanskiy" :top="148" :left="220" :mobile-top="160" :mobile-left="0" :number="48">Славянский</RegionLabel>
 			<RegionLabel  slug="tuapsinskiy" :top="240" :left="456" :mobile-top="240" :mobile-left="80" :number="49">Туапсинский</RegionLabel>
 			<RegionLabel  slug="sochinskiy" :top="292" :left="640" :mobile-top="300" :mobile-left="200" :number="50">Сочинский</RegionLabel>
-			<RegionLabel  slug="tihoreckiy" :top="40" :left="700" :mobile-top="40" :mobile-left="230" :number="51">Тихорецкий</RegionLabel>
+			<RegionLabel  slug="tihoretskiy" :top="40" :left="700" :mobile-top="40" :mobile-left="230" :number="51">Тихорецкий</RegionLabel>
 			<RegionLabel  slug="armavirskiy" :top="240" :left="980" :mobile-top="200" :mobile-left="218" :number="52">Армавирский</RegionLabel>
 			<RegionLabel  slug="kanevskoy" :top="8" :left="520" :mobile-top="-20" :mobile-left="140" :number="53">Каневской</RegionLabel>
 		</div>
