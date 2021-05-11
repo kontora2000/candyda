@@ -119,17 +119,17 @@ export default defineComponent({
 	padding: .4rem .8rem;
 	position: absolute;
 }
-.map-label-area:after {
-content: '';
-display: block;
-width: 12px;
-height: 12px;
-position: absolute;
-bottom: -6px;
-border-radius: 0 0 2px 0;
-background: var(--White100);
-z-index: 1;
-transform: rotate(45deg);
+.map-label-area::after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  bottom: -6px;
+  border-radius: 0 0 2px 0;
+  background: var(--White100);
+  z-index: 1;
+  transform: rotate(45deg);
 }
 
 .map-label-area-emblem {

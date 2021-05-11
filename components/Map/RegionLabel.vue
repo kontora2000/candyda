@@ -118,7 +118,7 @@ export default defineComponent({
 	padding: .4rem .8rem;
 	position: absolute;
 }
-.map-label-area:after {
+.map-label-area::after {
   content: '';
   background: var(--White100);
   border-radius: 0 0 2px 0;
