@@ -1,6 +1,11 @@
 <template>
   <transition name="fade025">
-    <div class="map-label-area" :style="computedPosition" v-show="isVisible" @click.prevent="onRegClick()">
+    <div class="map-label-area"
+      v-show="isVisible" 
+     :style="computedPosition"
+      @click.prevent="onRegClick()"
+      @mouseenter="onMouseEnter"
+      @mouseleave="onMouseLeave">
         <div class="map-label-number-wrapper">
           <span class="map-label-number-header">Округ</span>
           <span class="map-label-number-line"></span>
@@ -57,15 +62,16 @@ export default defineComponent({
     }})
     
     onMounted(() => {
-    //   if (screen) {
-    //      if (screen.height !== 800) {}
-    //     top.value = (screen.height / 800 * props.top) - 44
-    //   }
+      if (screen) {
+         if (screen.height !== 800) {}
+        top.value = (screen.height / 800 * top.valuey) - 44
+      }
     })  
     const { route, } = useContext()
     const isVisible  = ref(false)
     const checkVisibility = () => {
       isVisible.value = route.value.path === '/'
+      
     }
     onMounted(()=> {
       checkVisibility()
@@ -79,11 +85,21 @@ export default defineComponent({
         if (isVisible.value)
           router.push(`/region/o-${props.slug}`)
       }
+    const onMouseEnter = () => {
+      const elems = document.querySelectorAll(`#o-${props.slug} .o-city`)
+      elems.forEach(el => el.classList.add('link-to-o-hover'))
+    }
+    const onMouseLeave = () => {
+      const elems = document.querySelectorAll(`#o-${props.slug} .o-city`)
+      elems.forEach(el => el.classList.remove('link-to-o-hover'))
+    }
     return {
       computedPosition,
       storageURL,
       isVisible,
       onRegClick,
+      onMouseEnter,
+      onMouseLeave,
     }
   },
 })

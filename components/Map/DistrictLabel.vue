@@ -56,12 +56,7 @@ export default defineComponent({
         top: top.value + 'px',
         left: left.value + 'px',
     }})
-    onMounted(() => {
-      if (screen) {
-         if (screen.height !== 800) {}
-        top.value = (screen.height / 800 * props.top) - 44
-      }
-    })  
+     
     const { route, } = useContext()
     const isVisible  = ref(false)
     const checkVisibility = () => {
@@ -72,9 +67,13 @@ export default defineComponent({
         isVisible.value = false
       }
     }
-    onMounted(()=> {
+    onMounted(() => {
       checkVisibility()
-    })
+      if (screen) {
+         if (screen.height !== 800) {}
+        top.value = (screen.height / 800 * props.top) - 44
+      }
+    }) 
     watch(route, () => {
       checkVisibility()
     })
