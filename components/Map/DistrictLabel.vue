@@ -19,7 +19,6 @@
 <script>
 import { defineComponent, PropType, ref, computed, onMounted, watch, useContext, useRouter, } from '@nuxtjs/composition-api'
 import { useRegion, } from '@/composition/region'
-import { Distritct, } from '@/modules/types'
 
 export default defineComponent({
   name: 'MapLabel',
