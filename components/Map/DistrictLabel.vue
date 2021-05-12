@@ -123,13 +123,26 @@ export default defineComponent({
 .map-label-area {
 	align-items: center;
 	background: var(--White100);
-	border-radius: 12px 12px 12px 2px;
+	border-radius: 12px 12px 12px 12px;
 	box-shadow: 0 16px 25px 0 rgba(0, 130, 193, 0.12);
 	cursor: pointer;
 	display: flex;
-	height: 4.4rem;
+	height: 4.7rem;
 	padding: .4rem .8rem;
 	position: absolute;
+}
+.map-label-area::after {
+  content: '';
+  background: var(--White100);
+  border-radius: 0 0 2px 0;
+  display: block;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  z-index: 1;
+  transform: rotate(45deg) translateX(-50%);
 }
 
 .map-label-area-emblem {

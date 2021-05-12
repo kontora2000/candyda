@@ -329,8 +329,7 @@ export default defineComponent(
 	stroke-width: .5px; 
 	stroke: #C2D8EF;
 	stroke-dasharray: 1px;
-	transition: fill .15s linear,
-				stroke .15s linear;
+	transition: all .15s linear;
 }
 .link-to-o:hover .o-city, .link-to-o-hover  {
 	fill: #2c9aff;
@@ -344,6 +343,17 @@ export default defineComponent(
 	transition: stroke .15s linear;
 }
 .link-to-o:hover .o-stroke {
+	stroke: #2c9aff;
+}
+
+.o-city-opened {
+	fill: #eef4fd;
+	stroke: #9fd1ff;
+	stroke-dasharray: 0;
+	transition: all .15s linear;
+}
+.o-city-opened:hover {
+	fill: #2c9aff;
 	stroke: #2c9aff;
 }
 
