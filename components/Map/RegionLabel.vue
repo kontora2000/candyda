@@ -19,7 +19,7 @@
 
 
 <script>
-import { defineComponent, PropType, ref, computed, onMounted, watch, useContext, useRouter, } from '@nuxtjs/composition-api'
+import { defineComponent, ref, computed, onMounted, watch, useContext, useRouter, } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'RegionLabel',

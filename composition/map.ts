@@ -1,11 +1,15 @@
 import { ref, } from '@nuxtjs/composition-api'
 import { gsap, } from 'gsap'
+import { regionZoom, regionMobileZoom, } from '@/modules/zoom'
+import { useDevice, } from '@/composition/device'
 
 const mapSvg = ref<SVGAElement>({} as SVGAElement)
 // type Viewbox = `${number} ${number} ${number} ${number}`
 export const useMap = () => {
+  
   const isAnimating = ref(false)
   const isRegionOpened = ref(false)
+
   const animateViewBox = (viewBox: string, isInstant = false) => {
     if (isInstant) {
       mapSvg.value.setAttribute('viewBox', viewBox) 
@@ -40,7 +44,7 @@ export const useMap = () => {
     animateViewBox('0 0 1228.16 648.03')               
   }
 
-  const zoomTo = (slug) => {
+  const zoomTo = (slug, isMobile = false) => {
     isRegionOpened.value = false
     const el: SVGAElement | null = document.querySelector('#' + slug)
     let box: DOMRect | null = null
@@ -69,24 +73,15 @@ export const useMap = () => {
           insideCityTitles.forEach(el => el.classList.add('o-city-opened'))
         } }, )
       }
-      switch (slug) {
-        case 'o-krasnodarskiy':
-          animateViewBox(`${box.x - 25} ${box.y + 25} 185 20`)
-          break;
-        case 'o-krasnoarmeyskiy':
-          animateViewBox(`${box.x - 90} ${box.y} 380 120`)
-          break;
-        case 'o-armavirskiy':
-          animateViewBox(`${box.x - 90} ${box.y - 80} ${box.width + 50} ${box.height - 50}`)
-        case 'o-sochinskiy': 
-          animateViewBox(`${box.x} ${box.y - 50} ${box.width} ${box.height + 50}`)
-        default:       
-          animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`)
-          break;
+      if (!isMobile) {
+         animateViewBox(regionZoom[slug])
+      }
+      else {
+        animateViewBox(regionMobileZoom[slug])
       }
     }
   }
-  const setTo = (slug) => {
+  const setTo = (slug, isMobile = false) => {
     isRegionOpened.value = false
     const el: SVGAElement | null = document.querySelector('#' + slug)
     let box: DOMRect | null = null
@@ -115,20 +110,11 @@ export const useMap = () => {
       if (insideCityTitles.length > 0) {
          insideCityTitles.forEach(el => el.classList.add('o-city-opened'))
       }
-      switch (slug) {
-        case 'o-krasnodarskiy':
-          animateViewBox(`${box.x - 90} ${box.y + 25} 320 20`, true)
-          break;
-        case 'o-krasnoarmeyskiy':
-          animateViewBox(`${box.x - 90} ${box.y} 380 120`, true)
-          break;
-        case 'o-armavirskiy':
-          animateViewBox(`${box.x - 90} ${box.y - 80} ${box.width + 50} ${box.height - 50}`, true)
-        case 'o-sochinskiy': 
-          animateViewBox(`${box.x} ${box.y - 50} ${box.width} ${box.height + 50}`, true)
-        default:       
-          animateViewBox(`${box.x} ${box.y} ${box.width} ${box.height}`, true)
-          break;
+      if (!isMobile) {
+         animateViewBox(regionZoom[slug])
+      }
+      else {
+        animateViewBox(regionMobileZoom[slug])
       }
       isRegionOpened.value = true
     }

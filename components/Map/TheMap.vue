@@ -1,6 +1,6 @@
 <template>
 	<div class="map-cont">
-		<TheLabels />
+		<MapLabels />
 		<div class="map-svg-wrapper">
 			<svg v-show="!isRegionOpened" class="map-shadow-wrapper map-shadow-wrapper-1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				width="1268.3px" height="669.4px" viewBox="0 0 1268.3 669.4" xml:space="preserve">
@@ -249,28 +249,26 @@
 import { defineComponent, onMounted, watch, ref, useContext, useRouter, } from '@nuxtjs/composition-api'
 
 import { useMap, } from '@/composition/map'
-import MapLabel from './DistrictLabel.vue'
-import RegionLabel from './RegionLabel.vue'
-import TheLabels from './TheLabels.vue'
+import MapLabels from './MapLabels.vue'
+import { useDevice } from '~/composition/device'
 
 export default defineComponent(
   {
     name:'TheMap',
     components: { 
-      MapLabel,
-      RegionLabel,
-	  TheLabels, 
+	  MapLabels, 
     },
     setup()
      {
         const { route, } = useContext()
         const { mapSvg, zoomTo, setTo, resetViewBox, isRegionOpened, } = useMap()
+		const { isMobile,} = useDevice()
         onMounted(() => {
             const slug = route.value.params.slug
             mapSvg.value = document.querySelector('.map-svg') as SVGAElement
             if (slug) {
                 if (route.value.name === 'region-slug') {
-                    setTo(slug)
+                    setTo(slug, isMobile)
                 }
             }
         })
@@ -279,7 +277,7 @@ export default defineComponent(
             const slug = route.value.params.slug
             if (slug) {
                 if (route.value.name === 'region-slug') {
-                    zoomTo(slug)
+                    zoomTo(slug, isMobile)
                     isRegionOpened.value = true
                     isMinusOne.value = true
                 }
