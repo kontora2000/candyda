@@ -19,6 +19,8 @@
 <script>
 import { defineComponent, PropType, ref, computed, onMounted, watch, useContext, useRouter, } from '@nuxtjs/composition-api'
 import { useRegion, } from '@/composition/region'
+import {  useLabel, } from '@/composition/label'
+
 
 export default defineComponent({
   name: 'MapLabel',
@@ -54,31 +56,14 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const { $device, } = useContext()
-    const top = ref(($device.isMobile && props.mobileTop) ?  props.mobileTop : props.top )
-    const left = ref(($device.isMobile && props.mobileLeft) ?  props.mobileLeft : props.left )
-    const computedPosition = computed(() => { 
-      return {
-        top: top.value + 'px',
-        left: left.value + 'px',
-    }})
-    const { route, } = useContext()
-    const isVisible  = ref(false)
+    const { $device, route, } = useContext()
+    const { computedPosition, calcLabelPos, isVisible, onDesClick, } = useLabel(props, $device)
     const checkVisibility = () => {
       if (route.value.name === 'region-slug') {
         isVisible.value = route.value.params.slug === ('o-'+ props.region)
         if (isVisible.value) {
           window.setTimeout(() => {
-          const el = document.querySelector(`#${props.slug}`)
-          if (el) {
-            const { x, y, width:w, height:h } = document.querySelector(`#${props.slug}`).getBoundingClientRect()
-            const { x:mapX, y: mapY, } = document.querySelector('.map-svg').getBoundingClientRect()
-            const emblemW = document.querySelector(`#label-${props.slug}`).getBoundingClientRect().width
-            const centerX = x + w /2 - mapX - emblemW/2 + props.left
-            const centerY = y + h/2 - 44 -  mapY + props.top
-            top.value = centerY
-            left.value = centerX
-           }
+             calcLabelPos()
           }, 300)
         }
       }
@@ -88,12 +73,6 @@ export default defineComponent({
     }
     onMounted(() => {
       checkVisibility()
-      // if (screen) {
-      //    if (screen.height !== 800) {}
-      //     top.value = (screen.height / 800 * props.top) - 44
-      // }
-    
-     
     }) 
     watch(route, () => {
       checkVisibility()
@@ -112,11 +91,6 @@ export default defineComponent({
         }
       }
     })
-    const router = useRouter()
-    const onDesClick = () => {
-        if (isVisible.value)
-          router.push(`o-${props.region}/${props.slug}`)
-      }
     const onMouseEnter = () => {
       document.querySelector('#' + props.slug).classList.add('link-to-o-hover')
     }

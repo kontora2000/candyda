@@ -58,14 +58,14 @@
 			<DistrictLabel slug="shcherbinovskiy" region="kanevskoy" >Щербиновский район</DistrictLabel>
 		</div>
 		<div class="map-lables-wrapper region-labels">
-			<RegionLabel  slug="krasnoarmeyskiy" :top="68" :left="356" :mobile-top="60" :mobile-left="0" :number="47">Красноармейский</RegionLabel>
-			<RegionLabel  slug="krasnodarskiy" :top="124" :left="480" :mobile-top="40" :mobile-left="80" :number="46">Краснодарский</RegionLabel>
-			<RegionLabel  slug="slavyanskiy" :top="120" :left="160" :mobile-top="160" :mobile-left="0" :number="48">Славянский</RegionLabel>
-			<RegionLabel  slug="tuapsinskiy" :top="240" :left="400" :mobile-top="240" :mobile-left="80" :number="49">Туапсинский</RegionLabel>
-			<RegionLabel  slug="sochinskiy" :top="292" :left="592" :mobile-top="300" :mobile-left="200" :number="50">Сочинский</RegionLabel>
-			<RegionLabel  slug="tihoretskiy" :top="68" :left="672" :mobile-top="40" :mobile-left="230" :number="51">Тихорецкий</RegionLabel>
-			<RegionLabel  slug="armavirskiy" :top="228" :left="924" :mobile-top="200" :mobile-left="218" :number="52">Армавирский</RegionLabel>
-			<RegionLabel  slug="kanevskoy" :top="8" :left="520" :mobile-top="-20" :mobile-left="140" :number="53">Каневской</RegionLabel>
+			<RegionLabel  slug="krasnoarmeyskiy"  :mobile-top="60" :mobile-left="0" :number="47">Красноармейский</RegionLabel>
+			<RegionLabel  slug="krasnodarskiy" :mobile-top="40" :mobile-left="80" :number="46">Краснодарский</RegionLabel>
+			<RegionLabel  slug="slavyanskiy"  :mobile-top="160" :mobile-left="0" :number="48">Славянский</RegionLabel>
+			<RegionLabel  slug="tuapsinskiy"  :mobile-top="240" :mobile-left="80" :number="49">Туапсинский</RegionLabel>
+			<RegionLabel  slug="sochinskiy"  :mobile-top="300" :mobile-left="200" :number="50">Сочинский</RegionLabel>
+			<RegionLabel  slug="tihoretskiy"  :mobile-top="40" :mobile-left="230" :number="51">Тихорецкий</RegionLabel>
+			<RegionLabel  slug="armavirskiy"  :mobile-top="200" :mobile-left="218" :number="52">Армавирский</RegionLabel>
+			<RegionLabel  slug="kanevskoy"  :mobile-top="-20" :mobile-left="140" :number="53">Каневской</RegionLabel>
 		</div>
 	</div>
 </template>

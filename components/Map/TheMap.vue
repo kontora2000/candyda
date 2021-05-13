@@ -246,11 +246,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, watch, ref, useContext, useRouter, } from '@nuxtjs/composition-api'
+import { defineComponent, ref, watch, onMounted, useContext, useRouter, } from '@nuxtjs/composition-api'
 
 import { useMap, } from '@/composition/map'
+import { useDevice, } from '@/composition/device'
+
 import MapLabels from './MapLabels.vue'
-import { useDevice } from '~/composition/device'
 
 export default defineComponent(
   {
@@ -423,6 +424,15 @@ export default defineComponent(
 		left: 0;
 		width: 100vw;
 		height: 48vh;
+	}
+}
+
+@media (max-width: 1360px) {
+	.map-cont {
+		grid-column: 2/7;
+		margin-top: 1.2rem;
+		margin-bottom: -8rem;
+		min-height: 60vh;
 	}
 }
 </style>

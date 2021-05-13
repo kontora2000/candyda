@@ -1,6 +1,6 @@
 <template>
   <transition name="fade025">
-    <div class="map-label-area"
+    <div class="map-label-area" :id="`o-label-${slug}`"
       v-show="isVisible" 
      :style="computedPosition"
       @click.prevent="onRegClick()"
@@ -19,7 +19,8 @@
 
 
 <script>
-import { defineComponent, ref, computed, onMounted, watch, useContext, useRouter, } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted, watch, useContext, } from '@nuxtjs/composition-api'
+import { useLabel } from '@/composition/label'
 
 export default defineComponent({
   name: 'RegionLabel',
@@ -30,11 +31,13 @@ export default defineComponent({
     },
     top: {
       type: Number,
-      required: true,
+      required: false,
+      default: 0,
     },
     left: {
       type: Number,
-      required: true,
+      required: false,
+      default: 0,
     },
     mobileTop: {
       type: Number,
@@ -52,39 +55,20 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const { $device, } = useContext()
-    const top = ref(($device.isMobile && props.mobileTop) ?  props.mobileTop : props.top )
-    const left = ref(($device.isMobile && props.mobileLeft) ?  props.mobileLeft : props.left )
-    const computedPosition = computed(() => { 
-      return {
-        top: top.value + 'px',
-        left: left.value + 'px',
-    }})
-    
-    onMounted(() => {
-      if (screen) {
-         if (screen.height !== 800) {}
-        top.value = (screen.height / 800 * top.valuey) - 44
-      }
-    })  
-    const { route, } = useContext()
-    const isVisible  = ref(false)
+    const { $device, route, } = useContext()
+    const { computedPosition, calcLabelPos, isVisible, onRegClick, } = useLabel(props, $device)
+    isVisible.value = true
     const checkVisibility = () => {
       isVisible.value = route.value.path === '/'
-      
     }
     onMounted(()=> {
       checkVisibility()
+      if (isVisible.value) calcLabelPos(true)
     })
     watch(route, () => {
       checkVisibility()
     })
     const storageURL = process.env.storageURL
-    const router = useRouter()
-    const onRegClick = () => {
-        if (isVisible.value)
-          router.push(`/region/o-${props.slug}`)
-      }
     const onMouseEnter = () => {
       const elems = document.querySelectorAll(`#o-${props.slug} .o-city`)
       elems.forEach(el => el.classList.add('link-to-o-hover'))
