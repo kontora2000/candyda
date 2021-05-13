@@ -67,6 +67,11 @@ export default defineComponent({
     })
     watch(route, () => {
       checkVisibility()
+      if (isVisible.value) {
+        wind.setTimeout(() => {
+          calcLabelPos(true)
+        }, 300);
+      }
     })
     const storageURL = process.env.storageURL
     const onMouseEnter = () => {
