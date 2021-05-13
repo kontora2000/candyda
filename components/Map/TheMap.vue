@@ -53,7 +53,7 @@
 							<polygon id="shcherbinovskiy" class="o-city" points="437.92,39.28 481.5,39.62 503.29,20.55 495.63,2.68 439.79,0 433.16,5.23 451.37,6.77"/>
 						</g>
 						<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/kushchevskiy')">
-							<polygon id="kushevskiy" class="o-city" points="560,40.23 625.29,40.74 632.27,25.74 683.47,27.13 687.51,9.04 560.07,3.99"/>
+							<polygon id="kushchevskiy" class="o-city" points="560,40.23 625.29,40.74 632.27,25.74 683.47,27.13 687.51,9.04 560.07,3.99"/>
 						</g>
 						<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-kanevskoy/eyskiy')">
 							<polygon id="eyskiy" class="o-city" points="393.88,37.88 434.34,69.73 461.73,39.46 437.92,39.28 446.55,18.41 409.34,17.39 
