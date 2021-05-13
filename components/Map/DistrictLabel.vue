@@ -34,11 +34,13 @@ export default defineComponent({
     },
     top: {
       type: Number,
-      required: true,
+      required: false,
+      default: 0,
     },
     left: {
       type: Number,
-      required: true,
+      required: false,
+      default: 0,
     },
     mobileTop: {
       type: Number,
@@ -72,12 +74,12 @@ export default defineComponent({
             const { x, y, width:w, height:h } = document.querySelector(`#${props.slug}`).getBoundingClientRect()
             const { x:mapX, y: mapY, } = document.querySelector('.map-svg').getBoundingClientRect()
             const emblemW = document.querySelector(`#label-${props.slug}`).getBoundingClientRect().width
-            const centerX = x + w /2 - mapX - emblemW/2
-            const centerY = y + h/2 - 44 -  mapY
+            const centerX = x + w /2 - mapX - emblemW/2 + props.left
+            const centerY = y + h/2 - 44 -  mapY + props.top
             top.value = centerY
             left.value = centerX
            }
-          }, 2000)
+          }, 300)
         }
       }
       else {
