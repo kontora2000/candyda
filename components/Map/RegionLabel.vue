@@ -17,7 +17,6 @@
 </template>
 
 
-
 <script>
 import { defineComponent, onMounted, watch, useContext, } from '@nuxtjs/composition-api'
 import { useLabel } from '@/composition/label'
@@ -63,12 +62,16 @@ export default defineComponent({
     }
     onMounted(()=> {
       checkVisibility()
-      if (isVisible.value) calcLabelPos(true)
+       if (isVisible.value) {
+        window.setTimeout(() => {
+          calcLabelPos(true)
+        }, 300);
+      }
     })
     watch(route, () => {
       checkVisibility()
       if (isVisible.value) {
-        wind.setTimeout(() => {
+        window.setTimeout(() => {
           calcLabelPos(true)
         }, 300);
       }

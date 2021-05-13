@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import { defineComponent, PropType, ref, computed, onMounted, watch, useContext, useRouter, } from '@nuxtjs/composition-api'
+import { defineComponent, ref, onMounted, watch, useContext, } from '@nuxtjs/composition-api'
 import { useRegion, } from '@/composition/region'
-import {  useLabel, } from '@/composition/label'
+import { useLabel, } from '@/composition/label'
 
 
 export default defineComponent({

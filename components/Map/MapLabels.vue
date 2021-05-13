@@ -95,4 +95,5 @@ export default defineComponent({
 	margin: .2rem .6rem 0 0;
 	position: relative;
 }
+
 </style>

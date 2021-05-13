@@ -3,7 +3,7 @@
 		<MapLabels />
 		<div class="map-svg-wrapper">
 			<svg v-show="!isRegionOpened" class="map-shadow-wrapper map-shadow-wrapper-1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-				width="1268.3px" height="669.4px" viewBox="0 0 1268.3 669.4" xml:space="preserve">
+				width="1268.3px" height="669.4px" viewBox="0 0 1268.3 669.4"  xml:space="preserve">
 				<defs></defs>
 				<path class="map-shadow-stroke" d="M1183.9,333.2l11.7-10.2l-91.2-42.9l18.2-11.7l-10-47h-48.4l-52.6-42l-62,0.4l-53.9-28.5L882.6,118l7.6,0.4
 					l47.5,2.3l14-13.2L857,58.3l-46.1-0.9l-51-1l-29.3-27.5l-24.8-0.7l4.2-18.7L578.4,4.4l-0.1,19.9l-58.5-2.8L511.9,3l-57.6-2.8
@@ -15,7 +15,7 @@
 					l63.5,9.4l52.8,7.8l75.7-37.2l109.6,19.1l112,19.7l42.8,48.4l40.2,45.2l-37.8,0.1L867.5,263l-38.7-5.7l97.6,284.2L704.8,443.6z"/>
 			</svg>
 			<svg  v-show="!isRegionOpened" class="map-shadow-wrapper map-shadow-wrapper-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-				width="1302.4px" height="687.4px" viewBox="0 0 1302.4 687.4" xml:space="preserve">
+				width="1302.4px" height="687.4px" viewBox="0 0 1268.3 669.4" xml:space="preserve">
 				<defs></defs>
 				<path class="map-shadow-stroke" d="M1215.8,342.2l12-10.5l-93.7-44.1l18.7-12l-10.2-48.2h-49.7l-54.1-43.2l-63.7,0.4l-55.4-29.3l-13.5-34.1
 					l7.8,0.4l48.7,2.3l14.4-13.5L880,59.9L832.7,59l-52.4-1l-30.1-28.3L724.8,29L729,9.8L594,4.5l-0.1,20.4L533.8,22l-8.1-18.9
@@ -27,7 +27,8 @@
 				l77.7-38.2l112.5,19.6l115.1,20.3l43.9,49.8l41.3,46.4l-38.8,0.1l-39.9-52l-39.7-5.9L951.3,556L723.8,455.5z"/>
 			</svg>
 			<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-				width="1228.16px" height="648.03px" viewBox="0 0 1228.16 648.03" 
+				width="1228.16px" height="648.03px" viewBox="0 0 1268.3 669.4" 
+				:preserveAspectRatio="$device.isMobile ? 'xMidYMid slice' : ''"
 				style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
 				<!--<defs>
 					<filter id="shadow-o-city" x="0" y="0" width="100%" height="100%">
@@ -164,7 +165,7 @@
 				</nuxt-link>
 				<nuxt-link to="/region/o-tuapsinskiy" class="link-to-o">
 					<g class="o-cont" id="o-tuapsinskiy">
-						<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDisClick('/region/o-tuapsinskiy/goryachiy-klyuch')" >
+						<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-tuapsinskiy/goryachiy-klyuch')" >
 							<polygon id="goryachiy-klyuch" class="o-city" points="615.18,246.59 499,227.74 443.76,305.97 545.69,334.66"/>
 						</g>
 						<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }" @click.prevent="onDesClick('/region/o-tuapsinskiy/severskiy')" >
@@ -418,7 +419,7 @@ export default defineComponent(
 		min-height: 60vh;
 	}
 	.map-svg {
-		transform: scale(1.8);
+		
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -426,13 +427,10 @@ export default defineComponent(
 		height: 48vh;
 	}
 }
-
-@media (max-width: 1360px) {
+@media (min-width: 1460px) {
 	.map-cont {
-		grid-column: 2/7;
-		margin-top: 1.2rem;
-		margin-bottom: -8rem;
-		min-height: 60vh;
+		grid-column: 3/7;
 	}
 }
+
 </style>
