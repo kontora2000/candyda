@@ -1,6 +1,6 @@
 <template>
   <transition name="fade025">
-    <div class="map-label-area" 
+    <div class="map-label-area" :id="'label-' + slug"
       :style="computedPosition"
       v-show="isVisible" 
       @click="onDesClick" 
@@ -34,11 +34,13 @@ export default defineComponent({
     },
     top: {
       type: Number,
-      required: true,
+      required: false,
+      default: 0,
     },
     left: {
       type: Number,
-      required: true,
+      required: false,
+      default: 0,
     },
     mobileTop: {
       type: Number,
@@ -60,12 +62,25 @@ export default defineComponent({
         top: top.value + 'px',
         left: left.value + 'px',
     }})
-     
     const { route, } = useContext()
     const isVisible  = ref(false)
     const checkVisibility = () => {
       if (route.value.name === 'region-slug') {
         isVisible.value = route.value.params.slug === ('o-'+ props.region)
+        if (isVisible.value) {
+          window.setTimeout(() => {
+          const el = document.querySelector(`#${props.slug}`)
+          if (el) {
+            const { x, y, width:w, height:h } = document.querySelector(`#${props.slug}`).getBoundingClientRect()
+            const { x:mapX, y: mapY, } = document.querySelector('.map-svg').getBoundingClientRect()
+            const emblemW = document.querySelector(`#label-${props.slug}`).getBoundingClientRect().width
+            const centerX = x + w /2 - mapX - emblemW/2 + props.left
+            const centerY = y + h/2 - 44 -  mapY + props.top
+            top.value = centerY
+            left.value = centerX
+           }
+          }, 300)
+        }
       }
       else {
         isVisible.value = false
@@ -73,10 +88,12 @@ export default defineComponent({
     }
     onMounted(() => {
       checkVisibility()
-      if (screen) {
-         if (screen.height !== 800) {}
-        top.value = (screen.height / 800 * props.top) - 44
-      }
+      // if (screen) {
+      //    if (screen.height !== 800) {}
+      //     top.value = (screen.height / 800 * props.top) - 44
+      // }
+    
+     
     }) 
     watch(route, () => {
       checkVisibility()
