@@ -266,18 +266,18 @@ export default defineComponent(
     setup() {
         const { route, } = useContext()
         const { mapSvg, zoomTo, setTo, resetViewBox, isRegionOpened, } = useMap()
-		const { isMobile, } = useDevice()
-		const mapViewBox = !isMobile ? '0 0 1228.16 648.03' : '0 0 1228.16 1000.03'
-		const mapAspectRatio = !isMobile ? '' : 'xMidYMid slice'
-        onMounted(() => {
-            const slug = route.value.params.slug
-            mapSvg.value = document.querySelector('.map-svg') as SVGAElement
-            if (slug) {
-                if (route.value.name === 'region-slug') {
-                    setTo(slug, isMobile)
+        const { isMobile, } = useDevice()
+        const mapViewBox = !isMobile ? '0 0 1228.16 648.03' : '0 0 1228.16 1000.03'
+        const mapAspectRatio = !isMobile ? '' : 'xMidYMid slice'
+            onMounted(() => {
+                const slug = route.value.params.slug
+                mapSvg.value = document.querySelector('.map-svg') as SVGAElement
+                if (slug) {
+                    if (route.value.name === 'region-slug') {
+                        setTo(slug, isMobile)
+                    }
                 }
-            }
-        })
+            })
         const  isMinusOne = ref(false)
         watch(route, () => {
             const slug = route.value.params.slug

@@ -11,7 +11,7 @@ export const regionZoom = {
 }
 
 export const regionMobileZoom = {
-    'default': '0 0 1228.16 648.03',
+    'default': '0 0 1228.16 1000.03',
     'o-kanevskoy': '360.72 -120 412.47 280.40', //
     'o-tihoretskiy': '528.38 -45.40 420.81 310.60', //
     'o-krasnoarmeyskiy': '270 33.18 352 179', //
