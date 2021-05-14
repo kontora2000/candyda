@@ -2,7 +2,7 @@
 	<div class="map-cont">
 		<MapLabels />
 		<div class="map-svg-wrapper">
-			<svg v-show="!isRegionOpened" class="map-shadow-wrapper map-shadow-wrapper-1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			<svg v-show="!isRegionOpened && !$device.isMobile" class="map-shadow-wrapper map-shadow-wrapper-1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				width="1268.3px" height="669.4px" viewBox="0 0 1268.3 669.4"  xml:space="preserve">
 				<defs></defs>
 				<path class="map-shadow-stroke" d="M1183.9,333.2l11.7-10.2l-91.2-42.9l18.2-11.7l-10-47h-48.4l-52.6-42l-62,0.4l-53.9-28.5L882.6,118l7.6,0.4
@@ -14,7 +14,7 @@
 					l-65.1-25.1l-8.9-46.9l28.2-37.8l-39-46.6l-36.8,7.3l-29.4-12.1l-18.9,16.3l27.6,10l-15,19l-119.9-19.5l-66.7-10.8l-1.1-23.3
 					l63.5,9.4l52.8,7.8l75.7-37.2l109.6,19.1l112,19.7l42.8,48.4l40.2,45.2l-37.8,0.1L867.5,263l-38.7-5.7l97.6,284.2L704.8,443.6z"/>
 			</svg>
-			<svg  v-show="!isRegionOpened" class="map-shadow-wrapper map-shadow-wrapper-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			<svg  v-show="!isRegionOpened && !$device.isMobile" class="map-shadow-wrapper map-shadow-wrapper-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				width="1302.4px" height="687.4px" viewBox="0 0 1268.3 669.4" xml:space="preserve">
 				<defs></defs>
 				<path class="map-shadow-stroke" d="M1215.8,342.2l12-10.5l-93.7-44.1l18.7-12l-10.2-48.2h-49.7l-54.1-43.2l-63.7,0.4l-55.4-29.3l-13.5-34.1
@@ -26,10 +26,13 @@
 					l-9.1-48.2l28.9-38.8l-40-47.8l-37.8,7.5l-30.2-12.4l-19.4,16.7l28.4,10.3l-15.4,19.5l-123.1-20l-68.5-11.1l-1.1-24l65.2,9.6l54.2,8
 				l77.7-38.2l112.5,19.6l115.1,20.3l43.9,49.8l41.3,46.4l-38.8,0.1l-39.9-52l-39.7-5.9L951.3,556L723.8,455.5z"/>
 			</svg>
-			<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-				width="1228.16px" height="648.03px" viewBox="0 0 1268.3 669.4" 
-				:preserveAspectRatio="$device.isMobile ? 'xMidYMid slice' : ''"
-				style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" xml:space="preserve">
+			<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+				x="0px" y="0px"
+				width="1228.16px" height="648.03px" 
+				:viewBox="mapViewBox" 
+				:preserveAspectRatio="mapAspectRatio"
+				style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" 
+				xml:space="preserve">
 				<!--<defs>
 					<filter id="shadow-o-city" x="0" y="0" width="100%" height="100%">
 						<feOffset result="offOut" in="SourceGraphic" dx="0" dy="2" />
@@ -260,11 +263,12 @@ export default defineComponent(
     components: { 
 	  MapLabels, 
     },
-    setup()
-     {
+    setup() {
         const { route, } = useContext()
         const { mapSvg, zoomTo, setTo, resetViewBox, isRegionOpened, } = useMap()
-		const { isMobile,} = useDevice()
+		const { isMobile, } = useDevice()
+		const mapViewBox = !isMobile ? '0 0 1228.16 648.03' : '0 0 1228.16 1000.03'
+		const mapAspectRatio = !isMobile ? '' : 'xMidYMid slice'
         onMounted(() => {
             const slug = route.value.params.slug
             mapSvg.value = document.querySelector('.map-svg') as SVGAElement
@@ -301,6 +305,8 @@ export default defineComponent(
         return {
           isMinusOne,
           isRegionOpened,
+		  mapAspectRatio,
+		  mapViewBox,
           onDesClick,
         }
     },
