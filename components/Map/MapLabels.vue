@@ -1,11 +1,11 @@
 <template>
 	<div class="map-labels">
 		<div class="map-labels-wrapper map-labels-slavyanskiy">
-			<DistrictLabel slug="anapa" region="slavyanskiy"  :mobile-top="200" :mobile-left="20">Анапа</DistrictLabel>
-			<DistrictLabel slug="krymskiy" region="slavyanskiy"  :mobile-top="160" :mobile-left="140">Крымский район</DistrictLabel>
-			<DistrictLabel slug="temryukskiy" region="slavyanskiy"  :mobile-top="108" :mobile-left="0">Темрюкский район</DistrictLabel>
-			<DistrictLabel slug="abinskiy" region="slavyanskiy"  :mobile-top="244" :mobile-left="212">Абинский район</DistrictLabel>
-			<DistrictLabel slug="slavyanskiy" region="slavyanskiy"  :mobile-top="92" :mobile-left="200">Славянский район</DistrictLabel>
+			<DistrictLabel slug="anapa" region="slavyanskiy" >Анапа</DistrictLabel>
+			<DistrictLabel slug="krymskiy" region="slavyanskiy">Крымский район</DistrictLabel>
+			<DistrictLabel slug="temryukskiy" region="slavyanskiy">Темрюкский район</DistrictLabel>
+			<DistrictLabel slug="abinskiy" region="slavyanskiy">Абинский район</DistrictLabel>
+			<DistrictLabel slug="slavyanskiy" region="slavyanskiy">Славянский район</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-tuapsinskiy">
 			<DistrictLabel slug="novorossiysk" region="tuapsinskiy" >Новороссийск</DistrictLabel>
@@ -58,14 +58,14 @@
 			<DistrictLabel slug="shcherbinovskiy" region="kanevskoy" >Щербиновский район</DistrictLabel>
 		</div>
 		<div class="map-lables-wrapper region-labels">
-			<RegionLabel  slug="krasnoarmeyskiy"  :mobile-top="60" :mobile-left="0" :number="47">Красноармейский</RegionLabel>
-			<RegionLabel  slug="krasnodarskiy" :mobile-top="40" :mobile-left="80" :number="46">Краснодарский</RegionLabel>
-			<RegionLabel  slug="slavyanskiy"  :mobile-top="160" :mobile-left="0" :number="48">Славянский</RegionLabel>
-			<RegionLabel  slug="tuapsinskiy"  :mobile-top="240" :mobile-left="80" :number="49">Туапсинский</RegionLabel>
-			<RegionLabel  slug="sochinskiy"  :mobile-top="300" :mobile-left="200" :number="50">Сочинский</RegionLabel>
-			<RegionLabel  slug="tihoretskiy"  :mobile-top="40" :mobile-left="230" :number="51">Тихорецкий</RegionLabel>
-			<RegionLabel  slug="armavirskiy"  :mobile-top="200" :mobile-left="218" :number="52">Армавирский</RegionLabel>
-			<RegionLabel  slug="kanevskoy"  :mobile-top="-20" :mobile-left="140" :number="53">Каневской</RegionLabel>
+			<RegionLabel  slug="krasnoarmeyskiy"  :number="47">Красноармейский</RegionLabel>
+			<RegionLabel  slug="krasnodarskiy"  :number="46">Краснодарский</RegionLabel>
+			<RegionLabel  slug="slavyanskiy"   :number="48">Славянский</RegionLabel>
+			<RegionLabel  slug="tuapsinskiy"   :number="49">Туапсинский</RegionLabel>
+			<RegionLabel  slug="sochinskiy"   :number="50">Сочинский</RegionLabel>
+			<RegionLabel  slug="tihoretskiy"   :number="51">Тихорецкий</RegionLabel>
+			<RegionLabel  slug="armavirskiy"   :number="52">Армавирский</RegionLabel>
+			<RegionLabel  slug="kanevskoy"   :number="53">Каневской</RegionLabel>
 		</div>
 	</div>
 </template>
@@ -86,6 +86,7 @@ export default defineComponent({
 .map-labels {
 	position: absolute;
 	z-index: 1;
+	display: none;
 }
 
 .map-label-area-emblem {

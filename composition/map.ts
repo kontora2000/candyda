@@ -1,15 +1,12 @@
 import { ref, } from '@nuxtjs/composition-api'
 import { gsap, } from 'gsap'
 import { regionZoom, regionMobileZoom, } from '@/modules/zoom'
-import { useDevice, } from '@/composition/device'
 
 const mapSvg = ref<SVGAElement>({} as SVGAElement)
 // type Viewbox = `${number} ${number} ${number} ${number}`
 export const useMap = () => {
-  
   const isAnimating = ref(false)
   const isRegionOpened = ref(false)
-
   const animateViewBox = (viewBox: string, isInstant = false) => {
     if (isInstant) {
       mapSvg.value.setAttribute('viewBox', viewBox) 
@@ -28,25 +25,27 @@ export const useMap = () => {
     } 
   }
 
-  const resetViewBox = () => {
+  const resetViewBox = (isMobile = false) => {
     const adyg: HTMLElement | null = document.querySelector('#o-adygeya')
     if (adyg) {
       gsap.set(adyg, { autoAlpha: 1, })
     }
     isRegionOpened.value = false
-    const titles = document.querySelectorAll('.o-title-cont')
     const regs = document.querySelectorAll('.o-cont')
     gsap.to(regs, {duration:0.2, autoAlpha: 1, })
     const insideCityTitles = document.querySelectorAll('.o-city')
     if (insideCityTitles.length > 0) {
        insideCityTitles.forEach(el => el.classList.remove('o-city-opened'))
     }
-    animateViewBox('0 0 1228.16 648.03')               
+    if (!isMobile) 
+      animateViewBox(regionZoom['default'])         
+    else 
+    animateViewBox(regionMobileZoom['default'])         
   }
 
   const zoomTo = (slug, isMobile = false) => {
     isRegionOpened.value = false
-    const el: SVGAElement | null = document.querySelector('#' + slug)
+    const el: SVGAElement | null = document.querySelector(`#${slug}`)
     let box: DOMRect | null = null
     if (el) {
         box = el.getBBox()
@@ -77,7 +76,7 @@ export const useMap = () => {
          animateViewBox(regionZoom[slug])
       }
       else {
-        animateViewBox(regionMobileZoom[slug])
+         animateViewBox(regionMobileZoom[slug])
       }
     }
   }
@@ -121,8 +120,6 @@ export const useMap = () => {
   }
 
   
-  
-
   return {
       mapSvg,
       isAnimating,
