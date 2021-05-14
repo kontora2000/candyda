@@ -162,19 +162,26 @@ export default defineComponent({
 
 @media (max-width: 460px) {
   .map-label-area {
+    border-radius: 6px;
     height: auto;
-    padding: .2rem .6rem;
-  }
-
-  .map-label-number-header,
-  .map-lable-number {
-    font-size: 1rem;
-    line-height: 1.2rem;
+    padding: .2rem .4rem;
   }
 
   .map-label-area-title {
-    font-size: 1.2rem;
-    line-height: 1.4rem;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-top: -.2rem;
+  }
+
+  .map-label-area-emblem {
+    width: 1.8rem;
+    height: 2.3rem;
+    margin: 0 .5rem 0 0;
+  }
+  .map-label-area-emblem>img {
+    width: 1.8rem;
+    height: 2.3rem;
+    max-width: 1.8rem;
   }
 }
 </style>

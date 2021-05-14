@@ -18,6 +18,6 @@ export const regionMobileZoom = {
     'o-krasnodarskiy': '457.32 110.63 200 125', //
     'o-slavyanskiy': '25 36 400 290', //
     'o-tuapsinskiy': '80.83 80.86 596.16 380.13', //
-    'o-armavirskiy': '635.40 66.33 553.20 377.56',
+    'o-armavirskiy': '720 20 553.20 377.56',
     'o-sochinskiy': '521.48 42.78 487.51 495.51', //
 }

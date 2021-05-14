@@ -158,4 +158,25 @@ export default defineComponent({
   margin-bottom: .4rem;
   text-transform: uppercase;
 }
+
+
+@media (max-width: 460px) {
+  .map-label-area {
+    border-radius: 6px;
+    height: auto;
+    padding: .2rem .4rem;
+  }
+
+  .map-label-number-header,
+  .map-lable-number {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+
+  .map-label-area-title {
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-top: -.2rem;
+  }
+}
 </style>
