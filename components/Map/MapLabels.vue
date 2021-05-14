@@ -86,6 +86,7 @@ export default defineComponent({
 .map-labels {
 	position: absolute;
 	z-index: 1;
+	display: none;
 }
 
 .map-label-area-emblem {
