@@ -1,71 +1,71 @@
 <template>
 	<div class="map-labels">
 		<div class="map-labels-wrapper map-labels-slavyanskiy">
-			<DistrictLabel slug="anapa" region="slavyanskiy" >Анапа</DistrictLabel>
-			<DistrictLabel slug="krymskiy" region="slavyanskiy">Крымский район</DistrictLabel>
-			<DistrictLabel slug="temryukskiy" region="slavyanskiy">Темрюкский район</DistrictLabel>
-			<DistrictLabel slug="abinskiy" region="slavyanskiy">Абинский район</DistrictLabel>
-			<DistrictLabel slug="slavyanskiy" region="slavyanskiy">Славянский район</DistrictLabel>
+			<DistrictLabel :mobile-top="8" :mobile-left="-16" slug="anapa" region="slavyanskiy" >Анапа</DistrictLabel>
+			<DistrictLabel :mobile-top="-8" :mobile-left="-32" slug="krymskiy" region="slavyanskiy">Крымский район</DistrictLabel>
+			<DistrictLabel :mobile-top="12" slug="temryukskiy" region="slavyanskiy">Темрюкский район</DistrictLabel>
+			<DistrictLabel :mobile-top="16" :mobile-left="-44" slug="abinskiy" region="slavyanskiy">Абинский район</DistrictLabel>
+			<DistrictLabel :mobile-top="8" :mobile-left="-20" slug="slavyanskiy" region="slavyanskiy">Славянский район</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-tuapsinskiy">
-			<DistrictLabel slug="novorossiysk" region="tuapsinskiy">Новороссийск</DistrictLabel>
-			<DistrictLabel slug="gelendzhik" region="tuapsinskiy">Геленджик</DistrictLabel>
-			<DistrictLabel slug="tuapsinskiy" region="tuapsinskiy">Туапскинский район</DistrictLabel>
-			<DistrictLabel slug="goryachiy-klyuch" region="tuapsinskiy" >Горячий Ключ</DistrictLabel>
-			<DistrictLabel slug="severskiy" region="tuapsinskiy">Северский район</DistrictLabel>
+			<DistrictLabel :mobile-top="12" :mobile-left="16" slug="novorossiysk" region="tuapsinskiy">Новороссийск</DistrictLabel>
+			<DistrictLabel :mobile-top="16" :mobile-left="-24" slug="gelendzhik" region="tuapsinskiy">Геленджик</DistrictLabel>
+			<DistrictLabel :mobile-top="4" :mobile-left="-52" slug="tuapsinskiy" region="tuapsinskiy">Туапскинский район</DistrictLabel>
+			<DistrictLabel :mobile-top="16" :mobile-left="-16" slug="goryachiy-klyuch" region="tuapsinskiy" >Горячий Ключ</DistrictLabel>
+			<DistrictLabel :mobile-top="8" :mobile-left="-20" slug="severskiy" region="tuapsinskiy">Северский район</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-sochinskiy">
-			<DistrictLabel slug="sochi" region="sochinskiy">Сочи</DistrictLabel>
-			<DistrictLabel slug="belorechenskiy" region="sochinskiy">Белореченский район</DistrictLabel>
+			<DistrictLabel :mobile-top="-32" :mobile-left="-100" slug="sochi" region="sochinskiy">Сочи</DistrictLabel>
+			<DistrictLabel :mobile-top="20" slug="belorechenskiy" region="sochinskiy">Белореченский район</DistrictLabel>
 			<DistrictLabel slug="apsheronskiy" region="sochinskiy">Апшеронский район</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-armavirskiy">
-			<DistrictLabel slug="armavir" region="armavirskiy">Армавир</DistrictLabel>
-			<DistrictLabel slug="mostovskiy" region="armavirskiy">Мостовский район</DistrictLabel>
-			<DistrictLabel slug="labinskiy" region="armavirskiy">Лабинский район</DistrictLabel>
-			<DistrictLabel slug="otradnenskiy" region="armavirskiy">Отрадненский район</DistrictLabel>
-			<DistrictLabel slug="uspenskiy" region="armavirskiy">Успенский район</DistrictLabel>
-			<DistrictLabel slug="novokubanskiy" region="armavirskiy">Новокубанский район</DistrictLabel>
-			<DistrictLabel slug="kurganinskiy" region="armavirskiy">Курганинский район</DistrictLabel>
-			<DistrictLabel slug="gulkevichskiy" region="armavirskiy">Гулькевичский район</DistrictLabel>
+			<DistrictLabel :mobile-top="-80" :mobile-left="-72" slug="mostovskiy" region="armavirskiy">Мостовский район</DistrictLabel>
+			<DistrictLabel :mobile-top="-20" :mobile-left="-44" slug="labinskiy" region="armavirskiy">Лабинский район</DistrictLabel>
+			<DistrictLabel :mobile-top="0" :mobile-left="-72" slug="otradnenskiy" region="armavirskiy">Отрадненский район</DistrictLabel>
+			<DistrictLabel :mobile-top="24" :mobile-left="0" slug="uspenskiy" region="armavirskiy">Успенский район</DistrictLabel>
+			<DistrictLabel :mobile-top="-44" :mobile-left="-4" slug="novokubanskiy" region="armavirskiy">Новокубанский район</DistrictLabel>
+			<DistrictLabel :mobile-top="12" :mobile-left="-8" slug="armavir" region="armavirskiy">Армавир</DistrictLabel>
+			<DistrictLabel :mobile-top="-4" :mobile-left="-12" slug="kurganinskiy" region="armavirskiy">Курганинский район</DistrictLabel>
+			<DistrictLabel :mobile-top="2" :mobile-left="-20" slug="gulkevichskiy" region="armavirskiy">Гулькевичский район</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-tihoretskiy">
-			<DistrictLabel slug="tbilisskiy" region="tihoretskiy" >Тбилисский район</DistrictLabel>
-			<DistrictLabel slug="ust-labinskiy" region="tihoretskiy" ><nobr>Усть-Лабинский</nobr> район</DistrictLabel>
-			<DistrictLabel slug="kavkazskiy" region="tihoretskiy" >Кавказский район</DistrictLabel>
-			<DistrictLabel slug="korenovskiy" region="tihoretskiy" >Кореновский район</DistrictLabel>
-			<DistrictLabel slug="vyselkovskiy" region="tihoretskiy" >Выселковский район</DistrictLabel>
-			<DistrictLabel slug="tihoreckiy" region="tihoretskiy" >Тихорецкий район</DistrictLabel>
-			<DistrictLabel slug="novopokrovskiy" region="tihoretskiy" >Новопокровский район</DistrictLabel>
-			<DistrictLabel slug="beloglinskiy" region="tihoretskiy" >Белоглинский район</DistrictLabel>
+			<DistrictLabel :mobile-top="16" :mobile-left="-8" slug="tbilisskiy" region="tihoretskiy" >Тбилисский район</DistrictLabel>
+			<DistrictLabel :mobile-top="28" :mobile-left="4" slug="ust-labinskiy" region="tihoretskiy" ><nobr>Усть-Лабинский</nobr> район</DistrictLabel>
+			<DistrictLabel :mobile-top="20" :mobile-left="-36" slug="kavkazskiy" region="tihoretskiy" >Кавказский район</DistrictLabel>
+			<DistrictLabel :mobile-top="28" :mobile-left="52" slug="korenovskiy" region="tihoretskiy" >Кореновский район</DistrictLabel>
+			<DistrictLabel :mobile-top="0" :mobile-left="-36" slug="vyselkovskiy" region="tihoretskiy" >Выселковский район</DistrictLabel>
+			<DistrictLabel :mobile-top="20" :mobile-left="-8" slug="tihoreckiy" region="tihoretskiy" >Тихорецкий район</DistrictLabel>
+			<DistrictLabel :mobile-top="14" :mobile-left="-32" slug="novopokrovskiy" region="tihoretskiy" >Новопокровский район</DistrictLabel>
+			<DistrictLabel :mobile-top="-32" :mobile-left="-96" slug="beloglinskiy" region="tihoretskiy" >Белоглинский район</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-krasnoarmeyskiy">
-			<DistrictLabel slug="dinskoy" region="krasnoarmeyskiy" >Динской район</DistrictLabel>
-			<DistrictLabel slug="krasnoarmeyskiy" region="krasnoarmeyskiy" >Красноармейский район</DistrictLabel>
-			<DistrictLabel slug="kalininskiy" region="krasnoarmeyskiy" >Калининский район</DistrictLabel>
-			<DistrictLabel slug="timashevskiy" region="krasnoarmeyskiy" >Тимашевский район</DistrictLabel>
+			<DistrictLabel :mobile-top="12" :mobile-left="8" slug="dinskoy" region="krasnoarmeyskiy" >Динской район</DistrictLabel>
+			<DistrictLabel :mobile-top="20" :mobile-left="-20" slug="krasnoarmeyskiy" region="krasnoarmeyskiy" >Красноармейский район</DistrictLabel>
+			<DistrictLabel :mobile-left="-12" slug="kalininskiy" region="krasnoarmeyskiy" >Калининский район</DistrictLabel>
+			<DistrictLabel :mobile-top="10" :mobile-left="12" slug="timashevskiy" region="krasnoarmeyskiy" >Тимашевский район</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-kanevskoy">
-			<DistrictLabel slug="pavlovskiy" region="kanevskoy" >Павловский район</DistrictLabel>
-			<DistrictLabel slug="krylovskiy" region="kanevskoy" >Крыловский район</DistrictLabel>
-			<DistrictLabel slug="kushchevskiy" region="kanevskoy" >Кущевский район</DistrictLabel>
-			<DistrictLabel slug="bryuhoveckiy" region="kanevskoy" >Брюховецкий район</DistrictLabel>
-			<DistrictLabel slug="kanevskoy" region="kanevskoy" >Каневской район</DistrictLabel>
-			<DistrictLabel slug="leningradskiy" region="kanevskoy" >Ленинградский район</DistrictLabel>
-			<DistrictLabel slug="starominskiy" region="kanevskoy" >Староминский район</DistrictLabel>
-			<DistrictLabel slug="primorsko-ahtarskiy" region="kanevskoy" ><nobr>Приморско–Ахтарский</nobr> район</DistrictLabel>
-			<DistrictLabel slug="eyskiy" region="kanevskoy" >Ейский район</DistrictLabel>
-			<DistrictLabel slug="shcherbinovskiy" region="kanevskoy" >Щербиновский район</DistrictLabel>
+			<DistrictLabel :mobile-top="-8" :mobile-left="-44" slug="kushchevskiy" region="kanevskoy" >Кущевский район</DistrictLabel>
+			<DistrictLabel :mobile-top="8" :mobile-left="-84" slug="krylovskiy" region="kanevskoy" >Крыловский район</DistrictLabel>
+			<DistrictLabel :mobile-top="16" :mobile-left="4" slug="bryuhoveckiy" region="kanevskoy" >Брюховецкий район</DistrictLabel>
+			<DistrictLabel :mobile-top="12" :mobile-left="-52" slug="kanevskoy" region="kanevskoy" >Каневской район</DistrictLabel>
+			<DistrictLabel :mobile-top="18" :mobile-left="-12" slug="leningradskiy" region="kanevskoy" >Ленинградский район</DistrictLabel>
+			<DistrictLabel :mobile-top="28" :mobile-left="-84" slug="pavlovskiy" region="kanevskoy" >Павловский район</DistrictLabel>
+			<DistrictLabel :mobile-top="12" slug="starominskiy" region="kanevskoy" >Староминский район</DistrictLabel>
+			<DistrictLabel :mobile-top="16" :mobile-left="88" slug="primorsko-ahtarskiy" region="kanevskoy" >Приморско&thinsp;–&thinsp;Ахтарский</DistrictLabel>
+			<DistrictLabel :mobile-top="12" :mobile-left="52" slug="eyskiy" region="kanevskoy" >Ейский район</DistrictLabel>
+			<DistrictLabel :mobile-top="-8" :mobile-left="-8" slug="shcherbinovskiy" region="kanevskoy" >Щербиновский район</DistrictLabel>
 		</div>
 		<div class="map-lables-wrapper region-labels">
-			<RegionLabel  slug="krasnoarmeyskiy" :mobile-top="20" :number="47">Красноармейский</RegionLabel>
-			<RegionLabel  slug="krasnodarskiy"  :number="46">Краснодарский</RegionLabel>
-			<RegionLabel  slug="slavyanskiy"   :number="48">Славянский</RegionLabel>
-			<RegionLabel  slug="tuapsinskiy" :mobile-top="100" :number="49">Туапсинский</RegionLabel>
-			<RegionLabel  slug="sochinskiy"   :number="50">Сочинский</RegionLabel>
-			<RegionLabel  slug="tihoretskiy"   :number="51">Тихорецкий</RegionLabel>
-			<RegionLabel  slug="armavirskiy"   :number="52">Армавирский</RegionLabel>
-			<RegionLabel  slug="kanevskoy"   :number="53">Каневской</RegionLabel>
+			<RegionLabel  slug="slavyanskiy" :mobile-top="20" :mobile-left="40" :number="48">Славянский</RegionLabel>
+			<RegionLabel  slug="tuapsinskiy" :mobile-top="8" :mobile-left="40" :number="49">Туапсинский</RegionLabel>
+			<RegionLabel  slug="sochinskiy" :mobile-left="-72" :number="50">Сочинский</RegionLabel>
+			<RegionLabel  slug="tihoretskiy" :mobile-left="12" :number="51">Тихорецкий</RegionLabel>
+			<RegionLabel  slug="armavirskiy" :mobile-left="-48" :number="52">Армавирский</RegionLabel>
+			<RegionLabel  slug="kanevskoy" :mobile-top="-8" :mobile-left="20" :number="53">Каневской</RegionLabel>
+			<RegionLabel  slug="krasnoarmeyskiy" :mobile-top="-16" :mobile-left="-12" :number="47">Красноармейский</RegionLabel>
+			<RegionLabel  slug="krasnodarskiy" :mobile-top="10" :number="46">Краснодарский</RegionLabel>
 		</div>
 	</div>
 </template>
