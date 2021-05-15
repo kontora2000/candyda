@@ -256,6 +256,7 @@ import { useMap, } from '@/composition/map'
 import { useDevice, } from '@/composition/device'
 
 import MapLabels from './MapLabels.vue'
+import { regionZoom, regionMobileZoom, } from '~/modules/zoom'
 
 export default defineComponent(
   {
@@ -265,19 +266,15 @@ export default defineComponent(
     },
     setup() {
         const { route, } = useContext()
-        debugger
         const { mapSvg, zoomTo, setTo, resetViewBox, isRegionOpened, isMapVisible,} = useMap()
         const { isMobile, } = useDevice()
-        const mapViewBox = !isMobile ? '0 0 1228.16 648.03' : '0 0 1228.16 1000.03'
+        
+        const mapViewBox = !isMobile ? regionZoom['default'] : regionMobileZoom['default']
         const mapAspectRatio = !isMobile ? '' : 'xMidYMid slice'
-        const map = ssrRef(null)
         onMounted(() => {
-            console.log(map.value)
-            debugger
             isMapVisible.value = route.value.path === '/' || route.value.name === 'region-slug'
             const slug = route.value.params.slug
             mapSvg.value = document.querySelector('.map-svg') as SVGAElement
-            debugger
             if (slug) {
                 if (route.value.name === 'region-slug') {
                     setTo(slug, isMobile)
