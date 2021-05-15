@@ -61,7 +61,7 @@
 			<RegionLabel  slug="krasnoarmeyskiy"  :number="47">Красноармейский</RegionLabel>
 			<RegionLabel  slug="krasnodarskiy"  :number="46">Краснодарский</RegionLabel>
 			<RegionLabel  slug="slavyanskiy"   :number="48">Славянский</RegionLabel>
-			<RegionLabel  slug="tuapsinskiy"   :number="49">Туапсинский</RegionLabel>
+			<RegionLabel  slug="tuapsinskiy" :mobile-top="100" :number="49">Туапсинский</RegionLabel>
 			<RegionLabel  slug="sochinskiy"   :number="50">Сочинский</RegionLabel>
 			<RegionLabel  slug="tihoretskiy"   :number="51">Тихорецкий</RegionLabel>
 			<RegionLabel  slug="armavirskiy"   :number="52">Армавирский</RegionLabel>
