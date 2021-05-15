@@ -7,7 +7,9 @@ const mapSvg = ref<SVGAElement>({} as SVGAElement)
 export const useMap = () => {
   const isAnimating = ref(false)
   const isRegionOpened = ref(false)
+
   const animateViewBox = (viewBox: string, isInstant = false) => {
+    debugger
     if (isInstant) {
       mapSvg.value.setAttribute('viewBox', viewBox) 
       return
@@ -27,6 +29,7 @@ export const useMap = () => {
 
   const zoomTo = (slug, isMobile = false) => {
     isRegionOpened.value = false
+    debugger
     const el: SVGAElement | null = document.querySelector(`#${slug}`)
     let box: DOMRect | null = null
     if (el) {
@@ -119,10 +122,12 @@ export const useMap = () => {
     animateViewBox(regionMobileZoom['default'])         
   }
 
+  const isMapVisible = ref(false)
   return {
       mapSvg,
       isAnimating,
       isRegionOpened,
+      isMapVisible,
       animateViewBox,
       resetViewBox,
       zoomTo,

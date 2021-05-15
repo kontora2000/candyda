@@ -3,6 +3,9 @@
     <BgCircles />
     <SearchOverlay />
     <TheHeader />
+    <client-only>
+      <TheMap />
+    </client-only>
     <nuxt />
   </div>
 </template>
@@ -10,17 +13,19 @@
 
 
 <script lang="ts">
+import { defineComponent, } from '@nuxtjs/composition-api'
+
 import TheHeader from '@/components/Generic/Header/TheHeader.vue'
 import BgCircles from '@/components/Generic/Bg/BgCircles.vue'
-
-import { defineComponent, } from '@nuxtjs/composition-api'
-import SearchOverlay from '~/components/Search/SearchOverlay.vue'
+import SearchOverlay from '@/components/Search/SearchOverlay.vue'
+import TheMap from '@/components/Map/TheMap.vue'
 
 export default defineComponent({
     components: {
         BgCircles,
         TheHeader,
         SearchOverlay,
+        TheMap,
     },
 })
 </script>

@@ -52,7 +52,6 @@ import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 import Breadcrumbs from '@/components/Generic/BreadCrumbs/Breadcrumbs.vue'
 
 export default defineComponent({
-    layout: 'map',
     transition: 'fade',
     head: {},
     components: {

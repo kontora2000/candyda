@@ -19,7 +19,6 @@ import TheFooter from '@/components/Generic/Footer/TheFooter.vue'
 
 export default defineComponent({
     name:'index',
-    layout: 'map',
     transition: 'fade',
     components: {
         NewsBlock,

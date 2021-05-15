@@ -1,5 +1,5 @@
 <template>
-	<div class="map-cont">
+	<div class="map-cont" v-show="isMapVisible">
 		<MapLabels />
 		<div class="map-svg-wrapper">
 			<svg v-show="!isRegionOpened && !$device.isMobile" class="map-shadow-wrapper map-shadow-wrapper-1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -26,7 +26,7 @@
 					l-9.1-48.2l28.9-38.8l-40-47.8l-37.8,7.5l-30.2-12.4l-19.4,16.7l28.4,10.3l-15.4,19.5l-123.1-20l-68.5-11.1l-1.1-24l65.2,9.6l54.2,8
 				l77.7-38.2l112.5,19.6l115.1,20.3l43.9,49.8l41.3,46.4l-38.8,0.1l-39.9-52l-39.7-5.9L951.3,556L723.8,455.5z"/>
 			</svg>
-			<svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+			<svg class="map-svg" ref="map" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 				x="0px" y="0px"
 				width="1228.16px" height="648.03px" 
 				:viewBox="mapViewBox" 
@@ -250,7 +250,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch, onMounted, useContext, useRouter, } from '@nuxtjs/composition-api'
+import { defineComponent, ref, ssrRef, watch, onMounted, useContext, useRouter, } from '@nuxtjs/composition-api'
 
 import { useMap, } from '@/composition/map'
 import { useDevice, } from '@/composition/device'
@@ -265,21 +265,28 @@ export default defineComponent(
     },
     setup() {
         const { route, } = useContext()
-        const { mapSvg, zoomTo, setTo, resetViewBox, isRegionOpened, } = useMap()
+        debugger
+        const { mapSvg, zoomTo, setTo, resetViewBox, isRegionOpened, isMapVisible,} = useMap()
         const { isMobile, } = useDevice()
         const mapViewBox = !isMobile ? '0 0 1228.16 648.03' : '0 0 1228.16 1000.03'
         const mapAspectRatio = !isMobile ? '' : 'xMidYMid slice'
-            onMounted(() => {
-                const slug = route.value.params.slug
-                mapSvg.value = document.querySelector('.map-svg') as SVGAElement
-                if (slug) {
-                    if (route.value.name === 'region-slug') {
-                        setTo(slug, isMobile)
-                    }
+        const map = ssrRef(null)
+        onMounted(() => {
+            console.log(map.value)
+            debugger
+            isMapVisible.value = route.value.path === '/' || route.value.name === 'region-slug'
+            const slug = route.value.params.slug
+            mapSvg.value = document.querySelector('.map-svg') as SVGAElement
+            debugger
+            if (slug) {
+                if (route.value.name === 'region-slug') {
+                    setTo(slug, isMobile)
                 }
-            })
+            }
+        })
         const  isMinusOne = ref(false)
         watch(route, () => {
+            isMapVisible.value = route.value.path === '/' || route.value.name === 'region-slug'
             const slug = route.value.params.slug
             if (slug) {
                 if (route.value.name === 'region-slug') {
@@ -305,6 +312,7 @@ export default defineComponent(
         return {
           isMinusOne,
           isRegionOpened,
+          isMapVisible,
           mapAspectRatio,
           mapViewBox,
           onDesClick,
