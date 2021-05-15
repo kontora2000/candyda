@@ -30,7 +30,7 @@
 				x="0px" y="0px"
 				width="1228.16px" height="648.03px" 
 				:viewBox="mapViewBox" 
-				:preserveAspectRatio="mapAspectRatio"
+				:preserveAspectRatio="$device.isMobile ? 'xMidYMid slice' : 'xMidYMid meet'"
 				style="overflow:visible;enable-background:new 0 0 1228.16 648.03;" 
 				xml:space="preserve">
 				<!--<defs>
@@ -289,7 +289,7 @@ export default defineComponent(
                 }
             }
             if (route.value.path === '' || route.value.path === '/') {
-                resetViewBox()
+                resetViewBox(isMobile)
                 isMinusOne.value = false
             }
         })
@@ -305,8 +305,8 @@ export default defineComponent(
         return {
           isMinusOne,
           isRegionOpened,
-		  mapAspectRatio,
-		  mapViewBox,
+          mapAspectRatio,
+          mapViewBox,
           onDesClick,
         }
     },

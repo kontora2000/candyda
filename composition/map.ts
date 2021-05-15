@@ -25,24 +25,6 @@ export const useMap = () => {
     } 
   }
 
-  const resetViewBox = (isMobile = false) => {
-    const adyg: HTMLElement | null = document.querySelector('#o-adygeya')
-    if (adyg) {
-      gsap.set(adyg, { autoAlpha: 1, })
-    }
-    isRegionOpened.value = false
-    const regs = document.querySelectorAll('.o-cont')
-    gsap.to(regs, {duration:0.2, autoAlpha: 1, })
-    const insideCityTitles = document.querySelectorAll('.o-city')
-    if (insideCityTitles.length > 0) {
-       insideCityTitles.forEach(el => el.classList.remove('o-city-opened'))
-    }
-    if (!isMobile) 
-      animateViewBox(regionZoom['default'])         
-    else 
-    animateViewBox(regionMobileZoom['default'])         
-  }
-
   const zoomTo = (slug, isMobile = false) => {
     isRegionOpened.value = false
     const el: SVGAElement | null = document.querySelector(`#${slug}`)
@@ -119,7 +101,24 @@ export const useMap = () => {
     }
   }
 
-  
+  const resetViewBox = (isMobile = false) => {
+    const adyg: HTMLElement | null = document.querySelector('#o-adygeya')
+    if (adyg) {
+      gsap.set(adyg, { autoAlpha: 1, })
+    }
+    isRegionOpened.value = false
+    const regs = document.querySelectorAll('.o-cont')
+    gsap.to(regs, {duration:0.2, autoAlpha: 1, })
+    const insideCityTitles = document.querySelectorAll('.o-city')
+    if (insideCityTitles.length > 0) {
+       insideCityTitles.forEach(el => el.classList.remove('o-city-opened'))
+    }
+    if (!isMobile) 
+      animateViewBox(regionZoom['default'])         
+    else 
+    animateViewBox(regionMobileZoom['default'])         
+  }
+
   return {
       mapSvg,
       isAnimating,

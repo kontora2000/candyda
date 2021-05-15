@@ -17,8 +17,6 @@ import TheHeader from '@/components/Generic/Header/TheHeader.vue'
 import BgCircles from '@/components/Generic/Bg/BgCircles.vue'
 import TheMap from '@/components/Map/TheMap.vue'
 
-
-
 import { defineComponent, } from '@nuxtjs/composition-api'
 import SearchOverlay from '~/components/Search/SearchOverlay.vue'
 
