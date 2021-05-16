@@ -51,7 +51,7 @@
               :candidate="candidate" />
         </div>
       </div>
-      <div class="district-history-wrapper" v-if="district.history && district.history!==''">
+      <div class="district-history-wrapper district-info-wrapper" v-if="district.history && district.history!==''">
         <h3>История выборов</h3>
         <District-history :history="district.history"/>
       </div>
@@ -162,6 +162,14 @@ export default defineComponent({
   margin: 6rem 0 8rem;
   font-family: var(--font-default);
   letter-spacing: -0.01em;
+}
+
+.district-history-wrapper {
+  flex-direction: column;
+}
+
+.history-wrapper {
+  margin-top: 1.2rem;
 }
 
 .district-info-count {
