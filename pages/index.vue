@@ -28,7 +28,7 @@ export default defineComponent({
     },
     head() {
         return {
-            title: 'Duma.one - Главная',
+            title: 'Duma.one',
         }
     },
 })
