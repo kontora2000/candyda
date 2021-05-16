@@ -112,16 +112,16 @@ export default defineComponent({
 }
 .map-label-area::after {
   content: '';
-  background: var(--White100);
-  border-radius: 0 0 2px 0;
   display: block;
-  width: 12px;
-  height: 12px;
-  position: absolute;
-  bottom: -10px;
+  width: 0;
+  height: 0;
+  bottom: -12px;
   left: 50%;
   z-index: 1;
-  transform: rotate(45deg) translateX(-50%);
+  border-top: 12px solid var(--White100);
+  background: transparent;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
 }
 
 .map-label-number-wrapper {
