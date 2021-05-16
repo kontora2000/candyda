@@ -24,9 +24,7 @@
                    </infinite-loading>
                </template>
             </template>
-            <div v-else-if="locationFilter.region!==''">
-              Нет подходящих новостей
-            </div>
+            <div v-else-if="locationFilter.region!==''">Нет подходящих новостей</div>
          </div>
       </div>
       <div class="page-bottom-wrapper page-bottom-wrapper-news grid-main">

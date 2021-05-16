@@ -12,7 +12,7 @@
                />
             </template>
             <template v-else-if="locationFilter.region!==''">
-              <h1 class="page-header page-top-header">Нет подходящих партий</h1>
+              <div>Нет подходящих партий</div>
             </template>
          </div>
       </div>
