@@ -53,7 +53,7 @@
       </div>
       <div class="district-history-wrapper" v-if="district.history && district.history!==''">
         <h3>История выборов</h3>
-        <District-history :history="candidate.history"/>
+        <District-history :history="district.history"/>
       </div>
     </div>
     <div class="main-bottom-wrapper grid-main">

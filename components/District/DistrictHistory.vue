@@ -1,12 +1,13 @@
 <template>
   <div class="history-wrapper">
-    <div v-for="candidate in history.candidates" :key="candidate.id">
+    <!-- <div v-for="candidate in history.candidates" :key="candidate.id">
       <div class="history-candidate">
         <img v-if="candidate.ava" :src="candidate.ava">
         <span>{{ candidate.fullName }} </span>
          <span>{{ candidate.percent }}</span>
       </div>
-    </div>
+    </div> -->
+    {{ history }}
   </div>
 </template>
 <script>
@@ -16,7 +17,7 @@ export default defineComponent({
     name: 'DistrictHistory',
     props: {
         history: {
-            type: Object,
+            type: String,
             required: true,
             default: null,
         },
