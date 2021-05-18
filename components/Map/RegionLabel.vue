@@ -19,81 +19,81 @@
 
 <script>
 import { defineComponent, onMounted, watch, useContext, } from '@nuxtjs/composition-api'
-import { useLabel } from '@/composition/label'
+import { useLabel, } from '@/composition/label'
 
 export default defineComponent({
-  name: 'RegionLabel',
-  props: {
-    slug: {
-      type: String,
-      require: true
+    name: 'RegionLabel',
+    props: {
+        slug: {
+            type: String,
+            require: true,
+        },
+        top: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
+        left: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
+        mobileTop: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
+        mobileLeft: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
+        number: {
+            type: Number,
+            required: true,
+        },
     },
-    top: {
-      type: Number,
-      required: false,
-      default: 0,
+    setup(props) {
+        const { $device, route, } = useContext()
+        const { computedPosition, calcLabelPos, isVisible, onRegClick, } = useLabel(props, $device)
+        isVisible.value = true
+        const checkVisibility = () => {
+            isVisible.value = route.value.path === '/'
+        }
+        onMounted(()=> {
+            checkVisibility()
+            if (isVisible.value) {
+                window.setTimeout(() => {
+                    calcLabelPos(true)
+                }, 300);
+            }
+        })
+        watch(route, () => {
+            checkVisibility()
+            if (isVisible.value) {
+                window.setTimeout(() => {
+                    calcLabelPos(true)
+                }, 300);
+            }
+        })
+        const storageURL = process.env.storageURL
+        const onMouseEnter = () => {
+            const elems = document.querySelectorAll(`#o-${props.slug} .o-city`)
+            elems.forEach(el => el.classList.add('link-to-o-hover'))
+        }
+        const onMouseLeave = () => {
+            const elems = document.querySelectorAll(`#o-${props.slug} .o-city`)
+            elems.forEach(el => el.classList.remove('link-to-o-hover'))
+        }
+        return {
+            computedPosition,
+            storageURL,
+            isVisible,
+            onRegClick,
+            onMouseEnter,
+            onMouseLeave,
+        }
     },
-    left: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    mobileTop: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    mobileLeft: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    number: {
-        type: Number,
-        required: true,
-    }
-  },
-  setup(props) {
-    const { $device, route, } = useContext()
-    const { computedPosition, calcLabelPos, isVisible, onRegClick, } = useLabel(props, $device)
-    isVisible.value = true
-    const checkVisibility = () => {
-      isVisible.value = route.value.path === '/'
-    }
-    onMounted(()=> {
-      checkVisibility()
-       if (isVisible.value) {
-        window.setTimeout(() => {
-          calcLabelPos(true)
-        }, 300);
-      }
-    })
-    watch(route, () => {
-      checkVisibility()
-      if (isVisible.value) {
-        window.setTimeout(() => {
-          calcLabelPos(true)
-        }, 300);
-      }
-    })
-    const storageURL = process.env.storageURL
-    const onMouseEnter = () => {
-      const elems = document.querySelectorAll(`#o-${props.slug} .o-city`)
-      elems.forEach(el => el.classList.add('link-to-o-hover'))
-    }
-    const onMouseLeave = () => {
-      const elems = document.querySelectorAll(`#o-${props.slug} .o-city`)
-      elems.forEach(el => el.classList.remove('link-to-o-hover'))
-    }
-    return {
-      computedPosition,
-      storageURL,
-      isVisible,
-      onRegClick,
-      onMouseEnter,
-      onMouseLeave,
-    }
-  },
 })
 </script>
 

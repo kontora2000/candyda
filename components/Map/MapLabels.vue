@@ -46,9 +46,9 @@
 			<DistrictLabel :top="-16" :left="16" :mobile-top="10" :mobile-left="12" slug="timashevskiy" region="krasnoarmeyskiy">Тимашевский район</DistrictLabel>
 			<DistrictLabel :top="-8" :left="0" :mobile-top="12" :mobile-left="0" slug="krasnodar-krasnoarmeyskiy" region="krasnoarmeyskiy">Краснодар</DistrictLabel>
 		</div>
-		<div class="map-labels-wrapper map-labels-krasnodar">
-			<DistrictLabel :top="0" :left="0"  :mobile-top="12" :mobile-left="4" slug="dinskoy" region="krasnodar">Динской район</DistrictLabel>
-			<DistrictLabel :top="0" :left="0" :mobile-top="0" :mobile-left="0" slug="krasnodar" region="krasnodar">Краснодар</DistrictLabel>
+    <div class="map-labels-wrapper map-labels-krasnodar">
+			<DistrictLabel :top="0" :left="0"  :mobile-top="12" :mobile-left="4" slug="dinskoy" region="krasnodarskiy">Динской район</DistrictLabel>
+      <DistrictLabel :top="0" :left="0" :mobile-top="0" :mobile-left="0" slug="krasnodar" region="krasnodarskiy">Краснодар</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-kanevskoy">
 			<DistrictLabel :top="-12" :left="-20" :mobile-top="-8" :mobile-left="-44" slug="kushchevskiy" region="kanevskoy" >Кущевский район</DistrictLabel>
@@ -80,9 +80,9 @@ import DistrictLabel from './DistrictLabel.vue'
 import RegionLabel from './RegionLabel.vue'
 
 export default defineComponent({
-  components: {
+    components: {
         DistrictLabel, 
-        RegionLabel 
+        RegionLabel, 
     },
     name: 'TheLabels',
 })

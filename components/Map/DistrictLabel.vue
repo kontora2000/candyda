@@ -23,90 +23,90 @@ import { useLabel, } from '@/composition/label'
 
 
 export default defineComponent({
-  name: 'MapLabel',
-  props: {
-    slug: {
-      type: String,
-      require: true
+    name: 'MapLabel',
+    props: {
+        slug: {
+            type: String,
+            require: true,
+        },
+        region: {
+            type: String,
+            require: true,
+            default: '',
+        },
+        top: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
+        left: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
+        mobileTop: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
+        mobileLeft: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
     },
-    region: {
-      type: String,
-      require: true,
-      default: '',
-    },
-    top: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    left: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    mobileTop: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    mobileLeft: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-  },
-  setup(props) {
-    const { $device, route, } = useContext()
-    const { computedPosition, calcLabelPos, isVisible, onDesClick, } = useLabel(props, $device)
-    const checkVisibility = () => {
-      if (route.value.name === 'region-slug') {
-        isVisible.value = route.value.params.slug === ('o-'+ props.region)
-        if (isVisible.value) {
-          window.setTimeout(() => {
-             calcLabelPos()
-          }, 300)
+    setup(props) {
+        const { $device, route, } = useContext()
+        const { computedPosition, calcLabelPos, isVisible, onDesClick, } = useLabel(props, $device)
+        const checkVisibility = () => {
+            if (route.value.name === 'region-slug') {
+                isVisible.value = route.value.params.slug === ('o-'+ props.region)
+                if (isVisible.value) {
+                    window.setTimeout(() => {
+                        calcLabelPos()
+                    }, 300)
+                }
+            }
+            else {
+                isVisible.value = false
+            }
         }
-      }
-      else {
-        isVisible.value = false
-      }
-    }
-    onMounted(() => {
-      checkVisibility()
-    }) 
-    watch(route, () => {
-      checkVisibility()
-    })
-    const storageURL = process.env.storageURL
-    const district = ref({})
-    const { currentRegion, }  = useRegion()
-    watch(currentRegion,() => { 
-      if (currentRegion.value?.districts) {
-        for (let i=0; i< currentRegion.value.districts.length; i++ ) {
-          const localDistrict = currentRegion.value.districts[i]
-          if (localDistrict.slug === props.slug) {
-            district.value = localDistrict
-            break
-          }
+        onMounted(() => {
+            checkVisibility()
+        }) 
+        watch(route, () => {
+            checkVisibility()
+        })
+        const storageURL = process.env.storageURL
+        const district = ref({})
+        const { currentRegion, }  = useRegion()
+        watch(currentRegion,() => { 
+            if (currentRegion.value?.districts) {
+                for (let i=0; i< currentRegion.value.districts.length; i++ ) {
+                    const localDistrict = currentRegion.value.districts[i]
+                    if (localDistrict.slug === props.slug) {
+                        district.value = localDistrict
+                        break
+                    }
+                }
+            }
+        })
+        const onMouseEnter = () => {
+            document.querySelector('#' + props.slug).classList.add('link-to-o-hover')
         }
-      }
-    })
-    const onMouseEnter = () => {
-      document.querySelector('#' + props.slug).classList.add('link-to-o-hover')
-    }
-    const onMouseLeave = () => {
-      document.querySelector('#' + props.slug).classList.remove('link-to-o-hover')
-    }
-    return {
-      district,
-      computedPosition,
-      storageURL,
-      isVisible,
-      onDesClick,
-      onMouseEnter,
-      onMouseLeave,
-    }
-  },
+        const onMouseLeave = () => {
+            document.querySelector('#' + props.slug).classList.remove('link-to-o-hover')
+        }
+        return {
+            district,
+            computedPosition,
+            storageURL,
+            isVisible,
+            onDesClick,
+            onMouseEnter,
+            onMouseLeave,
+        }
+    },
 })
 </script>
 
