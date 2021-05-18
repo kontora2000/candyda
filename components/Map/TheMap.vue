@@ -126,33 +126,33 @@
                 <polygon id="krasnoarmeyskiy" class="o-city" points="433.28,194.62 448.82,183.66 418.98,163.76 352.77,116.7 319.78,179.78 
                 334.46,180.06"/>
               </g>
-              <g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }"  @click.prevent="onDesClick('/region/o-krasnoarmeyskiy/dinskoy')">
+              <g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }"  @click.prevent="onDesClick('/region/o-krasnoarmeyskiy/dinskoy-krasnoarmeyskiy')">
               	<polygon id="dinskoy-krasnoarmeyskiy" class="o-city" points="433.3,194.6 433.3,194.6 441.1,189.1 448.2,189.8 461.8,181.9 451.3,175.6 
-				464,168.9 476.3,176.2 499.2,176.2 506,173.4 509.1,176.4 507.2,182.2 521.2,176.2 509.2,176.2 510,173.4 527.8,173.5 527.8,167 
-				492.2,167 482.3,153.3 419,163.8 448.8,183.7"/>
-              	</g>
-              <g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }"  @click.prevent="onDesClick('/region/o-krasnoarmeyskiy/krasnodar')">
-              	<polygon id="krasnodar-krasnoarmeyskiy" class="o-city" points="529.5,177 531.2,174.7 527.8,173.5 510,173.4 509.2,176.2 521.2,176.2 
-				507.2,182.2 509.1,176.4 506,173.4 499.2,176.2 476.3,176.2 464,168.9 451.3,175.6 461.8,181.9 448.2,189.8 441.1,189.1 
-				433.3,194.6 483.4,202 498.2,192.4 519.7,195 547.2,183.6 550,179.8"/>
+                  464,168.9 476.3,176.2 499.2,176.2 506,173.4 509.1,176.4 507.2,182.2 521.2,176.2 509.2,176.2 510,173.4 527.8,173.5 527.8,167 
+                  492.2,167 482.3,153.3 419,163.8 448.8,183.7"/>
+                          </g>
+                        <g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }"  @click.prevent="onDesClick('/region/o-krasnoarmeyskiy/krasnodar-krasnoarmeyskiy')">
+                          <polygon id="krasnodar-krasnoarmeyskiy" class="o-city" points="529.5,177 531.2,174.7 527.8,173.5 510,173.4 509.2,176.2 521.2,176.2 
+                  507.2,182.2 509.1,176.4 506,173.4 499.2,176.2 476.3,176.2 464,168.9 451.3,175.6 461.8,181.9 448.2,189.8 441.1,189.1 
+                  433.3,194.6 483.4,202 498.2,192.4 519.7,195 547.2,183.6 550,179.8"/>
               </g>
               <polygon class="o-krasnoarmeyskiy-stroke o-stroke" v-show="!isRegionOpened" points="530,103.4 447.9,105.2 358.4,107.1 353.2,117 320.2,180 334.9,180.3 
-				433.7,194.9 483.9,202.3 498.6,192.6 520.1,195.3 547.6,183.8 550.4,180 530,177.2 531.7,174.9 528.3,173.7 528.3,167.3 492.7,167.3 482.8,153.5 528.8,145.9"/>
+			        	433.7,194.9 483.9,202.3 498.6,192.6 520.1,195.3 547.6,183.8 550.4,180 530,177.2 531.7,174.9 528.3,173.7 528.3,167.3 492.7,167.3 482.8,153.5 528.8,145.9"/>
             </g>
           </nuxt-link>
           <nuxt-link to="/region/o-krasnodarskiy" class="link-to-o">
-            <g class="o-cont" id="o-krasnodarskiy" @click.prevent="onDesClick('/region/o-krasnodarskiy/krasnodar')">
+            <g class="o-cont" id="o-krasnodarskiy">
               <g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }"  @click.prevent="onDesClick('/region/o-krasnodarskiy/dinskoy')">
-					<polygon id="dinskoy-krasnodar" class="o-city" points="573,167 528.4,145.6 482.3,153.3 492.2,167 527.8,167 527.8,173.5 531.2,174.7 
-						529.5,177 550,179.8 547.2,183.6 547.1,188.5 565.1,188.5 565.1,184.5 575.1,184.5 575.1,182.9 590,183 590,186 594.3,187.4 
-						619.3,175.2"/>
-				</g>
-				<g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }"  @click.prevent="onDesClick('/region/o-krasnodarskiy/krasnodar')">
-					<polygon id="krasnodar-krasnodar" class="o-city" points="590,186 590,183 575.1,182.9 575.1,184.5 565.1,184.5 565.1,188.5 547.1,188.5 
-						547.2,183.6 519.7,195 498.2,192.4 483.4,202 545.9,211.2 594.3,187.4"/>
-				</g>
+                <polygon id="dinskoy" class="o-city" points="573,167 528.4,145.6 482.3,153.3 492.2,167 527.8,167 527.8,173.5 531.2,174.7 
+                  529.5,177 550,179.8 547.2,183.6 547.1,188.5 565.1,188.5 565.1,184.5 575.1,184.5 575.1,182.9 590,183 590,186 594.3,187.4 
+                  619.3,175.2"/>
+				      </g>
+            <g class="o-city-cont" :class="{ 'city-cont-hover': isRegionOpened }"  @click.prevent="onDesClick('/region/o-krasnodarskiy/krasnodar')">
+              <polygon id="krasnodar" class="o-city" points="590,186 590,183 575.1,182.9 575.1,184.5 565.1,184.5 565.1,188.5 547.1,188.5 
+                547.2,183.6 519.7,195 498.2,192.4 483.4,202 545.9,211.2 594.3,187.4"/>
+            </g>
               <polygon class="o-krasnodarskiy-stroke o-stroke" v-show="!isRegionOpened" points="573.4,167.3 528.8,145.9 482.8,153.5 492.7,167.3 528.3,167.3 528.3,173.7 
-				531.7,174.9 530,177.2 550.4,180 547.6,183.8 520.1,195.3 498.6,192.6 483.9,202.3 546.4,211.5 619.7,175.4"/>
+				        531.7,174.9 530,177.2 550.4,180 547.6,183.8 520.1,195.3 498.6,192.6 483.9,202.3 546.4,211.5 619.7,175.4"/>
             </g>
           </nuxt-link>
           <nuxt-link to="/region/o-slavyanskiy" class="link-to-o">
