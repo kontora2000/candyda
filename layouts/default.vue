@@ -10,8 +10,6 @@
   </div>
 </template>
 
-
-
 <script lang="ts">
 import { defineComponent, } from '@nuxtjs/composition-api'
 
@@ -30,14 +28,11 @@ export default defineComponent({
 })
 </script>
 
-
-
 <style scoped>
 .layout-inner {
   margin: 0 .8rem;
   width: calc(100vw - 1.6rem);
 }
-
 
 @media (min-width: 1460px) {
   .layout-inner {
@@ -46,7 +41,6 @@ export default defineComponent({
     width: 100%;
   }
 }
-
 
 @media (max-width: 460px) {
 	.layout-inner {

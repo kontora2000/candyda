@@ -1,10 +1,10 @@
-import { ref, } from "@nuxtjs/composition-api"
-import { useAxios } from "./axios"
-import parser from '@/modules/parser'
-import { SearchRequestBody, SearchResults, } from "~/modules/types"
+import { ref, } from '@nuxtjs/composition-api'
+import { useAxios, } from './axios'
+import { sanitizeString, splitStringToWords, requestBodyFromBlocks,  } from '@/modules/parser'
+import { SearchRequestBody, SearchResults, } from '@/modules/types'
 
 const isSearchOpen = ref(false)
-const searchString = ref<string>('')
+const searchString = ref('')
 const searchBlocks = ref<string[]>([])
 const searchResults = ref<SearchResults[]>([])
 const searchRequestBody = ref<SearchRequestBody> ({
@@ -17,7 +17,7 @@ export const useSearch = () => {
     const { $axios, } =  useAxios()
 
     const searchRequest = async () => {
-      searchRequestBody.value = parser.blocksToRequestBody(searchBlocks.value)
+      searchRequestBody.value = requestBodyFromBlocks(searchBlocks.value)
       try {
         const response =  await $axios.post('/search', searchRequestBody.value)
         if (response.status === 200) {
@@ -34,8 +34,8 @@ export const useSearch = () => {
     }
     
     const parseSearchString = () => {
-      searchString.value = parser.sanitizeString(searchString.value)
-      const w = parser.stringToWords(searchString.value)
+      searchString.value = sanitizeString(searchString.value)
+      const w = splitStringToWords(searchString.value)
       if (searchBlocks.value?.length === 0 ) {
           searchBlocks.value = parser.parseWords(w)  as never[]
       }
