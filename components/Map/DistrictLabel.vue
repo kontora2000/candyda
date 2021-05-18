@@ -129,6 +129,7 @@ export default defineComponent({
   height: 0;
   bottom: -12px;
   left: 50%;
+  position: absolute;
   z-index: 1;
   border-top: 12px solid var(--White100);
   background: transparent;
