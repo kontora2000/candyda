@@ -7,12 +7,9 @@ import { SearchRequestBody,  } from '@/modules/types'
  * @returns санитизированную строку
  */
 export const sanitizeString = (s: string, toLower = true) => {
-    let resultString = ''
-    resultString = s.replace(/\s+/g, ' ')
-    resultString = resultString.replace(/#+/g, '#')
-    resultString = resultString.replace(/@+/g, '@')
-    resultString = resultString.replace('`', '')
-    resultString = s.replace(/(<([^>]+)>)/ig, '')
+    s = s.replace(/\s+/g, ' ')
+    s = s.replace(/(<([^>]+)>)/ig, '')
+    s = s.replace(/(#|@|`|")+/g, '')
     return toLower ? s.toLowerCase() : s
 }
 
@@ -45,7 +42,7 @@ export const wordsToSearchBlocks = (w: string[]) => {
           blocks.push(word)
           continue
       }
-      phrase = (phrase ==='') ? phrase : phrase +=` ${word}`
+      if (phrase === '') { phrase = word } else { phrase += (' ' + word) }
   }
   if (phrase !== '') { blocks.push(phrase) }
   return blocks
