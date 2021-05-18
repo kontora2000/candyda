@@ -7,7 +7,8 @@ import { SearchRequestBody,  } from '@/modules/types'
  * @returns санитизированную строку
  */
 export const sanitizeString = (s: string, toLower = true) => {
-    s = s.replace(/\s+/g, ' ')
+    
+    s = s.trim().replace(/\s+/g, ' ')
     s = s.replace(/(<([^>]+)>)/ig, '')
     s = s.replace(/(#|@|`|")+/g, '')
     return toLower ? s.toLowerCase() : s
