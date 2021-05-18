@@ -40,15 +40,15 @@
 			<DistrictLabel :top="-5" :mobile-top="-32" :mobile-left="-96" slug="beloglinskiy" region="tihoretskiy" >Белоглинский район</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-krasnoarmeyskiy">
-			<DistrictLabel :top="-8" :left="32" :mobile-top="12" :mobile-left="8" slug="dinskoy-krasnoarmeyskiy" region="krasnoarmeyskiy">Динской район</DistrictLabel>
+			<DistrictLabel :top="-40" :left="-44" :mobile-top="-8" :mobile-left="-40" slug="dinskoy-krasnoarmeyskiy" region="krasnoarmeyskiy">Динской район</DistrictLabel>
 			<DistrictLabel :top="20" :left="-40" :mobile-top="20" :mobile-left="-20" slug="krasnoarmeyskiy" region="krasnoarmeyskiy">Красноармейский район</DistrictLabel>
 			<DistrictLabel :top="-8" :left="-12" :mobile-left="-12" slug="kalininskiy" region="krasnoarmeyskiy">Калининский район</DistrictLabel>
 			<DistrictLabel :top="-16" :left="16" :mobile-top="10" :mobile-left="12" slug="timashevskiy" region="krasnoarmeyskiy">Тимашевский район</DistrictLabel>
-      <DistrictLabel :top="0" :left="0" :mobile-top="0" :mobile-left="0" slug="krasnodar-krasnoarmeyskiy" region="krasnoarmeyskiy">Краснодар</DistrictLabel>
+			<DistrictLabel :top="-8" :left="0" :mobile-top="12" :mobile-left="0" slug="krasnodar-krasnoarmeyskiy" region="krasnoarmeyskiy">Краснодар</DistrictLabel>
 		</div>
-    <div class="map-labels-wrapper map-labels-krasnodar">
-			<DistrictLabel :top="0" :left="0"  :mobile-top="0" :mobile-left="0" slug="dinskoy" region="krasnodar">Динской район</DistrictLabel>
-      <DistrictLabel :top="0" :left="0" :mobile-top="0" :mobile-left="0" slug="krasnodar" region="krasnodar">Краснодар</DistrictLabel>
+		<div class="map-labels-wrapper map-labels-krasnodar">
+			<DistrictLabel :top="0" :left="0"  :mobile-top="12" :mobile-left="4" slug="dinskoy" region="krasnodar">Динской район</DistrictLabel>
+			<DistrictLabel :top="0" :left="0" :mobile-top="0" :mobile-left="0" slug="krasnodar" region="krasnodar">Краснодар</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-kanevskoy">
 			<DistrictLabel :top="-12" :left="-20" :mobile-top="-8" :mobile-left="-44" slug="kushchevskiy" region="kanevskoy" >Кущевский район</DistrictLabel>
@@ -68,9 +68,9 @@
 			<RegionLabel  slug="sochinskiy" :top="-96" :left="-112" :mobile-top="24" :mobile-left="-44" :number="50">Сочинский</RegionLabel>
 			<RegionLabel  slug="tihoretskiy" :mobile-left="12" :number="51">Тихорецкий</RegionLabel>
 			<RegionLabel  slug="armavirskiy" :top="-88" :mobile-top="4" :mobile-left="-48" :number="52">Армавирский</RegionLabel>
-			<RegionLabel  slug="kanevskoy" :mobile-top="-8" :mobile-left="20" :number="53">Каневской</RegionLabel>
-			<RegionLabel  slug="krasnoarmeyskiy" :top="-32" :mobile-top="-16" :mobile-left="-12" :number="47">Красноармейский</RegionLabel>
-			<RegionLabel  slug="krasnodarskiy" :mobile-top="10" :number="46">Краснодарский</RegionLabel>
+			<RegionLabel  slug="kanevskoy" :mobile-top="-4" :mobile-left="28" :number="53">Каневской</RegionLabel>
+			<RegionLabel  slug="krasnoarmeyskiy" :top="-32" :mobile-top="-12" :mobile-left="-12" :number="47">Красноармейский</RegionLabel>
+			<RegionLabel  slug="krasnodarskiy" :mobile-top="10" :mobile-left="12" :number="46">Краснодарский</RegionLabel>
 		</div>
 	</div>
 </template>

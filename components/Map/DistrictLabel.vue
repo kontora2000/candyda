@@ -167,6 +167,13 @@ export default defineComponent({
     height: auto;
     padding: .2rem .4rem;
   }
+  .map-label-area::after {
+    bottom: -8px;
+    border-top-width: 8px;
+    border-left-width: 8px;
+    border-right-width: 8px;
+    transform: translateX(-50%);
+  }
 
   .map-label-area-title {
     font-size: 1rem;
