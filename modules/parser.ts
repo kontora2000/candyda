@@ -51,7 +51,7 @@ export const wordsToSearchBlocks = (w: string[]) => {
  * @param s  входная строка
  * @returns блоки поиска либо false, если парсить нечего
  */
- export const stringToBlocks = (s: string) :string[] | boolean => {
+ export const splitStringToBlocks = (s: string) :string[] | boolean => {
   if (s.trim() === '') { return false }
   const words = splitStringToWords(s)
   const blocks = wordsToSearchBlocks(words)
