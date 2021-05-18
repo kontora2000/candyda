@@ -23,6 +23,7 @@ export const useSearch = () => {
 
   const parseSearchString = () => {
     searchString.value = sanitizeString(searchString.value)
+    debugger
     const w = splitStringToWords(searchString.value)
     if (searchBlocks.value?.length === 0 ) {
         searchBlocks.value = wordsToSearchBlocks(w)
