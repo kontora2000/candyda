@@ -22,10 +22,10 @@
 		<div class="map-labels-wrapper map-labels-armavirskiy">
 			<DistrictLabel :top="-80" :left="-92" :mobile-top="-20" :mobile-left="-44" slug="labinskiy" region="armavirskiy">Лабинский район</DistrictLabel>
 			<DistrictLabel :top="-172" :left="-112" :mobile-top="-80" :mobile-left="-72" slug="mostovskiy" region="armavirskiy">Мостовский район</DistrictLabel>
-			<DistrictLabel :top="-60" :left="-60" :mobile-top="0" :mobile-left="-72" slug="otradnenskiy" region="armavirskiy">Отрадненский район</DistrictLabel>
+			<DistrictLabel :top="-60" :left="-60" :mobile-top="1" :mobile-left="-72" slug="otradnenskiy" region="armavirskiy">Отрадненский район</DistrictLabel>
 			<DistrictLabel :top="-8" :left="12" :mobile-top="24" :mobile-left="0" slug="uspenskiy" region="armavirskiy">Успенский район</DistrictLabel>
 			<DistrictLabel :top="-100" :left="-40" :mobile-top="-44" :mobile-left="-4" slug="novokubanskiy" region="armavirskiy">Новокубанский район</DistrictLabel>
-			<DistrictLabel :top="-12" :left="-8" :mobile-top="12" :mobile-left="-8" slug="armavir" region="armavirskiy">Армавир</DistrictLabel>
+			<DistrictLabel :top="-12" :left="-8" :mobile-top="12" :mobile-left="0" slug="armavir" region="armavirskiy">Армавир</DistrictLabel>
 			<DistrictLabel :top="-28" :left="-32" :mobile-top="-4" :mobile-left="-12" slug="kurganinskiy" region="armavirskiy">Курганинский район</DistrictLabel>
 			<DistrictLabel :top="-20" :left="-44" :mobile-top="2" :mobile-left="-20" slug="gulkevichskiy" region="armavirskiy">Гулькевичский район</DistrictLabel>
 		</div>
@@ -40,15 +40,15 @@
 			<DistrictLabel :top="-5" :mobile-top="-32" :mobile-left="-96" slug="beloglinskiy" region="tihoretskiy" >Белоглинский район</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-krasnoarmeyskiy">
-			<DistrictLabel :top="-40" :left="-44" :mobile-top="-8" :mobile-left="-40" slug="dinskoy-krasnoarmeyskiy" region="krasnoarmeyskiy">Динской район</DistrictLabel>
+			<DistrictLabel :top="-44" :left="-44" :mobile-top="-8" :mobile-left="-40" slug="dinskoy-krasnoarmeyskiy" region="krasnoarmeyskiy">Динской район</DistrictLabel>
 			<DistrictLabel :top="20" :left="-40" :mobile-top="20" :mobile-left="-20" slug="krasnoarmeyskiy" region="krasnoarmeyskiy">Красноармейский район</DistrictLabel>
 			<DistrictLabel :top="-8" :left="-12" :mobile-left="-12" slug="kalininskiy" region="krasnoarmeyskiy">Калининский район</DistrictLabel>
 			<DistrictLabel :top="-16" :left="16" :mobile-top="10" :mobile-left="12" slug="timashevskiy" region="krasnoarmeyskiy">Тимашевский район</DistrictLabel>
-			<DistrictLabel :top="-8" :left="0" :mobile-top="12" :mobile-left="0" slug="krasnodar-krasnoarmeyskiy" region="krasnoarmeyskiy">Краснодар</DistrictLabel>
+			<DistrictLabel :top="-8" :left="6" :mobile-top="12" :mobile-left="0" slug="krasnodar-krasnoarmeyskiy" region="krasnoarmeyskiy">Краснодар</DistrictLabel>
 		</div>
     <div class="map-labels-wrapper map-labels-krasnodar">
-			<DistrictLabel :top="0" :left="0"  :mobile-top="12" :mobile-left="4" slug="dinskoy" region="krasnodarskiy">Динской район</DistrictLabel>
-      <DistrictLabel :top="0" :left="0" :mobile-top="0" :mobile-left="0" slug="krasnodar" region="krasnodarskiy">Краснодар</DistrictLabel>
+			<DistrictLabel :top="0" :left="-20"  :mobile-top="16" :mobile-left="4" slug="dinskoy" region="krasnodarskiy">Динской район</DistrictLabel>
+      <DistrictLabel :top="-8" :left="20" :mobile-top="16" :mobile-left="0" slug="krasnodar" region="krasnodarskiy">Краснодар</DistrictLabel>
 		</div>
 		<div class="map-labels-wrapper map-labels-kanevskoy">
 			<DistrictLabel :top="-12" :left="-20" :mobile-top="-8" :mobile-left="-44" slug="kushchevskiy" region="kanevskoy" >Кущевский район</DistrictLabel>
