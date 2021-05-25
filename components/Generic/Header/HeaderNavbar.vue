@@ -23,7 +23,7 @@
             <li><nuxt-link to="/party" class="nav-link link-underline-solid">Партии</nuxt-link></li>
             <li v-for="flatPage in flatPages" 
               :key="flatPage.id">
-              <nuxt-link :to="`/page/${flatPage.slug}`" class="nav-link link-underline-solid">
+              <nuxt-link v-if="flatPage.slug!=='about'" :to="`/page/${flatPage.slug}`" class="nav-link link-underline-solid">
                 {{ flatPage.title }}
               </nuxt-link>  
             </li>
