@@ -17,7 +17,7 @@
                                 <li><nuxt-link to="/news" class="nav-link link-underline-solid">Новости</nuxt-link></li>
                                 <li><nuxt-link to="/top" class="nav-link link-underline-solid">Топ кандидатов</nuxt-link></li>
                                 <li><nuxt-link to="/party" class="nav-link link-underline-solid">Партии</nuxt-link></li>
-                                <li><nuxt-link to="/pages/about" class="nav-link link-underline-solid">О проекте</nuxt-link></li>
+                                <li><nuxt-link to="/page/about" class="nav-link link-underline-solid">О проекте</nuxt-link></li>
                                 <li v-for="flatPage in flatPages" 
                                   :key="flatPage.id">
                                     <nuxt-link v-if="flatPage.slug!=='about'" :to="`/page/${flatPage.slug}`" class="nav-link link-underline-solid">{{ flatPage.title }}</nuxt-link>
