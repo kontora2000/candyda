@@ -1,6 +1,6 @@
 <template>
    <div class="header-about-us-wrapper">
-      <nuxt-link to="/about" class="button button-blur header-about-us">О&nbsp;проекте</nuxt-link>
+      <nuxt-link to="/pages/about" class="button button-blur header-about-us">О&nbsp;проекте</nuxt-link>
    </div>
 </template>
 
