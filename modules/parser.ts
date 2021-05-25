@@ -1,16 +1,17 @@
 import { SearchRequestBody,  } from '@/modules/types'
 
 /**
- * Удаляет из строки специальные символы, html-символы и т.д.
+ * Удаляет из строки специальные символы, html-символы, повторяющиеся пробелы, #, и т.д.
  * @param s входная строка
  * @param toLower флаг преобразования в lower case
  * @returns санитизированную строку
  */
 export const sanitizeString = (s: string, toLower = true) => {
-    
     s = s.trim().replace(/\s+/g, ' ')
+    s = s.trim().replace(/\#+/g, ' ')
     s = s.replace(/(<([^>]+)>)/ig, '')
-    s = s.replace(/(#|@|`|")+/g, '')
+    s = s.replace(/(@|`|")+/g, '')
+    s = s.trim()
     return toLower ? s.toLowerCase() : s
 }
 
