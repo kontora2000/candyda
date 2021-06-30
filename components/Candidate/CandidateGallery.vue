@@ -13,7 +13,7 @@
             <div v-show="visible && images.length > 0" key="cont" class="gallery-lightbox-cont">
                 <div class="gallery-lightbox-body"
                     >
-                    <img class="gallery-lightbox-current-image" :src="'https://api.prostokontora.ru/storage/' + currentImage">
+                    <img class="gallery-lightbox-current-image" :src="'https://api.duma.one/storage/' + currentImage">
                 </div>
                 <div class="gallery-lightbox-numb">
                   {{ pos+1 }} / {{ imgCount }}

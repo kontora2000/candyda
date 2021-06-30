@@ -6,7 +6,7 @@
          </aside>
          <div class="candidate-wrapper">
             <div class="candidate-ava" v-if="candidate.ava">
-              <img class="candidate-ava-img"  :src="'https://api.prostokontora.ru/storage/' + candidate.ava" />
+              <img class="candidate-ava-img"  :src="'https://api.duma.one/storage/' + candidate.ava" />
             </div>
             <div class="candidate-info-wrapper">
                <h2 class="page-candidate-header">{{ fullName }}</h2>
@@ -46,7 +46,7 @@
                   <h3>На фотографиях</h3>
                   <div class="candidate-gallery-wrapper">
                      <div class="candidate-gallery-img-cont" v-for="(image, index) in gallery" :key="index">
-                        <img class="candidate-gallery-img" :src="'https://api.prostokontora.ru/storage/' + image" @click="openGallery(index)" />
+                        <img class="candidate-gallery-img" :src="'https://api.duma.one/storage/' + image" @click="openGallery(index)" />
                      </div>
                      <CandidateGallery
                         :images="gallery"
