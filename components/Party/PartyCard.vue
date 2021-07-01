@@ -3,7 +3,7 @@
       <div class="party-card-pic-wrapper" >
         <img 
           v-if="party.logo" 
-          class="party-card-pic" :src="`https://api.prostokontora.ru/storage/${party.logo}`" />
+          class="party-card-pic" :src="`https://api.duma.one/storage/${party.logo}`" />
       </div>
       <div class="party-card-content-wrapper">
         <div class="party-card-header">{{ party.name }}</div>

@@ -8,7 +8,7 @@
          <h2 class="article-header">{{ post.title }}</h2>
          <div class="news-cover-wrapper" v-if="post.cover">
             <div class="news-cover">
-               <img class="news-cover-img" :src="'https://api.prostokontora.ru/storage/' + post.cover" />
+               <img class="news-cover-img" :src="'https://api.duma.one/storage/' + post.cover" />
             </div>
             <div class="news-cover-comment-wrapper" v-if="post.cover_source || post.cover_descr">
                <div class="news-cover-comment">{{ post.cover_descr }}</div>
