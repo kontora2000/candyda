@@ -7,11 +7,7 @@
           <div class="page-party-header-emblem-wrapper">
             <img 
               v-if="party.logo" 
-<<<<<<< HEAD
-              class="page-party-header-emblem" :src="`https://api.prostokontora.ru/storage/${party.logo}`" />
-=======
               class="party-card-pic" :src="`https://api.duma.one/storage/${party.logo}`" />
->>>>>>> 3df967c82a57c8da2ee40e6e2e57f06fd1af7e02
           </div>
           <h1 class="page-party-header">{{ party.name  }}</h1>
           <div class="page-party-about" v-if="party.description">{{ party.description }}</div>
