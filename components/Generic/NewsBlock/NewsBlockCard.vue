@@ -3,7 +3,7 @@
              :class="{ 'with-image': post.cover }">
     <div class="card-cont-inner">
       <div class="news-card-pic-wrapper" v-if="post.cover">
-        <img class="news-card-pic" :src="'https://api.prostokontora.ru/storage/' + post.cover" />
+        <img class="news-card-pic" :src="'https://api.duma.one/storage/' + post.cover" />
       </div>
       <div class="news-card-content-wrapper">
         <div class="news-card-header">{{ post.title }}</div>

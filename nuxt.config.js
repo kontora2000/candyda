@@ -80,6 +80,6 @@ export default {
     env: {
         baseURL: process.env.API_URL || 'http://localhost:80',
         baseTitle: process.env.BASE_TITLE || 'Duma.one',
-        storageURL: process.env.PUBLIC_URL || 'https://api.prostokontora.ru/public/storage/',
+        storageURL: process.env.PUBLIC_URL || 'https://api.duma.one/public/storage/',
     },
 }
