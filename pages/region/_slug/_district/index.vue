@@ -8,7 +8,7 @@
         <div class="district-title-logo-wrapper">
           <img v-if="district.logo" 
             class="district-title-logo"
-            :src="'https://api.prostokontora.ru/storage/' + district.logo" 
+            :src="'https://api.duma.one/storage/' + district.logo" 
             :alt="district.name"/>
         </div>
         <h1 class="district-title">{{ district.name }}</h1>
